@@ -1,0 +1,624 @@
+{
+	"success": 1,
+	"code": "OK",
+	"msg": "OK",
+	"data": {
+		"rowcount": 1,
+		"totalrows": 1,
+		"estimatedrows": false,
+		"pagesize": 0,
+		"pagecount": null,
+		"page": 1,
+		"offset": 0,
+		"startrow": 0,
+		"resultset": [
+			{
+				"id": "386",
+				"code": "GLIESE",
+				"description": "Resource-rich planets and asteroid belts make this system a major shipping hub for the Banu, with a flotilla near Gliese IV serving as the focal point of the system. Gliese IV itself remains a mystery as most Banu refuse to set foot on the planet even though there are empty Banu settlements on the surface.  ",
+				"frost_line": "20.24000000",
+				"habitable_zone_inner": "3.88000000",
+				"habitable_zone_outer": "6.39000000",
+				"info_url": null,
+				"name": "Gliese",
+				"position_x": "49.80054900",
+				"position_y": "-73.01690700",
+				"position_z": "24.55393600",
+				"shader_data": {
+					"lightColor": "#c1ebfc",
+					"starfield": {
+						"radius": 25,
+						"count": 1142.8571428571,
+						"sizeMin": 1,
+						"sizeMax": 1,
+						"color1": "rgb(128,128,128)",
+						"color2": "rgb(100,100,100)"
+					},
+					"planetsSize": {
+						"min": 0.03,
+						"max": 0.03,
+						"kFactor": 1
+					}
+				},
+				"status": "P",
+				"time_modified": "2018-01-25 20:19:18",
+				"type": "SINGLE_STAR",
+				"affiliation": [
+					{
+						"id": "2",
+						"code": "BANU",
+						"color": "#ffce17",
+						"name": "Banu",
+						"membership.id": "706"
+					}
+				],
+				"celestial_objects": [
+					{
+						"id": "2219",
+						"age": "0.00000000",
+						"appearance": "DEFAULT",
+						"axial_tilt": "0.00000000",
+						"code": "GLIESE.STARS.GILESE",
+						"description": null,
+						"designation": "Gliese",
+						"distance": "0.00000000",
+						"fairchanceact": null,
+						"habitable": null,
+						"info_url": null,
+						"latitude": "0.00000000",
+						"longitude": "0.00000000",
+						"name": null,
+						"orbit_period": "-1.00000000",
+						"parent_id": null,
+						"sensor_danger": "0",
+						"sensor_economy": "0",
+						"sensor_population": "0",
+						"shader_data": {
+							"sun": {
+								"color1": "#66a4ff",
+								"color2": "#deecff",
+								"flare1": 0.265,
+								"flare2": 0.5,
+								"flare3": 0.265,
+								"flare4": 0.5,
+								"flare5": 0.081841480068092,
+								"flare6": 0.1,
+								"sphere": 1,
+								"texture": 1,
+								"corona": 1,
+								"glow": 0.5,
+								"alpha": 1,
+								"rotation1": 0.6,
+								"rotation2": 0.6,
+								"map": "7",
+								"iterations": 0,
+								"scaleMin": 1,
+								"scaleMax": 1,
+								"scalePeriod": 1
+							},
+							"radius": 0.08,
+							"orbitalMin": 1,
+							"orbitalMax": 5,
+							"orbitalFactor": 1
+						},
+						"show_label": "1",
+						"show_orbitlines": null,
+						"size": "995165.16479700",
+						"subtype_id": "62",
+						"time_modified": "2015-10-10 01:18:14",
+						"type": "STAR",
+						"subtype": {
+							"id": "62",
+							"name": "Main Sequence-Dwarf-A",
+							"type": "STAR"
+						},
+						"affiliation": [],
+						"population": []
+					},
+					{
+						"id": "2279",
+						"age": "0.00000000",
+						"appearance": "DEFAULT",
+						"axial_tilt": "0.00000000",
+						"code": "GLIESE.JUMPPOINTS.GEDDON",
+						"description": null,
+						"designation": "Gliese - Geddon",
+						"distance": "1.00000000",
+						"fairchanceact": null,
+						"habitable": null,
+						"info_url": null,
+						"latitude": "-37.09440000",
+						"longitude": "-104.52700000",
+						"name": null,
+						"orbit_period": null,
+						"parent_id": null,
+						"sensor_danger": "0",
+						"sensor_economy": "0",
+						"sensor_population": "0",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": null,
+						"size": "0.00000000",
+						"subtype_id": null,
+						"time_modified": "2015-10-09 02:06:17",
+						"type": "JUMPPOINT",
+						"subtype": null,
+						"affiliation": [],
+						"population": []
+					},
+					{
+						"id": "2577",
+						"age": null,
+						"appearance": "DEFAULT",
+						"axial_tilt": null,
+						"code": "GLIESE.BELTS.GLIESEBELTALPHA",
+						"description": "With mining rights a little less than clear, many disputes have broken out between miners trying to stake claims for the available resources here. ",
+						"designation": "Gliese Belt Alpha",
+						"distance": "2.24000000",
+						"fairchanceact": null,
+						"habitable": null,
+						"info_url": null,
+						"latitude": null,
+						"longitude": null,
+						"name": null,
+						"orbit_period": null,
+						"parent_id": "2219",
+						"sensor_danger": "5",
+						"sensor_economy": "6",
+						"sensor_population": "1",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": null,
+						"size": null,
+						"subtype_id": "50",
+						"time_modified": "2018-01-25 20:16:43",
+						"type": "ASTEROID_BELT",
+						"subtype": {
+							"id": "50",
+							"name": "System Belt",
+							"type": "ASTEROID_BELT"
+						},
+						"affiliation": [],
+						"population": []
+					},
+					{
+						"id": "2578",
+						"age": null,
+						"appearance": "DEFAULT",
+						"axial_tilt": null,
+						"code": "GLIESE.BELTS.GLIESEBELTBETA",
+						"description": "Mostly depleted, the Belt has come to be known more as a salvaging site for the rigs left behind by earlier miners.  ",
+						"designation": "Gliese Belt Beta",
+						"distance": "5.10000000",
+						"fairchanceact": null,
+						"habitable": null,
+						"info_url": null,
+						"latitude": null,
+						"longitude": null,
+						"name": null,
+						"orbit_period": null,
+						"parent_id": "2219",
+						"sensor_danger": "6",
+						"sensor_economy": "4",
+						"sensor_population": "1",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": null,
+						"size": null,
+						"subtype_id": "50",
+						"time_modified": "2018-01-25 20:16:52",
+						"type": "ASTEROID_BELT",
+						"subtype": {
+							"id": "50",
+							"name": "System Belt",
+							"type": "ASTEROID_BELT"
+						},
+						"affiliation": [],
+						"population": []
+					},
+					{
+						"id": "2579",
+						"age": null,
+						"appearance": "DEFAULT",
+						"axial_tilt": null,
+						"code": "GLIESE.BELTS.GLIESECLUSTERGAMMA",
+						"description": "A sparse asteroid cluster still actively being mined. ",
+						"designation": "Gliese Cluster Gamma",
+						"distance": "8.14000000",
+						"fairchanceact": null,
+						"habitable": null,
+						"info_url": null,
+						"latitude": null,
+						"longitude": "68.49890000",
+						"name": null,
+						"orbit_period": null,
+						"parent_id": "2219",
+						"sensor_danger": "5",
+						"sensor_economy": "5",
+						"sensor_population": "1",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": null,
+						"size": null,
+						"subtype_id": "74",
+						"time_modified": "2018-01-25 20:17:02",
+						"type": "ASTEROID_FIELD",
+						"subtype": {
+							"id": "74",
+							"name": "System Cluster",
+							"type": "ASTEROID_FIELD"
+						},
+						"affiliation": [],
+						"population": []
+					},
+					{
+						"id": "2597",
+						"age": null,
+						"appearance": "DEFAULT",
+						"axial_tilt": null,
+						"code": "GLIESE.STATION.GLIESEFLOTILLA",
+						"description": "A collection of stations and permanently docked ships believed to have been established after the Banu abandoned Gliese IV. It has become the main hub of business and trade in Gliese, servicing the many miners, haulers, and travelers who move through the system.",
+						"designation": "Gliese Flotilla",
+						"distance": "0.00057800",
+						"fairchanceact": null,
+						"habitable": "1",
+						"info_url": null,
+						"latitude": null,
+						"longitude": null,
+						"name": "Lyris",
+						"orbit_period": null,
+						"parent_id": "2667",
+						"sensor_danger": "5",
+						"sensor_economy": "5",
+						"sensor_population": "4",
+						"shader_data": {
+							"orbitalMin": 1,
+							"orbitalMax": 5,
+							"orbitalFactor": 1,
+							"orbitalColor": "rgb(26,86,124)",
+							"orbitalHighlightColor": "rgb(128,128,255)",
+							"radius": 0.02
+						},
+						"show_label": "1",
+						"show_orbitlines": "1",
+						"size": null,
+						"subtype_id": "44",
+						"time_modified": "2017-05-22 23:37:08",
+						"type": "MANMADE",
+						"subtype": {
+							"id": "44",
+							"name": "Space Station",
+							"type": "MANMADE"
+						},
+						"affiliation": [
+							{
+								"id": "2",
+								"code": "BANU",
+								"color": "#ffce17",
+								"name": "Banu",
+								"membership.id": "2732"
+							}
+						],
+						"population": []
+					},
+					{
+						"id": "2664",
+						"age": null,
+						"appearance": "PLANET_BROWN",
+						"axial_tilt": null,
+						"code": "GLIESE.PLANET.GLIESEI",
+						"description": "A planet composed mostly of superheated ferromagnetic iron.",
+						"designation": "Gliese I",
+						"distance": "0.76000000",
+						"fairchanceact": null,
+						"habitable": null,
+						"info_url": null,
+						"latitude": null,
+						"longitude": "15.26597000",
+						"name": null,
+						"orbit_period": null,
+						"parent_id": "2219",
+						"sensor_danger": "2",
+						"sensor_economy": "1",
+						"sensor_population": "1",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "1",
+						"size": "5854.00000000",
+						"subtype_id": "27",
+						"time_modified": "2018-01-25 20:17:40",
+						"type": "PLANET",
+						"subtype": {
+							"id": "27",
+							"name": "Iron Planet",
+							"type": "PLANET"
+						},
+						"affiliation": [
+							{
+								"id": "2",
+								"code": "BANU",
+								"color": "#ffce17",
+								"name": "Banu",
+								"membership.id": "2860"
+							}
+						],
+						"population": [],
+						"texture": {
+							"slug": "jnd5qqer9z13g",
+							"source": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/source/Planet_Rocky.jpg",
+							"images": {
+								"post": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/post/Planet_Rocky.jpg",
+								"product_thumb_large": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/product_thumb_large/Planet_Rocky.jpg",
+								"subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/subscribers_vault_thumbnail/Planet_Rocky.jpg"
+							}
+						}
+					},
+					{
+						"id": "2665",
+						"age": null,
+						"appearance": "PLANET_BROWN",
+						"axial_tilt": null,
+						"code": "GLIESE.PLANET.GLIESEII",
+						"description": "A smog planet with a retrograde rotation compared to the rest of the system. ",
+						"designation": "Gliese II",
+						"distance": "1.21100000",
+						"fairchanceact": null,
+						"habitable": null,
+						"info_url": null,
+						"latitude": null,
+						"longitude": "59.16949000",
+						"name": null,
+						"orbit_period": null,
+						"parent_id": "2219",
+						"sensor_danger": "3",
+						"sensor_economy": "1",
+						"sensor_population": "1",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "1",
+						"size": "5680.00000000",
+						"subtype_id": "20",
+						"time_modified": "2018-01-25 20:17:55",
+						"type": "PLANET",
+						"subtype": {
+							"id": "20",
+							"name": "Smog Planet",
+							"type": "PLANET"
+						},
+						"affiliation": [
+							{
+								"id": "2",
+								"code": "BANU",
+								"color": "#ffce17",
+								"name": "Banu",
+								"membership.id": "2861"
+							}
+						],
+						"population": [],
+						"texture": {
+							"slug": "8nd3j4zcsqfmz",
+							"source": "https://robertsspaceindustries.com/media/8nd3j4zcsqfmzr/source/Planet_Smog.jpg",
+							"images": {
+								"post": "https://robertsspaceindustries.com/media/8nd3j4zcsqfmzr/post/Planet_Smog.jpg",
+								"product_thumb_large": "https://robertsspaceindustries.com/media/8nd3j4zcsqfmzr/product_thumb_large/Planet_Smog.jpg",
+								"subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/8nd3j4zcsqfmzr/subscribers_vault_thumbnail/Planet_Smog.jpg"
+							}
+						}
+					},
+					{
+						"id": "2666",
+						"age": null,
+						"appearance": "PLANET_BROWN",
+						"axial_tilt": null,
+						"code": "GLIESE.PLANET.GLIESEIII",
+						"description": "A terrestrial, rocky world without an atmosphere. It is dotted by installations mining its valuable resources.  ",
+						"designation": "Gliese III",
+						"distance": "3.44000000",
+						"fairchanceact": null,
+						"habitable": null,
+						"info_url": null,
+						"latitude": null,
+						"longitude": "256.15498700",
+						"name": null,
+						"orbit_period": null,
+						"parent_id": "2219",
+						"sensor_danger": "4",
+						"sensor_economy": "6",
+						"sensor_population": "1",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "1",
+						"size": "7488.00000000",
+						"subtype_id": "55",
+						"time_modified": "2018-01-25 20:18:09",
+						"type": "PLANET",
+						"subtype": {
+							"id": "55",
+							"name": "Terrestrial Rocky",
+							"type": "PLANET"
+						},
+						"affiliation": [
+							{
+								"id": "2",
+								"code": "BANU",
+								"color": "#ffce17",
+								"name": "Banu",
+								"membership.id": "2862"
+							}
+						],
+						"population": [],
+						"texture": {
+							"slug": "jnd5qqer9z13g",
+							"source": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/source/Planet_Rocky.jpg",
+							"images": {
+								"post": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/post/Planet_Rocky.jpg",
+								"product_thumb_large": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/product_thumb_large/Planet_Rocky.jpg",
+								"subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/subscribers_vault_thumbnail/Planet_Rocky.jpg"
+							}
+						}
+					},
+					{
+						"id": "2667",
+						"age": null,
+						"appearance": "PLANET_GREEN",
+						"axial_tilt": null,
+						"code": "GLIESE.PLANET.GLIESEIV",
+						"description": "A beautiful world that the Banu terraformed then decided not to inhabit. Colonies of Human expatriates have sprung up on the planet and found the soil to be quite fertile. Human residents have reported no issues, leaving many to wonder why the Banu refuse to live there.  ",
+						"designation": "Gliese IV",
+						"distance": "4.89000000",
+						"fairchanceact": null,
+						"habitable": "1",
+						"info_url": null,
+						"latitude": null,
+						"longitude": "312.16489700",
+						"name": "Nogo",
+						"orbit_period": null,
+						"parent_id": "2219",
+						"sensor_danger": "6",
+						"sensor_economy": "4",
+						"sensor_population": "3",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "1",
+						"size": "7392.00000000",
+						"subtype_id": "55",
+						"time_modified": "2018-01-25 20:18:26",
+						"type": "PLANET",
+						"subtype": {
+							"id": "55",
+							"name": "Terrestrial Rocky",
+							"type": "PLANET"
+						},
+						"affiliation": [
+							{
+								"id": "2",
+								"code": "BANU",
+								"color": "#ffce17",
+								"name": "Banu",
+								"membership.id": "2863"
+							}
+						],
+						"population": [],
+						"texture": {
+							"slug": "duxhoei3b7nnm",
+							"source": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/source/Planet_EarthLike.jpg",
+							"images": {
+								"post": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/post/Planet_EarthLike.jpg",
+								"product_thumb_large": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/product_thumb_large/Planet_EarthLike.jpg",
+								"subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/subscribers_vault_thumbnail/Planet_EarthLike.jpg"
+							}
+						}
+					},
+					{
+						"id": "2668",
+						"age": null,
+						"appearance": "PLANET_GAS",
+						"axial_tilt": null,
+						"code": "GLIESE.PLANET.GLIESEV",
+						"description": "A gas giant that was too warm to form ammonia clouds and instead has clouds of water vapor. A major collection point for Terragra and their line of Banu bottled water.   ",
+						"designation": "Gliese V",
+						"distance": "6.99000000",
+						"fairchanceact": null,
+						"habitable": null,
+						"info_url": null,
+						"latitude": null,
+						"longitude": "128.49890000",
+						"name": null,
+						"orbit_period": null,
+						"parent_id": "2219",
+						"sensor_danger": "5",
+						"sensor_economy": "4",
+						"sensor_population": "1",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "1",
+						"size": "66806.00000000",
+						"subtype_id": "23",
+						"time_modified": "2018-01-25 20:18:40",
+						"type": "PLANET",
+						"subtype": {
+							"id": "23",
+							"name": "Gas Giant",
+							"type": "PLANET"
+						},
+						"affiliation": [
+							{
+								"id": "2",
+								"code": "BANU",
+								"color": "#ffce17",
+								"name": "Banu",
+								"membership.id": "2864"
+							}
+						],
+						"population": [],
+						"texture": {
+							"slug": "76ubmnk9zol8a",
+							"source": "https://robertsspaceindustries.com/media/76ubmnk9zol8ar/source/Planet_Gas.jpg",
+							"images": {
+								"post": "https://robertsspaceindustries.com/media/76ubmnk9zol8ar/post/Planet_Gas.jpg",
+								"product_thumb_large": "https://robertsspaceindustries.com/media/76ubmnk9zol8ar/product_thumb_large/Planet_Gas.jpg",
+								"subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/76ubmnk9zol8ar/subscribers_vault_thumbnail/Planet_Gas.jpg"
+							}
+						}
+					},
+					{
+						"id": "2669",
+						"age": null,
+						"appearance": "PLANET_BROWN",
+						"axial_tilt": null,
+						"code": "GLIESE.PLANET.GLIESEVI",
+						"description": "A barren protoplanet in a distant orbit.",
+						"designation": "Gliese VI",
+						"distance": "12.75000000",
+						"fairchanceact": null,
+						"habitable": null,
+						"info_url": null,
+						"latitude": null,
+						"longitude": "189.18700000",
+						"name": null,
+						"orbit_period": null,
+						"parent_id": "2219",
+						"sensor_danger": "3",
+						"sensor_economy": "1",
+						"sensor_population": "1",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "1",
+						"size": "3831.00000000",
+						"subtype_id": "35",
+						"time_modified": "2018-01-25 20:18:55",
+						"type": "PLANET",
+						"subtype": {
+							"id": "35",
+							"name": "Protoplanet",
+							"type": "PLANET"
+						},
+						"affiliation": [
+							{
+								"id": "2",
+								"code": "BANU",
+								"color": "#ffce17",
+								"name": "Banu",
+								"membership.id": "2865"
+							}
+						],
+						"population": [],
+						"texture": {
+							"slug": "jnd5qqer9z13g",
+							"source": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/source/Planet_Rocky.jpg",
+							"images": {
+								"post": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/post/Planet_Rocky.jpg",
+								"product_thumb_large": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/product_thumb_large/Planet_Rocky.jpg",
+								"subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/subscribers_vault_thumbnail/Planet_Rocky.jpg"
+							}
+						}
+					}
+				],
+				"aggregated_size": "12.75000000",
+				"aggregated_population": 8.03,
+				"aggregated_economy": 4.3,
+				"aggregated_danger": 0
+			}
+		]
+	}
+}

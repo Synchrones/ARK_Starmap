@@ -1,0 +1,396 @@
+{
+	"success": 1,
+	"code": "OK",
+	"msg": "OK",
+	"data": {
+		"rowcount": 1,
+		"totalrows": 1,
+		"estimatedrows": false,
+		"pagesize": 0,
+		"pagecount": null,
+		"page": 1,
+		"offset": 0,
+		"startrow": 0,
+		"resultset": [
+			{
+				"id": "382",
+				"code": "KAYFA",
+				"description": "The Kayfa System has gained religious significance in Xi\u2019An culture as it is often the destination for religious tourists and pilgrims. During the days of the Messer Era, Kayfa was one of the more heavily fortified and protected systems, indicating its cultural significance to the Xi\u2019An. Finally, Kayfa\u2019s best known export is the Centennial Bloom, a plant famous for blossoming for only one night every hundred years. ",
+				"frost_line": "2.63000000",
+				"habitable_zone_inner": "0.50000000",
+				"habitable_zone_outer": "1.03000000",
+				"info_url": null,
+				"name": "Kayfa",
+				"position_x": "89.61151100",
+				"position_y": "48.47125600",
+				"position_z": "-9.27202130",
+				"shader_data": {
+					"lightColor": "#f59770",
+					"starfield": {
+						"radius": 35,
+						"count": 1714.2857142857,
+						"sizeMin": 1,
+						"sizeMax": 1,
+						"color1": "rgb(128,128,128)",
+						"color2": "rgb(100,100,100)"
+					},
+					"planetsSize": {
+						"min": 0.015708571428571,
+						"max": 0.0406,
+						"kFactor": 1
+					}
+				},
+				"status": "P",
+				"time_modified": "2018-01-26 01:04:26",
+				"type": "SINGLE_STAR",
+				"affiliation": [
+					{
+						"id": "4",
+						"code": "XIAN",
+						"color": "#52c231",
+						"name": "Xi'An",
+						"membership.id": "718"
+					}
+				],
+				"celestial_objects": [
+					{
+						"id": "2197",
+						"age": "0.00000000",
+						"appearance": "DEFAULT",
+						"axial_tilt": "0.00000000",
+						"code": "KAYFA.JUMPPOINTS.RIHLAH",
+						"description": "Jump Point",
+						"designation": "Kayfa - Rihlah",
+						"distance": "1.00000000",
+						"fairchanceact": "0",
+						"habitable": "0",
+						"info_url": null,
+						"latitude": "-38.94830000",
+						"longitude": "-136.45900000",
+						"name": null,
+						"orbit_period": null,
+						"parent_id": null,
+						"sensor_danger": "0",
+						"sensor_economy": "0",
+						"sensor_population": "0",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "0",
+						"size": "0.00000000",
+						"subtype_id": null,
+						"time_modified": "2015-09-15 14:34:06",
+						"type": "JUMPPOINT",
+						"subtype": null,
+						"affiliation": [],
+						"population": []
+					},
+					{
+						"id": "2198",
+						"age": "0.00000000",
+						"appearance": "DEFAULT",
+						"axial_tilt": "0.00000000",
+						"code": "KAYFA.JUMPPOINTS.HORUS",
+						"description": "Jump Point",
+						"designation": "Kayfa - Horus",
+						"distance": "1.00000000",
+						"fairchanceact": "0",
+						"habitable": "0",
+						"info_url": null,
+						"latitude": "8.78260000",
+						"longitude": "84.67970000",
+						"name": null,
+						"orbit_period": null,
+						"parent_id": null,
+						"sensor_danger": "0",
+						"sensor_economy": "0",
+						"sensor_population": "0",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "0",
+						"size": "0.00000000",
+						"subtype_id": null,
+						"time_modified": "2015-09-15 14:34:06",
+						"type": "JUMPPOINT",
+						"subtype": null,
+						"affiliation": [],
+						"population": []
+					},
+					{
+						"id": "2200",
+						"age": "0.00000000",
+						"appearance": "DEFAULT",
+						"axial_tilt": "0.00000000",
+						"code": "KAYFA.STARS.KAYFA",
+						"description": null,
+						"designation": "Kayfa",
+						"distance": "0.00000000",
+						"fairchanceact": "0",
+						"habitable": null,
+						"info_url": null,
+						"latitude": "0.00000000",
+						"longitude": "0.00000000",
+						"name": null,
+						"orbit_period": "-1.00000000",
+						"parent_id": null,
+						"sensor_danger": "0",
+						"sensor_economy": "0",
+						"sensor_population": "0",
+						"shader_data": {
+							"sun": {
+								"color1": "#cd5a1a",
+								"color2": "#fffe76",
+								"flare1": 0.257216080214,
+								"flare2": 0.21044952017509,
+								"flare3": 0.18706624015564,
+								"flare4": 0.11691640009727,
+								"flare5": 0.081841480068092,
+								"flare6": 0.1,
+								"sphere": 1,
+								"texture": 1,
+								"corona": 1,
+								"glow": 0.5,
+								"alpha": 1,
+								"rotation1": 0.6,
+								"rotation2": 0.6,
+								"map": "6",
+								"iterations": 0,
+								"scaleMin": 1,
+								"scaleMax": 1,
+								"scalePeriod": 1
+							},
+							"radius": 0.03,
+							"orbitalMin": 1,
+							"orbitalMax": 5,
+							"orbitalFactor": 1
+						},
+						"show_label": "1",
+						"show_orbitlines": "0",
+						"size": "632156.26466940",
+						"subtype_id": "60",
+						"time_modified": "2015-10-10 04:32:39",
+						"type": "STAR",
+						"subtype": {
+							"id": "60",
+							"name": "Main Sequence-Dwarf-K",
+							"type": "STAR"
+						},
+						"affiliation": [],
+						"population": []
+					},
+					{
+						"id": "2696",
+						"age": null,
+						"appearance": "PLANET_BROWN",
+						"axial_tilt": null,
+						"code": "KAYFA.PLANET.KAYFAI",
+						"description": "A terrestrial world with an atmosphere that\u2019s rich in carbon compounds and limited in oxygen, making it look like a mix of black, brown and dark red hues from space.    ",
+						"designation": "Kayfa I",
+						"distance": "0.41000000",
+						"fairchanceact": null,
+						"habitable": null,
+						"info_url": null,
+						"latitude": null,
+						"longitude": null,
+						"name": null,
+						"orbit_period": null,
+						"parent_id": "2200",
+						"sensor_danger": "3",
+						"sensor_economy": "2",
+						"sensor_population": "1",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "1",
+						"size": "2915.00000000",
+						"subtype_id": "17",
+						"time_modified": "2018-01-26 01:02:56",
+						"type": "PLANET",
+						"subtype": {
+							"id": "17",
+							"name": "Carbon Planet",
+							"type": "PLANET"
+						},
+						"affiliation": [
+							{
+								"id": "4",
+								"code": "XIAN",
+								"color": "#52c231",
+								"name": "Xi'An",
+								"membership.id": "2908"
+							}
+						],
+						"population": [],
+						"texture": {
+							"slug": "p47vvencfylfl",
+							"source": "https://robertsspaceindustries.com/media/p47vvencfylflr/source/Planet_Carbon.jpg",
+							"images": {
+								"post": "https://robertsspaceindustries.com/media/p47vvencfylflr/post/Planet_Carbon.jpg",
+								"product_thumb_large": "https://robertsspaceindustries.com/media/p47vvencfylflr/product_thumb_large/Planet_Carbon.jpg",
+								"subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/p47vvencfylflr/subscribers_vault_thumbnail/Planet_Carbon.jpg"
+							}
+						}
+					},
+					{
+						"id": "2697",
+						"age": null,
+						"appearance": "PLANET_GREEN",
+						"axial_tilt": null,
+						"code": "KAYFA.PLANET.KAYFAII",
+						"description": "A terraformed terrestrial world with an unbelievably long daily rotation. One day on Kayfa II is 100 Xi\u2019An years (approximately 128 Standard Earth Years). The 100 year day has attained religious significance and led monks to believe there is nothing holier than spending an entire day here meditating. Not all Xi\u2019An tourists are that dedicated, but many still visit the planet\u2019s beautifully cultivated gardens, which are famous for growing the Centennial Bloom plants that blossom one night every hundred years.",
+						"designation": "Kayfa II",
+						"distance": "0.68000000",
+						"fairchanceact": null,
+						"habitable": "1",
+						"info_url": null,
+						"latitude": null,
+						"longitude": "236.16594700",
+						"name": null,
+						"orbit_period": null,
+						"parent_id": "2200",
+						"sensor_danger": "2",
+						"sensor_economy": "6",
+						"sensor_population": "5",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "1",
+						"size": "9040.00000000",
+						"subtype_id": "55",
+						"time_modified": "2018-01-26 01:03:10",
+						"type": "PLANET",
+						"subtype": {
+							"id": "55",
+							"name": "Terrestrial Rocky",
+							"type": "PLANET"
+						},
+						"affiliation": [
+							{
+								"id": "4",
+								"code": "XIAN",
+								"color": "#52c231",
+								"name": "Xi'An",
+								"membership.id": "2909"
+							}
+						],
+						"population": [],
+						"texture": {
+							"slug": "duxhoei3b7nnm",
+							"source": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/source/Planet_EarthLike.jpg",
+							"images": {
+								"post": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/post/Planet_EarthLike.jpg",
+								"product_thumb_large": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/product_thumb_large/Planet_EarthLike.jpg",
+								"subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/subscribers_vault_thumbnail/Planet_EarthLike.jpg"
+							}
+						}
+					},
+					{
+						"id": "2698",
+						"age": null,
+						"appearance": "PLANET_GAS",
+						"axial_tilt": null,
+						"code": "KAYFA.PLANET.KAYFAIII",
+						"description": "A gas dwarf that was once considered then passed over as a candidate for platform-based colonization.",
+						"designation": "Kayfa III",
+						"distance": "2.24000000",
+						"fairchanceact": null,
+						"habitable": null,
+						"info_url": null,
+						"latitude": null,
+						"longitude": "12.16949000",
+						"name": null,
+						"orbit_period": null,
+						"parent_id": "2200",
+						"sensor_danger": "2",
+						"sensor_economy": "3",
+						"sensor_population": "1",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "1",
+						"size": "20882.00000000",
+						"subtype_id": "22",
+						"time_modified": "2018-01-26 01:03:26",
+						"type": "PLANET",
+						"subtype": {
+							"id": "22",
+							"name": "Gas Dwarf",
+							"type": "PLANET"
+						},
+						"affiliation": [
+							{
+								"id": "4",
+								"code": "XIAN",
+								"color": "#52c231",
+								"name": "Xi'An",
+								"membership.id": "2910"
+							}
+						],
+						"population": [],
+						"texture": {
+							"slug": "76ubmnk9zol8a",
+							"source": "https://robertsspaceindustries.com/media/76ubmnk9zol8ar/source/Planet_Gas.jpg",
+							"images": {
+								"post": "https://robertsspaceindustries.com/media/76ubmnk9zol8ar/post/Planet_Gas.jpg",
+								"product_thumb_large": "https://robertsspaceindustries.com/media/76ubmnk9zol8ar/product_thumb_large/Planet_Gas.jpg",
+								"subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/76ubmnk9zol8ar/subscribers_vault_thumbnail/Planet_Gas.jpg"
+							}
+						}
+					},
+					{
+						"id": "2699",
+						"age": null,
+						"appearance": "PLANET_GAS",
+						"axial_tilt": null,
+						"code": "KAYFA.PLANET.KAYFAIV",
+						"description": "A gas dwarf orbiting the system\u2019s outer reaches.",
+						"designation": "Kayfa IV",
+						"distance": "12.08000000",
+						"fairchanceact": null,
+						"habitable": null,
+						"info_url": null,
+						"latitude": null,
+						"longitude": "325.15648000",
+						"name": null,
+						"orbit_period": null,
+						"parent_id": "2200",
+						"sensor_danger": "3",
+						"sensor_economy": "4",
+						"sensor_population": "1",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "1",
+						"size": "22161.00000000",
+						"subtype_id": "22",
+						"time_modified": "2018-01-26 01:03:39",
+						"type": "PLANET",
+						"subtype": {
+							"id": "22",
+							"name": "Gas Dwarf",
+							"type": "PLANET"
+						},
+						"affiliation": [
+							{
+								"id": "4",
+								"code": "XIAN",
+								"color": "#52c231",
+								"name": "Xi'An",
+								"membership.id": "2911"
+							}
+						],
+						"population": [],
+						"texture": {
+							"slug": "76ubmnk9zol8a",
+							"source": "https://robertsspaceindustries.com/media/76ubmnk9zol8ar/source/Planet_Gas.jpg",
+							"images": {
+								"post": "https://robertsspaceindustries.com/media/76ubmnk9zol8ar/post/Planet_Gas.jpg",
+								"product_thumb_large": "https://robertsspaceindustries.com/media/76ubmnk9zol8ar/product_thumb_large/Planet_Gas.jpg",
+								"subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/76ubmnk9zol8ar/subscribers_vault_thumbnail/Planet_Gas.jpg"
+							}
+						}
+					}
+				],
+				"aggregated_size": "12.08000000",
+				"aggregated_population": 8.53,
+				"aggregated_economy": 1.74,
+				"aggregated_danger": 0
+			}
+		]
+	}
+}

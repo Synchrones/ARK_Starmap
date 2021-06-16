@@ -1,0 +1,573 @@
+{
+	"success": 1,
+	"code": "OK",
+	"msg": "OK",
+	"data": {
+		"rowcount": 1,
+		"totalrows": 1,
+		"estimatedrows": false,
+		"pagesize": 0,
+		"pagecount": null,
+		"page": 1,
+		"offset": 0,
+		"startrow": 0,
+		"resultset": [
+			{
+				"id": "332",
+				"code": "OSO",
+				"description": "The most advanced primitive species ever discovered by the UEE lives in the Oso System and is a source of endless fascination for scientists. Because the native species is so advanced, the UEE has built Observation Base Chimera to monitor traffic in the system.  \n",
+				"frost_line": "8.12000000",
+				"habitable_zone_inner": "1.56000000",
+				"habitable_zone_outer": "2.60000000",
+				"info_url": null,
+				"name": "Oso",
+				"position_x": "31.09702700",
+				"position_y": "13.58713300",
+				"position_z": "-40.18243000",
+				"shader_data": {
+					"lightColor": "#ffffff",
+					"starfield": {
+						"radius": 30,
+						"count": 467.6656003891,
+						"sizeMin": 1,
+						"sizeMax": 1,
+						"color1": "rgb(128,128,128)",
+						"color2": "rgb(100,100,100)"
+					},
+					"planetsSize": {
+						"min": 0.019519557775408,
+						"max": 0.075078231101633,
+						"kFactor": 0.51443216042801
+					}
+				},
+				"status": "P",
+				"time_modified": "2018-01-26 03:20:42",
+				"type": "SINGLE_STAR",
+				"affiliation": [
+					{
+						"id": "7",
+						"code": "DEV",
+						"color": "#ca922d",
+						"name": "Developing",
+						"membership.id": "735"
+					}
+				],
+				"celestial_objects": [
+					{
+						"id": "1876",
+						"age": "0.00000000",
+						"appearance": "DEFAULT",
+						"axial_tilt": "0.00000000",
+						"code": "OSO.JUMPPOINTS.KALLIS",
+						"description": "Jump Point",
+						"designation": "Oso - Kallis",
+						"distance": "5.50000000",
+						"fairchanceact": "0",
+						"habitable": "0",
+						"info_url": null,
+						"latitude": "11.89830000",
+						"longitude": "74.13800000",
+						"name": null,
+						"orbit_period": null,
+						"parent_id": null,
+						"sensor_danger": "0",
+						"sensor_economy": "0",
+						"sensor_population": "0",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "0",
+						"size": "0.00000000",
+						"subtype_id": null,
+						"time_modified": "2015-09-15 14:34:04",
+						"type": "JUMPPOINT",
+						"subtype": null,
+						"affiliation": [],
+						"population": []
+					},
+					{
+						"id": "1877",
+						"age": "0.00000000",
+						"appearance": "DEFAULT",
+						"axial_tilt": "0.00000000",
+						"code": "OSO.JUMPPOINTS.PYRO",
+						"description": "Jump Point",
+						"designation": "Oso - Pyro",
+						"distance": "11.00000000",
+						"fairchanceact": "0",
+						"habitable": "0",
+						"info_url": null,
+						"latitude": "55.46500000",
+						"longitude": "-86.22270000",
+						"name": null,
+						"orbit_period": null,
+						"parent_id": null,
+						"sensor_danger": "0",
+						"sensor_economy": "0",
+						"sensor_population": "0",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "0",
+						"size": "0.00000000",
+						"subtype_id": null,
+						"time_modified": "2015-09-15 14:34:04",
+						"type": "JUMPPOINT",
+						"subtype": null,
+						"affiliation": [],
+						"population": []
+					},
+					{
+						"id": "1878",
+						"age": "0.00000000",
+						"appearance": "DEFAULT",
+						"axial_tilt": "0.00000000",
+						"code": "OSO.JUMPPOINTS.CASTRA",
+						"description": "Jump Point",
+						"designation": "Oso - Castra",
+						"distance": "14.30000000",
+						"fairchanceact": "0",
+						"habitable": "0",
+						"info_url": null,
+						"latitude": "-15.09570000",
+						"longitude": "-174.01900000",
+						"name": null,
+						"orbit_period": null,
+						"parent_id": null,
+						"sensor_danger": "0",
+						"sensor_economy": "0",
+						"sensor_population": "0",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "0",
+						"size": "0.00000000",
+						"subtype_id": null,
+						"time_modified": "2015-09-15 14:34:04",
+						"type": "JUMPPOINT",
+						"subtype": null,
+						"affiliation": [],
+						"population": []
+					},
+					{
+						"id": "1879",
+						"age": "0.00000000",
+						"appearance": "DEFAULT",
+						"axial_tilt": "0.00000000",
+						"code": "OSO.STARS.OSO",
+						"description": null,
+						"designation": "Oso",
+						"distance": "0.00000000",
+						"fairchanceact": "0",
+						"habitable": null,
+						"info_url": null,
+						"latitude": "0.00000000",
+						"longitude": "0.00000000",
+						"name": null,
+						"orbit_period": null,
+						"parent_id": null,
+						"sensor_danger": "0",
+						"sensor_economy": "0",
+						"sensor_population": "0",
+						"shader_data": {
+							"sun": {
+								"color1": "#ffffbc",
+								"color2": "#ffffff",
+								"flare1": 0.42089904035019,
+								"flare2": 0.5,
+								"flare3": 0.265,
+								"flare4": 0.5,
+								"flare5": 0.5,
+								"flare6": 0.1,
+								"sphere": 1,
+								"texture": 1,
+								"corona": 1,
+								"glow": 0.74826496062256,
+								"alpha": 1,
+								"rotation1": 0.6,
+								"rotation2": 0.6,
+								"map": "4",
+								"iterations": 0,
+								"scaleMin": 1,
+								"scaleMax": 1,
+								"scalePeriod": 1
+							},
+							"orbitalMin": 1,
+							"orbitalMax": 5,
+							"orbitalFactor": 1
+						},
+						"show_label": "1",
+						"show_orbitlines": "0",
+						"size": "839456.16469490",
+						"subtype_id": "61",
+						"time_modified": "2016-04-05 19:51:00",
+						"type": "STAR",
+						"subtype": {
+							"id": "61",
+							"name": "Main Sequence-Dwarf-F",
+							"type": "STAR"
+						},
+						"affiliation": [],
+						"population": []
+					},
+					{
+						"id": "1880",
+						"age": "0.00000000",
+						"appearance": "PLANET_BROWN",
+						"axial_tilt": "0.00000000",
+						"code": "OSO.PLANETS.OSOI",
+						"description": "This tidally locked planet features a lightside that is a churning sea of lava while its darkside is a cold, stark iron-rich landscape.     \n",
+						"designation": "Oso I",
+						"distance": "0.76000000",
+						"fairchanceact": null,
+						"habitable": null,
+						"info_url": null,
+						"latitude": "0.00000000",
+						"longitude": "36.00000000",
+						"name": null,
+						"orbit_period": "95.00000000",
+						"parent_id": "1879",
+						"sensor_danger": "3",
+						"sensor_economy": "1",
+						"sensor_population": "1",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "1",
+						"size": "6049.00000000",
+						"subtype_id": "29",
+						"time_modified": "2018-01-26 03:18:48",
+						"type": "PLANET",
+						"subtype": {
+							"id": "29",
+							"name": "Lava Planet",
+							"type": "PLANET"
+						},
+						"affiliation": [
+							{
+								"id": "7",
+								"code": "DEV",
+								"color": "#ca922d",
+								"name": "Developing",
+								"membership.id": "2994"
+							}
+						],
+						"population": [],
+						"texture": {
+							"slug": "dgaoam8owcym1",
+							"source": "https://robertsspaceindustries.com/media/dgaoam8owcym1r/source/Planet_Lava.jpg",
+							"images": {
+								"post": "https://robertsspaceindustries.com/media/dgaoam8owcym1r/post/Planet_Lava.jpg",
+								"product_thumb_large": "https://robertsspaceindustries.com/media/dgaoam8owcym1r/product_thumb_large/Planet_Lava.jpg",
+								"subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/dgaoam8owcym1r/subscribers_vault_thumbnail/Planet_Lava.jpg"
+							}
+						}
+					},
+					{
+						"id": "1881",
+						"age": "0.00000000",
+						"appearance": "PLANET_GREEN",
+						"axial_tilt": "0.00000000",
+						"code": "OSO.PLANETS.OSOII",
+						"description": "The planet has a lush biosphere and breathable atmosphere that would make it ideal for Human habitation if it weren\u2019t for the discovery of the Osonians. This multi-limbed, primitive creature is one of many unusual species found to inhabit the Fair Chance Act protected world. ",
+						"designation": "Oso II",
+						"distance": "1.94000000",
+						"fairchanceact": "1",
+						"habitable": "1",
+						"info_url": null,
+						"latitude": "0.00000000",
+						"longitude": "115.00000000",
+						"name": null,
+						"orbit_period": "95.00000000",
+						"parent_id": "1879",
+						"sensor_danger": "1",
+						"sensor_economy": "3",
+						"sensor_population": "3",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "1",
+						"size": "4313.00000000",
+						"subtype_id": "55",
+						"time_modified": "2018-01-26 03:19:01",
+						"type": "PLANET",
+						"subtype": {
+							"id": "55",
+							"name": "Terrestrial Rocky",
+							"type": "PLANET"
+						},
+						"affiliation": [
+							{
+								"id": "7",
+								"code": "DEV",
+								"color": "#ca922d",
+								"name": "Developing",
+								"membership.id": "2995"
+							}
+						],
+						"population": [],
+						"texture": {
+							"slug": "duxhoei3b7nnm",
+							"source": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/source/Planet_EarthLike.jpg",
+							"images": {
+								"post": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/post/Planet_EarthLike.jpg",
+								"product_thumb_large": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/product_thumb_large/Planet_EarthLike.jpg",
+								"subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/subscribers_vault_thumbnail/Planet_EarthLike.jpg"
+							}
+						}
+					},
+					{
+						"id": "1882",
+						"age": "0.00000000",
+						"appearance": "PLANET_GAS",
+						"axial_tilt": "0.00000000",
+						"code": "OSO.PLANETS.OSOIII",
+						"description": "This gas giant is believed to have been a rogue Jupiter that was pulled into orbit around Oso\u2019s star. It is slightly green and white in color due to silicate clouds.  ",
+						"designation": "Oso III",
+						"distance": "2.45000000",
+						"fairchanceact": null,
+						"habitable": null,
+						"info_url": null,
+						"latitude": "0.00000000",
+						"longitude": "-143.00000000",
+						"name": null,
+						"orbit_period": "95.00000000",
+						"parent_id": "1879",
+						"sensor_danger": "2",
+						"sensor_economy": "1",
+						"sensor_population": "1",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "1",
+						"size": "48344.00000000",
+						"subtype_id": "23",
+						"time_modified": "2018-01-26 03:19:16",
+						"type": "PLANET",
+						"subtype": {
+							"id": "23",
+							"name": "Gas Giant",
+							"type": "PLANET"
+						},
+						"affiliation": [
+							{
+								"id": "7",
+								"code": "DEV",
+								"color": "#ca922d",
+								"name": "Developing",
+								"membership.id": "2996"
+							}
+						],
+						"population": [],
+						"texture": {
+							"slug": "76ubmnk9zol8a",
+							"source": "https://robertsspaceindustries.com/media/76ubmnk9zol8ar/source/Planet_Gas.jpg",
+							"images": {
+								"post": "https://robertsspaceindustries.com/media/76ubmnk9zol8ar/post/Planet_Gas.jpg",
+								"product_thumb_large": "https://robertsspaceindustries.com/media/76ubmnk9zol8ar/product_thumb_large/Planet_Gas.jpg",
+								"subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/76ubmnk9zol8ar/subscribers_vault_thumbnail/Planet_Gas.jpg"
+							}
+						}
+					},
+					{
+						"id": "1883",
+						"age": "0.00000000",
+						"appearance": "PLANET_BROWN",
+						"axial_tilt": "0.00000000",
+						"code": "OSO.PLANETS.OSOIV",
+						"description": "A planet lacking both a core and an atmosphere. While initial scans showed its surface was rich in minerals, recent scans show those reserves much depleted causing speculation that miners have found their way past the UEE patrols in the system. \n",
+						"designation": "Oso IV",
+						"distance": "2.98000000",
+						"fairchanceact": null,
+						"habitable": null,
+						"info_url": null,
+						"latitude": "0.00000000",
+						"longitude": "-52.00000000",
+						"name": null,
+						"orbit_period": "95.00000000",
+						"parent_id": "1879",
+						"sensor_danger": "2",
+						"sensor_economy": "2",
+						"sensor_population": "1",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "1",
+						"size": "6906.00000000",
+						"subtype_id": "55",
+						"time_modified": "2018-01-26 03:19:30",
+						"type": "PLANET",
+						"subtype": {
+							"id": "55",
+							"name": "Terrestrial Rocky",
+							"type": "PLANET"
+						},
+						"affiliation": [
+							{
+								"id": "7",
+								"code": "DEV",
+								"color": "#ca922d",
+								"name": "Developing",
+								"membership.id": "2997"
+							}
+						],
+						"population": [],
+						"texture": {
+							"slug": "jnd5qqer9z13g",
+							"source": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/source/Planet_Rocky.jpg",
+							"images": {
+								"post": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/post/Planet_Rocky.jpg",
+								"product_thumb_large": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/product_thumb_large/Planet_Rocky.jpg",
+								"subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/subscribers_vault_thumbnail/Planet_Rocky.jpg"
+							}
+						}
+					},
+					{
+						"id": "1884",
+						"age": "0.00000000",
+						"appearance": "PLANET_GAS",
+						"axial_tilt": "0.00000000",
+						"code": "OSO.PLANETS.OSOV",
+						"description": "An ice giant with a highly lethal atmosphere of ammonia vapor. \n",
+						"designation": "Oso V",
+						"distance": "9.57000000",
+						"fairchanceact": null,
+						"habitable": null,
+						"info_url": null,
+						"latitude": "0.00000000",
+						"longitude": "-34.00000000",
+						"name": null,
+						"orbit_period": "95.00000000",
+						"parent_id": "1879",
+						"sensor_danger": "3",
+						"sensor_economy": "1",
+						"sensor_population": "1",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "1",
+						"size": "27693.00000000",
+						"subtype_id": "25",
+						"time_modified": "2018-01-26 03:19:43",
+						"type": "PLANET",
+						"subtype": {
+							"id": "25",
+							"name": "Ice Giant",
+							"type": "PLANET"
+						},
+						"affiliation": [
+							{
+								"id": "7",
+								"code": "DEV",
+								"color": "#ca922d",
+								"name": "Developing",
+								"membership.id": "2998"
+							}
+						],
+						"population": [],
+						"texture": {
+							"slug": "94je2ho8w8fbe",
+							"source": "https://robertsspaceindustries.com/media/94je2ho8w8fber/source/Planet_Neptune.jpg",
+							"images": {
+								"post": "https://robertsspaceindustries.com/media/94je2ho8w8fber/post/Planet_Neptune.jpg",
+								"product_thumb_large": "https://robertsspaceindustries.com/media/94je2ho8w8fber/product_thumb_large/Planet_Neptune.jpg",
+								"subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/94je2ho8w8fber/subscribers_vault_thumbnail/Planet_Neptune.jpg"
+							}
+						}
+					},
+					{
+						"id": "1885",
+						"age": "0.00000000",
+						"appearance": "PLANET_BROWN",
+						"axial_tilt": "0.00000000",
+						"code": "OSO.PLANETS.OSOVI",
+						"description": "A rocky dwarf planet completely lacking in resources.  \n",
+						"designation": "Oso VI",
+						"distance": "16.21000000",
+						"fairchanceact": null,
+						"habitable": null,
+						"info_url": null,
+						"latitude": "0.00000000",
+						"longitude": "-86.00000000",
+						"name": null,
+						"orbit_period": "95.00000000",
+						"parent_id": "1879",
+						"sensor_danger": "3",
+						"sensor_economy": "2",
+						"sensor_population": "1",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "1",
+						"size": "3205.00000000",
+						"subtype_id": "21",
+						"time_modified": "2018-01-26 03:20:00",
+						"type": "PLANET",
+						"subtype": {
+							"id": "21",
+							"name": "Dwarf Planet",
+							"type": "PLANET"
+						},
+						"affiliation": [
+							{
+								"id": "7",
+								"code": "DEV",
+								"color": "#ca922d",
+								"name": "Developing",
+								"membership.id": "2999"
+							}
+						],
+						"population": [],
+						"texture": {
+							"slug": "jnd5qqer9z13g",
+							"source": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/source/Planet_Rocky.jpg",
+							"images": {
+								"post": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/post/Planet_Rocky.jpg",
+								"product_thumb_large": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/product_thumb_large/Planet_Rocky.jpg",
+								"subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/subscribers_vault_thumbnail/Planet_Rocky.jpg"
+							}
+						}
+					},
+					{
+						"id": "2608",
+						"age": null,
+						"appearance": "DEFAULT",
+						"axial_tilt": null,
+						"code": "OSO.STATION.OBCHIMERA",
+						"description": "Staffed by a rotating military contingent ordered to protect the system from outside interference. A recent Senate report revealed corruption among the staff and portrayed them as being less than diligent about doing their jobs. ",
+						"designation": "OB Chimera",
+						"distance": "12.36548000",
+						"fairchanceact": null,
+						"habitable": "1",
+						"info_url": null,
+						"latitude": null,
+						"longitude": "56.21634000",
+						"name": "Yogi Station",
+						"orbit_period": null,
+						"parent_id": "1879",
+						"sensor_danger": "1",
+						"sensor_economy": "3",
+						"sensor_population": "2",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "1",
+						"size": null,
+						"subtype_id": "44",
+						"time_modified": "2015-10-10 04:47:42",
+						"type": "MANMADE",
+						"subtype": {
+							"id": "44",
+							"name": "Space Station",
+							"type": "MANMADE"
+						},
+						"affiliation": [
+							{
+								"id": "1",
+								"code": "uee",
+								"color": "#48bbd4",
+								"name": "UEE",
+								"membership.id": "2462"
+							}
+						],
+						"population": []
+					}
+				],
+				"aggregated_size": "16.21000000",
+				"aggregated_population": 7.62,
+				"aggregated_economy": 1.51,
+				"aggregated_danger": 0
+			}
+		]
+	}
+}

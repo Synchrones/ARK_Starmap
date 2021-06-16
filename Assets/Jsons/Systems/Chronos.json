@@ -1,0 +1,404 @@
+{
+	"success": 1,
+	"code": "OK",
+	"msg": "OK",
+	"data": {
+		"rowcount": 1,
+		"totalrows": 1,
+		"estimatedrows": false,
+		"pagesize": 0,
+		"pagecount": null,
+		"page": 1,
+		"offset": 0,
+		"startrow": 0,
+		"resultset": [
+			{
+				"id": "334",
+				"code": "CHRONOS",
+				"description": "This vast, sparse system contains only two dead worlds closely circling the G-type main sequence star at the center. Chronos\u2019 green zone was empty, making it the perfect location for the UEE\u2019s ambitious Synthworld project. Currently, Chronos\u2019 only landing zone is Archangel Station, which was built to observe and aid the Synthworld\u2019s construction. Although the system\u2019s need for resources might make it a tempting target for outlaws, the UEE maintains a military presence to safeguard the project. \n",
+				"frost_line": "5.16000000",
+				"habitable_zone_inner": "0.99000000",
+				"habitable_zone_outer": "1.79000000",
+				"info_url": null,
+				"name": "Chronos",
+				"position_x": "-18.83503300",
+				"position_y": "54.18090800",
+				"position_z": "13.78157400",
+				"shader_data": {
+					"lightColor": "#ffffff",
+					"starfield": {
+						"radius": 25,
+						"count": 1200,
+						"sizeMin": 1,
+						"sizeMax": 1,
+						"color1": "rgb(128,128,128)",
+						"color2": "rgb(100,100,100)"
+					},
+					"planetsSize": {
+						"min": 0.017204613053482,
+						"max": 0.026464391941186,
+						"kFactor": 1
+					}
+				},
+				"status": "P",
+				"time_modified": "2018-01-25 02:32:48",
+				"type": "SINGLE_STAR",
+				"affiliation": [
+					{
+						"id": "1",
+						"code": "uee",
+						"color": "#48bbd4",
+						"name": "UEE",
+						"membership.id": "693"
+					}
+				],
+				"celestial_objects": [
+					{
+						"id": "1894",
+						"age": "0.00000000",
+						"appearance": "DEFAULT",
+						"axial_tilt": "0.00000000",
+						"code": "CHRONOS.JUMPPOINTS.KELLOG",
+						"description": "Jump Point",
+						"designation": "Chronos - Kellog",
+						"distance": "1.00000000",
+						"fairchanceact": "0",
+						"habitable": "0",
+						"info_url": null,
+						"latitude": "5.39700000",
+						"longitude": "57.02150000",
+						"name": null,
+						"orbit_period": null,
+						"parent_id": null,
+						"sensor_danger": "0",
+						"sensor_economy": "0",
+						"sensor_population": "0",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "0",
+						"size": "0.00000000",
+						"subtype_id": null,
+						"time_modified": "2015-09-15 14:34:04",
+						"type": "JUMPPOINT",
+						"subtype": null,
+						"affiliation": [],
+						"population": []
+					},
+					{
+						"id": "1895",
+						"age": "0.00000000",
+						"appearance": "DEFAULT",
+						"axial_tilt": "0.00000000",
+						"code": "CHRONOS.JUMPPOINTS.BRANAUGH",
+						"description": "Jump Point",
+						"designation": "Chronos - Branaugh",
+						"distance": "1.00000000",
+						"fairchanceact": "0",
+						"habitable": "0",
+						"info_url": null,
+						"latitude": "-13.34560000",
+						"longitude": "-54.05980000",
+						"name": null,
+						"orbit_period": null,
+						"parent_id": null,
+						"sensor_danger": "0",
+						"sensor_economy": "0",
+						"sensor_population": "0",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "0",
+						"size": "0.00000000",
+						"subtype_id": null,
+						"time_modified": "2015-09-15 14:34:04",
+						"type": "JUMPPOINT",
+						"subtype": null,
+						"affiliation": [],
+						"population": []
+					},
+					{
+						"id": "1896",
+						"age": "0.00000000",
+						"appearance": "DEFAULT",
+						"axial_tilt": "0.00000000",
+						"code": "CHRONOS.STARS.CHRONOS",
+						"description": null,
+						"designation": "Chronos",
+						"distance": "0.00000000",
+						"fairchanceact": "0",
+						"habitable": null,
+						"info_url": null,
+						"latitude": "0.00000000",
+						"longitude": "0.00000000",
+						"name": null,
+						"orbit_period": "-1.00000000",
+						"parent_id": null,
+						"sensor_danger": "0",
+						"sensor_economy": "0",
+						"sensor_population": "0",
+						"shader_data": {
+							"sun": {
+								"color1": "#fff08b",
+								"color2": "#faea83",
+								"flare1": 0.265,
+								"flare2": 0.74826496062256,
+								"flare3": 0.4676656003891,
+								"flare4": 0.5,
+								"flare5": 0.5,
+								"flare6": 0.1,
+								"sphere": 1,
+								"texture": 0.53781544044746,
+								"corona": 1,
+								"glow": 0.5,
+								"alpha": 1,
+								"rotation1": 0.6,
+								"rotation2": 0.6,
+								"map": 0,
+								"iterations": 0,
+								"scaleMin": 1,
+								"scaleMax": 1,
+								"scalePeriod": 1
+							},
+							"radius": 0.06,
+							"orbitalMin": 1,
+							"orbitalMax": 5,
+							"orbitalFactor": 1
+						},
+						"show_label": "1",
+						"show_orbitlines": "0",
+						"size": "782654.25456000",
+						"subtype_id": "59",
+						"time_modified": "2015-10-10 03:16:17",
+						"type": "STAR",
+						"subtype": {
+							"id": "59",
+							"name": "Main Sequence-Dwarf-G",
+							"type": "STAR"
+						},
+						"affiliation": [],
+						"population": []
+					},
+					{
+						"id": "2446",
+						"age": null,
+						"appearance": "PLANET_BROWN",
+						"axial_tilt": null,
+						"code": "CHRONOS.PLANET.CHRONOSIBRUDER",
+						"description": "Nicknamed Bruder, Chronos I is a tiny, barren rock that orbits fairly close to the sun. While there are a moderate amount of metallic ores available in the planet's crust, the surface temperature is prohibitive for mining operations of any significant duration.\n",
+						"designation": "Chronos I ",
+						"distance": "0.31000000",
+						"fairchanceact": null,
+						"habitable": null,
+						"info_url": null,
+						"latitude": null,
+						"longitude": "45.26900000",
+						"name": "Bruder",
+						"orbit_period": null,
+						"parent_id": "1896",
+						"sensor_danger": "4",
+						"sensor_economy": "3",
+						"sensor_population": "1",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "1",
+						"size": "2920.00000000",
+						"subtype_id": "21",
+						"time_modified": "2018-01-25 02:31:33",
+						"type": "PLANET",
+						"subtype": {
+							"id": "21",
+							"name": "Dwarf Planet",
+							"type": "PLANET"
+						},
+						"affiliation": [
+							{
+								"id": "1",
+								"code": "uee",
+								"color": "#48bbd4",
+								"name": "UEE",
+								"membership.id": "2801"
+							}
+						],
+						"population": [],
+						"texture": {
+							"slug": "jnd5qqer9z13g",
+							"source": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/source/Planet_Rocky.jpg",
+							"images": {
+								"post": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/post/Planet_Rocky.jpg",
+								"product_thumb_large": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/product_thumb_large/Planet_Rocky.jpg",
+								"subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/subscribers_vault_thumbnail/Planet_Rocky.jpg"
+							}
+						}
+					},
+					{
+						"id": "2447",
+						"age": null,
+						"appearance": "PLANET_BROWN",
+						"axial_tilt": null,
+						"code": "CHRONOS.PLANET.CHRONOSIISCHWESTER",
+						"description": "The Synthworld's little sister lives near the outer edge of the system's so-called \"red band\". Chronos II has a very dense atmosphere, causing greenhouse effects to heat its surface to temperatures that are consistently higher than even Bruder's scorching heat.\n",
+						"designation": "Chronos II",
+						"distance": "0.56100000",
+						"fairchanceact": null,
+						"habitable": null,
+						"info_url": null,
+						"latitude": null,
+						"longitude": "125.15400000",
+						"name": "Schwester",
+						"orbit_period": null,
+						"parent_id": "1896",
+						"sensor_danger": "3",
+						"sensor_economy": "2",
+						"sensor_population": "1",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "1",
+						"size": "8036.00000000",
+						"subtype_id": "55",
+						"time_modified": "2018-01-25 02:31:51",
+						"type": "PLANET",
+						"subtype": {
+							"id": "55",
+							"name": "Terrestrial Rocky",
+							"type": "PLANET"
+						},
+						"affiliation": [
+							{
+								"id": "1",
+								"code": "uee",
+								"color": "#48bbd4",
+								"name": "UEE",
+								"membership.id": "2802"
+							}
+						],
+						"population": [],
+						"texture": {
+							"slug": "jnd5qqer9z13g",
+							"source": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/source/Planet_Rocky.jpg",
+							"images": {
+								"post": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/post/Planet_Rocky.jpg",
+								"product_thumb_large": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/product_thumb_large/Planet_Rocky.jpg",
+								"subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/subscribers_vault_thumbnail/Planet_Rocky.jpg"
+							}
+						}
+					},
+					{
+						"id": "2448",
+						"age": null,
+						"appearance": "PLANET_BROWN",
+						"axial_tilt": null,
+						"code": "CHRONOS.PLANET.CHRONOSIIISYNTHWORLD",
+						"description": "The Synthworld (also known as Project Archangel) is intended to be a temperate terrestrial planet. The UEE is building it in an attempt to prevent the need to terraform a world again.\n",
+						"designation": "Chronos III",
+						"distance": "1.27000000",
+						"fairchanceact": null,
+						"habitable": null,
+						"info_url": null,
+						"latitude": null,
+						"longitude": "124.45780000",
+						"name": "Synthworld",
+						"orbit_period": null,
+						"parent_id": "1896",
+						"sensor_danger": "3",
+						"sensor_economy": "6",
+						"sensor_population": "1",
+						"shader_data": {
+							"orbitalMin": 3,
+							"orbitalMax": 5,
+							"orbitalFactor": 1,
+							"highlight": {
+								"color1": "rgb(255,255,255)",
+								"color2": "rgb(255,255,255)",
+								"alpha": 1,
+								"atmosphere1": 0.5,
+								"atmosphere2": 0.5,
+								"atmosphere3": 0.5,
+								"scaleMin": 1,
+								"scaleMax": 1,
+								"scalePeriod": 1
+							},
+							"orbitalColor": "rgb(26,86,124)",
+							"orbitalHighlightColor": "rgb(128,128,255)"
+						},
+						"show_label": "1",
+						"show_orbitlines": "1",
+						"size": "7597.00000000",
+						"subtype_id": "58",
+						"time_modified": "2018-01-25 02:32:09",
+						"type": "PLANET",
+						"subtype": {
+							"id": "58",
+							"name": "Artificial",
+							"type": "PLANET"
+						},
+						"affiliation": [
+							{
+								"id": "1",
+								"code": "uee",
+								"color": "#48bbd4",
+								"name": "UEE",
+								"membership.id": "2803"
+							}
+						],
+						"population": [],
+						"texture": {
+							"slug": "jnd5qqer9z13g",
+							"source": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/source/Planet_Rocky.jpg",
+							"images": {
+								"post": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/post/Planet_Rocky.jpg",
+								"product_thumb_large": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/product_thumb_large/Planet_Rocky.jpg",
+								"subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/subscribers_vault_thumbnail/Planet_Rocky.jpg"
+							}
+						}
+					},
+					{
+						"id": "2602",
+						"age": null,
+						"appearance": "DEFAULT",
+						"axial_tilt": null,
+						"code": "CHRONOS.STATION.ARCHANGELSTATION",
+						"description": "An orbital station positioned above the Synthworld that houses the scientists and engineers who are attempting to build a planet. This station is also the port of entry for the vast resources needed to continue their project.\n",
+						"designation": "Archangel Station",
+						"distance": "0.00002444",
+						"fairchanceact": null,
+						"habitable": "1",
+						"info_url": null,
+						"latitude": null,
+						"longitude": null,
+						"name": null,
+						"orbit_period": null,
+						"parent_id": "2448",
+						"sensor_danger": "3",
+						"sensor_economy": "6",
+						"sensor_population": "4",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "1",
+						"size": null,
+						"subtype_id": "44",
+						"time_modified": "2015-10-08 18:20:05",
+						"type": "MANMADE",
+						"subtype": {
+							"id": "44",
+							"name": "Space Station",
+							"type": "MANMADE"
+						},
+						"affiliation": [
+							{
+								"id": "1",
+								"code": "uee",
+								"color": "#48bbd4",
+								"name": "UEE",
+								"membership.id": "2091"
+							}
+						],
+						"population": []
+					}
+				],
+				"aggregated_size": "1.27000000",
+				"aggregated_population": 0,
+				"aggregated_economy": 1.98,
+				"aggregated_danger": 0
+			}
+		]
+	}
+}

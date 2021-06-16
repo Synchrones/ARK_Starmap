@@ -1,0 +1,479 @@
+{
+	"success": 1,
+	"code": "OK",
+	"msg": "OK",
+	"data": {
+		"rowcount": 1,
+		"totalrows": 1,
+		"estimatedrows": false,
+		"pagesize": 0,
+		"pagecount": null,
+		"page": 1,
+		"offset": 0,
+		"startrow": 0,
+		"resultset": [
+			{
+				"id": "349",
+				"code": "RHETOR",
+				"description": "Rhetor is the center of higher learning in the UEE. It houses not only many of the UEE\u2019s private and public universities, but a number of think tanks and theoretical research facilities as well. Because of this focus on education, Rhetor has the youngest average age of any system in the Empire.",
+				"frost_line": "3.42000000",
+				"habitable_zone_inner": "1.05000000",
+				"habitable_zone_outer": "1.90000000",
+				"info_url": null,
+				"name": "Rhetor",
+				"position_x": "13.61867700",
+				"position_y": "-40.25992600",
+				"position_z": "24.34582300",
+				"shader_data": {
+					"lightColor": "#ffd243",
+					"starfield": {
+						"radius": 20,
+						"count": 1885.7142857143,
+						"sizeMin": 1,
+						"sizeMax": 1,
+						"color1": "rgb(128,128,128)",
+						"color2": "rgb(100,100,100)"
+					},
+					"planetsSize": {
+						"min": 0.017971428571429,
+						"max": 0.071148571428571,
+						"kFactor": 0.68571428571429
+					}
+				},
+				"status": "P",
+				"time_modified": "2018-01-27 01:31:19",
+				"type": "SINGLE_STAR",
+				"affiliation": [
+					{
+						"id": "1",
+						"code": "uee",
+						"color": "#48bbd4",
+						"name": "UEE",
+						"membership.id": "739"
+					}
+				],
+				"celestial_objects": [
+					{
+						"id": "1994",
+						"age": "0.00000000",
+						"appearance": "DEFAULT",
+						"axial_tilt": "0.00000000",
+						"code": "RHETOR.JUMPPOINTS.CROSHAW",
+						"description": "Jump Point",
+						"designation": "Rhetor - Croshaw",
+						"distance": "1.00000000",
+						"fairchanceact": "0",
+						"habitable": "0",
+						"info_url": null,
+						"latitude": "-18.69590000",
+						"longitude": "-77.67380000",
+						"name": null,
+						"orbit_period": null,
+						"parent_id": null,
+						"sensor_danger": "0",
+						"sensor_economy": "0",
+						"sensor_population": "0",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "0",
+						"size": "0.00000000",
+						"subtype_id": null,
+						"time_modified": "2015-09-15 14:34:05",
+						"type": "JUMPPOINT",
+						"subtype": null,
+						"affiliation": [],
+						"population": []
+					},
+					{
+						"id": "1995",
+						"age": "0.00000000",
+						"appearance": "DEFAULT",
+						"axial_tilt": "0.00000000",
+						"code": "RHETOR.JUMPPOINTS.IDRIS",
+						"description": "Jump Point",
+						"designation": "Rhetor - Idris",
+						"distance": "1.00000000",
+						"fairchanceact": "0",
+						"habitable": "0",
+						"info_url": null,
+						"latitude": "21.79210000",
+						"longitude": "77.99600000",
+						"name": null,
+						"orbit_period": null,
+						"parent_id": null,
+						"sensor_danger": "0",
+						"sensor_economy": "0",
+						"sensor_population": "0",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "0",
+						"size": "0.00000000",
+						"subtype_id": null,
+						"time_modified": "2015-09-15 14:34:05",
+						"type": "JUMPPOINT",
+						"subtype": null,
+						"affiliation": [],
+						"population": []
+					},
+					{
+						"id": "1996",
+						"age": "0.00000000",
+						"appearance": "DEFAULT",
+						"axial_tilt": "0.00000000",
+						"code": "RHETOR.JUMPPOINTS.FORA",
+						"description": "Jump Point",
+						"designation": "Rhetor - Fora",
+						"distance": "1.00000000",
+						"fairchanceact": "0",
+						"habitable": "0",
+						"info_url": null,
+						"latitude": "5.27900000",
+						"longitude": "120.70300000",
+						"name": null,
+						"orbit_period": null,
+						"parent_id": null,
+						"sensor_danger": "0",
+						"sensor_economy": "0",
+						"sensor_population": "0",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "0",
+						"size": "0.00000000",
+						"subtype_id": null,
+						"time_modified": "2015-09-15 14:34:05",
+						"type": "JUMPPOINT",
+						"subtype": null,
+						"affiliation": [],
+						"population": []
+					},
+					{
+						"id": "1999",
+						"age": "0.00000000",
+						"appearance": "DEFAULT",
+						"axial_tilt": "0.00000000",
+						"code": "RHETOR.STARS.RHETOR",
+						"description": null,
+						"designation": "Rhetor",
+						"distance": "0.00000000",
+						"fairchanceact": "0",
+						"habitable": null,
+						"info_url": null,
+						"latitude": "0.00000000",
+						"longitude": "0.00000000",
+						"name": null,
+						"orbit_period": "-1.00000000",
+						"parent_id": null,
+						"sensor_danger": "0",
+						"sensor_economy": "0",
+						"sensor_population": "0",
+						"shader_data": {
+							"sun": {
+								"color1": "#fcfc83",
+								"color2": "#ffffff",
+								"flare1": 0.265,
+								"flare2": 0.43259068035992,
+								"flare3": 0.265,
+								"flare4": 0.38582412032101,
+								"flare5": 0.5,
+								"flare6": 0.1,
+								"sphere": 0.43259068035992,
+								"texture": 1,
+								"corona": 0.79503152066147,
+								"glow": 0.5,
+								"alpha": 1,
+								"rotation1": 0.6,
+								"rotation2": 0.6,
+								"map": "7",
+								"iterations": 0,
+								"scaleMin": 1,
+								"scaleMax": 1,
+								"scalePeriod": 1
+							},
+							"radius": 0.06,
+							"orbitalMin": 1,
+							"orbitalMax": 5,
+							"orbitalFactor": 1
+						},
+						"show_label": "1",
+						"show_orbitlines": "0",
+						"size": "756326.26497000",
+						"subtype_id": "59",
+						"time_modified": "2015-10-10 04:09:17",
+						"type": "STAR",
+						"subtype": {
+							"id": "59",
+							"name": "Main Sequence-Dwarf-G",
+							"type": "STAR"
+						},
+						"affiliation": [],
+						"population": []
+					},
+					{
+						"id": "2481",
+						"age": null,
+						"appearance": "PLANET_BROWN",
+						"axial_tilt": null,
+						"code": "RHETOR.PLANET.RHETORI",
+						"description": "A small, rocky mesoplanet with no terraforming prospects and an inhospitable climate.",
+						"designation": "Rhetor I",
+						"distance": "0.52000000",
+						"fairchanceact": null,
+						"habitable": null,
+						"info_url": null,
+						"latitude": null,
+						"longitude": "25.64600000",
+						"name": null,
+						"orbit_period": "117.06000000",
+						"parent_id": "1999",
+						"sensor_danger": "4",
+						"sensor_economy": "2",
+						"sensor_population": "1",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "1",
+						"size": "1148.00000000",
+						"subtype_id": "43",
+						"time_modified": "2018-01-27 01:29:45",
+						"type": "PLANET",
+						"subtype": {
+							"id": "43",
+							"name": "Mesoplanet",
+							"type": "PLANET"
+						},
+						"affiliation": [
+							{
+								"id": "1",
+								"code": "uee",
+								"color": "#48bbd4",
+								"name": "UEE",
+								"membership.id": "3016"
+							}
+						],
+						"population": [],
+						"texture": {
+							"slug": "jnd5qqer9z13g",
+							"source": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/source/Planet_Rocky.jpg",
+							"images": {
+								"post": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/post/Planet_Rocky.jpg",
+								"product_thumb_large": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/product_thumb_large/Planet_Rocky.jpg",
+								"subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/subscribers_vault_thumbnail/Planet_Rocky.jpg"
+							}
+						}
+					},
+					{
+						"id": "2482",
+						"age": null,
+						"appearance": "PLANET_GREEN",
+						"axial_tilt": null,
+						"code": "RHETOR.PLANET.RHETORIIPERSEI",
+						"description": "Persei is home to one of the most influential think tanks in the UEE: the University of Persei Analytical Research and Quantification (UPARQ). Much of the new technological advancement for the UEE is thought to originate here. Because some of this government work is classified, access to parts of the planet can be heavily restricted.",
+						"designation": "Rhetor II",
+						"distance": "1.09000000",
+						"fairchanceact": null,
+						"habitable": "1",
+						"info_url": null,
+						"latitude": null,
+						"longitude": "256.26400000",
+						"name": "Persei",
+						"orbit_period": "331.11000000",
+						"parent_id": "1999",
+						"sensor_danger": "2",
+						"sensor_economy": "4",
+						"sensor_population": "4",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "1",
+						"size": "5265.00000000",
+						"subtype_id": "55",
+						"time_modified": "2018-01-27 01:29:58",
+						"type": "PLANET",
+						"subtype": {
+							"id": "55",
+							"name": "Terrestrial Rocky",
+							"type": "PLANET"
+						},
+						"affiliation": [
+							{
+								"id": "1",
+								"code": "uee",
+								"color": "#48bbd4",
+								"name": "UEE",
+								"membership.id": "3017"
+							}
+						],
+						"population": [],
+						"texture": {
+							"slug": "duxhoei3b7nnm",
+							"source": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/source/Planet_EarthLike.jpg",
+							"images": {
+								"post": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/post/Planet_EarthLike.jpg",
+								"product_thumb_large": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/product_thumb_large/Planet_EarthLike.jpg",
+								"subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/subscribers_vault_thumbnail/Planet_EarthLike.jpg"
+							}
+						}
+					},
+					{
+						"id": "2483",
+						"age": null,
+						"appearance": "PLANET_GREEN",
+						"axial_tilt": null,
+						"code": "RHETOR.PLANET.RHETORIIIREISSE",
+						"description": "Reisse is home to a great number of prestigious higher learning institutions that offer a variety of education options to people of all walks of life. Students and employees of these renowned universities and colleges make up a large percentage of the planet\u2019s population, which results in Rhetor III often being considered on the forefront of cultural and political movements. ",
+						"designation": "Rhetor III",
+						"distance": "1.43000000",
+						"fairchanceact": null,
+						"habitable": "1",
+						"info_url": null,
+						"latitude": null,
+						"longitude": "278.15400000",
+						"name": "Reisse",
+						"orbit_period": "608.28000000",
+						"parent_id": "1999",
+						"sensor_danger": "5",
+						"sensor_economy": "7",
+						"sensor_population": "5",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "1",
+						"size": "6227.00000000",
+						"subtype_id": "55",
+						"time_modified": "2018-01-27 01:30:11",
+						"type": "PLANET",
+						"subtype": {
+							"id": "55",
+							"name": "Terrestrial Rocky",
+							"type": "PLANET"
+						},
+						"affiliation": [
+							{
+								"id": "1",
+								"code": "uee",
+								"color": "#48bbd4",
+								"name": "UEE",
+								"membership.id": "3018"
+							}
+						],
+						"population": [],
+						"texture": {
+							"slug": "duxhoei3b7nnm",
+							"source": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/source/Planet_EarthLike.jpg",
+							"images": {
+								"post": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/post/Planet_EarthLike.jpg",
+								"product_thumb_large": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/product_thumb_large/Planet_EarthLike.jpg",
+								"subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/subscribers_vault_thumbnail/Planet_EarthLike.jpg"
+							}
+						}
+					},
+					{
+						"id": "2484",
+						"age": null,
+						"appearance": "PLANET_BLUE",
+						"axial_tilt": null,
+						"code": "RHETOR.PLANET.RHETORIVMENTOR",
+						"description": "A terraformed world at the very edge of Rhetor\u2019s goldilocks zone, Mentor is known for its highly-rated universities with a populace largely composed of students and academics. The harsh boreal climate of the planet keeps much of its population indoors.",
+						"designation": "Rhetor IV",
+						"distance": "1.87000000",
+						"fairchanceact": null,
+						"habitable": "1",
+						"info_url": null,
+						"latitude": null,
+						"longitude": "332.00000000",
+						"name": "Mentor",
+						"orbit_period": "1117.49000000",
+						"parent_id": "1999",
+						"sensor_danger": "4",
+						"sensor_economy": "6",
+						"sensor_population": "3",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "1",
+						"size": "6678.00000000",
+						"subtype_id": "55",
+						"time_modified": "2018-01-27 01:30:27",
+						"type": "PLANET",
+						"subtype": {
+							"id": "55",
+							"name": "Terrestrial Rocky",
+							"type": "PLANET"
+						},
+						"affiliation": [
+							{
+								"id": "1",
+								"code": "uee",
+								"color": "#48bbd4",
+								"name": "UEE",
+								"membership.id": "3019"
+							}
+						],
+						"population": [],
+						"texture": {
+							"slug": "j52x7qoth74yi",
+							"source": "https://robertsspaceindustries.com/media/j52x7qoth74yir/source/Planet_Ice.jpg",
+							"images": {
+								"post": "https://robertsspaceindustries.com/media/j52x7qoth74yir/post/Planet_Ice.jpg",
+								"product_thumb_large": "https://robertsspaceindustries.com/media/j52x7qoth74yir/product_thumb_large/Planet_Ice.jpg",
+								"subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/j52x7qoth74yir/subscribers_vault_thumbnail/Planet_Ice.jpg"
+							}
+						}
+					},
+					{
+						"id": "2485",
+						"age": null,
+						"appearance": "PLANET_GAS",
+						"axial_tilt": null,
+						"code": "RHETOR.PLANET.RHETORV",
+						"description": "The chromatic atmosphere and swirling storms of Rhetor V make it a popular tourist destination for pilots and students from nearby planets.",
+						"designation": "Rhetor V",
+						"distance": "3.90000000",
+						"fairchanceact": null,
+						"habitable": null,
+						"info_url": null,
+						"latitude": null,
+						"longitude": "189.15400000",
+						"name": null,
+						"orbit_period": "12493.92000000",
+						"parent_id": "1999",
+						"sensor_danger": "6",
+						"sensor_economy": "1",
+						"sensor_population": "1",
+						"shader_data": null,
+						"show_label": "1",
+						"show_orbitlines": "1",
+						"size": "64104.00000000",
+						"subtype_id": "23",
+						"time_modified": "2018-01-27 01:30:44",
+						"type": "PLANET",
+						"subtype": {
+							"id": "23",
+							"name": "Gas Giant",
+							"type": "PLANET"
+						},
+						"affiliation": [
+							{
+								"id": "1",
+								"code": "uee",
+								"color": "#48bbd4",
+								"name": "UEE",
+								"membership.id": "3020"
+							}
+						],
+						"population": [],
+						"texture": {
+							"slug": "zpx9bq69vunys",
+							"source": "https://robertsspaceindustries.com/media/zpx9bq69vunysr/source/Planet_Chromatic.jpg",
+							"images": {
+								"post": "https://robertsspaceindustries.com/media/zpx9bq69vunysr/post/Planet_Chromatic.jpg",
+								"product_thumb_large": "https://robertsspaceindustries.com/media/zpx9bq69vunysr/product_thumb_large/Planet_Chromatic.jpg",
+								"subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/zpx9bq69vunysr/subscribers_vault_thumbnail/Planet_Chromatic.jpg"
+							}
+						}
+					}
+				],
+				"aggregated_size": "3.90000000",
+				"aggregated_population": 8.49,
+				"aggregated_economy": 2.33,
+				"aggregated_danger": 0
+			}
+		]
+	}
+}

@@ -1,0 +1,2575 @@
+{
+    "rowcount": 90,
+    "totalrows": 90,
+    "estimatedrows": false,
+    "pagesize": 0,
+    "pagecount": null,
+    "page": 1,
+    "offset": 0,
+    "startrow": 0,
+    "starSystems": [
+        {
+            "id": "314",
+            "code": "STANTON",
+            "description": "While the UEE still controls the rights to the system overall, the four planets themselves were sold by the government to four megacorporations making them the only privately-owned worlds in the Empire. Though subject to the UEE\u2019s Common Laws and standard penal code, the UEE does not police the region. Instead, private planetary security teams enforce the local law.",
+            "info_url": null,
+            "name": "Stanton",
+            "posX": "49.53471800",
+            "posY": "-2.63396450",
+            "posZ": "16.47529200",
+            "status": "P",
+            "time_modified": "2018-01-27 01:36:42",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "741"
+                }
+            ],
+            "aggregated_size": "4.85000000",
+            "aggregated_population": 10,
+            "aggregated_economy": 10,
+            "aggregated_danger": 10,
+            "thumbnail": {
+                "slug": "anxi4tr0ija81",
+                "source": "https://robertsspaceindustries.com/media/anxi4tr0ija81r/source/JStanton-Arccorp.jpg",
+                "images": {
+                    "post": "https://robertsspaceindustries.com/media/anxi4tr0ija81r/post/JStanton-Arccorp.jpg",
+                    "product_thumb_large": "https://robertsspaceindustries.com/media/anxi4tr0ija81r/product_thumb_large/JStanton-Arccorp.jpg",
+                    "subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/anxi4tr0ija81r/subscribers_vault_thumbnail/JStanton-Arccorp.jpg"
+                }
+            }
+        },
+        {
+            "id": "315",
+            "code": "NYX",
+            "description": "Discovered in 2582, the Nyx System was left unclaimed by the UEE after deciding its three planets were not terraforming candidates and an attempts to mine the dense Glaciem Ring were deemed too dangerous. In 2618, a group of political activists and refugees, fleeing the Messer regime, moved into a vacated mining facility located in Delamar, a moon-sized asteroid deep within the system\u2019s asteroid belt.\n",
+            "info_url": null,
+            "name": "Nyx",
+            "posX": "26.53817700",
+            "posY": "27.07102600",
+            "posZ": "-14.51749700",
+            "status": "P",
+            "time_modified": "2018-01-26 01:59:38",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "8",
+                    "code": "UNC",
+                    "color": "#f6851f",
+                    "name": "Unclaimed",
+                    "membership.id": "729"
+                }
+            ],
+            "aggregated_size": "11.20000000",
+            "aggregated_population": 5.39,
+            "aggregated_economy": 1.74,
+            "aggregated_danger": 0,
+            "thumbnail": {
+                "slug": "733vl0wtmp977",
+                "source": "https://robertsspaceindustries.com/media/733vl0wtmp977r/source/Nyx-1.jpg",
+                "images": {
+                    "post": "https://robertsspaceindustries.com/media/733vl0wtmp977r/post/Nyx-1.jpg",
+                    "product_thumb_large": "https://robertsspaceindustries.com/media/733vl0wtmp977r/product_thumb_large/Nyx-1.jpg",
+                    "subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/733vl0wtmp977r/subscribers_vault_thumbnail/Nyx-1.jpg"
+                }
+            }
+        },
+        {
+            "id": "316",
+            "code": "TERRA",
+            "description": "Terra is the only system in the Empire that is named after the capital planet rather than the star at its center. Since its discovery, Terra has grown consistently in both popularity and influence. Even during the Messer era, Terra was one of the few systems that tried to maintain a progressive stance against the despotic reign. It was this perseverance in the face of adversity that has elevated it to be almost synonymous with Earth as the center of power in the UEE.",
+            "info_url": null,
+            "name": "Terra",
+            "posX": "67.71392800",
+            "posY": "-8.13130950",
+            "posZ": "-3.14161040",
+            "status": "P",
+            "time_modified": "2018-01-27 02:08:20",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "747"
+                }
+            ],
+            "aggregated_size": "12.00000000",
+            "aggregated_population": 9.1,
+            "aggregated_economy": 5.47,
+            "aggregated_danger": 0,
+            "thumbnail": {
+                "slug": "pu0ouaxhay8le",
+                "source": "https://robertsspaceindustries.com/media/pu0ouaxhay8ler/source/Jp_terra1.png",
+                "images": {
+                    "post": "https://robertsspaceindustries.com/media/pu0ouaxhay8ler/post/Jp_terra1.png",
+                    "product_thumb_large": "https://robertsspaceindustries.com/media/pu0ouaxhay8ler/product_thumb_large/Jp_terra1.png",
+                    "subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/pu0ouaxhay8ler/subscribers_vault_thumbnail/Jp_terra1.png"
+                }
+            }
+        },
+        {
+            "id": "317",
+            "code": "VIRGIL",
+            "description": "Once a shining star of Humanity\u2019s expansion, the system\u2019s main economic and social hub was Virgil I, which was quickly terraformed and colonized with help from the government-funded Project Far Star. After Tiber fell, the UEE military hastily retreated into Virgil and tried to mount a defense to stop the Vanduul advance, but the unrelenting raiders quickly overwhelmed them. Millions of civilians died as the UEE fled the system; leaving it in the hands of the Vanduul ever since.",
+            "info_url": null,
+            "name": "Virgil",
+            "posX": "-26.94844400",
+            "posY": "16.27732100",
+            "posZ": "3.09696290",
+            "status": "M",
+            "time_modified": "2018-01-27 02:42:26",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "3",
+                    "code": "VNCL",
+                    "color": "#bd002d",
+                    "name": "Vanduul",
+                    "membership.id": "754"
+                }
+            ],
+            "aggregated_size": "16.00000000",
+            "aggregated_population": 7.57,
+            "aggregated_economy": 1.28,
+            "aggregated_danger": 0,
+            "thumbnail": {
+                "slug": "oqh7xc195a3an",
+                "source": "https://robertsspaceindustries.com/media/oqh7xc195a3anr/source/Virgil-System.jpg",
+                "images": {
+                    "post": "https://robertsspaceindustries.com/media/oqh7xc195a3anr/post/Virgil-System.jpg",
+                    "product_thumb_large": "https://robertsspaceindustries.com/media/oqh7xc195a3anr/product_thumb_large/Virgil-System.jpg",
+                    "subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/oqh7xc195a3anr/subscribers_vault_thumbnail/Virgil-System.jpg"
+                }
+            }
+        },
+        {
+            "id": "318",
+            "code": "PYRO",
+            "description": "Most of Pyro System\u2019s six planets are thoroughly scorched thanks to the flare star at its center. Upon its discovery in 2493, any valuable minerals were quickly mined and its lack of habitable planets noted. An orbital platform, originally built by Pyrotechnic Amalgamated to serve as a hub for their operations in the system, was only in use by the company for a short time before it was abandoned. Since then, the platform has become a refuge for black market traders and warring pirate gangs known as Ruin Station.      \n",
+            "info_url": null,
+            "name": "Pyro",
+            "posX": "40.12613300",
+            "posY": "8.41486640",
+            "posZ": "-17.21741900",
+            "status": "P",
+            "time_modified": "2020-07-31 01:56:07",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "8",
+                    "code": "UNC",
+                    "color": "#f6851f",
+                    "name": "Unclaimed",
+                    "membership.id": "779"
+                }
+            ],
+            "aggregated_size": "13.00000000",
+            "aggregated_population": 7.29,
+            "aggregated_economy": 2.56,
+            "aggregated_danger": 0,
+            "thumbnail": {
+                "slug": "16boo55ggsr1x",
+                "source": "https://robertsspaceindustries.com/media/16boo55ggsr1xr/source/Pyro.png",
+                "images": {
+                    "post": "https://robertsspaceindustries.com/media/16boo55ggsr1xr/post/Pyro.png",
+                    "product_thumb_large": "https://robertsspaceindustries.com/media/16boo55ggsr1xr/product_thumb_large/Pyro.png",
+                    "subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/16boo55ggsr1xr/subscribers_vault_thumbnail/Pyro.png"
+                }
+            }
+        },
+        {
+            "id": "319",
+            "code": "MAGNUS",
+            "description": "The shipyards of Magnus system used to be one of the iconic locations of the Empire. When the Navy moved operations to Kilian System, the system\u2019s economy was unable to recover. The resulting decades of economic downturn and criminal activity is only now being slowly reversed in large part due to the ship manufacturer Drake Interplanetary establishing their corporate headquarters here.",
+            "info_url": null,
+            "name": "Magnus",
+            "posX": "49.62083400",
+            "posY": "-13.12486000",
+            "posZ": "2.54716800",
+            "status": "P",
+            "time_modified": "2018-01-26 01:40:45",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "725"
+                }
+            ],
+            "aggregated_size": "14.00000000",
+            "aggregated_population": 8.68,
+            "aggregated_economy": 1.05,
+            "aggregated_danger": 0,
+            "thumbnail": {
+                "slug": "tk7vrvj46saz6",
+                "source": "https://robertsspaceindustries.com/media/tk7vrvj46saz6r/source/Borea_MagnusII.jpg",
+                "images": {
+                    "post": "https://robertsspaceindustries.com/media/tk7vrvj46saz6r/post/Borea_MagnusII.jpg",
+                    "product_thumb_large": "https://robertsspaceindustries.com/media/tk7vrvj46saz6r/product_thumb_large/Borea_MagnusII.jpg",
+                    "subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/tk7vrvj46saz6r/subscribers_vault_thumbnail/Borea_MagnusII.jpg"
+                }
+            }
+        },
+        {
+            "id": "320",
+            "code": "NUL",
+            "description": "A pulsating Cepheid star blasts Nul with heightened temperatures that make it difficult for Human habitation. This lead the UEE to leave the system unclaimed despite several attempts to terraform the worlds. Nul remained mostly uninhabited until 2571, when the UEES Olympus crashed into Ashana while attempting to eliminate anti-Messer activists. A small population of criminals, drifters and expatriates now call its wreckage home.\n",
+            "info_url": null,
+            "name": "Nul",
+            "posX": "-18.14866400",
+            "posY": "-10.62140100",
+            "posZ": "-2.23589850",
+            "status": "P",
+            "time_modified": "2018-01-26 01:52:17",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "8",
+                    "code": "UNC",
+                    "color": "#f6851f",
+                    "name": "Unclaimed",
+                    "membership.id": "728"
+                }
+            ],
+            "aggregated_size": "119.70000000",
+            "aggregated_population": 8.32,
+            "aggregated_economy": 1.63,
+            "aggregated_danger": 0,
+            "thumbnail": {
+                "slug": "j4mxhdz651vkp",
+                "source": "https://robertsspaceindustries.com/media/j4mxhdz651vkpr/source/PMS-Cover.jpg",
+                "images": []
+            }
+        },
+        {
+            "id": "321",
+            "code": "TARANIS",
+            "description": "Taranis is an unclaimed system best known for two dense asteroid belts that must be passed through when traveling between jump points. Besides the asteroids belt providing plenty of cover for pirates and criminals to hide, the Taranis System is probably best known for its broken moon above Taranis II, which inspired the \u201cBroken Moon of Taranis\u201d map in the game Arena Commander.",
+            "info_url": null,
+            "name": "Taranis",
+            "posX": "53.63201100",
+            "posY": "-32.44535400",
+            "posZ": "-5.80908010",
+            "status": "P",
+            "time_modified": "2018-01-27 02:04:22",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "8",
+                    "code": "UNC",
+                    "color": "#f6851f",
+                    "name": "Unclaimed",
+                    "membership.id": "745"
+                }
+            ],
+            "aggregated_size": "18.39000000",
+            "aggregated_population": 7.72,
+            "aggregated_economy": 2.79,
+            "aggregated_danger": 0,
+            "thumbnail": {
+                "slug": "nmypvpz769bu1",
+                "source": "https://robertsspaceindustries.com/media/nmypvpz769bu1r/source/Taranis_StarSystem_Concept_Final.jpg",
+                "images": {
+                    "post": "https://robertsspaceindustries.com/media/nmypvpz769bu1r/post/Taranis_StarSystem_Concept_Final.jpg",
+                    "product_thumb_large": "https://robertsspaceindustries.com/media/nmypvpz769bu1r/product_thumb_large/Taranis_StarSystem_Concept_Final.jpg",
+                    "subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/nmypvpz769bu1r/subscribers_vault_thumbnail/Taranis_StarSystem_Concept_Final.jpg"
+                }
+            }
+        },
+        {
+            "id": "322",
+            "code": "VEGA",
+            "description": "First settled in 2402, Vega experienced rapid growth until the Vanduul emerged in neighboring systems during the late 27th century and a large portion of the populace fled. However, in the last decade, the system has undergone a revival driven by increased military presence, solid infrastructure, and low real estate prices.   ",
+            "info_url": null,
+            "name": "Vega",
+            "posX": "-8.53796960",
+            "posY": "10.79473000",
+            "posZ": "17.97753300",
+            "status": "P",
+            "time_modified": "2018-01-27 02:37:30",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "752"
+                }
+            ],
+            "aggregated_size": "8.00000000",
+            "aggregated_population": 8.61,
+            "aggregated_economy": 3.02,
+            "aggregated_danger": 0,
+            "thumbnail": {
+                "slug": "b2rfw1g7bmuy6",
+                "source": "https://robertsspaceindustries.com/media/b2rfw1g7bmuy6r/source/Vega-System-1.jpg",
+                "images": {
+                    "post": "https://robertsspaceindustries.com/media/b2rfw1g7bmuy6r/post/Vega-System-1.jpg",
+                    "product_thumb_large": "https://robertsspaceindustries.com/media/b2rfw1g7bmuy6r/product_thumb_large/Vega-System-1.jpg",
+                    "subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/b2rfw1g7bmuy6r/subscribers_vault_thumbnail/Vega-System-1.jpg"
+                }
+            }
+        },
+        {
+            "id": "323",
+            "code": "ELLIS",
+            "description": "This thirteen-planet system contains a wide habitable zone thanks to its F-type main sequence star. Ellis is mostly known as the home of the UEE\u2019s most famous race, the Murray Cup. What began as way to kill time during the terraforming process has become big business; fueling the economy for the three terraformed planets -- Green (Ellis III), Kampos (Ellis IV), and Noble (Ellis V). Ellis\u2019 eleventh planet recently collided with its moon, leaving an asteroid belt in the former orbital path.",
+            "info_url": null,
+            "name": "Ellis",
+            "posX": "45.25400500",
+            "posY": "-21.55368000",
+            "posZ": "-3.71079250",
+            "status": "P",
+            "time_modified": "2018-01-25 03:04:46",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "699"
+                }
+            ],
+            "aggregated_size": "101.00000000",
+            "aggregated_population": 9.01,
+            "aggregated_economy": 7.56,
+            "aggregated_danger": 0,
+            "thumbnail": {
+                "slug": "j5g0nmpd3ciej",
+                "source": "https://robertsspaceindustries.com/media/j5g0nmpd3ciejr/source/Ellis_System_1.png",
+                "images": {
+                    "post": "https://robertsspaceindustries.com/media/j5g0nmpd3ciejr/post/Ellis_System_1.png",
+                    "product_thumb_large": "https://robertsspaceindustries.com/media/j5g0nmpd3ciejr/product_thumb_large/Ellis_System_1.png",
+                    "subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/j5g0nmpd3ciejr/subscribers_vault_thumbnail/Ellis_System_1.png"
+                }
+            }
+        },
+        {
+            "id": "324",
+            "code": "ODIN",
+            "description": "Long before its discovery, Odin was rendered uninhabitable when the star degenerated into a white dwarf. What remains of the system is for the most part inhospitable to Humans. Of particular interest is the Coil, an asteroid belt that suffers from constant electromagnetic storms which considerably hampers efforts to harvest the valuable resources in the area while simultaneously providing an oasis to outlaws operating in the system.  ",
+            "info_url": null,
+            "name": "Odin",
+            "posX": "-0.10553169",
+            "posY": "37.88318600",
+            "posZ": "-27.75277900",
+            "status": "P",
+            "time_modified": "2018-01-26 02:53:55",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "731"
+                }
+            ],
+            "aggregated_size": "21.00000000",
+            "aggregated_population": 0,
+            "aggregated_economy": 2.21,
+            "aggregated_danger": 0,
+            "thumbnail": {
+                "slug": "tmcustpdtsbjj",
+                "source": "https://robertsspaceindustries.com/media/tmcustpdtsbjjr/source/KSSF-Background.jpg",
+                "images": []
+            }
+        },
+        {
+            "id": "325",
+            "code": "HELIOS",
+            "description": "Helios is a unique system because of the helium-strong type B star at its center. It creates fierce solar wind that can interfere with ship sensors. The UEE military takes advantage of this phenomenon to shield their exact activities at Hephaestus Station and Helios IV. Recently, the beautiful, oceanic planet of Tangaroa (Helios II) has become a popular tourist destination. \n",
+            "info_url": null,
+            "name": "Helios",
+            "posX": "67.76655600",
+            "posY": "-35.14945200",
+            "posZ": "9.04347230",
+            "status": "P",
+            "time_modified": "2018-01-25 20:45:03",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "711"
+                }
+            ],
+            "aggregated_size": "237.20000000",
+            "aggregated_population": 8.59,
+            "aggregated_economy": 2.67,
+            "aggregated_danger": 0,
+            "thumbnail": {
+                "slug": "077bhrx1czicu",
+                "source": "https://robertsspaceindustries.com/media/077bhrx1czicur/source/Tangora1.jpg",
+                "images": {
+                    "post": "https://robertsspaceindustries.com/media/077bhrx1czicur/post/Tangora1.jpg",
+                    "product_thumb_large": "https://robertsspaceindustries.com/media/077bhrx1czicur/product_thumb_large/Tangora1.jpg",
+                    "subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/077bhrx1czicur/subscribers_vault_thumbnail/Tangora1.jpg"
+                }
+            }
+        },
+        {
+            "id": "326",
+            "code": "KELLOG",
+            "description": "Though it sits on the border of Vanduul space, the system is under heavy watch for two other reasons. The first is the discovery of life on Kellog II (Xis) which placed that planet under the protection of the Fair Chance Act. The second is that the UEE converted the system\u2019s last planet into the prison world QuarterDeck (Kellog VI). However, frequent trips into the system by bounty hunters and haulers make it the busiest developing system in the UEE.        \n",
+            "info_url": null,
+            "name": "Kellog",
+            "posX": "-27.03306600",
+            "posY": "37.93123200",
+            "posZ": "-2.59158180",
+            "status": "P",
+            "time_modified": "2018-01-27 02:54:07",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "7",
+                    "code": "DEV",
+                    "color": "#ca922d",
+                    "name": "Developing",
+                    "membership.id": "757"
+                }
+            ],
+            "aggregated_size": "33.33700000",
+            "aggregated_population": 8.13,
+            "aggregated_economy": 2.33,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "327",
+            "code": "TIBER",
+            "description": "Discovered during the Project Far Star push, the UEE constructed multiple stations in the systems in lieu of terraforming the two planets. After the Vanduul attacks in Orion, Tiber quickly transformed into a military staging area. It was here where they managed to stop the Vanduul advance. The system became a battleground, leading to its ominous nickname, \u201cGrinder.\u201d The crushing defeat after the Siege of Tiber sent the UEE military scrambling back into Virgil.",
+            "info_url": null,
+            "name": "Tiber",
+            "posX": "-35.52413600",
+            "posY": "10.73423000",
+            "posZ": "6.15300320",
+            "status": "M",
+            "time_modified": "2018-01-27 02:14:42",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "3",
+                    "code": "VNCL",
+                    "color": "#bd002d",
+                    "name": "Vanduul",
+                    "membership.id": "748"
+                }
+            ],
+            "aggregated_size": "1.00000000",
+            "aggregated_population": 0,
+            "aggregated_economy": 1.05,
+            "aggregated_danger": 0,
+            "thumbnail": {
+                "slug": "ig1no0et53c8l",
+                "source": "https://robertsspaceindustries.com/media/ig1no0et53c8lr/source/GGS-Background.jpg",
+                "images": []
+            }
+        },
+        {
+            "id": "328",
+            "code": "OSIRIS",
+            "description": "Osiris was one of the first systems protected under the Fair Chance Act. Discovered shortly before the Massacre of Garron II, the system wasn\u2019t properly explored until after the Messer Regime fell. When native life was found on Etos (Osiris I) the FCA was swiftly put to use. While the system\u2019s inner reaches are off limits, an observation station exist near Osiris I. \n",
+            "info_url": null,
+            "name": "Osiris",
+            "posX": "99.02492500",
+            "posY": "-21.55305700",
+            "posZ": "-8.50569250",
+            "status": "P",
+            "time_modified": "2018-01-26 03:17:40",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "7",
+                    "code": "DEV",
+                    "color": "#ca922d",
+                    "name": "Developing",
+                    "membership.id": "734"
+                }
+            ],
+            "aggregated_size": "2.30400000",
+            "aggregated_population": 7.44,
+            "aggregated_economy": 1.05,
+            "aggregated_danger": 0,
+            "thumbnail": {
+                "slug": "me4lwplirnnlx",
+                "source": "https://robertsspaceindustries.com/media/me4lwplirnnlxr/source/Osiris-System.jpg",
+                "images": {
+                    "post": "https://robertsspaceindustries.com/media/me4lwplirnnlxr/post/Osiris-System.jpg",
+                    "product_thumb_large": "https://robertsspaceindustries.com/media/me4lwplirnnlxr/product_thumb_large/Osiris-System.jpg",
+                    "subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/me4lwplirnnlxr/subscribers_vault_thumbnail/Osiris-System.jpg"
+                }
+            }
+        },
+        {
+            "id": "329",
+            "code": "FORA",
+            "description": "Located near Banu territory, surveyors were hopeful that Fora system could become another major trade hub. Unfortunately, it\u2019s only habitable planet, Hyperion (Fora III), fell victim to a terraforming mishap that created a perpetual, planet-wide dust storm. Informal censuses of the area indicate that visitors are more likely to encounter a smuggler, outlaw or Banu settler than a UEE Citizen while in this five-planet system.\n",
+            "info_url": null,
+            "name": "Fora",
+            "posX": "2.65723510",
+            "posY": "-67.59278900",
+            "posZ": "-50.63693200",
+            "status": "P",
+            "time_modified": "2018-01-25 03:25:38",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "702"
+                }
+            ],
+            "aggregated_size": "14.00000000",
+            "aggregated_population": 8.33,
+            "aggregated_economy": 1.86,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "331",
+            "code": "BREMEN",
+            "description": "Discovered in 2441 during the Expansionist Era, Bremen didn\u2019t offer any exotic resources or unique stellar compositions, so it was considered by many to be \u2018unremarkable.\u2019 The system developed slowly over the centuries and, aside from some notoriety as the main provider of rations during the Second Tevarin War (2603-2610), it retained its unassuming reputation. Recently it was revealed this innocuousness made Bremen an ideal launching place for the activists that overthrew the Messers. \n",
+            "info_url": null,
+            "name": "Bremen",
+            "posX": "13.61405700",
+            "posY": "19.07716400",
+            "posZ": "-6.40938190",
+            "status": "P",
+            "time_modified": "2018-01-25 02:08:05",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "686"
+                }
+            ],
+            "aggregated_size": "6.14000000",
+            "aggregated_population": 8.58,
+            "aggregated_economy": 1.51,
+            "aggregated_danger": 0,
+            "thumbnail": {
+                "slug": "o2lwtyoufd0sp",
+                "source": "https://robertsspaceindustries.com/media/o2lwtyoufd0spr/source/SC_Bremen_System_Concept_Final.jpg",
+                "images": {
+                    "post": "https://robertsspaceindustries.com/media/o2lwtyoufd0spr/post/SC_Bremen_System_Concept_Final.jpg",
+                    "product_thumb_large": "https://robertsspaceindustries.com/media/o2lwtyoufd0spr/product_thumb_large/SC_Bremen_System_Concept_Final.jpg",
+                    "subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/o2lwtyoufd0spr/subscribers_vault_thumbnail/SC_Bremen_System_Concept_Final.jpg"
+                }
+            }
+        },
+        {
+            "id": "332",
+            "code": "OSO",
+            "description": "The most advanced primitive species ever discovered by the UEE lives in the Oso System and is a source of endless fascination for scientists. Because the native species is so advanced, the UEE has built Observation Base Chimera to monitor traffic in the system.  \n",
+            "info_url": null,
+            "name": "Oso",
+            "posX": "31.09702700",
+            "posY": "13.58713300",
+            "posZ": "-40.18243000",
+            "status": "P",
+            "time_modified": "2018-01-26 03:20:42",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "7",
+                    "code": "DEV",
+                    "color": "#ca922d",
+                    "name": "Developing",
+                    "membership.id": "735"
+                }
+            ],
+            "aggregated_size": "16.21000000",
+            "aggregated_population": 7.62,
+            "aggregated_economy": 1.51,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "333",
+            "code": "TAYAC",
+            "description": "Tayac is a system near Xi\u2019An space that is best known as the location of the Ark orbital platform. Opened by the UEE in 2800, the Ark was built following the end of the cold war with the Xi\u2019An and meant to be a repository for universal knowledge as well as a neutral ground for diplomatic discussions between species. Though it has been used infrequently for diplomatic purposes, the Ark\u2019s massive library contains a wealth of invaluable historical information.",
+            "info_url": null,
+            "name": "Tayac",
+            "posX": "80.73561900",
+            "posY": "-16.13992900",
+            "posZ": "-64.05534400",
+            "status": "P",
+            "time_modified": "2018-01-27 02:04:44",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "746"
+                }
+            ],
+            "aggregated_size": "2.84600000",
+            "aggregated_population": 2.59,
+            "aggregated_economy": 2.21,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "334",
+            "code": "CHRONOS",
+            "description": "This vast, sparse system contains only two dead worlds closely circling the G-type main sequence star at the center. Chronos\u2019 green zone was empty, making it the perfect location for the UEE\u2019s ambitious Synthworld project. Currently, Chronos\u2019 only landing zone is Archangel Station, which was built to observe and aid the Synthworld\u2019s construction. Although the system\u2019s need for resources might make it a tempting target for outlaws, the UEE maintains a military presence to safeguard the project. \n",
+            "info_url": null,
+            "name": "Chronos",
+            "posX": "-18.83503300",
+            "posY": "54.18090800",
+            "posZ": "13.78157400",
+            "status": "P",
+            "time_modified": "2018-01-25 02:32:48",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "693"
+                }
+            ],
+            "aggregated_size": "1.27000000",
+            "aggregated_population": 0,
+            "aggregated_economy": 1.98,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "335",
+            "code": "MIN",
+            "description": "Min is unique among Human systems in that its main focus is not a star but, instead, a rogue gas giant with four orbiting moons. The system lacks resources or much of interest. Still, life has found a way to inhabit this system. Bioluminescent bacteria exist on Min 1b and a small group of settlers have even established an encampment there.   ",
+            "info_url": null,
+            "name": "Min",
+            "posX": "40.14642000",
+            "posY": "-29.81984700",
+            "posZ": "17.68380200",
+            "status": "P",
+            "time_modified": "2015-10-08 17:44:13",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "8",
+                    "code": "UNC",
+                    "color": "#f6851f",
+                    "name": "Unclaimed",
+                    "membership.id": "511"
+                }
+            ],
+            "aggregated_size": "1.30000000",
+            "aggregated_population": 0,
+            "aggregated_economy": 2.21,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "336",
+            "code": "KALLIS",
+            "description": "Kallis is a developing system whose planetary masses are still in the process of forming, much to the interest of the scientific community. Even though it lacks any lifeforms, it is currently protected by the Fair Chance Act so that researchers may take advantage of this unique opportunity to watch a system\u2019s formation firsthand.",
+            "info_url": null,
+            "name": "Kallis",
+            "posX": "22.29381600",
+            "posY": "2.69734950",
+            "posZ": "-3.51858400",
+            "status": "P",
+            "time_modified": "2018-01-26 00:38:46",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "7",
+                    "code": "DEV",
+                    "color": "#ca922d",
+                    "name": "Developing",
+                    "membership.id": "717"
+                }
+            ],
+            "aggregated_size": "22.73900000",
+            "aggregated_population": 0,
+            "aggregated_economy": 2.67,
+            "aggregated_danger": 0,
+            "thumbnail": {
+                "slug": "wke8b7g87cq99",
+                "source": "https://robertsspaceindustries.com/media/wke8b7g87cq99r/source/Kallis.jpg",
+                "images": {
+                    "post": "https://robertsspaceindustries.com/media/wke8b7g87cq99r/post/Kallis.jpg",
+                    "product_thumb_large": "https://robertsspaceindustries.com/media/wke8b7g87cq99r/product_thumb_large/Kallis.jpg",
+                    "subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/wke8b7g87cq99r/subscribers_vault_thumbnail/Kallis.jpg"
+                }
+            }
+        },
+        {
+            "id": "337",
+            "code": "CASTRA",
+            "description": "Zoned as a staging area for Naval bombers, Castra was a key military position along the Perry Line during the Xi\u2019An/Human tensions of 2530-2789. Once the Akari Treaty was recognized by Imperator Toi, the UEE military largely demilitarized the system and opened it for public habitation. Castra experienced a boom in population thanks to the inexpensive real estate that opened up in the wake of the military\u2019s departure.\n ",
+            "info_url": null,
+            "name": "Castra",
+            "posX": "40.19461800",
+            "posY": "18.95837800",
+            "posZ": "21.06100800",
+            "status": "P",
+            "time_modified": "2018-01-25 02:16:52",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "689"
+                }
+            ],
+            "aggregated_size": "22.00000000",
+            "aggregated_population": 8.31,
+            "aggregated_economy": 0.93,
+            "aggregated_danger": 0,
+            "thumbnail": {
+                "slug": "scdkn4biqpvwx",
+                "source": "https://robertsspaceindustries.com/media/scdkn4biqpvwxr/source/Sherman_006.jpg",
+                "images": {
+                    "post": "https://robertsspaceindustries.com/media/scdkn4biqpvwxr/post/Sherman_006.jpg",
+                    "product_thumb_large": "https://robertsspaceindustries.com/media/scdkn4biqpvwxr/product_thumb_large/Sherman_006.jpg",
+                    "subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/scdkn4biqpvwxr/subscribers_vault_thumbnail/Sherman_006.jpg"
+                }
+            }
+        },
+        {
+            "id": "338",
+            "code": "HADES",
+            "description": "Named after the ancient mythological underworld, Hades is an ancient battlefield of the dead. Xenoarchaelogists theorize that a system-wide civil war ended in the self-annihilation of the civilization. The UEE registry lists this unclaimed system as having three and a half planets. The \u201chalf planet\u201d is Hades IV, which has been split in half by a mysterious force. Hades has endured as an archaeological curiosity for both scientists and the public alike, some of whom are convinced the Hadesian \u2018planet-killer\u2019 tech is somewhere in the system.\n",
+            "info_url": null,
+            "name": "Hades",
+            "posX": "26.80994000",
+            "posY": "-32.32772800",
+            "posZ": "-3.95969270",
+            "status": "P",
+            "time_modified": "2018-01-25 20:34:00",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "8",
+                    "code": "UNC",
+                    "color": "#f6851f",
+                    "name": "Unclaimed",
+                    "membership.id": "708"
+                }
+            ],
+            "aggregated_size": "22.00000000",
+            "aggregated_population": 0,
+            "aggregated_economy": 1.05,
+            "aggregated_danger": 0,
+            "thumbnail": {
+                "slug": "i98oqt29bqotw",
+                "source": "https://robertsspaceindustries.com/media/i98oqt29bqotwr/source/UBA-Background.jpg",
+                "images": []
+            }
+        },
+        {
+            "id": "339",
+            "code": "CALIBAN",
+            "description": "Caliban is a former UEE system lost during the Vanduul push. The Fall of Caliban in 2884 is famous for being the last time a Vanduul Kingship was in UEE space. The ensuing battle also featured the Lost Squad\u2019s last stand against overwhelming odds. Over six decades later, both worlds remain a feast for the harvesters of roaming Vanduul Clans. \n",
+            "info_url": null,
+            "name": "Caliban",
+            "posX": "-31.41180400",
+            "posY": "-7.82411100",
+            "posZ": "3.56286880",
+            "status": "M",
+            "time_modified": "2018-05-23 23:59:44",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "3",
+                    "code": "VNCL",
+                    "color": "#bd002d",
+                    "name": "Vanduul",
+                    "membership.id": "767"
+                }
+            ],
+            "aggregated_size": "5.89000000",
+            "aggregated_population": 7.21,
+            "aggregated_economy": 1.63,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "340",
+            "code": "DAVIEN",
+            "description": "The Davien System is famous for being the site of Humanity\u2019s first alien encounter. Following first contact with the Banu in 2438, it only took a few months for Humanity to negotiate its first interstellar peace treaty. People and businesses flooded the system\u2019s only habitable planet Cestulus (Davien II) to do business with the Banu. The system\u2019s clout faded as larger and more stable jump points were discovered in other systems. ",
+            "info_url": null,
+            "name": "Davien",
+            "posX": "13.36286100",
+            "posY": "-18.60718900",
+            "posZ": "3.85482190",
+            "status": "P",
+            "time_modified": "2018-01-25 02:48:04",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "697"
+                }
+            ],
+            "aggregated_size": "17.00000000",
+            "aggregated_population": 8.7,
+            "aggregated_economy": 1.51,
+            "aggregated_danger": 0,
+            "thumbnail": {
+                "slug": "cgl4b8slf09of",
+                "source": "https://robertsspaceindustries.com/media/cgl4b8slf09ofr/source/ICF-Cover.jpg",
+                "images": []
+            }
+        },
+        {
+            "id": "342",
+            "code": "BAKER",
+            "description": "Though the binary star system is of great interest to the scientific community, Baker has seen little use by the general civilian population. Poor placement of the planets makes terraforming impossible, and, as a result, the system\u2019s sparse population is mostly confined to Xenia, a Covalex shipping hub near Baker-III. This relative isolation has made it an ideal spot for underground racing, the most well-known of which is the Able Baker Challenge.   ",
+            "info_url": null,
+            "name": "Baker",
+            "posX": "89.54095500",
+            "posY": "-5.42230320",
+            "posZ": "-39.71175400",
+            "status": "P",
+            "time_modified": "2018-01-27 02:53:37",
+            "type": "BINARY",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "756"
+                }
+            ],
+            "aggregated_size": "7.90000000",
+            "aggregated_population": 7.4,
+            "aggregated_economy": 2.91,
+            "aggregated_danger": 0,
+            "thumbnail": {
+                "slug": "bl6bjweeq6kty",
+                "source": "https://robertsspaceindustries.com/media/bl6bjweeq6ktyr/source/Baker_System_Concept_Final-V2-Rotate.jpg",
+                "images": {
+                    "post": "https://robertsspaceindustries.com/media/bl6bjweeq6ktyr/post/Baker_System_Concept_Final-V2-Rotate.jpg",
+                    "product_thumb_large": "https://robertsspaceindustries.com/media/bl6bjweeq6ktyr/product_thumb_large/Baker_System_Concept_Final-V2-Rotate.jpg",
+                    "subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/bl6bjweeq6ktyr/subscribers_vault_thumbnail/Baker_System_Concept_Final-V2-Rotate.jpg"
+                }
+            }
+        },
+        {
+            "id": "344",
+            "code": "KILIAN",
+            "description": "The economy of this fourteen-planet system is primarily military-industrial, containing countless military barracks, training facilities, and shipyards, including the Navy headquarters on MacArthur (Kilian V) and the Marine headquarters on Corin (Kilian IX). This combination of military facilities and business makes Kilian one of the most important and safest systems in the UEE.",
+            "info_url": null,
+            "name": "Kilian",
+            "posX": "30.58723400",
+            "posY": "-13.46303900",
+            "posZ": "3.14505480",
+            "status": "P",
+            "time_modified": "2018-01-26 01:23:24",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "721"
+                }
+            ],
+            "aggregated_size": "194.40000000",
+            "aggregated_population": 8.9,
+            "aggregated_economy": 6.74,
+            "aggregated_danger": 0,
+            "thumbnail": {
+                "slug": "a8fg96t3y7bj3",
+                "source": "https://robertsspaceindustries.com/media/a8fg96t3y7bj3r/source/Kilian_2.png",
+                "images": {
+                    "post": "https://robertsspaceindustries.com/media/a8fg96t3y7bj3r/post/Kilian_2.png",
+                    "product_thumb_large": "https://robertsspaceindustries.com/media/a8fg96t3y7bj3r/product_thumb_large/Kilian_2.png",
+                    "subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/a8fg96t3y7bj3r/subscribers_vault_thumbnail/Kilian_2.png"
+                }
+            }
+        },
+        {
+            "id": "346",
+            "code": "BANSHEE",
+            "description": "Banshee has the unique distinction of being the only UEE system discovered with a pulsar at its center. Although the planets are completely inhospitable due to the intense radiation, Banshee III is home to some of the most extensive mining operations in the UEE.\n",
+            "info_url": null,
+            "name": "Banshee",
+            "posX": "-14.70489900",
+            "posY": "-62.06086700",
+            "posZ": "-3.52754000",
+            "status": "P",
+            "time_modified": "2018-01-25 01:38:43",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "683"
+                }
+            ],
+            "aggregated_size": "55.70000000",
+            "aggregated_population": 7.58,
+            "aggregated_economy": 1.63,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "347",
+            "code": "TYROL",
+            "description": "Tyrol is a binary star system in danger of going nova. The looming cataclysmic, stellar explosion has left this system unclaimed and most of its planets uninhabited. Although the scientific community is keen to study the last stages of a star\u2019s life, it is believed that the bulk of the system\u2019s population are mainly criminals and those with nowhere else to go.",
+            "info_url": null,
+            "name": "Tyrol",
+            "posX": "80.69747900",
+            "posY": "-43.27996400",
+            "posZ": "-17.19221300",
+            "status": "P",
+            "time_modified": "2018-01-27 02:22:48",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "8",
+                    "code": "UNC",
+                    "color": "#f6851f",
+                    "name": "Unclaimed",
+                    "membership.id": "751"
+                }
+            ],
+            "aggregated_size": "56.10000000",
+            "aggregated_population": 8.74,
+            "aggregated_economy": 3.02,
+            "aggregated_danger": 0,
+            "thumbnail": {
+                "slug": "l8cxob3dwuupm",
+                "source": "https://robertsspaceindustries.com/media/l8cxob3dwuupmr/source/Tyrol.jpg",
+                "images": {
+                    "post": "https://robertsspaceindustries.com/media/l8cxob3dwuupmr/post/Tyrol.jpg",
+                    "product_thumb_large": "https://robertsspaceindustries.com/media/l8cxob3dwuupmr/product_thumb_large/Tyrol.jpg",
+                    "subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/l8cxob3dwuupmr/subscribers_vault_thumbnail/Tyrol.jpg"
+                }
+            }
+        },
+        {
+            "id": "348",
+            "code": "OBERON",
+            "description": "Located at a nexus of jump points, the Oberon system acts as a buffer between UEE and Vanduul space. Mineral deposits and a potentially habitable planet initially sparked UEE interest in the system, but Vanduul raids, harsh mining conditions on Oberon I (Gonn) and a terraforming tragedy on Oberon II (Uriel) led to it staying unclaimed.\n",
+            "info_url": null,
+            "name": "Oberon",
+            "posX": "-22.97912200",
+            "posY": "2.80666730",
+            "posZ": "4.14022450",
+            "status": "P",
+            "time_modified": "2018-01-26 02:41:57",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "8",
+                    "code": "UNC",
+                    "color": "#f6851f",
+                    "name": "Unclaimed",
+                    "membership.id": "730"
+                }
+            ],
+            "aggregated_size": "18.47000000",
+            "aggregated_population": 9.04,
+            "aggregated_economy": 2.09,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "349",
+            "code": "RHETOR",
+            "description": "Rhetor is the center of higher learning in the UEE. It houses not only many of the UEE\u2019s private and public universities, but a number of think tanks and theoretical research facilities as well. Because of this focus on education, Rhetor has the youngest average age of any system in the Empire.",
+            "info_url": null,
+            "name": "Rhetor",
+            "posX": "13.61867700",
+            "posY": "-40.25992600",
+            "posZ": "24.34582300",
+            "status": "P",
+            "time_modified": "2018-01-27 01:31:19",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "739"
+                }
+            ],
+            "aggregated_size": "3.90000000",
+            "aggregated_population": 8.49,
+            "aggregated_economy": 2.33,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "355",
+            "code": "SOL",
+            "description": "The birthplace of Humanity and capital of the Empire. The Imperator, Senate and many other major UEE institutions are based on Earth (Sol III). Among the many historical milestones that the system can lay claim to is the first ever terraformed planet, Mars (Sol IV).",
+            "info_url": null,
+            "name": "Sol",
+            "posX": "0.00000000",
+            "posY": "0.00000000",
+            "posZ": "0.00000000",
+            "status": "P",
+            "time_modified": "2015-10-10 14:09:45",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "467"
+                }
+            ],
+            "aggregated_size": "51.00000000",
+            "aggregated_population": 8.59,
+            "aggregated_economy": 5.58,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "356",
+            "code": "GOSS",
+            "description": "Generally regarded as one of the most visually stunning parts of the Empire, Goss is a binary star system situated near the massive stellar phenomenon known as the Olympus Pool. Consequently, the bulk of the system's economy comes from tourism, but Gossians pride themselves on being self sufficient as the system produces its raw materials internally, mining and harvesting resources on their own.\n",
+            "info_url": null,
+            "name": "Goss",
+            "posX": "85.11102300",
+            "posY": "-29.70129200",
+            "posZ": "8.18684200",
+            "status": "P",
+            "time_modified": "2018-01-25 20:22:38",
+            "type": "BINARY",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "707"
+                }
+            ],
+            "aggregated_size": "6.00000000",
+            "aggregated_population": 8.8,
+            "aggregated_economy": 2.56,
+            "aggregated_danger": 0,
+            "thumbnail": {
+                "slug": "v48kjlj7va8wg",
+                "source": "https://robertsspaceindustries.com/media/v48kjlj7va8wgr/source/GossII_Cassel_Landing_02.jpg",
+                "images": {
+                    "post": "https://robertsspaceindustries.com/media/v48kjlj7va8wgr/post/GossII_Cassel_Landing_02.jpg",
+                    "product_thumb_large": "https://robertsspaceindustries.com/media/v48kjlj7va8wgr/product_thumb_large/GossII_Cassel_Landing_02.jpg",
+                    "subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/v48kjlj7va8wgr/subscribers_vault_thumbnail/GossII_Cassel_Landing_02.jpg"
+                }
+            }
+        },
+        {
+            "id": "357",
+            "code": "NEXUS",
+            "description": "Nexus was technically an unclaimed system since its discovery, even though UEE-based mining consortiums descended on the planets to claim their resources. After the discovery of jump points into neighboring lawless systems, a criminal element moved in. Following Kellar\u2019s Run, and the discovery of a new source of minerals in its asteroid belt in 2931, the UEE began to reassert its authority in the system, claiming it as part of the Empire and uprooting the criminals that were living there. These criminals haven\u2019t left quietly, a battle for control of the system is still actively being waged.",
+            "info_url": null,
+            "name": "Nexus",
+            "posX": "35.15741700",
+            "posY": "-27.03000300",
+            "posZ": "-11.65229600",
+            "status": "P",
+            "time_modified": "2018-01-26 01:49:11",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "727"
+                }
+            ],
+            "aggregated_size": "11.30000000",
+            "aggregated_population": 8.27,
+            "aggregated_economy": 1.51,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "360",
+            "code": "ORION",
+            "description": "Orion System is the farthest human world discovered under Project Far Star. It was on this fledgling frontier planet that Humanity encountered the Vanduul for the first time. On August 9, 2681, a Vanduul raiding party struck a main post on Armitage. Subsequent raids occurred over a scattered number of years, the Messers began to treat this new alien as a mere annoyance. In 2712, that changed in what became known as the Battle of Orion which resulted in the UEE\u2019s abandonment of the system.",
+            "info_url": null,
+            "name": "Orion",
+            "posX": "-45.33338900",
+            "posY": "0.05825996",
+            "posZ": "15.39452900",
+            "status": "M",
+            "time_modified": "2018-01-26 03:03:36",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "3",
+                    "code": "VNCL",
+                    "color": "#bd002d",
+                    "name": "Vanduul",
+                    "membership.id": "733"
+                }
+            ],
+            "aggregated_size": "1.45445000",
+            "aggregated_population": 7.73,
+            "aggregated_economy": 1.28,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "361",
+            "code": "NEMO",
+            "description": "The Nemo System is known primarily as a tourist destination and major supplier of oil. The only habitable planet is Ergo (Nemo III), a terraformed oceanic world. Lacking any significant land masses, the planet is dotted by floating platform cities that house the population and harvest oil from beneath the surface. ",
+            "info_url": null,
+            "name": "Nemo",
+            "posX": "26.74326300",
+            "posY": "-43.16007600",
+            "posZ": "-11.23295500",
+            "status": "P",
+            "time_modified": "2018-01-26 01:46:50",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "726"
+                }
+            ],
+            "aggregated_size": "2.32600000",
+            "aggregated_population": 8.51,
+            "aggregated_economy": 1.28,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "362",
+            "code": "CENTAURI",
+            "description": "Discovered in 2365, Centauri was one of the first systems settled during Humanity\u2019s initial interstellar expansion. Surveyors immediately recognized the colonization potential of the third planet and fast-tracked its development. Centauri became one of the prime battlegrounds during the first Tevarin War (2542-2546) and was even conquered by the Tevarin for a short time. These days, the system is primarily known as the Human headquarters of MISC.\n",
+            "info_url": null,
+            "name": "Centauri",
+            "posX": "-27.05356200",
+            "posY": "-27.11801700",
+            "posZ": "22.15669100",
+            "status": "P",
+            "time_modified": "2018-01-25 02:21:57",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "691"
+                }
+            ],
+            "aggregated_size": "10.00000000",
+            "aggregated_population": 8.46,
+            "aggregated_economy": 3.37,
+            "aggregated_danger": 0,
+            "thumbnail": {
+                "slug": "jfme7ueve6b1u",
+                "source": "https://robertsspaceindustries.com/media/jfme7ueve6b1ur/source/Fujin.jpg",
+                "images": {
+                    "post": "https://robertsspaceindustries.com/media/jfme7ueve6b1ur/post/Fujin.jpg",
+                    "product_thumb_large": "https://robertsspaceindustries.com/media/jfme7ueve6b1ur/product_thumb_large/Fujin.jpg",
+                    "subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/jfme7ueve6b1ur/subscribers_vault_thumbnail/Fujin.jpg"
+                }
+            }
+        },
+        {
+            "id": "363",
+            "code": "ELYSIUM",
+            "description": "The ancestral home of the Tevarin species, Elysium was incorporated into the UPE at the end of the First Tevarin War (2542-2546) and cleared for Human habitation. The system became the focal point of the Second Tevarin War (2603-2610) when the shattered remnants of Warlord Corath\u2019Thal\u2019s fleet crashed into their former homeworld to end the conflict. \n",
+            "info_url": null,
+            "name": "Elysium",
+            "posX": "-32.41680100",
+            "posY": "-40.17849300",
+            "posZ": "-20.80187600",
+            "status": "P",
+            "time_modified": "2018-01-25 03:19:01",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "700"
+                }
+            ],
+            "aggregated_size": "9.31000000",
+            "aggregated_population": 7.94,
+            "aggregated_economy": 1.74,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "364",
+            "code": "IDRIS",
+            "description": "Idris is a five-planet system whose role in the First Tevarin War would forever change the UEE. The system\u2019s only inhabited planet, Locke (Idris IV), was experiencing a population boom before it was captured by the Tevarin in 2542. Two years later, the operation to retake Locke almost failed until a young Captain Ivar Messer took command and led UPE forces to victory. The battle turned the tide of the war and is considered Messer\u2019s first step on the path to becoming Imperator.       \n",
+            "info_url": null,
+            "name": "Idris",
+            "posX": "-14.42207700",
+            "posY": "-35.07845300",
+            "posZ": "-6.47067740",
+            "status": "P",
+            "time_modified": "2018-01-25 20:52:50",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "714"
+                }
+            ],
+            "aggregated_size": "9.35000000",
+            "aggregated_population": 8.53,
+            "aggregated_economy": 1.74,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "367",
+            "code": "FERRON",
+            "description": "For centuries, this four-planet system was an economic powerhouse thanks to Asura (Ferron III). The planet\u2019s vast deposits of rare minerals built a prosperous and populated system. Once Asura\u2019s minerals were depleted, the system became a shell of its former self. People and businesses moved away and left the planet plagued by poverty and widespread industrial pollution. Unfortunately, Ferron\u2019s other three planets offered little to elevate the system\u2019s status.   \n",
+            "info_url": null,
+            "name": "Ferron",
+            "posX": "-4.64992330",
+            "posY": "-24.19145000",
+            "posZ": "-4.60678390",
+            "status": "P",
+            "time_modified": "2018-01-25 03:22:15",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "701"
+                }
+            ],
+            "aggregated_size": "18.00000000",
+            "aggregated_population": 8.46,
+            "aggregated_economy": 1.28,
+            "aggregated_danger": 0,
+            "thumbnail": {
+                "slug": "uaph0ffcgp9jc",
+                "source": "https://robertsspaceindustries.com/media/uaph0ffcgp9jcr/source/Ferronlll_Asura_Tram_GalacticGuide.jpg",
+                "images": {
+                    "post": "https://robertsspaceindustries.com/media/uaph0ffcgp9jcr/post/Ferronlll_Asura_Tram_GalacticGuide.jpg",
+                    "product_thumb_large": "https://robertsspaceindustries.com/media/uaph0ffcgp9jcr/product_thumb_large/Ferronlll_Asura_Tram_GalacticGuide.jpg",
+                    "subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/uaph0ffcgp9jcr/subscribers_vault_thumbnail/Ferronlll_Asura_Tram_GalacticGuide.jpg"
+                }
+            }
+        },
+        {
+            "id": "369",
+            "code": "CROSHAW",
+            "description": "Humanity\u2019s \u201cGateway to the Universe.\u201d Named after Nick Croshaw, who discovered it in 2271, this was the first system visited by the Human race outside of Sol. The ramifications of the discovery didn\u2019t end there, as the bureaucracy needed to colonize the system caused such debate on Earth that it led to the creation of the UNE. The system has been a consistent player in Humanity\u2019s social and political development ever since. ",
+            "info_url": null,
+            "name": "Croshaw",
+            "posX": "-0.52994156",
+            "posY": "-10.87665100",
+            "posZ": "-0.79857260",
+            "status": "P",
+            "time_modified": "2018-01-25 02:45:52",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "696"
+                }
+            ],
+            "aggregated_size": "8.00000000",
+            "aggregated_population": 8.79,
+            "aggregated_economy": 3.02,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "370",
+            "code": "COREL",
+            "description": "Located on the border of the Banu Protectorate, Corel System is one of the busiest tradeways in the Empire with long lines of ships waiting to clear both UEE customs and Banu trade guilds. The blending of these two civilizations is readily apparent on Lo (Corel III), where a large Banu population lives alongside Human settlers, creating a culture that is entirely unique to the area. Besides Lo, Castor (Corel IV), a frozen desert world, is the system\u2019s only other populated planet, albeit sparsely.",
+            "info_url": null,
+            "name": "Corel",
+            "posX": "45.35110100",
+            "posY": "-48.68608900",
+            "posZ": "19.84694700",
+            "status": "P",
+            "time_modified": "2018-01-25 02:36:06",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "695"
+                }
+            ],
+            "aggregated_size": "8.90000000",
+            "aggregated_population": 8.6,
+            "aggregated_economy": 2.21,
+            "aggregated_danger": 0,
+            "thumbnail": {
+                "slug": "r30xufczygc6c",
+                "source": "https://robertsspaceindustries.com/media/r30xufczygc6cr/source/Corel_1.jpg",
+                "images": {
+                    "post": "https://robertsspaceindustries.com/media/r30xufczygc6cr/post/Corel_1.jpg",
+                    "product_thumb_large": "https://robertsspaceindustries.com/media/r30xufczygc6cr/product_thumb_large/Corel_1.jpg",
+                    "subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/r30xufczygc6cr/subscribers_vault_thumbnail/Corel_1.jpg"
+                }
+            }
+        },
+        {
+            "id": "372",
+            "code": "CATHCART",
+            "description": "Cathcart system contains no planets, only a loose collection of asteroids near the system\u2019s theoretical green band, so it became the galaxy\u2019s junkyard. Old space hulks were decommissioned and deconstructed here for centuries. The Navy began constructing a habitable platform to act as a military transit hub, but ended up abandoning the project. Even though the system has well-travelled lanes, the sprawling debris fields off the well-beaten paths have become a haven for criminal elements.  \n",
+            "info_url": null,
+            "name": "Cathcart",
+            "posX": "26.62512600",
+            "posY": "-21.68784000",
+            "posZ": "16.41443600",
+            "status": "P",
+            "time_modified": "2018-01-25 02:21:39",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "8",
+                    "code": "UNC",
+                    "color": "#f6851f",
+                    "name": "Unclaimed",
+                    "membership.id": "690"
+                }
+            ],
+            "aggregated_size": "22.00000000",
+            "aggregated_population": 0,
+            "aggregated_economy": 1.28,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "376",
+            "code": "VIRTUS",
+            "description": "With an expanding red giant at its center, the UEE happily ceded this Perry Line system to the Xi\u2019An. Today, it is best known for the officially-sanctioned piracy that occurs here. Accepting that crime will always exist, the Xi\u2019An Empire authorizes select criminal gangs to operate under certain conditions. That does not mean it is a lawless system. Unauthorized criminals caught operating here will incur the wrath of both the Xi\u2019An government and the system\u2019s sanctioned gangs.",
+            "info_url": null,
+            "name": "La\u2019uo (Virtus)",
+            "posX": "30.93765600",
+            "posY": "51.36297200",
+            "posZ": "17.24339500",
+            "status": "P",
+            "time_modified": "2018-11-15 00:05:08",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "4",
+                    "code": "XIAN",
+                    "color": "#52c231",
+                    "name": "Xi'An",
+                    "membership.id": "773"
+                }
+            ],
+            "aggregated_size": "98.26494000",
+            "aggregated_population": 7.51,
+            "aggregated_economy": 4.53,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "377",
+            "code": "HADUR",
+            "description": "A former Perry Line system, Y\u0101\u2019mon (then known as Hadur) was ceded to the Xi\u2019An Empire as part of the Akari/Kr.\u0113 Treaty. The Xi\u2019An are currently terraforming two of the system\u2019s planets. Historically known to terraform planets towards a specific need, the Xi\u2019An have not revealed how they plan to utilize these worlds once the process is complete.    ",
+            "info_url": null,
+            "name": "Y\u0101\u2019mon (Hadur)",
+            "posX": "116.42478000",
+            "posY": "-5.47712420",
+            "posZ": "-34.91248300",
+            "status": "P",
+            "time_modified": "2018-11-14 20:46:29",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "4",
+                    "code": "XIAN",
+                    "color": "#52c231",
+                    "name": "Xi'An",
+                    "membership.id": "770"
+                }
+            ],
+            "aggregated_size": "15.26415000",
+            "aggregated_population": 0,
+            "aggregated_economy": 2.09,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "378",
+            "code": "VIRGO",
+            "description": "UEE MILITARY CLASSIFIED",
+            "info_url": null,
+            "name": "Virgo",
+            "posX": "-68.17153900",
+            "posY": "2.82617570",
+            "posZ": "12.55848900",
+            "status": "M",
+            "time_modified": "2015-10-08 21:00:37",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "3",
+                    "code": "VNCL",
+                    "color": "#bd002d",
+                    "name": "Vanduul",
+                    "membership.id": "564"
+                }
+            ],
+            "aggregated_size": "0.00000000",
+            "aggregated_population": 1.08,
+            "aggregated_economy": 0.12,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "379",
+            "code": "VIKING",
+            "description": "UEE MILITARY CLASSIFIED",
+            "info_url": null,
+            "name": "Viking",
+            "posX": "-50.72259100",
+            "posY": "-13.45106900",
+            "posZ": "-13.44252300",
+            "status": "M",
+            "time_modified": "2015-10-08 21:00:27",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "3",
+                    "code": "VNCL",
+                    "color": "#bd002d",
+                    "name": "Vanduul",
+                    "membership.id": "563"
+                }
+            ],
+            "aggregated_size": "1.00000000",
+            "aggregated_population": 1.08,
+            "aggregated_economy": 0.12,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "380",
+            "code": "VOLT",
+            "description": "UEE MILITARY CLASSIFIED",
+            "info_url": null,
+            "name": "Volt",
+            "posX": "-55.07115200",
+            "posY": "54.05952100",
+            "posZ": "10.77953700",
+            "status": "M",
+            "time_modified": "2015-10-08 21:00:15",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "3",
+                    "code": "VNCL",
+                    "color": "#bd002d",
+                    "name": "Vanduul",
+                    "membership.id": "562"
+                }
+            ],
+            "aggregated_size": "0.00000000",
+            "aggregated_population": 1.08,
+            "aggregated_economy": 0.12,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "381",
+            "code": "KINS",
+            "description": "This system is best known for having the Banu\u2019s main indentured servitude market. The practice is a traditional and accepted part of Banu society and treated as such here. On the whole, the system is considered more dangerous than other Banu Systems, but most of that can be blamed on the Human element that frequents it.    \n",
+            "info_url": null,
+            "name": "Kins",
+            "posX": "80.66133900",
+            "posY": "-64.89434800",
+            "posZ": "53.80333300",
+            "status": "P",
+            "time_modified": "2018-01-26 01:27:44",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "2",
+                    "code": "BANU",
+                    "color": "#ffce17",
+                    "name": "Banu",
+                    "membership.id": "722"
+                }
+            ],
+            "aggregated_size": "11.36000000",
+            "aggregated_population": 8.65,
+            "aggregated_economy": 3.02,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "382",
+            "code": "KAYFA",
+            "description": "The Kayfa System has gained religious significance in Xi\u2019An culture as it is often the destination for religious tourists and pilgrims. During the days of the Messer Era, Kayfa was one of the more heavily fortified and protected systems, indicating its cultural significance to the Xi\u2019An. Finally, Kayfa\u2019s best known export is the Centennial Bloom, a plant famous for blossoming for only one night every hundred years. ",
+            "info_url": null,
+            "name": "Kayfa",
+            "posX": "89.61151100",
+            "posY": "48.47125600",
+            "posZ": "-9.27202130",
+            "status": "P",
+            "time_modified": "2018-01-26 01:04:26",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "4",
+                    "code": "XIAN",
+                    "color": "#52c231",
+                    "name": "Xi'An",
+                    "membership.id": "718"
+                }
+            ],
+            "aggregated_size": "12.08000000",
+            "aggregated_population": 8.53,
+            "aggregated_economy": 1.74,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "383",
+            "code": "VULTURE",
+            "description": "UEE MILITARY CLASSIFIED",
+            "info_url": null,
+            "name": "Vulture",
+            "posX": "-63.70377700",
+            "posY": "0.07148838",
+            "posZ": "5.98823170",
+            "status": "M",
+            "time_modified": "2015-10-08 20:59:48",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "3",
+                    "code": "VNCL",
+                    "color": "#bd002d",
+                    "name": "Vanduul",
+                    "membership.id": "561"
+                }
+            ],
+            "aggregated_size": "0.00000000",
+            "aggregated_population": 1.08,
+            "aggregated_economy": 0.12,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "384",
+            "code": "BACCHUS",
+            "description": "Many in the UEE believe that Bacchus, a binary star system, contains the Banu\u2019s homeworld, though, to date, the Banu themselves have not been able to or have chosen not to confirm one way or another. Like with most Banu systems, the trade lanes are always packed with travellers from Banu, Human and Xi\u2019An space. A large permanent flotilla in the system\u2019s outer reaches is a popular destination for haulers and traders.\n",
+            "info_url": null,
+            "name": "Bacchus",
+            "posX": "21.17809500",
+            "posY": "-67.47260300",
+            "posZ": "36.86111500",
+            "status": "P",
+            "time_modified": "2018-01-13 02:32:01",
+            "type": "BINARY",
+            "affiliation": [
+                {
+                    "id": "2",
+                    "code": "BANU",
+                    "color": "#ffce17",
+                    "name": "Banu",
+                    "membership.id": "682"
+                }
+            ],
+            "aggregated_size": "5.70000000",
+            "aggregated_population": 8.54,
+            "aggregated_economy": 3.37,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "385",
+            "code": "TAL",
+            "description": "Tal is one of the most iconic Xi\u2019An systems. Designed to act as a Production System, each planet has been meticulously zoned to handle a different type of business. The intricate planning even includes assigning a specific color for each planet to use in its architecture. Four of Tal\u2019s seven-planets are habitable and open to Human visitors. The Xi\u2019An strongly discourage Humans from venturing past Rhiorr (Tal V), the last inhabited planet in the system.",
+            "info_url": null,
+            "name": "Tal",
+            "posX": "121.19137000",
+            "posY": "19.18944500",
+            "posZ": "7.64980550",
+            "status": "P",
+            "time_modified": "2018-01-27 01:42:24",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "4",
+                    "code": "XIAN",
+                    "color": "#52c231",
+                    "name": "Xi'An",
+                    "membership.id": "742"
+                }
+            ],
+            "aggregated_size": "11.50000000",
+            "aggregated_population": 8.86,
+            "aggregated_economy": 4.19,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "386",
+            "code": "GLIESE",
+            "description": "Resource-rich planets and asteroid belts make this system a major shipping hub for the Banu, with a flotilla near Gliese IV serving as the focal point of the system. Gliese IV itself remains a mystery as most Banu refuse to set foot on the planet even though there are empty Banu settlements on the surface.  ",
+            "info_url": null,
+            "name": "Gliese",
+            "posX": "49.80054900",
+            "posY": "-73.01690700",
+            "posZ": "24.55393600",
+            "status": "P",
+            "time_modified": "2018-01-25 20:19:18",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "2",
+                    "code": "BANU",
+                    "color": "#ffce17",
+                    "name": "Banu",
+                    "membership.id": "706"
+                }
+            ],
+            "aggregated_size": "12.75000000",
+            "aggregated_population": 8.03,
+            "aggregated_economy": 4.3,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "387",
+            "code": "VESPER",
+            "description": "UEE MILITARY CLASSIFIED",
+            "info_url": null,
+            "name": "Vesper",
+            "posX": "-54.89748800",
+            "posY": "-32.33271000",
+            "posZ": "-3.88963030",
+            "status": "M",
+            "time_modified": "2015-10-08 20:59:36",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "3",
+                    "code": "VNCL",
+                    "color": "#bd002d",
+                    "name": "Vanduul",
+                    "membership.id": "560"
+                }
+            ],
+            "aggregated_size": "0.00000000",
+            "aggregated_population": 1.08,
+            "aggregated_economy": 0.12,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "388",
+            "code": "EEALUS",
+            "description": "Eealus is best known as the home to the Xi\u2019An Empire\u2019s prime nature preserve, Koli (Eealus III). It was deemed an ideal conservation system since the other planets were unfit for habitation and offer little in the way of resources. Fear of smugglers and invasive species finding its way onto Koli means that customs enforcement is especially strict when entering or leaving Eealus. ",
+            "info_url": null,
+            "name": "Eealus",
+            "posX": "44.74855800",
+            "posY": "59.44962300",
+            "posZ": "26.95150800",
+            "status": "P",
+            "time_modified": "2018-01-25 02:51:27",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "4",
+                    "code": "XIAN",
+                    "color": "#52c231",
+                    "name": "Xi'An",
+                    "membership.id": "698"
+                }
+            ],
+            "aggregated_size": "3.33300000",
+            "aggregated_population": 8.08,
+            "aggregated_economy": 2.79,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "389",
+            "code": "KHABARI",
+            "description": "INCOMPLETE MAP DATA",
+            "info_url": null,
+            "name": "Khabari",
+            "posX": "107.75215000",
+            "posY": "70.56608600",
+            "posZ": "10.67560200",
+            "status": "N",
+            "time_modified": "2015-10-08 21:02:10",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "4",
+                    "code": "XIAN",
+                    "color": "#52c231",
+                    "name": "Xi'An",
+                    "membership.id": "569"
+                }
+            ],
+            "aggregated_size": "0.00000000",
+            "aggregated_population": 0,
+            "aggregated_economy": 0,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "390",
+            "code": "GEDDON",
+            "description": "Only a single planet orbits Geddon\u2019s blue O-type star. While Geddon I is hostile to Humans, it is habitable to the Banu who have establish arcologies below the surface to harvest its valuable resources.  \n",
+            "info_url": null,
+            "name": "Geddon",
+            "posX": "44.97438000",
+            "posY": "-59.37509200",
+            "posZ": "12.84430800",
+            "status": "P",
+            "time_modified": "2018-01-25 03:49:37",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "2",
+                    "code": "BANU",
+                    "color": "#ffce17",
+                    "name": "Banu",
+                    "membership.id": "704"
+                }
+            ],
+            "aggregated_size": "128.40000000",
+            "aggregated_population": 7.65,
+            "aggregated_economy": 0.35,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "391",
+            "code": "VANGUARD",
+            "description": "UEE MILITARY CLASSIFIED",
+            "info_url": null,
+            "name": "Vanguard",
+            "posX": "-50.65370900",
+            "posY": "-45.84001200",
+            "posZ": "-13.38929700",
+            "status": "M",
+            "time_modified": "2015-10-08 20:59:11",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "3",
+                    "code": "VNCL",
+                    "color": "#bd002d",
+                    "name": "Vanduul",
+                    "membership.id": "559"
+                }
+            ],
+            "aggregated_size": "1.00000000",
+            "aggregated_population": 1.08,
+            "aggregated_economy": 0.12,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "392",
+            "code": "VERITAS",
+            "description": "UEE MILITARY CLASSIFIED",
+            "info_url": null,
+            "name": "Veritas",
+            "posX": "-59.46631600",
+            "posY": "29.78436300",
+            "posZ": "-9.28024290",
+            "status": "M",
+            "time_modified": "2015-10-08 20:58:58",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "3",
+                    "code": "VNCL",
+                    "color": "#bd002d",
+                    "name": "Vanduul",
+                    "membership.id": "558"
+                }
+            ],
+            "aggregated_size": "0.00000000",
+            "aggregated_population": 1.08,
+            "aggregated_economy": 0.12,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "394",
+            "code": "VAGABOND",
+            "description": "UEE MILITARY CLASSIFIED",
+            "info_url": null,
+            "name": "Vagabond",
+            "posX": "-63.81211900",
+            "posY": "-21.73651900",
+            "posZ": "9.63173200",
+            "status": "M",
+            "time_modified": "2015-10-08 20:58:51",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "3",
+                    "code": "VNCL",
+                    "color": "#bd002d",
+                    "name": "Vanduul",
+                    "membership.id": "557"
+                }
+            ],
+            "aggregated_size": "0.00000000",
+            "aggregated_population": 1.08,
+            "aggregated_economy": 0.12,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "395",
+            "code": "MARKAHIL",
+            "description": "INCOMPLETE MAP DATA",
+            "info_url": null,
+            "name": "Markahil",
+            "posX": "121.37563000",
+            "posY": "51.42863500",
+            "posZ": "15.17934400",
+            "status": "N",
+            "time_modified": "2015-10-08 21:02:31",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "4",
+                    "code": "XIAN",
+                    "color": "#52c231",
+                    "name": "Xi'An",
+                    "membership.id": "571"
+                }
+            ],
+            "aggregated_size": "0.00000000",
+            "aggregated_population": 0,
+            "aggregated_economy": 0,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "396",
+            "code": "EL'SIN",
+            "description": "INCOMPLETE MAP DATA",
+            "info_url": null,
+            "name": "El'sin",
+            "posX": "80.75804100",
+            "posY": "70.45749700",
+            "posZ": "24.67380900",
+            "status": "N",
+            "time_modified": "2015-10-08 21:02:22",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "4",
+                    "code": "XIAN",
+                    "color": "#52c231",
+                    "name": "Xi'An",
+                    "membership.id": "570"
+                }
+            ],
+            "aggregated_size": "0.00000000",
+            "aggregated_population": 0,
+            "aggregated_economy": 0,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "397",
+            "code": "PALLAS",
+            "description": "Site of Humanity\u2019s first contact with the Xi\u2019An. In 2530 a greedy Human company attempted to terraform Th.us\u2019\u016bng (then known as Pallas) III without doing the proper due diligence. Xi\u2019An were already occupying the system and using it for research purposes. The situation was resolved, but the meeting set the tone for relations between the two species for centuries. Th.us\u2019\u016bng became a part of the Perry Line that reverted to complete Xi\u2019An control following the end of the Messers.",
+            "info_url": null,
+            "name": "Th.us\u2019\u016bng (Pallas)",
+            "posX": "103.46498000",
+            "posY": "8.13051700",
+            "posZ": "12.68753600",
+            "status": "P",
+            "time_modified": "2018-11-14 20:47:09",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "4",
+                    "code": "XIAN",
+                    "color": "#52c231",
+                    "name": "Xi'An",
+                    "membership.id": "771"
+                }
+            ],
+            "aggregated_size": "39.64000000",
+            "aggregated_population": 9.73,
+            "aggregated_economy": 3.37,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "398",
+            "code": "AYR'KA",
+            "description": "Primarily a military system focused on supporting, housing, and training Xi\u2019an ground troops. Its close proximity to the Perry Line made it strategically important during the Human / Xi\u2019an cold war. Once relations normalized, Xi\u2019an forces from the Perry Line systems withdrew to here.  ",
+            "info_url": null,
+            "name": "Ail'ka",
+            "posX": "139.15987000",
+            "posY": "-7.99128290",
+            "posZ": "39.58358800",
+            "status": "P",
+            "time_modified": "2018-11-14 19:51:33",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "4",
+                    "code": "XIAN",
+                    "color": "#52c231",
+                    "name": "Xi'An",
+                    "membership.id": "768"
+                }
+            ],
+            "aggregated_size": "198.97000000",
+            "aggregated_population": 8.8,
+            "aggregated_economy": 3.95,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "399",
+            "code": "INDRA",
+            "description": "A binary star system on the border of Human and Xi'An space, Kyuk\u2019ya (once called Indra) is a former Perry Line system that the Xi\u2019An have designated as a vibrant and diverse shipping hub where capital ships dock to unload cargo for transport deeper into Xi\u2019An space. This free flow of trade has led to more relaxed security protocols than other Xi\u2019An systems. It has also become a popular destination among Xi\u2019An youth looking to experience Human culture without fully venturing into UEE territory.\n",
+            "info_url": null,
+            "name": "Kyuk\u2019ya (Indra)",
+            "posX": "116.42744000",
+            "posY": "-26.96169500",
+            "posZ": "-9.35824580",
+            "status": "P",
+            "time_modified": "2018-11-14 20:55:03",
+            "type": "BINARY",
+            "affiliation": [
+                {
+                    "id": "4",
+                    "code": "XIAN",
+                    "color": "#52c231",
+                    "name": "Xi'An",
+                    "membership.id": "772"
+                }
+            ],
+            "aggregated_size": "12.51500000",
+            "aggregated_population": 1.06,
+            "aggregated_economy": 2.44,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "400",
+            "code": "TRISE",
+            "description": "The Trise System is the religious center of the Banu Protectorate and home to \u201cThe Council\u201d, which establishes the dictums of Banu society. Located on the edge of Xi\u2019An space, the Council intentionally isolates itself from the rest of Banu society and even prefers not to trade with it, making the destination desirable for Human and Xi\u2019An traders.",
+            "info_url": null,
+            "name": "Trise",
+            "posX": "26.49872600",
+            "posY": "64.99550600",
+            "posZ": "31.86333500",
+            "status": "P",
+            "time_modified": "2018-01-27 02:19:49",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "2",
+                    "code": "BANU",
+                    "color": "#ffce17",
+                    "name": "Banu",
+                    "membership.id": "750"
+                }
+            ],
+            "aggregated_size": "11.00000000",
+            "aggregated_population": 8.65,
+            "aggregated_economy": 1.4,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "401",
+            "code": "RIHLAH",
+            "description": "During the cold war, the Xi\u2019An used Rihlah as one of their main military hubs. Now it is being converted into an industrial and commercial powerhouse that is open for business with the UEE. Humans are more welcome in this six-planet system than just about anywhere else in the Xi\u2019An Empire, though there are still very clear restrictions on exactly where Humans can go.  \n",
+            "info_url": null,
+            "name": "Rihlah",
+            "posX": "71.95201100",
+            "posY": "48.62945600",
+            "posZ": "20.11952600",
+            "status": "P",
+            "time_modified": "2018-01-27 01:34:47",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "4",
+                    "code": "XIAN",
+                    "color": "#52c231",
+                    "name": "Xi'An",
+                    "membership.id": "740"
+                }
+            ],
+            "aggregated_size": "35.50000000",
+            "aggregated_population": 9,
+            "aggregated_economy": 2.56,
+            "aggregated_danger": 0,
+            "thumbnail": {
+                "slug": "4yqt6g2vmwm9t",
+                "source": "https://robertsspaceindustries.com/media/4yqt6g2vmwm9tr/source/Rihlah-System-Header.png",
+                "images": {
+                    "post": "https://robertsspaceindustries.com/media/4yqt6g2vmwm9tr/post/Rihlah-System-Header.png",
+                    "product_thumb_large": "https://robertsspaceindustries.com/media/4yqt6g2vmwm9tr/product_thumb_large/Rihlah-System-Header.png",
+                    "subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/4yqt6g2vmwm9tr/subscribers_vault_thumbnail/Rihlah-System-Header.png"
+                }
+            }
+        },
+        {
+            "id": "402",
+            "code": "YULIN",
+            "description": "A popular destination for vacationing Banu and Humans. The Banu have turned Yulin\u2019s unique mix of planets into an entertainment mecca that provide a variety of options for vice and entertainment, but there is still plenty of trade and business for those who want it.",
+            "info_url": null,
+            "name": "Yulin",
+            "posX": "-10.82127900",
+            "posY": "-75.57479900",
+            "posZ": "23.02656600",
+            "status": "P",
+            "time_modified": "2018-01-27 02:49:13",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "2",
+                    "code": "BANU",
+                    "color": "#ffce17",
+                    "name": "Banu",
+                    "membership.id": "755"
+                }
+            ],
+            "aggregated_size": "30.01400000",
+            "aggregated_population": 8.46,
+            "aggregated_economy": 5,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "403",
+            "code": "VOODOO",
+            "description": "UEE MILITARY CLASSIFIED",
+            "info_url": null,
+            "name": "Voodoo",
+            "posX": "-76.35816200",
+            "posY": "-7.98065190",
+            "posZ": "-14.67348200",
+            "status": "M",
+            "time_modified": "2015-10-08 20:58:39",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "3",
+                    "code": "VNCL",
+                    "color": "#bd002d",
+                    "name": "Vanduul",
+                    "membership.id": "556"
+                }
+            ],
+            "aggregated_size": "0.00000000",
+            "aggregated_population": 1.08,
+            "aggregated_economy": 0.12,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "404",
+            "code": "VERMILION",
+            "description": "UEE MILITARY CLASSIFIED",
+            "info_url": null,
+            "name": "Vermilion",
+            "posX": "-77.77973900",
+            "posY": "35.23579400",
+            "posZ": "12.35471200",
+            "status": "M",
+            "time_modified": "2016-01-20 23:18:07",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "3",
+                    "code": "VNCL",
+                    "color": "#bd002d",
+                    "name": "Vanduul",
+                    "membership.id": "640"
+                }
+            ],
+            "aggregated_size": "0.00000000",
+            "aggregated_population": 1.08,
+            "aggregated_economy": 0.12,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "405",
+            "code": "VENDETTA",
+            "description": "UEE MILITARY CLASSIFIED",
+            "info_url": null,
+            "name": "Vendetta",
+            "posX": "-40.46454600",
+            "posY": "-24.25134500",
+            "posZ": "7.73421810",
+            "status": "M",
+            "time_modified": "2015-10-08 20:58:18",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "3",
+                    "code": "VNCL",
+                    "color": "#bd002d",
+                    "name": "Vanduul",
+                    "membership.id": "554"
+                }
+            ],
+            "aggregated_size": "0.00000000",
+            "aggregated_population": 1.08,
+            "aggregated_economy": 0.12,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "406",
+            "code": "VECTOR",
+            "description": "UEE MILITARY CLASSIFIED",
+            "info_url": null,
+            "name": "Vector",
+            "posX": "-45.93992600",
+            "posY": "37.78373700",
+            "posZ": "-4.56051590",
+            "status": "M",
+            "time_modified": "2015-10-08 20:57:39",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "3",
+                    "code": "VNCL",
+                    "color": "#bd002d",
+                    "name": "Vanduul",
+                    "membership.id": "553"
+                }
+            ],
+            "aggregated_size": "1.00000000",
+            "aggregated_population": 1.08,
+            "aggregated_economy": 0.12,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "407",
+            "code": "CHARON",
+            "description": "Discovered late in the 25th century, the remote system was home to the Messers\u2019 most notorious prisons. Shortly after the fall of the Messers, when declassified data of the atrocities committed in the system came to light, the Governors Council of Charon III officially renounced their recognition by the UEE, becoming the first and only planet to do so. Since then, the planet has been in a near constant state of turmoil as various factions have battled for political and social dominance.\n",
+            "info_url": null,
+            "name": "Charon",
+            "posX": "72.40314500",
+            "posY": "-48.43230800",
+            "posZ": "13.66285400",
+            "status": "P",
+            "time_modified": "2018-01-25 02:26:04",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "692"
+                }
+            ],
+            "aggregated_size": "5.78000000",
+            "aggregated_population": 8.42,
+            "aggregated_economy": 1.74,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "408",
+            "code": "GURZIL",
+            "description": "A relatively young system, Gurzil features a protoplanetary disc of gas and planetesimals that have formed through accretion. While the lack of full-sized planets makes settlement difficult, the current nature of the nascent system\u2019s plentiful resources are ideal for mining.\n",
+            "info_url": null,
+            "name": "Gurzil",
+            "posX": "71.94196300",
+            "posY": "26.53420300",
+            "posZ": "13.95127900",
+            "status": "P",
+            "time_modified": "2015-10-02 17:43:43",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "337"
+                }
+            ],
+            "aggregated_size": "4.20000000",
+            "aggregated_population": 0,
+            "aggregated_economy": 0.93,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "409",
+            "code": "OYA",
+            "description": "One of the Perry Line systems that was given to the UEE during the military de-escalation, Oya\u2019s numerous resources had long been coveted by mining consortiums who were kept at bay by the military. Once the system was opened for private travel, they rushed in to snatch up property and get to work.\n",
+            "info_url": null,
+            "name": "Oya",
+            "posX": "49.32806400",
+            "posY": "35.04176700",
+            "posZ": "-0.55106282",
+            "status": "P",
+            "time_modified": "2018-01-26 03:23:38",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "736"
+                }
+            ],
+            "aggregated_size": "43.77100000",
+            "aggregated_population": 8.29,
+            "aggregated_economy": 1.86,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "410",
+            "code": "LEIR",
+            "description": "Although Leir is home to three mineral-rich planets, it\u2019s primarily known for the isolationist group, the Outsiders. When the social movement took over Leir II, the UEE realized the situation could only be resolved through military intervention. Not willing to risk bloodshed, the UEE cut off support to the system. Mining operations on the system\u2019s other two planets continue unimpeded. The discovery of the jump point to Kabal has many wondering if the UEE will take a second look at Leir.",
+            "info_url": null,
+            "name": "Leir",
+            "posX": "-37.03798700",
+            "posY": "-59.35633500",
+            "posZ": "-5.86864760",
+            "status": "P",
+            "time_modified": "2018-01-26 01:38:57",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "8",
+                    "code": "UNC",
+                    "color": "#f6851f",
+                    "name": "Unclaimed",
+                    "membership.id": "724"
+                }
+            ],
+            "aggregated_size": "11.40000000",
+            "aggregated_population": 8.23,
+            "aggregated_economy": 1.51,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "411",
+            "code": "HADRIAN",
+            "description": "Known as \u201cNo Man\u2019s Land\u201d, Hadrian\u2019s location near Xi\u2019An space made it a militarily strategic system during the cold war. Now it is famous for being a main shipping checkpoint between the UEE and Xi\u2019An Empire. Travelers are advised to stay in the system\u2019s safe space lanes, which are demarcated by buoys. Those who ignore the space lanes are liable to encounter unexploded anti-ship mines left over from the cold war.\n",
+            "info_url": null,
+            "name": "Hadrian",
+            "posX": "67.69918100",
+            "posY": "8.08081630",
+            "posZ": "6.05673550",
+            "status": "P",
+            "time_modified": "2018-01-25 20:37:02",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "709"
+                }
+            ],
+            "aggregated_size": "65.00000000",
+            "aggregated_population": 0,
+            "aggregated_economy": 1.74,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "412",
+            "code": "GARRON",
+            "description": "Thanks to unchecked greed of the era, Garron System is almost exclusively known for the Massacre of Garron II (2792). While that atrocity ultimately ignited the downfall of the Messers, a developing species was casually exterminated in the process. Now the system exists as a memorial to the potential dangers of terraforming",
+            "info_url": null,
+            "name": "Garron",
+            "posX": "-14.52712200",
+            "posY": "-45.83392300",
+            "posZ": "-4.35008760",
+            "status": "P",
+            "time_modified": "2018-01-25 03:35:48",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "7",
+                    "code": "DEV",
+                    "color": "#ca922d",
+                    "name": "Developing",
+                    "membership.id": "703"
+                }
+            ],
+            "aggregated_size": "5.76000000",
+            "aggregated_population": 8.63,
+            "aggregated_economy": 2.91,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "413",
+            "code": "HORUS",
+            "description": "One of the systems that made up the Perry Line, Horus was once considered a \u2018focal-point system\u2019 thanks to its multiple jump points into Xi\u2019An space. assimilated into the UEE once the line was dissolved. Now that the system has been demilitarized, the public have taken up residence on the small planet of Horus I while UEE officials study Horus II for potential terraforming.\n",
+            "info_url": null,
+            "name": "Horus",
+            "posX": "89.51611300",
+            "posY": "21.22247100",
+            "posZ": "22.12136300",
+            "status": "P",
+            "time_modified": "2018-01-25 20:50:33",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "713"
+                }
+            ],
+            "aggregated_size": "4.27000000",
+            "aggregated_population": 8.12,
+            "aggregated_economy": 2.21,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "414",
+            "code": "GENESIS",
+            "description": "Soon after its discovery, to the disappointment of terraforming companies vying for the rights, surveyors identified a sentient species on Genesis II. The Fair Chance Act was invoked and scientist began to observe its evolution with great interest. Recent hostilities between two of the planet\u2019s species have made some question whether the FCA\u2019s strict non-intervention policy should be amended.  \n",
+            "info_url": null,
+            "name": "Genesis",
+            "posX": "58.19247400",
+            "posY": "-45.91663000",
+            "posZ": "19.32572900",
+            "status": "P",
+            "time_modified": "2018-01-25 03:51:16",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "7",
+                    "code": "DEV",
+                    "color": "#ca922d",
+                    "name": "Developing",
+                    "membership.id": "705"
+                }
+            ],
+            "aggregated_size": "25.21000000",
+            "aggregated_population": 7.7,
+            "aggregated_economy": 1.74,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "415",
+            "code": "KIEL",
+            "description": "Another point on the border with the Xi\u2019An, Kiel\u2019s primary use was to serve as a staging area for military forces during the cold war. Out of the system\u2019s six planets only Severus (Kiel III) was terraformed to act as the military\u2019s center of operations. Since tensions with the Xi\u2019An have diminished and the military presence has retracted, Kiel has struggled to redefine itself as a non-military system.",
+            "info_url": null,
+            "name": "Kiel",
+            "posX": "80.50838500",
+            "posY": "5.49460980",
+            "posZ": "-12.49547000",
+            "status": "P",
+            "time_modified": "2018-01-26 01:10:59",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "720"
+                }
+            ],
+            "aggregated_size": "28.49000000",
+            "aggregated_population": 8.72,
+            "aggregated_economy": 2.56,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "416",
+            "code": "BRANAUGH",
+            "description": "This unclaimed system is only accessible through a smaller jump point, preventing large ships from travelling there. Due to the challenge this jump point created to bring the necessary terraforming equipment into the system, the UEE quickly dismissed Branaugh\u2019s only habitable planet as unworthy of its attention. Over the years, the system has become home to the largest concentration of Tevarin people.",
+            "info_url": null,
+            "name": "Branaugh",
+            "posX": "-3.83879950",
+            "posY": "50.27068300",
+            "posZ": "-31.54442800",
+            "status": "P",
+            "time_modified": "2018-01-25 01:39:55",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "8",
+                    "code": "UNC",
+                    "color": "#f6851f",
+                    "name": "Unclaimed",
+                    "membership.id": "685"
+                }
+            ],
+            "aggregated_size": "1.30000000",
+            "aggregated_population": 8.27,
+            "aggregated_economy": 1.74,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "417",
+            "code": "TOHIL",
+            "description": "The Tohil System has a history of danger and intrigue. As the only former Perry Line system with a jump into an unclaimed system, it has long been a favorite of smugglers looking to circumvent UEE and/or Xi\u2019An authority. However, the system\u2019s appeal was not entirely sinister. Tohil also played a part in ending the Messer regime: resistance fighters used it to sneak into the UEE from Xi\u2019An territory and secret meetings between Terran Senator Akari and Xi\u2019An leaders that lead to the end of the cold war were held on Tohil III.  \n",
+            "info_url": null,
+            "name": "Tohil",
+            "posX": "35.61562300",
+            "posY": "37.40241600",
+            "posZ": "12.09324300",
+            "status": "P",
+            "time_modified": "2018-01-27 02:17:20",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "749"
+                }
+            ],
+            "aggregated_size": "11.00000000",
+            "aggregated_population": 8.35,
+            "aggregated_economy": 2.79,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "418",
+            "code": "CANO",
+            "description": "Cano is a four-planet UEE star system discovered in 2463. The largest population in the system is located on the the planet Carteyna (Cano II), an ocean world that geoengineers were attempting to terraform until developing life was discovered in the deep oceans. Since then, protective laws have been put into place and the current inhabitants are restricted to living in arcologies under the northern ice cap.",
+            "info_url": null,
+            "name": "Cano",
+            "posX": "21.36286100",
+            "posY": "-8.60718900",
+            "posZ": "9.85482190",
+            "status": "P",
+            "time_modified": "2018-01-25 02:14:47",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "688"
+                }
+            ],
+            "aggregated_size": "4.39200000",
+            "aggregated_population": 7.96,
+            "aggregated_economy": 1.63,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "419",
+            "code": "KABAL",
+            "description": "Kabal is a three-planet system recently discovered by a UEE surveying team. At first, the system was believed to be empty until uninhabited Tevarin cities were discovered on Kabal III. The system seems to have been abandoned around the time of the first Tevarin War, but UEE surveyors and military are still investigating.\n",
+            "info_url": null,
+            "name": "Kabal",
+            "posX": "-20.52712200",
+            "posY": "-45.83392300",
+            "posZ": "-7.35008760",
+            "status": "P",
+            "time_modified": "2018-01-26 00:32:57",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "716"
+                }
+            ],
+            "aggregated_size": "3.52000000",
+            "aggregated_population": 7.72,
+            "aggregated_economy": 1.16,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "420",
+            "code": "TANGA",
+            "description": "The main-sequence star at the system\u2019s center has entered into a white dwarf phase. With Tanga\u2019s two planets located on the outer edges of the system, scientists believe its inner planets were destroyed when the star expanded. Miners have found a variety of precious and heavy metals in its asteroid belt and believe the resources to be the remnants of Tanga\u2019s inner planets. The star has ejected its outer layers and formed a picturesque planetary nebula, which draws some sightseers to the system.",
+            "info_url": null,
+            "name": "Tanga",
+            "posX": "-7.10553169",
+            "posY": "32.88318600",
+            "posZ": "-15.62546400",
+            "status": "P",
+            "time_modified": "2018-01-27 01:46:36",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "8",
+                    "code": "UNC",
+                    "color": "#f6851f",
+                    "name": "Unclaimed",
+                    "membership.id": "743"
+                }
+            ],
+            "aggregated_size": "82.73500000",
+            "aggregated_population": 0,
+            "aggregated_economy": 1.28,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "421",
+            "code": "ORETANI",
+            "description": "Discovered during the Expansionist Era of the 25th century, Oretani was just one of many systems that were being processed when the unthinkable happened: the jump point into the system collapsed. Thousands of terraformers and their families were suddenly cut off from the rest of Humanity. Scientists spent decades looking for a way to reopen the jump or find another route in, but, hope began to wane until it disappeared entirely. It\u2019s unknown if there are still any survivors after all this time.\n",
+            "info_url": null,
+            "name": "Oretani",
+            "posX": "-12.64992330",
+            "posY": "-17.19145000",
+            "posZ": "10.38479564",
+            "status": "N",
+            "time_modified": "2018-01-26 02:56:26",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "8",
+                    "code": "UNC",
+                    "color": "#f6851f",
+                    "name": "Unclaimed",
+                    "membership.id": "732"
+                }
+            ],
+            "aggregated_size": "36.91000000",
+            "aggregated_population": 7.8,
+            "aggregated_economy": 0.81,
+            "aggregated_danger": 0
+        },
+        {
+            "id": "422",
+            "code": "TAMSA",
+            "description": "The Tamsa System is the most recent addition to the UEE and contains two planets in orbit around a black hole. It was discovered in 2943 by Banu explorer Cothi Bat-Thel-Ma, who named it after visual artist Tamsa Wheel. Currently, the system is unavailable to the public while UEE surveyors assess the system as required by the Fair Chance Act.",
+            "info_url": null,
+            "name": "Tamsa",
+            "posX": "-18.82127900",
+            "posY": "-70.57479900",
+            "posZ": "15.02656600",
+            "status": "P",
+            "time_modified": "2016-07-13 18:45:35",
+            "type": "SINGLE_STAR",
+            "affiliation": [
+                {
+                    "id": "1",
+                    "code": "uee",
+                    "color": "#48bbd4",
+                    "name": "UEE",
+                    "membership.id": "661"
+                }
+            ],
+            "aggregated_size": "303.57000000",
+            "aggregated_population": 0,
+            "aggregated_economy": 0.23,
+            "aggregated_danger": 0
+        }
+    ]
+}
