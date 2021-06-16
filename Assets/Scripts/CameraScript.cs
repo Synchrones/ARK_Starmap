@@ -85,9 +85,9 @@ public class CameraScript   : MonoBehaviour
                 
             }
             _cameraOffset = camTurnAngle * _cameraOffset;
-            Debug.Log(_cameraOffset);
+            /*Debug.Log(_cameraOffset);
             Debug.Log(cameraMaxY);
-            Debug.Log(cameraMinY);
+            Debug.Log(cameraMinY);*/
             Vector3 newPos = center + _cameraOffset;
             transform.position = Vector3.Slerp(transform.position, newPos, 0.5f);
             transform.LookAt(center);
