@@ -24,7 +24,20 @@ public class StarSystemsScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetMouseButtonDown(0))
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if(Physics.Raycast(ray, out hit, 100f))
+            {
+                if(hit.transform)
+                {
+                    print(hit.transform.gameObject.name);
+                }
+            }
+        }
         
+
     }
 
     
@@ -38,11 +51,11 @@ public class StarSystem
 {
     
     public string id;
-    public string code;
-    public string name;
     public float posX;
     public float posY;
     public float posZ;
+    public string name;
+    public string description;
 
 }
 
