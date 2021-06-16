@@ -16,11 +16,14 @@ public class StarSystemsScript : MonoBehaviour
         {
             GameObject StarSystemGO = Instantiate(StarSystemPrefab, new Vector3(starSystem.posX / 3, starSystem.posZ / 3, starSystem.posY / 3), Quaternion.identity);
             StarSystemGO.name = starSystem.name;
-            
+
+            StarSystemGO.AddComponent<SystemsInfosScript>();
+
+            StarSystemGO.GetComponent<SystemsInfosScript>().description = starSystem.description;
             //Debug.Log(starsystem.id + starsystem.code + starsystem.name);
         }
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -32,12 +35,12 @@ public class StarSystemsScript : MonoBehaviour
             {
                 if(hit.transform)
                 {
+                    print(hit.transform.gameObject.GetComponent<SystemsInfosScript>().description);
                     print(hit.transform.gameObject.name);
                 }
             }
         }
-        
-
+    
     }
 
     
