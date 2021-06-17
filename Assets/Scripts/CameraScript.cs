@@ -7,7 +7,7 @@ public class CameraScript   : MonoBehaviour
 
 
     public Transform PlayerTransform;
-    private Vector3 _cameraOffset;
+    private Vector3 cameraOffset;
     public Vector3 center;
 
     private bool clicked;
@@ -16,14 +16,38 @@ public class CameraScript   : MonoBehaviour
     private bool centered;
     private bool arrived;
 
-    private float speed = 3;
+    private float speed = 15;
     private float zoomSpeed = 5;
     private float rotateSpeed = 0.3f;
     private float selectSpeed = 20;
+
+    private Vector3 velocity = Vector3.zero;
+
+
+    private float maxZoom;
+    private float minZoom;
+
+
+
+
+    //inertia things
+    private Vector3 prevPos = Vector3.zero;
+    private Vector3 frameVelocity;
+    private Vector3 curVelocity;
+    private bool underInertia;
+    private float smoothTime = 2;
+    private float time = 0.0f;
+
+    
+
+
+
     // Start is called before the first frame update
     void Start()
     {
         center = PlayerTransform.position;
+        maxZoom = 40;
+        minZoom =5;
     }
 
     // Update is called once per frame
@@ -31,13 +55,12 @@ public class CameraScript   : MonoBehaviour
     {
 
     }
-    
     private void LateUpdate() {
 
-
-        _cameraOffset = transform.position - center;
+        cameraOffset = transform.position - center;
         float scroll = Input.GetAxis ("Mouse ScrollWheel");
-        if(Vector3.Distance(transform.position, center) > 5 && scroll > 0 || Vector3.Distance(transform.position, center) < 20 && scroll < 0) transform.Translate(0, 0, scroll * zoomSpeed, Space.Self);
+        if(Vector3.Distance(transform.position, center) > minZoom && scroll > 0 || Vector3.Distance(transform.position, center) < maxZoom && scroll < 0) transform.Translate(0, 0, scroll * zoomSpeed, Space.Self);
+
         
         if(clicked)
         {
@@ -56,7 +79,7 @@ public class CameraScript   : MonoBehaviour
                 Vector3 CameraCenter = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width/2, Screen.height/2, Camera.main.nearClipPlane));
                 if (Physics.Raycast(CameraCenter, transform.forward, out hit, 100))
                 {
-                    if(hit.transform.gameObject == goSelected)centered = true;
+                    if(hit.transform.gameObject == goSelected) centered = true;
                 } 
                 
             }
@@ -68,12 +91,26 @@ public class CameraScript   : MonoBehaviour
 
         if(Input.GetKey(KeyCode.Mouse1))
         {
-            Vector3 newPos = (transform.right * Input.GetAxis("Mouse X") / -10 / speed);
-            newPos += (transform.up * Input.GetAxis("Mouse Y") / -10 / speed);
-            transform.position += newPos;
-            center += newPos;
+
+            underInertia = false;
+            time = 0.0f;
+
+
+            Vector3 newPos = (transform.right * Input.GetAxis("Mouse X") * -speed);
+            newPos += (transform.up * Input.GetAxis("Mouse Y") * -speed);
+            
+            transform.position = Vector3.SmoothDamp(transform.position, transform.position + newPos, ref velocity, 0.3f);
+            center = Vector3.SmoothDamp(center, center + newPos, ref velocity, 0.3f);
             transform.LookAt(center);
             
+            curVelocity = (transform.position - prevPos) /Time.deltaTime;
+            frameVelocity = Vector3.Lerp(frameVelocity, curVelocity, 0.1f) / 5;
+            prevPos = transform.position;
+            
+        }
+
+        if(Input.GetMouseButtonUp(1)){
+            underInertia = true;
         }
 
 
@@ -81,15 +118,15 @@ public class CameraScript   : MonoBehaviour
         {
 
             Quaternion camTurnAngle = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * 5.0f, Vector3.up);
-            double signX = _cameraOffset.x;
-            double signZ = _cameraOffset.z;
+            double signX = cameraOffset.x;
+            double signZ = cameraOffset.z;
             
-            double cameraMaxY = Vector3.Distance(new Vector3(0,0,0), _cameraOffset) - 0.5;
+            double cameraMaxY = Vector3.Distance(Vector3.zero, cameraOffset) - 0.5;
             double cameraMinY = -cameraMaxY;
             
-            if(_cameraOffset.y > 0 && ( _cameraOffset.y < cameraMaxY || Input.GetAxis("Mouse Y") > 0) || _cameraOffset.y < 0 && (_cameraOffset.y > cameraMinY || Input.GetAxis("Mouse Y") < 0)) //prevent the camera from going to far up and down (caused jitter)
+            if(cameraOffset.y > 0 && ( cameraOffset.y < cameraMaxY || Input.GetAxis("Mouse Y") > 0) || cameraOffset.y < 0 && (cameraOffset.y > cameraMinY || Input.GetAxis("Mouse Y") < 0)) //prevent the camera from going to far up and down (caused jitter)
             {
-                //buggy on the z axis without this
+                //bug on the z axis without this
                 if(signZ * signX < 0) 
                 {
                     if(signZ > 0)
@@ -121,14 +158,30 @@ public class CameraScript   : MonoBehaviour
                 }
                 
             }
-            _cameraOffset = camTurnAngle * _cameraOffset;
-            /*Debug.Log(_cameraOffset);
+            cameraOffset = camTurnAngle * cameraOffset;
+            /*Debug.Log(cameraOffset);
             Debug.Log(cameraMaxY);
             Debug.Log(cameraMinY);*/
 
-            Vector3 newPos = center + _cameraOffset;
+            Vector3 newPos = center + cameraOffset;
             transform.position = Vector3.Slerp(transform.position, newPos, 0.5f);
             transform.LookAt(center);
+        }
+
+
+        if(underInertia && time <= smoothTime)
+        {
+            transform.position = Vector3.Lerp(transform.position, transform.position + frameVelocity, 0.1f);
+            center = Vector3.Lerp(center, center + frameVelocity, 0.1f);
+            frameVelocity = Vector3.Lerp(frameVelocity, Vector3.zero, time / 5);
+            time += Time.smoothDeltaTime;
+            print(transform.position);
+        }
+        else
+        {
+            underInertia = false;
+            time = 0.0f;
+             
         }
 
     }
