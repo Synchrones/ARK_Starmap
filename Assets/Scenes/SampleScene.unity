@@ -157,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jsonFile: {fileID: 4900000, guid: a52b8f71316d9b4438a4881758c8a4b4, type: 3}
   StarSystemPrefab: {fileID: 7369084988479094, guid: 8c3c80bfd2059944192b8d4d721fddc2, type: 3}
+  mainCamera: {fileID: 963194225}
 --- !u!65 &195386251
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -407,6 +408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerTransform: {fileID: 195386254}
+  center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1005600075
 PrefabInstance:
   m_ObjectHideFlags: 0

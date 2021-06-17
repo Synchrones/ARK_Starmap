@@ -37,9 +37,8 @@ public class CameraScript   : MonoBehaviour
 
         _cameraOffset = transform.position - center;
         float scroll = Input.GetAxis ("Mouse ScrollWheel");
-        transform.Translate(0, 0, scroll * zoomSpeed, Space.Self);
-
-
+        if(Vector3.Distance(transform.position, center) > 5 && scroll > 0 || Vector3.Distance(transform.position, center) < 20 && scroll < 0) transform.Translate(0, 0, scroll * zoomSpeed, Space.Self);
+        
         if(clicked)
         {
             if(!arrived)
