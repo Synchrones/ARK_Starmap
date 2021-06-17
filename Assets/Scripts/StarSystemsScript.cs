@@ -8,6 +8,7 @@ public class StarSystemsScript : MonoBehaviour
 
     public GameObject StarSystemPrefab;
     
+    public GameObject mainCamera;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,20 +28,20 @@ public class StarSystemsScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonUp(1))
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if(Physics.Raycast(ray, out hit, 100f))
+            if(Physics.Raycast(ray, out hit, 100))
             {
                 if(hit.transform)
                 {
+                    mainCamera.GetComponent<CameraScript>().selectSystem(hit.transform.gameObject);
                     print(hit.transform.gameObject.GetComponent<SystemsInfosScript>().description);
-                    print(hit.transform.gameObject.name);
+                    //print(hit.transform.gameObject.name);
                 }
             }
         }
-    
     }
 
     
