@@ -16,7 +16,7 @@ public class CameraScript   : MonoBehaviour
     private bool centered;
     private bool arrived;
 
-    private float speed = 15;
+    private float speed = 20;
     private float zoomSpeed = 5;
     private float rotateSpeed = 0.3f;
     private float selectSpeed = 20;
@@ -35,7 +35,7 @@ public class CameraScript   : MonoBehaviour
     private Vector3 frameVelocity;
     private Vector3 curVelocity;
     private bool underInertia;
-    private float smoothTime = 2;
+    private float smoothTime = 1.5f;
     private float time = 0.0f;
 
     
@@ -96,15 +96,15 @@ public class CameraScript   : MonoBehaviour
             time = 0.0f;
 
 
-            Vector3 newPos = (transform.right * Input.GetAxis("Mouse X") * -speed);
+            Vector3 newPos = (transform.right * Input.GetAxis("Mouse X") * -speed );
             newPos += (transform.up * Input.GetAxis("Mouse Y") * -speed);
             
-            transform.position = Vector3.SmoothDamp(transform.position, transform.position + newPos, ref velocity, 0.3f);
-            center = Vector3.SmoothDamp(center, center + newPos, ref velocity, 0.3f);
+            transform.Translate(newPos * Time.deltaTime, Space.World);
+            center = transform.position - cameraOffset;
             transform.LookAt(center);
             
             curVelocity = (transform.position - prevPos) /Time.deltaTime;
-            frameVelocity = Vector3.Lerp(frameVelocity, curVelocity, 0.1f) / 5;
+            frameVelocity = Vector3.Lerp(frameVelocity, curVelocity, 0.1f) / 1.5f;
             prevPos = transform.position;
             
         }
@@ -159,10 +159,7 @@ public class CameraScript   : MonoBehaviour
                 
             }
             cameraOffset = camTurnAngle * cameraOffset;
-            /*Debug.Log(cameraOffset);
-            Debug.Log(cameraMaxY);
-            Debug.Log(cameraMinY);*/
-
+            
             Vector3 newPos = center + cameraOffset;
             transform.position = Vector3.Slerp(transform.position, newPos, 0.5f);
             transform.LookAt(center);
@@ -173,9 +170,10 @@ public class CameraScript   : MonoBehaviour
         {
             transform.position = Vector3.Lerp(transform.position, transform.position + frameVelocity, 0.1f);
             center = Vector3.Lerp(center, center + frameVelocity, 0.1f);
-            frameVelocity = Vector3.Lerp(frameVelocity, Vector3.zero, time / 5);
+            frameVelocity = Vector3.Lerp(frameVelocity, Vector3.zero, time / 10);
             time += Time.smoothDeltaTime;
-            print(transform.position);
+            
+        
         }
         else
         {
