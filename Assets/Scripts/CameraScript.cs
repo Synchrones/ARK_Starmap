@@ -35,6 +35,7 @@ public class CameraScript   : MonoBehaviour
     private Vector3 frameVelocity;
     private Vector3 curVelocity;
     private bool underInertia;
+    private bool isRotation;
     private float smoothTime = 1.5f;
     private float time = 0.0f;
 
@@ -57,10 +58,9 @@ public class CameraScript   : MonoBehaviour
     }
     private void LateUpdate() {
 
-        cameraOffset = transform.position - center;
         float scroll = Input.GetAxis ("Mouse ScrollWheel");
         if(Vector3.Distance(transform.position, center) > minZoom && scroll > 0 || Vector3.Distance(transform.position, center) < maxZoom && scroll < 0) transform.Translate(0, 0, scroll * zoomSpeed, Space.Self);
-
+        cameraOffset = transform.position - center;
         
         if(clicked)
         {
@@ -109,13 +109,15 @@ public class CameraScript   : MonoBehaviour
             
         }
 
-        if(Input.GetMouseButtonUp(1)){
-            underInertia = true;
-        }
+        
 
 
         if(Input.GetKey(KeyCode.Mouse0))
         {
+            underInertia = false;
+            time = 0.0f;
+            
+
 
             Quaternion camTurnAngle = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * 5.0f, Vector3.up);
             double signX = cameraOffset.x;
@@ -149,7 +151,7 @@ public class CameraScript   : MonoBehaviour
                         camTurnAngle *= Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * 5.0f * rotateSpeed, Vector3.right);
                         camTurnAngle *= Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * 5.0f * rotateSpeed, Vector3.back);
                     }
-                    else
+                    else 
                     {
                         camTurnAngle *= Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * -5.0f * rotateSpeed, Vector3.right);
                         camTurnAngle *= Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * -5.0f * rotateSpeed, Vector3.back);
@@ -163,17 +165,47 @@ public class CameraScript   : MonoBehaviour
             Vector3 newPos = center + cameraOffset;
             transform.position = Vector3.Slerp(transform.position, newPos, 0.5f);
             transform.LookAt(center);
+            
+            curVelocity = (transform.position - prevPos) /Time.deltaTime;
+            frameVelocity = Vector3.Lerp(frameVelocity, curVelocity, 0.1f) / 1.5f;
+            prevPos = transform.position;
+            if(Input.GetAxis("Mouse X") > 0 && frameVelocity.x > 0 || Input.GetAxis("Mouse X") < 0 && frameVelocity.x < 0) frameVelocity.x = -frameVelocity.x;
         }
 
 
         if(underInertia && time <= smoothTime)
         {
-            transform.position = Vector3.Lerp(transform.position, transform.position + frameVelocity, 0.1f);
-            center = Vector3.Lerp(center, center + frameVelocity, 0.1f);
-            frameVelocity = Vector3.Lerp(frameVelocity, Vector3.zero, time / 10);
-            time += Time.smoothDeltaTime;
+            if(isRotation)
+            {    
+                double cameraMaxY = Vector3.Distance(Vector3.zero, cameraOffset) - 0.5;
+                double cameraMinY = -cameraMaxY;
+
+                if(cameraOffset.y > 0 && ( cameraOffset.y < cameraMaxY || -frameVelocity.y > 0) || cameraOffset.y < 0 && (cameraOffset.y > cameraMinY || -frameVelocity.y < 0))
+                {
+                    float distance = Vector3.Distance(Vector3.zero, cameraOffset);
+                    transform.position = center;
+                    transform.Rotate(Vector3.right, frameVelocity.y / 1.8f / (distance / 5));
+                    transform.Rotate(Vector3.up, -frameVelocity.x / 1.8f / (distance / 5), Space.World);
+                    transform.Translate(new Vector3(0,0, -distance));
+
+                    
+                    
+                }
+                
+                
+                frameVelocity = Vector3.Lerp(frameVelocity, Vector3.zero, time / 15);
+                time += Time.smoothDeltaTime;
             
-        
+                
+            }
+            else
+            {
+                transform.position = Vector3.Lerp(transform.position, transform.position + frameVelocity, 0.1f);
+                center = Vector3.Lerp(center, center + frameVelocity, 0.1f);
+                frameVelocity = Vector3.Lerp(frameVelocity, Vector3.zero, time / 10);
+                time += Time.smoothDeltaTime;
+            }
+            
         }
         else
         {
@@ -181,9 +213,20 @@ public class CameraScript   : MonoBehaviour
             time = 0.0f;
              
         }
+        
 
+        if(Input.GetMouseButtonUp(1))
+        {
+            underInertia = true;
+            isRotation = false;
+        }
+        if(Input.GetMouseButtonUp(0))
+        {
+            underInertia = true;
+            isRotation = true;
+        }
     }
-
+    
 
     public void selectSystem(GameObject gameObject)
     {
