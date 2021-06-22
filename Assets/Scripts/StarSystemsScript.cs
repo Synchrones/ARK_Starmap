@@ -9,6 +9,7 @@ public class StarSystemsScript : MonoBehaviour
     public GameObject StarSystemPrefab;
     
     public GameObject mainCamera;
+    public GameObject selectedSystem;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,9 +20,11 @@ public class StarSystemsScript : MonoBehaviour
             StarSystemGO.name = starSystem.name;
 
             StarSystemGO.AddComponent<SystemsInfosScript>();
-
-            StarSystemGO.GetComponent<SystemsInfosScript>().description = starSystem.description;
-            //Debug.Log(starsystem.id + starsystem.code + starsystem.name);
+            SystemsInfosScript starSystemInfos = StarSystemGO.GetComponent<SystemsInfosScript>();
+            starSystemInfos.description = starSystem.description;
+            starSystemInfos.type = starSystem.type;
+            starSystemInfos.json = System.IO.File.ReadAllText(Application.dataPath + "/Jsons/Systems/" + starSystem.name + ".json");
+            if(starSystem.id == 320)starSystemInfos.json = System.IO.File.ReadAllText(Application.dataPath + "/Jsons/Systems/Nul1.json"); //a file can't be named nul so... 
         }
     }
     
@@ -36,11 +39,16 @@ public class StarSystemsScript : MonoBehaviour
             {
                 if(hit.transform)
                 {
-                    mainCamera.GetComponent<CameraScript>().selectSystem(hit.transform.gameObject);
+                    selectedSystem = hit.transform.gameObject;
+                    mainCamera.GetComponent<CameraScript>().selectSystem(selectedSystem);
                     print(hit.transform.gameObject.GetComponent<SystemsInfosScript>().description);
-                    //print(hit.transform.gameObject.name);
+                    
                 }
             }
+        }
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            this.GetComponent<StarSystemGeneration>().LoadSystem(selectedSystem);
         }
     }
 
@@ -54,13 +62,14 @@ public class StarSystemsScript : MonoBehaviour
 public class StarSystem
 {
     
-    public string id;
+    public int id;
     public float posX;
     public float posY;
     public float posZ;
     public string name;
     public string description;
-
+    public string type;
+    
 }
 
 [System.Serializable]

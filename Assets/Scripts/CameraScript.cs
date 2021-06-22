@@ -54,7 +54,7 @@ public class CameraScript   : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
     private void LateUpdate() {
 
@@ -89,7 +89,7 @@ public class CameraScript   : MonoBehaviour
         }
 
 
-        if(Input.GetKey(KeyCode.Mouse2))
+        if(Input.GetKey(KeyCode.Mouse1))
         {
 
             underInertia = false;
@@ -220,7 +220,7 @@ public class CameraScript   : MonoBehaviour
         }
         
 
-        if(Input.GetMouseButtonUp(2))
+        if(Input.GetMouseButtonUp(1))
         {
             underInertia = true;
             isRotation = false;
