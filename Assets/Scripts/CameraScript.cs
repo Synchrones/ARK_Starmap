@@ -36,7 +36,7 @@ public class CameraScript   : MonoBehaviour
     private Vector3 curVelocity;
     private bool underInertia;
     private bool isRotation;
-    private float smoothTime = 1.5f;
+    private float smoothTime = 3;
     private float time = 0.0f;
 
     
@@ -89,7 +89,7 @@ public class CameraScript   : MonoBehaviour
         }
 
 
-        if(Input.GetKey(KeyCode.Mouse1))
+        if(Input.GetKey(KeyCode.Mouse2))
         {
 
             underInertia = false;
@@ -173,7 +173,7 @@ public class CameraScript   : MonoBehaviour
         }
 
 
-        if(underInertia && time <= smoothTime)
+        if(underInertia && time < 1)
         {
             if(isRotation)
             {    
@@ -192,18 +192,23 @@ public class CameraScript   : MonoBehaviour
                     
                 }
                 
-                
-                frameVelocity = Vector3.Lerp(frameVelocity, Vector3.zero, time / 15);
+                float t = time / smoothTime;
+                t = 1f - Mathf.Cos(t * Mathf.PI * 0.5f);
+                frameVelocity = Vector3.Lerp(frameVelocity, Vector3.zero, t);
                 time += Time.smoothDeltaTime;
-            
+                
                 
             }
             else
             {
                 transform.position = Vector3.Lerp(transform.position, transform.position + frameVelocity, 0.1f);
                 center = Vector3.Lerp(center, center + frameVelocity, 0.1f);
-                frameVelocity = Vector3.Lerp(frameVelocity, Vector3.zero, time / 10);
+
+                float t = time / smoothTime;
+                t = 1f - Mathf.Cos(t * Mathf.PI * 0.5f);
+                frameVelocity = Vector3.Lerp(frameVelocity, Vector3.zero, t);
                 time += Time.smoothDeltaTime;
+                
             }
             
         }
@@ -215,7 +220,7 @@ public class CameraScript   : MonoBehaviour
         }
         
 
-        if(Input.GetMouseButtonUp(1))
+        if(Input.GetMouseButtonUp(2))
         {
             underInertia = true;
             isRotation = false;
