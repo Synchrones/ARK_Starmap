@@ -249,6 +249,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SSContentPrefab: {fileID: 3056695117141886631, guid: bb4cb7df4540cdf45ba00ed17784bf15, type: 3}
+  starPrefab: {fileID: 8756748243194028530, guid: 8024735863f48c94790db036a8d43505, type: 3}
+  bluePlanetPrefab: {fileID: 919132149155446097, guid: 4174d0e30ab41d1459260ac38e24fb50, type: 3}
+  brownPlanetPrefab: {fileID: 919132149155446097, guid: f86cb80ecd782934789be1c52568b811, type: 3}
+  greenPlanetPrefab: {fileID: 919132149155446097, guid: ddfe1f522b4fb9649905b28290f45298, type: 3}
+  gazPlanetPrefab: {fileID: 919132149155446097, guid: 414e9b886e1a0954db110a615412c645, type: 3}
 --- !u!1001 &863269331
 PrefabInstance:
   m_ObjectHideFlags: 0
