@@ -16,10 +16,10 @@ public class CameraScript   : MonoBehaviour
     private bool centered;
     private bool arrived;
 
-    private float speed = 20;
-    private float zoomSpeed = 5;
-    private float rotateSpeed = 0.3f;
-    private float selectSpeed = 20;
+    private float speed;
+    private float zoomSpeed;
+    private float rotateSpeed;
+    private float selectSpeed;
 
     private Vector3 velocity = Vector3.zero;
 
@@ -39,16 +39,17 @@ public class CameraScript   : MonoBehaviour
     private float smoothTime = 3;
     private float time = 0.0f;
 
-    
-
-
 
     // Start is called before the first frame update
     void Start()
     {
         center = PlayerTransform.position;
-        maxZoom = 40;
-        minZoom =5;
+        maxZoom = 500;
+        minZoom = 20;
+        speed = 300;
+        zoomSpeed = 50;
+        rotateSpeed = 0.3f;
+        selectSpeed = 200;
     }
 
     // Update is called once per frame
@@ -67,7 +68,7 @@ public class CameraScript   : MonoBehaviour
             if(!arrived)
             {
                 transform.position = Vector3.MoveTowards(transform.position, newPos, selectSpeed * Time.deltaTime);
-                if(Vector3.Distance(transform.position, newPos) < 10)arrived = true;
+                if(Vector3.Distance(transform.position, newPos) < 75) arrived = true;
             }
             
             if(!centered)
@@ -123,7 +124,7 @@ public class CameraScript   : MonoBehaviour
             double signX = cameraOffset.x;
             double signZ = cameraOffset.z;
             
-            double cameraMaxY = Vector3.Distance(Vector3.zero, cameraOffset) - 0.5;
+            double cameraMaxY = Vector3.Distance(Vector3.zero, cameraOffset) * 95 / 100;
             double cameraMinY = -cameraMaxY;
             
             if(cameraOffset.y > 0 && ( cameraOffset.y < cameraMaxY || Input.GetAxis("Mouse Y") > 0) || cameraOffset.y < 0 && (cameraOffset.y > cameraMinY || Input.GetAxis("Mouse Y") < 0)) //prevent the camera from going to far up and down (caused jitter)
@@ -177,7 +178,7 @@ public class CameraScript   : MonoBehaviour
         {
             if(isRotation)
             {    
-                double cameraMaxY = Vector3.Distance(Vector3.zero, cameraOffset) - 0.5;
+                double cameraMaxY = Vector3.Distance(Vector3.zero, cameraOffset) * 95 / 100;
                 double cameraMinY = -cameraMaxY;
 
                 if(cameraOffset.y > 0 && ( cameraOffset.y < cameraMaxY || -frameVelocity.y > 0) || cameraOffset.y < 0 && (cameraOffset.y > cameraMinY || -frameVelocity.y < 0))
@@ -241,6 +242,17 @@ public class CameraScript   : MonoBehaviour
         clicked = true;
         newPos = gameObject.transform.position;
         center = newPos;
+        
+    }
+    public void enterSystem(GameObject gameObject)
+    {
+        transform.position = gameObject.transform.position;
+        center = gameObject.transform.position;
+        speed = 20;
+        zoomSpeed = 3;
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
+        maxZoom = 40;
+        minZoom = 5;
         
     }
     

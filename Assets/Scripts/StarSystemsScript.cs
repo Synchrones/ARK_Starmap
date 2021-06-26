@@ -16,9 +16,9 @@ public class StarSystemsScript : MonoBehaviour
         StarSystems jsonStarSystems = JsonUtility.FromJson<StarSystems>(jsonFile.text);
         foreach (StarSystem starSystem in jsonStarSystems.starSystems)
         {
-            GameObject StarSystemGO = Instantiate(StarSystemPrefab, new Vector3(starSystem.posX / 3, starSystem.posZ / 3, starSystem.posY / 3), Quaternion.identity);
+            GameObject StarSystemGO = Instantiate(StarSystemPrefab, new Vector3(starSystem.posX * 7, starSystem.posZ * 7, starSystem.posY * 7), Quaternion.identity);
             StarSystemGO.name = starSystem.name;
-
+            StarSystemGO.transform.localScale *= 20;
             StarSystemGO.AddComponent<SystemsInfosScript>();
             SystemsInfosScript starSystemInfos = StarSystemGO.GetComponent<SystemsInfosScript>();
             starSystemInfos.description = starSystem.description;
@@ -35,7 +35,7 @@ public class StarSystemsScript : MonoBehaviour
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if(Physics.Raycast(ray, out hit, 100))
+            if(Physics.Raycast(ray, out hit, 500))
             {
                 if(hit.transform)
                 {
@@ -49,6 +49,7 @@ public class StarSystemsScript : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Return))
         {
             this.GetComponent<StarSystemGeneration>().LoadSystem(selectedSystem);
+            mainCamera.GetComponent<CameraScript>().enterSystem(selectedSystem);
         }
     }
 

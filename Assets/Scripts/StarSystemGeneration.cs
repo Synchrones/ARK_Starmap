@@ -44,7 +44,7 @@ public class StarSystemGeneration : MonoBehaviour
                     celestialGO = Instantiate(starPrefab, starSystem.transform.position, Quaternion.identity);
                     celestialGO.name = celestialObject.designation;
                     celestialGO.transform.parent = SSContentGO.transform;
-                    celestialGO.transform.localScale /= 3;
+                    
                 }
                 if(celestialObject.type == "PLANET")
                 {
@@ -70,11 +70,11 @@ public class StarSystemGeneration : MonoBehaviour
                     celestialGO.name = celestialObject.name;
 
                     float longitude = celestialObject.longitude * Mathf.Deg2Rad;
-                    float distance = celestialObject.distance * 5;
+                    float distance = celestialObject.distance;
                 
                     celestialGO.transform.parent = SSContentGO.transform;
                     celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), 0, distance * Mathf.Sin(longitude));
-                    celestialGO.transform.localScale /= 3;
+                    celestialGO.transform.localScale /= 10;
 
                     planetList.Add(new KeyValuePair<GameObject, int>(celestialGO, celestialObject.id));
                     
@@ -104,10 +104,10 @@ public class StarSystemGeneration : MonoBehaviour
                     celestialGO.name = celestialObject.name;
 
                     float longitude = celestialObject.longitude * Mathf.Deg2Rad;
-                    float distance = celestialObject.distance * 1000;
+                    float distance = celestialObject.distance;
 
                     celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), 0, distance * Mathf.Sin(longitude));
-                    celestialGO.transform.localScale /= 6;
+                    celestialGO.transform.localScale /= 10;
                 }
             
             }
