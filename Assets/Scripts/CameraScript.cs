@@ -252,7 +252,7 @@ public class CameraScript   : MonoBehaviour
         zoomSpeed = 3;
         gameObject.GetComponent<MeshRenderer>().enabled = false;
         maxZoom = 40;
-        minZoom = 5;
+        minZoom = 1;
         
     }
     

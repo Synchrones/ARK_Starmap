@@ -76,8 +76,15 @@ public class StarSystemGeneration : MonoBehaviour
                     celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), 0, distance * Mathf.Sin(longitude));
                     celestialGO.transform.localScale /= 10;
 
-                    planetList.Add(new KeyValuePair<GameObject, int>(celestialGO, celestialObject.id));
+                    GameObject orbitContainer = new GameObject("orbit");
+                    orbitContainer.transform.position = starSystem.transform.position;
+                    orbitContainer.transform.parent = celestialGO.transform;
+                    drawOrbit(orbitContainer, distance, 0.01f);
+                    orbitContainer.GetComponent<LineRenderer>().GetPosition(1);
+                    orbitContainer.AddComponent<WidthKeeper>();
                     
+
+                    planetList.Add(new KeyValuePair<GameObject, int>(celestialGO, celestialObject.id));
                 }
                 if(celestialObject.type == "SATELLITE")
                 {
@@ -152,6 +159,31 @@ public class StarSystemGeneration : MonoBehaviour
         public float distance;
         public int id;
         public int parent_id;
+    }
+
+
+
+    public void drawOrbit(GameObject gameObject, float radius, float lineWidth)
+    {
+        var segments = 120;
+        var line = gameObject.AddComponent<LineRenderer>();
+        line.useWorldSpace = true;
+        line.startWidth = lineWidth;
+        line.endWidth = lineWidth;
+        line.positionCount = segments + 1;
+        var pointCount = segments + 1;
+        var points = new Vector3[pointCount];
+
+        for (int i = 0; i < pointCount; i += 1)
+        {
+            var rad = Mathf.Deg2Rad * (i * 360f / segments);
+            points[i] = new Vector3(Mathf.Sin(rad) * radius, 0, Mathf.Cos(rad) * radius) + gameObject.transform.parent.parent.position;
+        }
+        line.SetPositions(points);
+        line.material = new Material(Shader.Find("Legacy Shaders/Particles/Alpha Blended Premultiply"));
+        line.startColor = Color.cyan;
+        line.endColor = Color.cyan;
+        
     }
 
 }
