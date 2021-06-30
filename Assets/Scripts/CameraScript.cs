@@ -11,8 +11,9 @@ public class CameraScript   : MonoBehaviour
     public Vector3 center;
 
     private bool clicked;
-    private GameObject goSelected;
+    private bool completed;
     private Vector3 newPos;
+    private Vector3 newCenter;
     private bool centered;
     private bool arrived;
 
@@ -43,6 +44,7 @@ public class CameraScript   : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        completed = true;
         center = PlayerTransform.position;
         maxZoom = 500;
         minZoom = 20;
@@ -50,6 +52,7 @@ public class CameraScript   : MonoBehaviour
         zoomSpeed = 50;
         rotateSpeed = 0.3f;
         selectSpeed = 200;
+        
     }
 
     // Update is called once per frame
@@ -65,29 +68,28 @@ public class CameraScript   : MonoBehaviour
         
         if(clicked)
         {
-            if(!arrived)
+            if(Vector3.Distance(transform.position, newPos) < 75) arrived = true;
+            MooveToPos();
+            if(centered && arrived)
             {
-                transform.position = Vector3.MoveTowards(transform.position, newPos, selectSpeed * Time.deltaTime);
-                if(Vector3.Distance(transform.position, newPos) < 75) arrived = true;
-            }
-            
-            if(!centered)
+                clicked = false;
+                center = newCenter;
+            } 
+        }
+
+        if(!completed)
+        {
+            if(transform.position == newPos) arrived = true;
+            MooveToPos();
+            if(centered && arrived)
             {
-                var newPosRotation = Quaternion.LookRotation(newPos - transform.position);
-                transform.rotation = Quaternion.Slerp(transform.rotation, newPosRotation, selectSpeed * Time.deltaTime);
-
-                RaycastHit hit;
-                Vector3 CameraCenter = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width/2, Screen.height/2, Camera.main.nearClipPlane));
-                if (Physics.Raycast(CameraCenter, transform.forward, out hit, 100))
-                {
-                    if(hit.transform.gameObject == goSelected) centered = true;
-                } 
-                
-            }
-
-            if(centered && arrived) clicked = false;
+                completed = true;
+                center = newCenter;
+            } 
             
         }
+
+        
 
 
         if(Input.GetKey(KeyCode.Mouse1))
@@ -231,31 +233,63 @@ public class CameraScript   : MonoBehaviour
             underInertia = true;
             isRotation = true;
         }
+
+        //print(centered);
+        //print(arrived);
     }
     
 
     public void selectSystem(GameObject gameObject)
     {
-        goSelected = gameObject;
         centered = false;
         arrived = false;
         clicked = true;
         newPos = gameObject.transform.position;
-        center = newPos;
+        newCenter = newPos;
         
     }
     public void enterSystem(GameObject gameObject)
     {
-        transform.position = gameObject.transform.position;
-        center = gameObject.transform.position;
+        centered = false;
+        arrived = false;
+        completed = false;
+        newPos = gameObject.transform.position + new Vector3(0, 5, 5);
+        newCenter = gameObject.transform.position;
         speed = 20;
         zoomSpeed = 3;
         gameObject.GetComponent<MeshRenderer>().enabled = false;
         maxZoom = 40;
         minZoom = 1;
         
+        
+    }
+
+    public void ExitSystem(GameObject gameObject)
+    {
+        maxZoom = 500;
+        minZoom = 20;
+        speed = 300;
+        zoomSpeed = 50;
     }
     
+    public void MooveToPos()
+    {
+        if(!arrived)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, newPos, selectSpeed * Time.deltaTime);
+        }
+            
+        if(!centered)
+        {
+            var newPosRotation = Quaternion.LookRotation(newCenter - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, newPosRotation, selectSpeed * Time.deltaTime / 50);
+
+            if(newPosRotation == transform.rotation) centered = true;
+            print(centered);
+        }
+        
+        
+    }
 
 
 }

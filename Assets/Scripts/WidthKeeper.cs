@@ -17,15 +17,6 @@ public class WidthKeeper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*AnimationCurve curve = new AnimationCurve();
-        for (int i = 0; i < 3; i++)
-        {
-            curve.AddKey(i / 3, i);
-        }
-        curve.AddKey(0, 1);
-        curve.AddKey(1, 1);
-        lineRenderer.widthCurve = curve;
-        */
         
         AnimationCurve curve = new AnimationCurve();
         for (int i = 0; i <= 120; i += 10)

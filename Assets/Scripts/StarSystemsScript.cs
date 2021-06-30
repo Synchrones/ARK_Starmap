@@ -5,7 +5,7 @@ using UnityEngine;
 public class StarSystemsScript : MonoBehaviour
 {
     public TextAsset jsonFile;
-
+    public int cameraMode; // 0 = Galaxy view, 1 = System view, 2 = Celestial object view
     public GameObject StarSystemPrefab;
     
     public GameObject mainCamera;
@@ -26,30 +26,43 @@ public class StarSystemsScript : MonoBehaviour
             starSystemInfos.json = System.IO.File.ReadAllText(Application.dataPath + "/Jsons/Systems/" + starSystem.name + ".json");
             if(starSystem.id == 320)starSystemInfos.json = System.IO.File.ReadAllText(Application.dataPath + "/Jsons/Systems/Nul1.json"); //a file can't be named nul so... 
         }
+        cameraMode = 0;
     }
     
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonUp(1))
+        if(cameraMode == 0)
         {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if(Physics.Raycast(ray, out hit, 500))
+            if(Input.GetMouseButtonUp(1))
             {
-                if(hit.transform)
+                RaycastHit hit;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if(Physics.Raycast(ray, out hit, 500))
                 {
-                    selectedSystem = hit.transform.gameObject;
-                    mainCamera.GetComponent<CameraScript>().selectSystem(selectedSystem);
-                    print(hit.transform.gameObject.GetComponent<SystemsInfosScript>().description);
-                    
+                    if(hit.transform)
+                    {
+                        selectedSystem = hit.transform.gameObject;
+                        mainCamera.GetComponent<CameraScript>().selectSystem(selectedSystem);
+                        print(hit.transform.gameObject.GetComponent<SystemsInfosScript>().description);
+                        
+                    }
                 }
             }
+            if(Input.GetKeyDown(KeyCode.Return))
+            {
+                this.GetComponent<StarSystemGeneration>().LoadSystem(selectedSystem);
+                mainCamera.GetComponent<CameraScript>().enterSystem(selectedSystem);
+                cameraMode = 1;
+            }
         }
-        if(Input.GetKeyDown(KeyCode.Return))
+        else if(cameraMode == 1)
         {
-            this.GetComponent<StarSystemGeneration>().LoadSystem(selectedSystem);
-            mainCamera.GetComponent<CameraScript>().enterSystem(selectedSystem);
+            if(Input.GetKeyDown(KeyCode.Escape))
+            {
+                this.GetComponent<StarSystemGeneration>().UnloadSystem(selectedSystem);
+                cameraMode = 0;
+            }
         }
     }
 

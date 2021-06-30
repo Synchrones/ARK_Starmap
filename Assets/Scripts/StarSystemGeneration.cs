@@ -111,14 +111,20 @@ public class StarSystemGeneration : MonoBehaviour
                     celestialGO.name = celestialObject.name;
 
                     float longitude = celestialObject.longitude * Mathf.Deg2Rad;
-                    float distance = celestialObject.distance;
+                    float latitude = celestialObject.latitude * Mathf.Deg2Rad;
+                    float distance = celestialObject.distance * 1500;
 
-                    celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), 0, distance * Mathf.Sin(longitude));
-                    celestialGO.transform.localScale /= 10;
+                    celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Tan(latitude), distance * Mathf.Sin(longitude));
+                    celestialGO.transform.localScale /= 50;
                 }
             
             }
         }
+    }
+
+    public void UnloadSystem(GameObject gameObject)
+    {
+        
     }
 
 
@@ -156,6 +162,7 @@ public class StarSystemGeneration : MonoBehaviour
         public string name;
         public string appearance;
         public float longitude;
+        public float latitude;
         public float distance;
         public int id;
         public int parent_id;
