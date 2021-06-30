@@ -62,6 +62,7 @@ public class StarSystemsScript : MonoBehaviour
             {
                 this.GetComponent<StarSystemGeneration>().UnloadSystem(selectedSystem);
                 cameraMode = 0;
+                mainCamera.GetComponent<CameraScript>().ExitSystem(selectedSystem);
             }
         }
     }

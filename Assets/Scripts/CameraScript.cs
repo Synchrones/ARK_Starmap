@@ -51,7 +51,7 @@ public class CameraScript   : MonoBehaviour
         speed = 300;
         zoomSpeed = 50;
         rotateSpeed = 0.3f;
-        selectSpeed = 200;
+        selectSpeed = 100;
         
     }
 
@@ -234,8 +234,6 @@ public class CameraScript   : MonoBehaviour
             isRotation = true;
         }
 
-        //print(centered);
-        //print(arrived);
     }
     
 
@@ -253,23 +251,37 @@ public class CameraScript   : MonoBehaviour
         centered = false;
         arrived = false;
         completed = false;
-        newPos = gameObject.transform.position + new Vector3(0, 5, 5);
+        
+        float zOffset = transform.position.z - gameObject.transform.position.z;
+        newPos = gameObject.transform.position + new Vector3(0, 5, 5 * Mathf.Clamp(zOffset, -1, 1));
         newCenter = gameObject.transform.position;
+
         speed = 20;
         zoomSpeed = 3;
-        gameObject.GetComponent<MeshRenderer>().enabled = false;
         maxZoom = 40;
         minZoom = 1;
         
-        
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
+
     }
 
     public void ExitSystem(GameObject gameObject)
     {
+        centered = false;
+        arrived = false;
+        completed = false;
+
+        float zOffset = transform.position.z - gameObject.transform.position.z;
+        newPos = gameObject.transform.position + new Vector3(0, 50, 50 * Mathf.Clamp(zOffset, -1, 1));
+        newCenter = gameObject.transform.position;
+
         maxZoom = 500;
         minZoom = 20;
         speed = 300;
         zoomSpeed = 50;
+
+        GameObject.Destroy(gameObject.transform.GetChild(0).gameObject);
+        gameObject.GetComponent<MeshRenderer>().enabled = true;
     }
     
     public void MooveToPos()
@@ -282,12 +294,15 @@ public class CameraScript   : MonoBehaviour
         if(!centered)
         {
             var newPosRotation = Quaternion.LookRotation(newCenter - transform.position);
-            transform.rotation = Quaternion.Slerp(transform.rotation, newPosRotation, selectSpeed * Time.deltaTime / 50);
+            transform.rotation = Quaternion.Slerp(transform.rotation, newPosRotation, selectSpeed * Time.deltaTime / 20);
 
             if(newPosRotation == transform.rotation) centered = true;
-            print(centered);
+            
         }
-        
+        else
+        {
+            transform.LookAt(newCenter);
+        }
         
     }
 
