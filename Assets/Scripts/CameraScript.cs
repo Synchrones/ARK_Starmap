@@ -21,7 +21,8 @@ public class CameraScript   : MonoBehaviour
     private float speed;
     private float zoomSpeed;
     private float rotateSpeed;
-    private float selectSpeed;
+    private float camMoveSpeed;
+    private float camRotateSpeed;
 
     private Vector3 velocity = Vector3.zero;
 
@@ -52,8 +53,7 @@ public class CameraScript   : MonoBehaviour
         speed = 300;
         zoomSpeed = 50;
         rotateSpeed = 0.3f;
-        selectSpeed = 200;
-        
+        camRotateSpeed = 30;
     }
 
     // Update is called once per frame
@@ -244,6 +244,7 @@ public class CameraScript   : MonoBehaviour
         arrived = false;
         clicked = true;
 
+        camMoveSpeed = Vector3.Distance(transform.position, gameObject.transform.position) * 2;
         stopDistance = 75;
         newPos = gameObject.transform.position;
         newCenter = newPos;
@@ -292,7 +293,7 @@ public class CameraScript   : MonoBehaviour
         centered = false;
         arrived = false;
         clicked = true;
-        selectSpeed = Vector3.Distance(transform.position, gameObject.transform.position) * 2;
+        camMoveSpeed = Vector3.Distance(transform.position, gameObject.transform.position) * 2;
 
         stopDistance = 2;
         newPos = gameObject.transform.position;
@@ -304,13 +305,13 @@ public class CameraScript   : MonoBehaviour
     {
         if(!arrived)
         {
-            transform.position = Vector3.MoveTowards(transform.position, newPos, selectSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, newPos, camMoveSpeed * Time.deltaTime);
         }
             
         if(!centered)
         {
             var newPosRotation = Quaternion.LookRotation(newCenter - transform.position);
-            transform.rotation = Quaternion.Slerp(transform.rotation, newPosRotation, selectSpeed * Time.deltaTime / (10 / selectSpeed));
+            transform.rotation = Quaternion.Slerp(transform.rotation, newPosRotation, camRotateSpeed * Time.deltaTime);
 
             if(newPosRotation == transform.rotation) centered = true;
             
