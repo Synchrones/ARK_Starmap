@@ -75,6 +75,8 @@ public class StarSystemGeneration : MonoBehaviour
                     celestialGO.transform.parent = SSContentGO.transform;
                     celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), 0, distance * Mathf.Sin(longitude));
                     celestialGO.transform.localScale /= 10;
+                    celestialGO.layer = 6;
+                    celestialGO.AddComponent<SphereCollider>().radius = 1;
 
                     GameObject orbitContainer = new GameObject("orbit");
                     orbitContainer.transform.position = starSystem.transform.position;
@@ -116,6 +118,7 @@ public class StarSystemGeneration : MonoBehaviour
 
                     celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Tan(latitude), distance * Mathf.Sin(longitude));
                     celestialGO.transform.localScale /= 50;
+                    celestialGO.layer = 6;
                 }
             
             }

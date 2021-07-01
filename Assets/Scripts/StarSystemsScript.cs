@@ -10,6 +10,9 @@ public class StarSystemsScript : MonoBehaviour
     
     public GameObject mainCamera;
     public GameObject selectedSystem;
+    public GameObject selectedObject;
+
+    public int layerMask;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,7 +46,7 @@ public class StarSystemsScript : MonoBehaviour
                     if(hit.transform)
                     {
                         selectedSystem = hit.transform.gameObject;
-                        mainCamera.GetComponent<CameraScript>().selectSystem(selectedSystem);
+                        mainCamera.GetComponent<CameraScript>().SelectSystem(selectedSystem);
                         print(hit.transform.gameObject.GetComponent<SystemsInfosScript>().description);
                         
                     }
@@ -52,18 +55,34 @@ public class StarSystemsScript : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.Return))
             {
                 this.GetComponent<StarSystemGeneration>().LoadSystem(selectedSystem);
-                mainCamera.GetComponent<CameraScript>().enterSystem(selectedSystem);
+                mainCamera.GetComponent<CameraScript>().EnterSystem(selectedSystem);
                 cameraMode = 1;
             }
         }
         else if(cameraMode == 1)
         {
+            if(Input.GetMouseButtonUp(1))
+            {
+                layerMask = 1 << LayerMask.NameToLayer("CO");
+                RaycastHit hit;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if(Physics.Raycast(ray, out hit, 100, layerMask))
+                {
+                    if(hit.transform)
+                    {
+                        selectedObject = hit.transform.gameObject;
+                        mainCamera.GetComponent<CameraScript>().MoveToCO(selectedObject);
+                        //cameraMode = 2;
+                    }
+                }
+            }
             if(Input.GetKeyDown(KeyCode.Escape))
             {
                 this.GetComponent<StarSystemGeneration>().UnloadSystem(selectedSystem);
                 cameraMode = 0;
                 mainCamera.GetComponent<CameraScript>().ExitSystem(selectedSystem);
             }
+
         }
     }
 
