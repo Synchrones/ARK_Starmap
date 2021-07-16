@@ -66,32 +66,6 @@ public class CameraScript   : MonoBehaviour
         float scroll = Input.GetAxis ("Mouse ScrollWheel");
         if(Vector3.Distance(transform.position, center) > minZoom && scroll > 0 || Vector3.Distance(transform.position, center) < maxZoom && scroll < 0) transform.Translate(0, 0, scroll * zoomSpeed, Space.Self);
         cameraOffset = transform.position - center;
-        
-        if(clicked)
-        {
-            if(Vector3.Distance(transform.position, newPos) < stopDistance) arrived = true;
-            MooveToPos();
-            if(centered && arrived)
-            {
-                clicked = false;
-                center = newCenter;
-            } 
-        }
-
-        if(!completed)
-        {
-            if(transform.position == newPos) arrived = true;
-            MooveToPos();
-            if(centered && arrived)
-            {
-                completed = true;
-                center = newCenter;
-            } 
-            
-        }
-
-        
-
 
         if(Input.GetKey(KeyCode.Mouse1))
         {
@@ -116,7 +90,7 @@ public class CameraScript   : MonoBehaviour
         
 
 
-        if(Input.GetKey(KeyCode.Mouse0))
+        if(Input.GetKey(KeyCode.Mouse0) && clicked == false && completed == true)
         {
             underInertia = false;
             time = 0.0f;
@@ -222,6 +196,31 @@ public class CameraScript   : MonoBehaviour
             time = 0.0f;
              
         }
+
+
+        if(clicked)
+        {
+            if(Vector3.Distance(transform.position, newPos) < stopDistance) arrived = true;
+            MooveToPos();
+            if(centered && arrived)
+            {
+                clicked = false;
+                center = newCenter;
+            } 
+        }
+
+        if(!completed)
+        {
+            if(transform.position == newPos) arrived = true;
+            MooveToPos();
+            if(centered && arrived)
+            {
+                completed = true;
+                center = newCenter;
+                 
+            } 
+            
+        }
         
 
         if(Input.GetMouseButtonUp(1))
@@ -244,10 +243,13 @@ public class CameraScript   : MonoBehaviour
         arrived = false;
         clicked = true;
 
-        camMoveSpeed = Vector3.Distance(transform.position, gameObject.transform.position) * 2;
-        stopDistance = 75;
         newPos = gameObject.transform.position;
         newCenter = newPos;
+        
+        camMoveSpeed = Vector3.Distance(transform.position, newPos) * 2;
+        camRotateSpeed = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(newCenter - transform.position)) / 2;
+        stopDistance = 75;
+        
         
     }
     public void EnterSystem(GameObject gameObject)
@@ -260,6 +262,8 @@ public class CameraScript   : MonoBehaviour
         newPos = gameObject.transform.position + new Vector3(0, 5, 5 * Mathf.Clamp(zOffset, -1, 1));
         newCenter = gameObject.transform.position;
 
+        camMoveSpeed = Vector3.Distance(transform.position, newPos) * 2;
+        camRotateSpeed = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(newCenter - transform.position)) / 2;
         speed = 20;
         zoomSpeed = 3;
         maxZoom = 40;
@@ -279,6 +283,8 @@ public class CameraScript   : MonoBehaviour
         newPos = gameObject.transform.position + new Vector3(0, 50, 50 * Mathf.Clamp(zOffset, -1, 1));
         newCenter = gameObject.transform.position;
 
+        camMoveSpeed = Vector3.Distance(transform.position, newPos) * 2;
+        camRotateSpeed = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(newCenter - transform.position)) / 2;
         maxZoom = 500;
         minZoom = 20;
         speed = 300;
@@ -293,11 +299,13 @@ public class CameraScript   : MonoBehaviour
         centered = false;
         arrived = false;
         clicked = true;
-        camMoveSpeed = Vector3.Distance(transform.position, gameObject.transform.position) * 2;
 
         stopDistance = 2;
         newPos = gameObject.transform.position;
         newCenter = newPos;
+
+        camMoveSpeed = Vector3.Distance(transform.position, gameObject.transform.position) * 2;
+        camRotateSpeed = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(newCenter - transform.position)) / 2;
         
     }
     
@@ -306,13 +314,14 @@ public class CameraScript   : MonoBehaviour
         if(!arrived)
         {
             transform.position = Vector3.MoveTowards(transform.position, newPos, camMoveSpeed * Time.deltaTime);
+
         }
             
         if(!centered)
         {
             var newPosRotation = Quaternion.LookRotation(newCenter - transform.position);
             transform.rotation = Quaternion.Slerp(transform.rotation, newPosRotation, camRotateSpeed * Time.deltaTime);
-
+            
             if(newPosRotation == transform.rotation) centered = true;
             
         }
@@ -320,7 +329,7 @@ public class CameraScript   : MonoBehaviour
         {
             transform.LookAt(newCenter);
         }
-        
+           
     }
 
 
