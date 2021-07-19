@@ -21,7 +21,7 @@ public class WidthKeeper : MonoBehaviour
         AnimationCurve curve = new AnimationCurve();
         for (int i = 0; i <= 120; i += 10)
         {
-            Vector3 pos = lineRenderer.GetPosition(i);
+            Vector3 pos = lineRenderer.GetPosition(i) + gameObject.transform.position;
             float width = Vector3.Distance(mainCamera.transform.position, pos) / 400;
             curve.AddKey(i / 120, width);
             

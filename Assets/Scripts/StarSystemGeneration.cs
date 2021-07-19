@@ -73,19 +73,20 @@ public class StarSystemGeneration : MonoBehaviour
                     celestialGO.name = celestialObject.name;
 
                     float longitude = celestialObject.longitude * Mathf.Deg2Rad;
+                    float latitude = celestialObject.latitude * Mathf.Deg2Rad;
                     float distance = celestialObject.distance;
                 
                     celestialGO.transform.parent = SSContentGO.transform;
-                    celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), 0, distance * Mathf.Sin(longitude));
+                    celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Tan(latitude), distance * Mathf.Sin(longitude));
                     celestialGO.transform.localScale /= 10;
                     celestialGO.layer = 6;
                     celestialGO.AddComponent<SphereCollider>().radius = 1;
 
                     GameObject orbitContainer = new GameObject("orbit");
                     orbitContainer.transform.position = starSystem.transform.position;
+                    orbitContainer.transform.rotation = Quaternion.Euler(0, - celestialObject.longitude, celestialObject.latitude);
                     orbitContainer.transform.parent = celestialGO.transform;
-                    drawOrbit(orbitContainer, distance, 0.01f);
-                    orbitContainer.GetComponent<LineRenderer>().GetPosition(1);
+                    drawOrbit(orbitContainer, distance, 0.01f, longitude);
                     orbitContainer.AddComponent<WidthKeeper>();
                     
 
@@ -148,7 +149,7 @@ public class StarSystemGeneration : MonoBehaviour
                     celestialGO.name = celestialObject.designation;
 
                     float longitude = celestialObject.longitude * Mathf.Deg2Rad;
-                    /*if(celestialObject.latitude != null){*/float latitude = celestialObject.latitude * Mathf.Deg2Rad;//}
+                    float latitude = celestialObject.latitude * Mathf.Deg2Rad;
                     float distance = celestialObject.distance;
 
                     foreach(KeyValuePair<GameObject, int> planet in planetList)
@@ -218,21 +219,22 @@ public class StarSystemGeneration : MonoBehaviour
 
 
 
-    public void drawOrbit(GameObject gameObject, float radius, float lineWidth)
+    public void drawOrbit(GameObject gameObject, float radius, float lineWidth, float longitude)
     {
         var segments = 120;
         var line = gameObject.AddComponent<LineRenderer>();
-        line.useWorldSpace = true;
+        line.useWorldSpace = false;
         line.startWidth = lineWidth;
         line.endWidth = lineWidth;
         line.positionCount = segments + 1;
         var pointCount = segments + 1;
         var points = new Vector3[pointCount];
 
+        
         for (int i = 0; i < pointCount; i += 1)
         {
-            var rad = Mathf.Deg2Rad * (i * 360f / segments);
-            points[i] = new Vector3(Mathf.Sin(rad) * radius, 0, Mathf.Cos(rad) * radius) + gameObject.transform.parent.parent.position;
+            var rad = Mathf.Deg2Rad * (i * 360 / segments);
+            points[i] = new Vector3(Mathf.Cos(rad + longitude) * radius, 0, Mathf.Sin(rad + longitude) * radius);
         }
         line.SetPositions(points);
         line.material = new Material(Shader.Find("Legacy Shaders/Particles/Alpha Blended Premultiply"));
