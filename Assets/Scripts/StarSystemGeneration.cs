@@ -10,6 +10,8 @@ public class StarSystemGeneration : MonoBehaviour
     public GameObject brownPlanetPrefab;
     public GameObject greenPlanetPrefab;
     public GameObject gazPlanetPrefab;
+    public GameObject jumpPointPrefab;
+    public GameObject spaceStationPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +37,7 @@ public class StarSystemGeneration : MonoBehaviour
         {
             SSContentGO.name = systemContent.name;
             var planetList = new List<KeyValuePair<GameObject, int>>();
+            var moonList = new List<KeyValuePair<GameObject, int>>();
 
             foreach(CelestialObject celestialObject in systemContent.celestial_objects)
             {
@@ -119,6 +122,48 @@ public class StarSystemGeneration : MonoBehaviour
                     celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Tan(latitude), distance * Mathf.Sin(longitude));
                     celestialGO.transform.localScale /= 50;
                     celestialGO.layer = 6;
+                    celestialGO.AddComponent<SphereCollider>().radius = 0.2f;
+
+                    moonList.Add(new KeyValuePair<GameObject, int>(celestialGO, celestialObject.id));
+                }
+                if(celestialObject.type == "JUMPPOINT")
+                {
+                    celestialGO = Instantiate(jumpPointPrefab, starSystem.transform.position, Quaternion.identity);
+
+                    celestialGO.name = celestialObject.name;
+
+                    float longitude = celestialObject.longitude * Mathf.Deg2Rad;
+                    float latitude = celestialObject.latitude * Mathf.Deg2Rad;
+                    float distance = celestialObject.distance;
+
+                    celestialGO.transform.parent = SSContentGO.transform;
+                    celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Tan(latitude), distance * Mathf.Sin(longitude));
+                    celestialGO.layer = 6;
+
+                }
+                if(celestialObject.type == ("MANMADE"))
+                {
+                    celestialGO = Instantiate(spaceStationPrefab, starSystem.transform.position, Quaternion.identity);
+
+                    celestialGO.name = celestialObject.designation;
+
+                    float longitude = celestialObject.longitude * Mathf.Deg2Rad;
+                    /*if(celestialObject.latitude != null){*/float latitude = celestialObject.latitude * Mathf.Deg2Rad;//}
+                    float distance = celestialObject.distance;
+
+                    foreach(KeyValuePair<GameObject, int> planet in planetList)
+                    {
+                        if(planet.Value == celestialObject.parent_id) celestialGO.transform.parent = planet.Key.transform;
+                    }
+                    foreach(KeyValuePair<GameObject, int> moon in moonList)
+                    {
+                        if(moon.Value == celestialObject.parent_id) celestialGO.transform.parent = moon.Key.transform;
+                    }
+
+                    celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Tan(latitude), distance * Mathf.Sin(longitude));
+                    celestialGO.layer = 6;
+                    celestialGO.AddComponent<SphereCollider>().radius = 0.2f;
+
                 }
             
             }

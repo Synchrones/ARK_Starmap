@@ -257,6 +257,8 @@ MonoBehaviour:
   brownPlanetPrefab: {fileID: 919132149155446097, guid: f86cb80ecd782934789be1c52568b811, type: 3}
   greenPlanetPrefab: {fileID: 919132149155446097, guid: ddfe1f522b4fb9649905b28290f45298, type: 3}
   gazPlanetPrefab: {fileID: 919132149155446097, guid: 414e9b886e1a0954db110a615412c645, type: 3}
+  jumpPointPrefab: {fileID: 7670953602739604956, guid: 3401c9129fcfd4742a628e476beca32d, type: 3}
+  spaceStationPrefab: {fileID: 7590388457483272264, guid: c3eec5afe06020649bdca70e3167a31f, type: 3}
 --- !u!1001 &863269331
 PrefabInstance:
   m_ObjectHideFlags: 0
