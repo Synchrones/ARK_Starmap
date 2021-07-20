@@ -22,12 +22,31 @@ public class StarSystemsScript : MonoBehaviour
             GameObject StarSystemGO = Instantiate(StarSystemPrefab, new Vector3(starSystem.posX * 7, starSystem.posZ * 7, starSystem.posY * 7), Quaternion.identity);
             StarSystemGO.name = starSystem.name;
             StarSystemGO.transform.localScale *= 20;
+
             StarSystemGO.AddComponent<SystemsInfosScript>();
             SystemsInfosScript starSystemInfos = StarSystemGO.GetComponent<SystemsInfosScript>();
             starSystemInfos.description = starSystem.description;
             starSystemInfos.type = starSystem.type;
+            starSystemInfos.systemName = starSystem.name;
+            starSystemInfos.status = starSystem.status;
+            starSystemInfos.lastTimeModified = starSystem.time_modified;
+            starSystemInfos.size = starSystem.aggregated_size;
+            starSystemInfos.population = starSystem.aggregated_population;
+            starSystemInfos.economy = starSystem.aggregated_economy;
+            starSystemInfos.danger = starSystem.aggregated_danger;
+
+
+            foreach(Affiliation affiliation in starSystem.affiliation)
+            {
+                starSystemInfos.affiliationID = affiliation.id;
+                starSystemInfos.affiliationName = affiliation.name;
+            }
+
             starSystemInfos.json = System.IO.File.ReadAllText(Application.dataPath + "/Jsons/Systems/" + starSystem.name + ".json");
             if(starSystem.id == 320)starSystemInfos.json = System.IO.File.ReadAllText(Application.dataPath + "/Jsons/Systems/Nul1.json"); //a file can't be named nul so... 
+
+            
+
         }
         cameraMode = 0;
     }
@@ -95,7 +114,6 @@ public class StarSystemsScript : MonoBehaviour
 [System.Serializable]
 public class StarSystem
 {
-    
     public int id;
     public float posX;
     public float posY;
@@ -103,6 +121,14 @@ public class StarSystem
     public string name;
     public string description;
     public string type;
+    public string status;
+    public string time_modified;
+    public string aggregated_size;
+    public string aggregated_population;
+    public string aggregated_economy;
+    public string aggregated_danger;
+    public Affiliation[] affiliation;
+
     
 }
 
@@ -111,3 +137,12 @@ public class StarSystems
 {
     public StarSystem[] starSystems;
 }
+
+[System.Serializable]
+public class Affiliation
+{
+    public string id;
+    public string name;
+}
+
+
