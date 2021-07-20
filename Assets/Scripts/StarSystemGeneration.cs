@@ -41,7 +41,8 @@ public class StarSystemGeneration : MonoBehaviour
 
             foreach(CelestialObject celestialObject in systemContent.celestial_objects)
             {
-                GameObject celestialGO;
+                GameObject celestialGO = new GameObject();
+
                 if(celestialObject.type == "STAR")
                 {
                     celestialGO = Instantiate(starPrefab, starSystem.transform.position, Quaternion.identity);
@@ -166,6 +167,21 @@ public class StarSystemGeneration : MonoBehaviour
                     celestialGO.AddComponent<SphereCollider>().radius = 0.2f;
 
                 }
+
+                celestialGO.AddComponent<COInfosScript>();
+                COInfosScript coInfosScript = celestialGO.GetComponent<COInfosScript>();
+
+                coInfosScript.coName = celestialObject.name;
+                coInfosScript.description = celestialObject.description;
+                coInfosScript.type = celestialObject.type;
+                coInfosScript.lastTimeModified = celestialObject.time_modified;
+                coInfosScript.habitable = celestialObject.habitable;
+                coInfosScript.population = celestialObject.sensor_population;
+                coInfosScript.economy = celestialObject.sensor_economy;
+                coInfosScript.danger = celestialObject.sensor_danger;
+                coInfosScript.fairchanceact = celestialObject.fairchanceact;
+                coInfosScript.size = celestialObject.size;
+                coInfosScript.subtype = celestialObject.subtype.name;
             
             }
         }
@@ -209,12 +225,28 @@ public class StarSystemGeneration : MonoBehaviour
         public string type;
         public string designation;
         public string name;
+        public string description;
         public string appearance;
         public float longitude;
         public float latitude;
         public float distance;
         public int id;
         public int parent_id;
+        public string habitable;
+        public string sensor_danger;
+        public string sensor_economy;
+        public string sensor_population;
+        public string fairchanceact;
+        public string size;
+        public string time_modified;
+
+        public Subtype subtype;
+    }
+
+    [System.Serializable]
+    public class Subtype
+    {
+        public string name;
     }
 
 
