@@ -185,8 +185,7 @@ public class StarSystemGeneration : MonoBehaviour
                     default:
 
                         print("unknown CO type" + celestialObject.type);
-                        GameObject.Destroy(celestialGO);
-                        
+
                         break;
 
                 }
@@ -196,6 +195,7 @@ public class StarSystemGeneration : MonoBehaviour
 
                 coInfosScript.coName = celestialObject.name;
                 coInfosScript.description = celestialObject.description;
+                coInfosScript.appearance = celestialObject.appearance;
                 coInfosScript.type = celestialObject.type;
                 coInfosScript.lastTimeModified = celestialObject.time_modified;
                 coInfosScript.habitable = celestialObject.habitable;
@@ -285,7 +285,6 @@ public class StarSystemGeneration : MonoBehaviour
         var pointCount = segments + 1;
         var points = new Vector3[pointCount];
 
-        
         for (int i = 0; i < pointCount; i += 1)
         {
             var rad = Mathf.Deg2Rad * (i * 360 / segments);

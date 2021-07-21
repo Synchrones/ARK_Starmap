@@ -7,6 +7,7 @@ public class COInfosScript : MonoBehaviour
 
     public string description;
     public string coName;
+    public string appearance;
     public string type;
     public string habitable;
     public string danger;
