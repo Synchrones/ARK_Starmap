@@ -41,7 +41,7 @@ public class StarSystemGeneration : MonoBehaviour
 
             foreach(CelestialObject celestialObject in systemContent.celestial_objects)
             {
-                GameObject celestialGO = new GameObject();
+                GameObject celestialGO;
 
                 float longitude;
                 float latitude;
@@ -164,14 +164,28 @@ public class StarSystemGeneration : MonoBehaviour
                         latitude = celestialObject.latitude * Mathf.Deg2Rad;
                         distance = celestialObject.distance;
 
+                        bool flag = false;
                         foreach(KeyValuePair<GameObject, int> planet in planetList)
                         {
-                            if(planet.Value == celestialObject.parent_id) celestialGO.transform.parent = planet.Key.transform;
+                            if(planet.Value == celestialObject.parent_id)
+                            {
+                                celestialGO.transform.parent = planet.Key.transform;
+                                flag = true;
+                            } 
                         }
-                        foreach(KeyValuePair<GameObject, int> moon in moonList)
+
+                        if(!flag)
                         {
-                            if(moon.Value == celestialObject.parent_id) celestialGO.transform.parent = moon.Key.transform;
+                            foreach(KeyValuePair<GameObject, int> moon in moonList)
+                            {
+                                if(moon.Value == celestialObject.parent_id)
+                                {
+                                    celestialGO.transform.parent = moon.Key.transform;
+                                    flag = true;
+                                } 
+                            }
                         }
+                        if(!flag) celestialGO.transform.parent = SSContentGO.transform;
 
                         celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Tan(latitude), distance * Mathf.Sin(longitude));
                         celestialGO.layer = 6;
@@ -180,11 +194,16 @@ public class StarSystemGeneration : MonoBehaviour
                         break;
 
                     case "ASTEROID_BELT":
+                        celestialGO = new GameObject();
+                        celestialGO.name = celestialObject.name;
+                        celestialGO.transform.parent = SSContentGO.transform;
 
                         break;
+
                     default:
 
                         print("unknown CO type" + celestialObject.type);
+                        celestialGO = new GameObject();
 
                         break;
 
