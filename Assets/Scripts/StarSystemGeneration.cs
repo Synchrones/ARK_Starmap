@@ -43,128 +43,151 @@ public class StarSystemGeneration : MonoBehaviour
             {
                 GameObject celestialGO = new GameObject();
 
-                if(celestialObject.type == "STAR")
+                float longitude;
+                float latitude;
+                float distance;
+
+                switch(celestialObject.type)
                 {
-                    celestialGO = Instantiate(starPrefab, starSystem.transform.position, Quaternion.identity);
-                    celestialGO.name = celestialObject.designation;
-                    celestialGO.transform.parent = SSContentGO.transform;
+                    case "STAR":
+
+                        celestialGO = Instantiate(starPrefab, starSystem.transform.position, Quaternion.identity);
+                        celestialGO.name = celestialObject.designation;
+                        celestialGO.transform.parent = SSContentGO.transform;
+
+                        break;
+
+                    case "PLANET":
+
+                        switch(celestialObject.appearance)
+                        {
+                            case "PLANET_BLUE":
+                                celestialGO = Instantiate(bluePlanetPrefab, starSystem.transform.position, Quaternion.identity);
+                                break;
+                            case "PLANET_BROWN":
+                                celestialGO = Instantiate(brownPlanetPrefab, starSystem.transform.position, Quaternion.identity);
+                                break;
+                            case "PLANET_GREEN":
+                                celestialGO = Instantiate(greenPlanetPrefab, starSystem.transform.position, Quaternion.identity);
+                                break;
+                            case "PLANET_GAS":
+                                celestialGO = Instantiate(gazPlanetPrefab, starSystem.transform.position, Quaternion.identity);
+                                break;
+                            default:
+                                celestialGO = Instantiate(brownPlanetPrefab, starSystem.transform.position, Quaternion.identity);
+                                break;
+                        }
+                        celestialGO.name = celestialObject.name;
+
+                        longitude = celestialObject.longitude * Mathf.Deg2Rad;
+                        latitude = celestialObject.latitude * Mathf.Deg2Rad;
+                        distance = celestialObject.distance;
                     
-                }
-                if(celestialObject.type == "PLANET")
-                {
-                    
-                    switch(celestialObject.appearance)
-                    {
-                        case "PLANET_BLUE":
-                            celestialGO = Instantiate(bluePlanetPrefab, starSystem.transform.position, Quaternion.identity);
-                            break;
-                        case "PLANET_BROWN":
-                            celestialGO = Instantiate(brownPlanetPrefab, starSystem.transform.position, Quaternion.identity);
-                            break;
-                        case "PLANET_GREEN":
-                            celestialGO = Instantiate(greenPlanetPrefab, starSystem.transform.position, Quaternion.identity);
-                            break;
-                        case "PLANET_GAS":
-                            celestialGO = Instantiate(gazPlanetPrefab, starSystem.transform.position, Quaternion.identity);
-                            break;
-                        default:
-                            celestialGO = Instantiate(brownPlanetPrefab, starSystem.transform.position, Quaternion.identity);
-                            break;
-                    }
-                    celestialGO.name = celestialObject.name;
+                        celestialGO.transform.parent = SSContentGO.transform;
+                        celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Tan(latitude), distance * Mathf.Sin(longitude));
+                        celestialGO.transform.localScale /= 10;
+                        celestialGO.layer = 6;
+                        celestialGO.AddComponent<SphereCollider>().radius = 1;
 
-                    float longitude = celestialObject.longitude * Mathf.Deg2Rad;
-                    float latitude = celestialObject.latitude * Mathf.Deg2Rad;
-                    float distance = celestialObject.distance;
-                
-                    celestialGO.transform.parent = SSContentGO.transform;
-                    celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Tan(latitude), distance * Mathf.Sin(longitude));
-                    celestialGO.transform.localScale /= 10;
-                    celestialGO.layer = 6;
-                    celestialGO.AddComponent<SphereCollider>().radius = 1;
+                        GameObject orbitContainer = new GameObject("orbit");
+                        orbitContainer.transform.position = starSystem.transform.position;
+                        orbitContainer.transform.rotation = Quaternion.Euler(0, - celestialObject.longitude, celestialObject.latitude);
+                        orbitContainer.transform.parent = celestialGO.transform;
+                        drawOrbit(orbitContainer, distance, 0.01f, longitude);
+                        orbitContainer.AddComponent<WidthKeeper>();
+                        
 
-                    GameObject orbitContainer = new GameObject("orbit");
-                    orbitContainer.transform.position = starSystem.transform.position;
-                    orbitContainer.transform.rotation = Quaternion.Euler(0, - celestialObject.longitude, celestialObject.latitude);
-                    orbitContainer.transform.parent = celestialGO.transform;
-                    drawOrbit(orbitContainer, distance, 0.01f, longitude);
-                    orbitContainer.AddComponent<WidthKeeper>();
-                    
+                        planetList.Add(new KeyValuePair<GameObject, int>(celestialGO, celestialObject.id));
 
-                    planetList.Add(new KeyValuePair<GameObject, int>(celestialGO, celestialObject.id));
-                }
-                if(celestialObject.type == "SATELLITE")
-                {
-                    switch(celestialObject.appearance)
-                    {
-                        case "PLANET_BLUE":
-                            celestialGO = Instantiate(bluePlanetPrefab, starSystem.transform.position, Quaternion.identity);
-                            break;
-                        case "PLANET_BROWN":
-                            celestialGO = Instantiate(brownPlanetPrefab, starSystem.transform.position, Quaternion.identity);
-                            break;
-                        case "PLANET_GREEN":
-                            celestialGO = Instantiate(greenPlanetPrefab, starSystem.transform.position, Quaternion.identity);
-                            break;
-                        default:
-                            celestialGO = Instantiate(brownPlanetPrefab, starSystem.transform.position, Quaternion.identity);
-                            break;
-                    }
-                    
-                    foreach(KeyValuePair<GameObject, int> planet in planetList)
-                    {
-                        if(planet.Value == celestialObject.parent_id) celestialGO.transform.parent = planet.Key.transform;
-                    }
-                    celestialGO.name = celestialObject.name;
+                        break;
 
-                    float longitude = celestialObject.longitude * Mathf.Deg2Rad;
-                    float latitude = celestialObject.latitude * Mathf.Deg2Rad;
-                    float distance = celestialObject.distance * 1500;
+                    case "SATELLITE":
 
-                    celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Tan(latitude), distance * Mathf.Sin(longitude));
-                    celestialGO.transform.localScale /= 50;
-                    celestialGO.layer = 6;
-                    celestialGO.AddComponent<SphereCollider>().radius = 0.2f;
+                        switch(celestialObject.appearance)
+                        {
+                            case "PLANET_BLUE":
+                                celestialGO = Instantiate(bluePlanetPrefab, starSystem.transform.position, Quaternion.identity);
+                                break;
+                            case "PLANET_BROWN":
+                                celestialGO = Instantiate(brownPlanetPrefab, starSystem.transform.position, Quaternion.identity);
+                                break;
+                            case "PLANET_GREEN":
+                                celestialGO = Instantiate(greenPlanetPrefab, starSystem.transform.position, Quaternion.identity);
+                                break;
+                            default:
+                                celestialGO = Instantiate(brownPlanetPrefab, starSystem.transform.position, Quaternion.identity);
+                                break;
+                        }
+                        
+                        foreach(KeyValuePair<GameObject, int> planet in planetList)
+                        {
+                            if(planet.Value == celestialObject.parent_id) celestialGO.transform.parent = planet.Key.transform;
+                        }
+                        celestialGO.name = celestialObject.name;
 
-                    moonList.Add(new KeyValuePair<GameObject, int>(celestialGO, celestialObject.id));
-                }
-                if(celestialObject.type == "JUMPPOINT")
-                {
-                    celestialGO = Instantiate(jumpPointPrefab, starSystem.transform.position, Quaternion.identity);
+                        longitude = celestialObject.longitude * Mathf.Deg2Rad;
+                        latitude = celestialObject.latitude * Mathf.Deg2Rad;
+                        distance = celestialObject.distance * 1500;
 
-                    celestialGO.name = celestialObject.name;
+                        celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Tan(latitude), distance * Mathf.Sin(longitude));
+                        celestialGO.transform.localScale /= 50;
+                        celestialGO.layer = 6;
+                        celestialGO.AddComponent<SphereCollider>().radius = 0.2f;
 
-                    float longitude = celestialObject.longitude * Mathf.Deg2Rad;
-                    float latitude = celestialObject.latitude * Mathf.Deg2Rad;
-                    float distance = celestialObject.distance;
+                        moonList.Add(new KeyValuePair<GameObject, int>(celestialGO, celestialObject.id));
 
-                    celestialGO.transform.parent = SSContentGO.transform;
-                    celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Tan(latitude), distance * Mathf.Sin(longitude));
-                    celestialGO.layer = 6;
+                        break;
 
-                }
-                if(celestialObject.type == ("MANMADE"))
-                {
-                    celestialGO = Instantiate(spaceStationPrefab, starSystem.transform.position, Quaternion.identity);
+                    case "JUMPPOINT":
 
-                    celestialGO.name = celestialObject.designation;
+                        celestialGO = Instantiate(jumpPointPrefab, starSystem.transform.position, Quaternion.identity);
 
-                    float longitude = celestialObject.longitude * Mathf.Deg2Rad;
-                    float latitude = celestialObject.latitude * Mathf.Deg2Rad;
-                    float distance = celestialObject.distance;
+                        celestialGO.name = celestialObject.name;
 
-                    foreach(KeyValuePair<GameObject, int> planet in planetList)
-                    {
-                        if(planet.Value == celestialObject.parent_id) celestialGO.transform.parent = planet.Key.transform;
-                    }
-                    foreach(KeyValuePair<GameObject, int> moon in moonList)
-                    {
-                        if(moon.Value == celestialObject.parent_id) celestialGO.transform.parent = moon.Key.transform;
-                    }
+                        longitude = celestialObject.longitude * Mathf.Deg2Rad;
+                        latitude = celestialObject.latitude * Mathf.Deg2Rad;
+                        distance = celestialObject.distance;
 
-                    celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Tan(latitude), distance * Mathf.Sin(longitude));
-                    celestialGO.layer = 6;
-                    celestialGO.AddComponent<SphereCollider>().radius = 0.2f;
+                        celestialGO.transform.parent = SSContentGO.transform;
+                        celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Tan(latitude), distance * Mathf.Sin(longitude));
+                        celestialGO.layer = 6;
+
+                        break;
+
+                    case "MANMADE":
+
+                        celestialGO = Instantiate(spaceStationPrefab, starSystem.transform.position, Quaternion.identity);
+
+                        celestialGO.name = celestialObject.designation;
+
+                        longitude = celestialObject.longitude * Mathf.Deg2Rad;
+                        latitude = celestialObject.latitude * Mathf.Deg2Rad;
+                        distance = celestialObject.distance;
+
+                        foreach(KeyValuePair<GameObject, int> planet in planetList)
+                        {
+                            if(planet.Value == celestialObject.parent_id) celestialGO.transform.parent = planet.Key.transform;
+                        }
+                        foreach(KeyValuePair<GameObject, int> moon in moonList)
+                        {
+                            if(moon.Value == celestialObject.parent_id) celestialGO.transform.parent = moon.Key.transform;
+                        }
+
+                        celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Tan(latitude), distance * Mathf.Sin(longitude));
+                        celestialGO.layer = 6;
+                        celestialGO.AddComponent<SphereCollider>().radius = 0.2f;
+
+                        break;
+
+                    case "ASTEROID_BELT":
+
+                        break;
+                    default:
+
+                        print("unknown CO type" + celestialObject.type);
+                        GameObject.Destroy(celestialGO);
+                        
+                        break;
 
                 }
 
