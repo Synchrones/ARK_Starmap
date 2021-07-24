@@ -30,7 +30,8 @@ public class CameraScript   : MonoBehaviour
     private float maxZoom;
     private float minZoom;
 
-
+    //UI
+    public GameObject UIContainer;
 
 
     //inertia things
@@ -41,6 +42,7 @@ public class CameraScript   : MonoBehaviour
     private bool isRotation;
     private float smoothTime = 3;
     private float time = 0.0f;
+
 
 
     // Start is called before the first frame update
@@ -206,6 +208,7 @@ public class CameraScript   : MonoBehaviour
             {
                 clicked = false;
                 center = newCenter;
+                UIContainer.GetComponent<DiscScript>().LoadDisc();
             } 
         }
 
@@ -217,7 +220,7 @@ public class CameraScript   : MonoBehaviour
             {
                 completed = true;
                 center = newCenter;
-                 
+                UIContainer.GetComponent<DiscScript>().LoadDisc();
             } 
             
         }

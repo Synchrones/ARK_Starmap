@@ -10,7 +10,7 @@ public class StarSystemsScript : MonoBehaviour
     public GameObject mainCamera;
     public GameObject selectedSystem;
     public GameObject selectedObject;
-    public GameObject UITest;
+    public GameObject UIContainer;
 
     public int layerMask;
     // Start is called before the first frame update
@@ -75,7 +75,7 @@ public class StarSystemsScript : MonoBehaviour
             {
                 this.GetComponent<StarSystemGeneration>().LoadSystem(selectedSystem);
                 mainCamera.GetComponent<CameraScript>().EnterSystem(selectedSystem);
-                UITest.GetComponent<SystemNameScript>().ChangeName(selectedSystem.name);
+                UIContainer.GetComponent<SystemNameScript>().ChangeName(selectedSystem.name);
                 cameraMode = 1;
             }
         }
@@ -101,7 +101,7 @@ public class StarSystemsScript : MonoBehaviour
                 this.GetComponent<StarSystemGeneration>().UnloadSystem(selectedSystem);
                 cameraMode = 0;
                 mainCamera.GetComponent<CameraScript>().ExitSystem(selectedSystem);
-                UITest.GetComponent<SystemNameScript>().ChangeName("");
+                UIContainer.GetComponent<SystemNameScript>().ChangeName("");
             }
 
         }
