@@ -24,14 +24,21 @@ public class InfoboxScript : MonoBehaviour
         
     }
 
-    public void LoadInfobox(GameObject gameObject)
+    public void LoadInfobox(GameObject gameObject, int mode)
     {
-        SystemsInfosScript systemInfos = gameObject.GetComponent<SystemsInfosScript>();
-        Object.text = "STAR SYSTEM";
-        Size.text = systemInfos.size;
-        Type.text = systemInfos.type;
-        Affiliation.text = systemInfos.affiliationName;
-        Name.text = systemInfos.systemName;
+        if(mode == 0)
+        {
+            SystemsInfosScript systemInfos = gameObject.GetComponent<SystemsInfosScript>();
+            Object.text = "STAR SYSTEM";
+            Size.text = systemInfos.size;
+            Type.text = systemInfos.type;
+            Affiliation.text = systemInfos.affiliationName;
+            Name.text = systemInfos.systemName;
+        }
+        else
+        {
+            print("WIP");
+        }
     }
 
     

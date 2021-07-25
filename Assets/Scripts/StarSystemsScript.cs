@@ -5,7 +5,7 @@ using UnityEngine;
 public class StarSystemsScript : MonoBehaviour
 {
     public TextAsset jsonFile;
-    public int cameraMode; // 0 = Galaxy view, 1 = System view, 2 = Celestial object view
+    public int cameraMode; // 0 = Galaxy view, 1 = System view
     public GameObject StarSystemPrefab;
     public GameObject mainCamera;
     public GameObject selectedSystem;
@@ -84,9 +84,7 @@ public class StarSystemsScript : MonoBehaviour
                 {
                     if(hit.transform)
                     {
-                        selectedObject = hit.transform.gameObject;
-                        mainCamera.GetComponent<CameraScript>().MoveToCO(selectedObject);
-                        //cameraMode = 2;
+                        SelectCO(hit.transform.gameObject);
                     }
                 }
             }
@@ -104,10 +102,22 @@ public class StarSystemsScript : MonoBehaviour
         mainCamera.GetComponent<CameraScript>().SelectSystem(selectedSystem);
         DiscScript discScript = UIContainer.GetComponent<DiscScript>();
         discScript.selectedObject = selectedSystem;
+        discScript.mode = 0;
         discScript.LoadDisc();
-        
+
         print(gameObject.GetComponent<SystemsInfosScript>().description);
     }
+
+    public void SelectCO(GameObject gameObject)
+    {
+        selectedObject = gameObject;
+        mainCamera.GetComponent<CameraScript>().MoveToCO(selectedObject);
+        DiscScript discScript = UIContainer.GetComponent<DiscScript>();
+        discScript.selectedObject = selectedObject;
+        discScript.mode = 1;
+        discScript.LoadDisc();
+    }
+
     public void LoadAndEnterSystem()
     {
         UIContainer.GetComponent<DiscScript>().UnloadDisc();

@@ -9,6 +9,7 @@ public class DiscScript : MonoBehaviour
     public GameObject Disc;
     public bool isActive = false;
     public GameObject selectedObject;
+    public int mode;
     // Update is called once per frame
     void Start()
     {
@@ -41,7 +42,8 @@ public class DiscScript : MonoBehaviour
 
     public void LoadInfobox()
     {
-        this.GetComponent<InfoboxScript>().LoadInfobox(selectedObject);
+        if(selectedObject)
+        this.GetComponent<InfoboxScript>().LoadInfobox(selectedObject, mode);
     }
 
 }
