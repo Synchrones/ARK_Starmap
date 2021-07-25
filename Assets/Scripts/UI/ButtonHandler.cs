@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class ButtonHandler : MonoBehaviour
 {
     public GameObject scriptHandler;
+    public GameObject UIContainer;
     void Start()
     {
         
@@ -19,6 +20,11 @@ public class ButtonHandler : MonoBehaviour
     public void EnterSystem()
     {
         scriptHandler.GetComponent<StarSystemsScript>().LoadAndEnterSystem();
+    }
+
+    public void LoadInfobox()
+    {
+        UIContainer.GetComponent<DiscScript>().LoadInfobox();
     }
 
 }

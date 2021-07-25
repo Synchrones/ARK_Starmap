@@ -39,4 +39,9 @@ public class DiscScript : MonoBehaviour
         Disc.gameObject.SetActive(false);
     }
 
+    public void LoadInfobox()
+    {
+        this.GetComponent<InfoboxScript>().LoadInfobox(selectedObject);
+    }
+
 }
