@@ -8,6 +8,7 @@ public class DiscScript : MonoBehaviour
 
     public GameObject Disc;
     public bool isActive = false;
+    public GameObject selectedObject;
     // Update is called once per frame
     void Start()
     {
@@ -18,6 +19,11 @@ public class DiscScript : MonoBehaviour
         if(Input.GetKey(KeyCode.Escape))
         {
             UnloadDisc();
+        }
+
+        if(isActive == true)
+        {
+            Disc.transform.position = Camera.main.WorldToScreenPoint(selectedObject.transform.position);
         }
     }
 

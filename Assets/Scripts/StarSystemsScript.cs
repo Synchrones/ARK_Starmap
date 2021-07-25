@@ -64,10 +64,7 @@ public class StarSystemsScript : MonoBehaviour
                 {
                     if(hit.transform)
                     {
-                        selectedSystem = hit.transform.gameObject;
-                        mainCamera.GetComponent<CameraScript>().SelectSystem(selectedSystem);
-                        print(hit.transform.gameObject.GetComponent<SystemsInfosScript>().description);
-                        
+                        SelectSystem(hit.transform.gameObject);
                     }
                 }
             }
@@ -101,6 +98,16 @@ public class StarSystemsScript : MonoBehaviour
         }
     }
 
+    public void SelectSystem(GameObject gameObject)
+    {
+        selectedSystem = gameObject;
+        mainCamera.GetComponent<CameraScript>().SelectSystem(selectedSystem);
+        DiscScript discScript = UIContainer.GetComponent<DiscScript>();
+        discScript.selectedObject = selectedSystem;
+        discScript.LoadDisc();
+        
+        print(gameObject.GetComponent<SystemsInfosScript>().description);
+    }
     public void LoadAndEnterSystem()
     {
         UIContainer.GetComponent<DiscScript>().UnloadDisc();

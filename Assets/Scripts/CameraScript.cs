@@ -208,7 +208,6 @@ public class CameraScript   : MonoBehaviour
             {
                 clicked = false;
                 center = newCenter;
-                UIContainer.GetComponent<DiscScript>().LoadDisc();
             } 
         }
 
@@ -220,7 +219,6 @@ public class CameraScript   : MonoBehaviour
             {
                 completed = true;
                 center = newCenter;
-                UIContainer.GetComponent<DiscScript>().LoadDisc();
             } 
             
         }
