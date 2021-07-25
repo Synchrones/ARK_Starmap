@@ -11,23 +11,26 @@ public class DiscScript : MonoBehaviour
     // Update is called once per frame
     void Start()
     {
-        Disc.GetComponent<RawImage>().enabled = false;
+        Disc.gameObject.SetActive(false);
     }
     void Update()
     {
-        
+        if(Input.GetKey(KeyCode.Escape))
+        {
+            UnloadDisc();
+        }
     }
 
     public void LoadDisc()
     {
         isActive = true;
-        Disc.GetComponent<RawImage>().enabled = true;
+        Disc.gameObject.SetActive(true);
     }
 
     public void UnloadDisc()
     {
         isActive = false;
-        Disc.GetComponent<RawImage>().enabled = false;
+        Disc.gameObject.SetActive(false);
     }
 
 }

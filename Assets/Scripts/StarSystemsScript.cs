@@ -73,10 +73,7 @@ public class StarSystemsScript : MonoBehaviour
             }
             if(Input.GetKeyDown(KeyCode.Return))
             {
-                this.GetComponent<StarSystemGeneration>().LoadSystem(selectedSystem);
-                mainCamera.GetComponent<CameraScript>().EnterSystem(selectedSystem);
-                UIContainer.GetComponent<SystemNameScript>().ChangeName(selectedSystem.name);
-                cameraMode = 1;
+                LoadAndEnterSystem();
             }
         }
         else if(cameraMode == 1)
@@ -98,18 +95,28 @@ public class StarSystemsScript : MonoBehaviour
             }
             if(Input.GetKeyDown(KeyCode.Escape))
             {
-                this.GetComponent<StarSystemGeneration>().UnloadSystem(selectedSystem);
-                cameraMode = 0;
-                mainCamera.GetComponent<CameraScript>().ExitSystem(selectedSystem);
-                UIContainer.GetComponent<SystemNameScript>().ChangeName("");
+                UnloadAndExitSystem();
             }
 
         }
     }
 
-    
-    
+    public void LoadAndEnterSystem()
+    {
+        UIContainer.GetComponent<DiscScript>().UnloadDisc();
+        this.GetComponent<StarSystemGeneration>().LoadSystem(selectedSystem);
+        mainCamera.GetComponent<CameraScript>().EnterSystem(selectedSystem);
+        UIContainer.GetComponent<SystemNameScript>().ChangeName(selectedSystem.name);
+        cameraMode = 1;
+    }
 
+    public void UnloadAndExitSystem()
+    {
+        this.GetComponent<StarSystemGeneration>().UnloadSystem(selectedSystem);
+        cameraMode = 0;
+        mainCamera.GetComponent<CameraScript>().ExitSystem(selectedSystem);
+        UIContainer.GetComponent<SystemNameScript>().ChangeName("");
+    }
 
 }
 
