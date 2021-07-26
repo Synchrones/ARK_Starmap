@@ -17,6 +17,8 @@ public class COInfosScript : MonoBehaviour
     public string lastTimeModified;
     public string subtype;
     public string fairchanceact;
+    public string affiliationName;
+    public string affiliationID;
     // Start is called before the first frame update
     void Start()
     {

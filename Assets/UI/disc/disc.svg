@@ -1,3 +1,4 @@
+
 <svg version="1.1" id="disc-document" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 756.7 540" xml:space="preserve">
   <filter id="light-blur">
     <feGaussianBlur stdDeviation="7"></feGaussianBlur>
@@ -250,7 +251,7 @@
               <stop  offset="0" style="stop-color: #010914; stop-opacity: 0.6"/>
               <stop  offset="1" style="stop-color: #01060D; stop-opacity: 0"/>
             </linearGradient>
-            <g style="clip-path: url(#disc__middle-top--mask-clip); clip-rule: evenodd;">
+            <g style="clip-rule: evenodd;">
               <path class="disc__middle-top--shape" style="fill-rule: evenodd; fill: url(#Top_1_);" d="M434.2,134.7V32h-113v102.7l57,42.8L434.2,134.7z"/>
             </g>
           </g>
@@ -265,7 +266,7 @@
               <stop  offset="0.6" style="stop-color: #083759; stop-opacity: 0.4"/>
               <stop  offset="1" style="stop-color: #01060D; stop-opacity: 0"/>
             </linearGradient>
-            <g style="clip-path: url(#disc__middle-top--stroke-clip); clip-rule: evenodd;">
+            <g style="clip-rule: evenodd;">
               <path style="stroke: url(#Top_2_2); stroke-miterlimit: 10; fill-opacity: 0" d="M434.2,134.7V32h-113v102.7l57,42.8L434.2,134.7z"/>
             </g>
           </g>

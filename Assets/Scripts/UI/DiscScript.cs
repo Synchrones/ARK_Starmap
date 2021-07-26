@@ -42,7 +42,6 @@ public class DiscScript : MonoBehaviour
 
     public void LoadInfobox()
     {
-        if(selectedObject)
         this.GetComponent<InfoboxScript>().LoadInfobox(selectedObject, mode);
     }
 

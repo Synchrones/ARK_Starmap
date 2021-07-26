@@ -224,7 +224,12 @@ public class StarSystemGeneration : MonoBehaviour
                 coInfosScript.fairchanceact = celestialObject.fairchanceact;
                 coInfosScript.size = celestialObject.size;
                 coInfosScript.subtype = celestialObject.subtype.name;
-            
+                foreach (Affiliation affiliation in celestialObject.affiliation)
+                {
+                    coInfosScript.affiliationID = affiliation.id;
+                    coInfosScript.affiliationName = affiliation.name;
+                }
+                
             }
         }
     }
@@ -283,11 +288,19 @@ public class StarSystemGeneration : MonoBehaviour
         public string time_modified;
 
         public Subtype subtype;
+        public Affiliation[] affiliation;
     }
 
     [System.Serializable]
     public class Subtype
     {
+        public string name;
+    }
+
+    [System.Serializable]
+    public class Affiliation
+    {
+        public string id;
         public string name;
     }
 
