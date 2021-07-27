@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class InfoboxScript : MonoBehaviour
 {
-
+    public GameObject infobox;
     public Text objecttype;
     public Text sizeHabitable;
     public Text sizeHabitableData;
@@ -14,15 +14,23 @@ public class InfoboxScript : MonoBehaviour
     public Text objectName;
     public Text description;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    private Vector2 newPos;
+    private RectTransform rectTransform;
+
+    void Start(){
+        rectTransform = infobox.GetComponent<RectTransform>();
+        newPos = new Vector2(190, -125);
         
     }
-
     // Update is called once per frame
     void Update()
     {
+        if(Vector2.Distance(rectTransform.anchoredPosition, newPos) > 0.001f)
+        {
+            //rectTransform.anchoredPosition = Vector2.MoveTowards(rectTransform.anchoredPosition, newPos, Time.deltaTime * 300);
+            rectTransform.anchoredPosition = Vector2.Lerp(rectTransform.anchoredPosition, newPos, Time.deltaTime * 4);
+
+        }
         
     }
 
@@ -57,7 +65,13 @@ public class InfoboxScript : MonoBehaviour
             objectName.text = coInfosScript.coName;
             description.text = coInfosScript.description;
         }
+        newPos = new Vector2(-190, -125);
+        print(rectTransform.anchoredPosition);
     }
 
+    public void UnloadInfobox()
+    {
+        newPos = new Vector2(190, rectTransform.anchoredPosition.y);
+    }
     
 }

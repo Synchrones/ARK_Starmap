@@ -20,6 +20,7 @@ public class DiscScript : MonoBehaviour
         if(Input.GetKey(KeyCode.Escape))
         {
             UnloadDisc();
+            this.GetComponent<InfoboxScript>().UnloadInfobox();
         }
 
         if(isActive == true)
