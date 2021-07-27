@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class StarSystemsScript : MonoBehaviour
 {
-    public TextAsset jsonFile;
+    public TextAsset systemsJson;
+    public TextAsset jumpPointsJson;
     public int cameraMode; // 0 = Galaxy view, 1 = System view
     public GameObject StarSystemPrefab;
     public GameObject mainCamera;
@@ -16,7 +17,9 @@ public class StarSystemsScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StarSystems jsonStarSystems = JsonUtility.FromJson<StarSystems>(jsonFile.text);
+        var systemList = new List<KeyValuePair<GameObject, int>>();
+
+        StarSystems jsonStarSystems = JsonUtility.FromJson<StarSystems>(systemsJson.text);
         foreach (StarSystem starSystem in jsonStarSystems.starSystems)
         {
             GameObject StarSystemGO = Instantiate(StarSystemPrefab, new Vector3(starSystem.posX * 7, starSystem.posZ * 7, starSystem.posY * 7), Quaternion.identity);
@@ -45,8 +48,30 @@ public class StarSystemsScript : MonoBehaviour
             starSystemInfos.json = System.IO.File.ReadAllText(Application.dataPath + "/Jsons/Systems/" + starSystem.name + ".json");
             if(starSystem.id == 320)starSystemInfos.json = System.IO.File.ReadAllText(Application.dataPath + "/Jsons/Systems/Nul1.json"); //a file can't be named nul so... 
 
-            
+            systemList.Add(new KeyValuePair<GameObject, int>(StarSystemGO, starSystem.id));
 
+        }
+
+        Tunnels jsonTunnels = JsonUtility.FromJson<Tunnels>(jumpPointsJson.text);
+        foreach(Tunnel tunnel in jsonTunnels.tunnels)
+        {
+            int entryID = int.Parse(tunnel.entry.star_system_id);
+            int exitID = int.Parse(tunnel.exit.star_system_id);
+
+            GameObject entrySystemGO= new GameObject();
+            GameObject exitSystemGo = new GameObject();
+            foreach(KeyValuePair<GameObject, int> system in systemList)
+            {
+                if(system.Value == entryID)
+                {
+                    entrySystemGO = system.Key.gameObject;
+                }
+                if(system.Value == exitID)
+                {
+                    exitSystemGo = system.Key.gameObject;
+                }
+            }
+            print(entrySystemGO.name + exitSystemGo.name);
         }
         cameraMode = 0;
     }
@@ -171,4 +196,34 @@ public class Affiliation
     public string name;
 }
 
+
+[System.Serializable]
+public class Tunnels
+{
+    public Tunnel[] tunnels;
+}
+
+[System.Serializable]
+public class Tunnel
+{
+    public string entry_id;
+    public string exit_id;
+    public string size;
+
+    public Entry entry;
+    public Exit exit;
+
+}
+
+[System.Serializable]
+public class Entry
+{
+    public string star_system_id;
+}
+
+[System.Serializable]
+public class Exit
+{
+    public string star_system_id;
+}
 
