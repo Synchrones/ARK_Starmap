@@ -27,7 +27,6 @@ public class InfoboxScript : MonoBehaviour
     {
         if(Vector2.Distance(rectTransform.anchoredPosition, newPos) > 0.001f)
         {
-            //rectTransform.anchoredPosition = Vector2.MoveTowards(rectTransform.anchoredPosition, newPos, Time.deltaTime * 300);
             rectTransform.anchoredPosition = Vector2.Lerp(rectTransform.anchoredPosition, newPos, Time.deltaTime * 4);
 
         }
