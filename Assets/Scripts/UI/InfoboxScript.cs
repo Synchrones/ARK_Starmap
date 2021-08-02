@@ -28,9 +28,7 @@ public class InfoboxScript : MonoBehaviour
         if(Vector2.Distance(rectTransform.anchoredPosition, newPos) > 0.001f)
         {
             rectTransform.anchoredPosition = Vector2.Lerp(rectTransform.anchoredPosition, newPos, Time.deltaTime * 4);
-
         }
-        
     }
 
     public void LoadInfobox(GameObject gameObject, int mode)
@@ -64,8 +62,9 @@ public class InfoboxScript : MonoBehaviour
             objectName.text = coInfosScript.coName;
             description.text = coInfosScript.description;
         }
-        newPos = new Vector2(-190, -125);
-        print(rectTransform.anchoredPosition);
+        newPos = new Vector2(-190, rectTransform.anchoredPosition.y);
+        StartCoroutine("UpdateUI"); //without this, the UI is not placed well 
+    
     }
 
     public void UnloadInfobox()
@@ -73,4 +72,9 @@ public class InfoboxScript : MonoBehaviour
         newPos = new Vector2(190, rectTransform.anchoredPosition.y);
     }
     
+    public IEnumerator UpdateUI()
+    {
+        yield return null;
+        description.text += " ";
+    }
 }
