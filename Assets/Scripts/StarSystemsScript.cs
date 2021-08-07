@@ -13,7 +13,12 @@ public class StarSystemsScript : MonoBehaviour
     public GameObject selectedObject;
     public GameObject UIContainer;
 
+
     public int layerMask;
+
+    //tunnels
+    private int numPoint = 51;
+    private float t;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,22 +61,38 @@ public class StarSystemsScript : MonoBehaviour
         foreach(Tunnel tunnel in jsonTunnels.tunnels)
         {
             int entryID = int.Parse(tunnel.entry.star_system_id);
-            int exitID = int.Parse(tunnel.exit.star_system_id);
+            int exitID = int.Parse(tunnel.exit.star_system_id); 
 
-            GameObject entrySystemGO= new GameObject();
-            GameObject exitSystemGo = new GameObject();
+            Vector3[] positions = new Vector3[numPoint];
+
+            Vector3 entrySystemPos = new Vector3();
+            Vector3 exitSystemPos = new Vector3();
             foreach(KeyValuePair<GameObject, int> system in systemList)
             {
                 if(system.Value == entryID)
                 {
-                    entrySystemGO = system.Key.gameObject;
+                    entrySystemPos = system.Key.gameObject.transform.position;
                 }
                 if(system.Value == exitID)
                 {
-                    exitSystemGo = system.Key.gameObject;
+                    exitSystemPos = system.Key.gameObject.transform.position;
                 }
             }
-            print(entrySystemGO.name + exitSystemGo.name);
+            GameObject tunnelGO = new GameObject();
+            LineRenderer line = tunnelGO.AddComponent<LineRenderer>();
+            line.positionCount = numPoint;
+            Vector3 v1 = (entrySystemPos + exitSystemPos) * 1/4 + new Vector3(Random.Range(1, 10), Random.Range(1, 10), Random.Range(1, 10));
+            Vector3 v2 = (entrySystemPos + exitSystemPos) * 3/4 + new Vector3(Random.Range(1, 10), Random.Range(1, 10), Random.Range(1, 10));
+            for(int i = 0; i < numPoint - 1; i++)
+            {
+                positions[i] = CubicCurve(entrySystemPos, v1, v2, exitSystemPos, t);
+                t += 0.02f;
+                
+            }
+            positions[50] = CubicCurve(entrySystemPos, v1, v2, exitSystemPos, t);
+            line.SetPositions(positions);
+            t = 0;
+            
         }
         cameraMode = 0;
     }
@@ -158,6 +179,20 @@ public class StarSystemsScript : MonoBehaviour
         cameraMode = 0;
         mainCamera.GetComponent<CameraScript>().ExitSystem(selectedSystem);
         UIContainer.GetComponent<SystemNameScript>().ChangeName("");
+    }
+
+    private Vector3 QuadradicCurve(Vector3 a, Vector3 b, Vector3 c, float t)
+    {
+        Vector3 p0 = Vector3.Lerp(a, b, t);
+        Vector3 p1 = Vector3.Lerp(b, c, t);
+        return Vector3.Lerp(p0, p1, t);
+    }
+
+    private Vector3 CubicCurve(Vector3 a, Vector3 b, Vector3 c, Vector3 d, float t)
+    {
+        Vector3 p0 = QuadradicCurve(a, b, c, t);
+        Vector3 p1 = QuadradicCurve(b, c, d, t);
+        return Vector3.Lerp(p0, p1, t);
     }
 
 }

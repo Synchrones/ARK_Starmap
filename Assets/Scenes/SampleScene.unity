@@ -393,7 +393,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce42648d95ab6d47bd992dab46f4942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonFile: {fileID: 4900000, guid: a52b8f71316d9b4438a4881758c8a4b4, type: 3}
+  systemsJson: {fileID: 4900000, guid: a52b8f71316d9b4438a4881758c8a4b4, type: 3}
+  jumpPointsJson: {fileID: 4900000, guid: a13b3efc6a631074384e7ed0e5b0d8d0, type: 3}
   cameraMode: 0
   StarSystemPrefab: {fileID: 7369084988479094, guid: 8c3c80bfd2059944192b8d4d721fddc2, type: 3}
   mainCamera: {fileID: 963194225}
@@ -1589,7 +1590,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 190, y: 0}
   m_SizeDelta: {x: 380, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &973512635
