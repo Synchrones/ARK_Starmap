@@ -81,8 +81,8 @@ public class StarSystemsScript : MonoBehaviour
             GameObject tunnelGO = new GameObject();
             LineRenderer line = tunnelGO.AddComponent<LineRenderer>();
             line.positionCount = numPoint;
-            Vector3 v1 = (entrySystemPos + exitSystemPos) * 1/4 + new Vector3(Random.Range(1, 10), Random.Range(1, 10), Random.Range(1, 10));
-            Vector3 v2 = (entrySystemPos + exitSystemPos) * 3/4 + new Vector3(Random.Range(1, 10), Random.Range(1, 10), Random.Range(1, 10));
+            Vector3 v1 = entrySystemPos + (exitSystemPos - entrySystemPos) * 1/3 + new Vector3(7 + entryID / 1000, 7 + exitID / 1000, 7 + entryID / 1000);
+            Vector3 v2 = entrySystemPos + (exitSystemPos - entrySystemPos) * 2/3 - new Vector3(7 + entryID / 1000, 7 + exitID / 1000, 7 + entryID / 1000);
             for(int i = 0; i < numPoint - 1; i++)
             {
                 positions[i] = CubicCurve(entrySystemPos, v1, v2, exitSystemPos, t);
