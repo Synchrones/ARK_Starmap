@@ -19,6 +19,7 @@ public class StarSystemsScript : MonoBehaviour
     //tunnels
     private int numPoint = 51;
     private float t;
+    private GameObject jumpPointContainer;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +31,7 @@ public class StarSystemsScript : MonoBehaviour
             GameObject StarSystemGO = Instantiate(StarSystemPrefab, new Vector3(starSystem.posX * 7, starSystem.posZ * 7, starSystem.posY * 7), Quaternion.identity);
             StarSystemGO.name = starSystem.name;
             StarSystemGO.transform.localScale *= 20;
-
+            
             StarSystemGO.AddComponent<SystemsInfosScript>();
             SystemsInfosScript starSystemInfos = StarSystemGO.GetComponent<SystemsInfosScript>();
             starSystemInfos.description = starSystem.description;
@@ -56,13 +57,14 @@ public class StarSystemsScript : MonoBehaviour
             systemList.Add(new KeyValuePair<GameObject, int>(StarSystemGO, starSystem.id));
 
         }
-
+        
+        jumpPointContainer = new GameObject("Jump-Points");
         Tunnels jsonTunnels = JsonUtility.FromJson<Tunnels>(jumpPointsJson.text);
         foreach(Tunnel tunnel in jsonTunnels.tunnels)
         {
             int entryID = int.Parse(tunnel.entry.star_system_id);
             int exitID = int.Parse(tunnel.exit.star_system_id); 
-
+        
             Vector3[] positions = new Vector3[numPoint];
 
             Vector3 entrySystemPos = new Vector3();
@@ -78,7 +80,8 @@ public class StarSystemsScript : MonoBehaviour
                     exitSystemPos = system.Key.gameObject.transform.position;
                 }
             }
-            GameObject tunnelGO = new GameObject();
+            GameObject tunnelGO = new GameObject(tunnel.entry.designation);
+            tunnelGO.transform.parent = jumpPointContainer.transform;
             LineRenderer line = tunnelGO.AddComponent<LineRenderer>();
             line.positionCount = numPoint;
             Vector3 v1 = entrySystemPos + (exitSystemPos - entrySystemPos) * 1/3 + new Vector3(7 + entryID / 1000, 7 + exitID / 1000, 7 + entryID / 1000);
@@ -138,7 +141,18 @@ public class StarSystemsScript : MonoBehaviour
             {
                 UnloadAndExitSystem();
             }
-
+        }
+        //temporary
+        if(Input.GetKeyDown(KeyCode.J))
+        {
+            if(jumpPointContainer.gameObject.activeInHierarchy == true)
+            {
+                jumpPointContainer.SetActive(false);
+            }
+            else
+            {
+                jumpPointContainer.SetActive(true);
+            }
         }
     }
 
@@ -254,6 +268,7 @@ public class Tunnel
 public class Entry
 {
     public string star_system_id;
+    public string designation;
 }
 
 [System.Serializable]
