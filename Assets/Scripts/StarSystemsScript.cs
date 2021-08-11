@@ -95,8 +95,13 @@ public class StarSystemsScript : MonoBehaviour
             positions[50] = CubicCurve(entrySystemPos, v1, v2, exitSystemPos, t);
             line.SetPositions(positions);
             t = 0;
-            
+
+            SizeKeeper sizeKeeper = tunnelGO.AddComponent<SizeKeeper>();
+            sizeKeeper.startPoint = entrySystemPos;
+            sizeKeeper.endPoint = exitSystemPos;
+            sizeKeeper.lineRenderer = line;
         }
+
         cameraMode = 0;
     }
     
