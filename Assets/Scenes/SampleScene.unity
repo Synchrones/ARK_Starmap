@@ -498,6 +498,10 @@ MonoBehaviour:
   gazPlanetPrefab: {fileID: 919132149155446097, guid: 414e9b886e1a0954db110a615412c645, type: 3}
   jumpPointPrefab: {fileID: 7670953602739604956, guid: 3401c9129fcfd4742a628e476beca32d, type: 3}
   spaceStationPrefab: {fileID: 7590388457483272264, guid: c3eec5afe06020649bdca70e3167a31f, type: 3}
+  asteroidFieldPrefab: {fileID: 919132149155446097, guid: 8541ef386379f3945bde2c73a1540289, type: 3}
+  asteroidFrontPrefab: {fileID: 919132149155446097, guid: 41d7fdcc1202c454a9b65b5facea6579, type: 3}
+  asteroidMiddlePrefab: {fileID: 919132149155446097, guid: b3c642f81c333c044a36175e4c2f10f2, type: 3}
+  asteroidFarPrefab: {fileID: 919132149155446097, guid: 843457e6e852dee4198afa4f6f0b4fa1, type: 3}
 --- !u!1 &205102359
 GameObject:
   m_ObjectHideFlags: 0
@@ -1503,7 +1507,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 10000
   field of view: 60
   orthographic: 0

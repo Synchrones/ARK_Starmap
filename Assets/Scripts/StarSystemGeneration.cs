@@ -12,6 +12,11 @@ public class StarSystemGeneration : MonoBehaviour
     public GameObject gazPlanetPrefab;
     public GameObject jumpPointPrefab;
     public GameObject spaceStationPrefab;
+    public GameObject asteroidFieldPrefab;
+    public GameObject asteroidFrontPrefab;
+    public GameObject asteroidMiddlePrefab;
+    public GameObject asteroidFarPrefab;
+
 
     // Start is called before the first frame update
     void Start()
@@ -194,6 +199,31 @@ public class StarSystemGeneration : MonoBehaviour
                         break;
 
                     case "ASTEROID_BELT":
+                    
+                        switch(celestialObject.subtype_id)
+                        {
+                            case "50":
+
+                                int pieceCount = 120;
+                                float angle = 360 / pieceCount;
+                                for(int i = 0; i < pieceCount; i++)
+                                {
+                                    Quaternion rotation = Quaternion.AngleAxis(i * angle, Vector3.up);
+                                    Vector3 direction = rotation * Vector3.left;
+                                    Vector3 position = SSContentGO.transform.position + (direction * celestialObject.distance);
+                                    celestialGO = Instantiate(asteroidFrontPrefab, position, rotation);
+                                    celestialGO.transform.localScale /= 15; 
+                                }
+                                
+                                break;
+                            
+                            case "51":
+                                break;
+
+                            case "74":
+                                break;
+
+                        }
                         celestialGO = new GameObject();
                         celestialGO.name = celestialObject.name;
                         celestialGO.transform.parent = SSContentGO.transform;
@@ -286,6 +316,7 @@ public class StarSystemGeneration : MonoBehaviour
         public string fairchanceact;
         public string size;
         public string time_modified;
+        public string subtype_id;
 
         public Subtype subtype;
         public Affiliation[] affiliation;
