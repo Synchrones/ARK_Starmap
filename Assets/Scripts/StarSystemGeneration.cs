@@ -204,6 +204,8 @@ public class StarSystemGeneration : MonoBehaviour
                         {
                             case "50":
 
+                                GameObject ringContainer = new GameObject("Ring Container");
+
                                 int pieceCount = 120;
                                 float angle = 360 / pieceCount;
                                 for(int i = 0; i < pieceCount; i++)
@@ -213,22 +215,44 @@ public class StarSystemGeneration : MonoBehaviour
                                     Vector3 position = SSContentGO.transform.position + (direction * celestialObject.distance);
                                     celestialGO = Instantiate(asteroidFrontPrefab, position, rotation);
                                     celestialGO.transform.localScale /= 15; 
+                                    celestialGO.transform.parent = ringContainer.transform;
                                 }
-                                
+                                celestialGO = ringContainer;
+                                celestialGO.transform.parent = SSContentGO.transform;
                                 break;
                             
                             case "51":
+                                celestialGO = new GameObject();
                                 break;
 
-                            case "74":
+                            default:
+
+                                celestialGO = new GameObject();
+
                                 break;
+
 
                         }
-                        celestialGO = new GameObject();
-                        celestialGO.name = celestialObject.name;
-                        celestialGO.transform.parent = SSContentGO.transform;
+                        
 
                         break;
+
+                    case "ASTEROID_FIELD":
+
+                        celestialGO = Instantiate(asteroidFieldPrefab, starSystem.transform.position, Quaternion.identity);
+                        celestialGO.name = celestialObject.name;
+
+                        celestialGO.transform.parent = SSContentGO.transform;
+                        
+
+                        distance = celestialObject.distance;
+                        celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(0), 0, 0);
+                        celestialGO.transform.localScale /= 50; 
+                        celestialGO.layer = 6;
+                        print("generated");
+
+                        break;
+
 
                     default:
 
