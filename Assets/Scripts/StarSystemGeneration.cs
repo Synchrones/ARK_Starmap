@@ -13,6 +13,7 @@ public class StarSystemGeneration : MonoBehaviour
     public GameObject jumpPointPrefab;
     public GameObject spaceStationPrefab;
     public GameObject asteroidFieldPrefab;
+    public GameObject planetRingPrefab;
     public GameObject asteroidFrontPrefab;
     public GameObject asteroidMiddlePrefab;
     public GameObject asteroidFarPrefab;
@@ -222,7 +223,17 @@ public class StarSystemGeneration : MonoBehaviour
                                 break;
                             
                             case "51":
-                                celestialGO = new GameObject();
+                                celestialGO = Instantiate(planetRingPrefab, SSContentGO.transform.position, Quaternion.identity);
+
+                                foreach(KeyValuePair<GameObject, int> planet in planetList)
+                                {
+                                    if(planet.Value == celestialObject.parent_id)
+                                    {
+                                        celestialGO.transform.parent = planet.Key.transform;
+                                        celestialGO.transform.position = planet.Key.transform.position;
+                                    } 
+                                }
+                                celestialGO.transform.localScale /= 10;
                                 break;
 
                             default:

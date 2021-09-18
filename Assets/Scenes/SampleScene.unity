@@ -499,6 +499,7 @@ MonoBehaviour:
   jumpPointPrefab: {fileID: 7670953602739604956, guid: 3401c9129fcfd4742a628e476beca32d, type: 3}
   spaceStationPrefab: {fileID: 7590388457483272264, guid: c3eec5afe06020649bdca70e3167a31f, type: 3}
   asteroidFieldPrefab: {fileID: 919132149155446097, guid: 8541ef386379f3945bde2c73a1540289, type: 3}
+  planetRingPrefab: {fileID: 919132149155446097, guid: 7c34e2424eefec34bae3aa1178515aae, type: 3}
   asteroidFrontPrefab: {fileID: 919132149155446097, guid: 41d7fdcc1202c454a9b65b5facea6579, type: 3}
   asteroidMiddlePrefab: {fileID: 919132149155446097, guid: b3c642f81c333c044a36175e4c2f10f2, type: 3}
   asteroidFarPrefab: {fileID: 919132149155446097, guid: 843457e6e852dee4198afa4f6f0b4fa1, type: 3}
