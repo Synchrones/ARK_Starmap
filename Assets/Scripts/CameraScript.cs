@@ -270,7 +270,8 @@ public class CameraScript   : MonoBehaviour
         maxZoom = 40;
         minZoom = 1;
         
-        gameObject.GetComponent<MeshRenderer>().enabled = false;
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.GetComponent<SystemApparenceKeeper>().enabled = false;
 
     }
 
@@ -292,7 +293,8 @@ public class CameraScript   : MonoBehaviour
         zoomSpeed = 50;
 
         GameObject.Destroy(gameObject.transform.GetChild(0).gameObject);
-        gameObject.GetComponent<MeshRenderer>().enabled = true;
+        gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        gameObject.GetComponent<SystemApparenceKeeper>().enabled = true;
     }
 
     public void MoveToCO(GameObject gameObject)

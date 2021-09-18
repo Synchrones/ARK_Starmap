@@ -13,6 +13,13 @@ public class StarSystemsScript : MonoBehaviour
     public GameObject selectedObject;
     public GameObject UIContainer;
 
+    public Sprite UEESprite;
+    public Sprite BNUSprite;
+    public Sprite VNDSprite;
+    public Sprite XINSprite;
+    public Sprite DEVSprite;
+    public Sprite UNCSprite;
+
 
     public int layerMask;
 
@@ -49,7 +56,47 @@ public class StarSystemsScript : MonoBehaviour
             {
                 starSystemInfos.affiliationID = affiliation.id;
                 starSystemInfos.affiliationName = affiliation.name;
+
+                switch(affiliation.id)
+                {
+                    case "1":
+
+                        StarSystemGO.GetComponent<SpriteRenderer>().sprite = UEESprite;
+
+                        break;
+
+                    case "2":
+
+                        StarSystemGO.GetComponent<SpriteRenderer>().sprite = BNUSprite;
+
+                        break;
+
+                    case "3":
+
+                        StarSystemGO.GetComponent<SpriteRenderer>().sprite = VNDSprite;
+
+                        break;
+
+                    case "4":
+
+                        StarSystemGO.GetComponent<SpriteRenderer>().sprite = XINSprite;
+
+                        break;
+
+                    case "7":
+
+                        StarSystemGO.GetComponent<SpriteRenderer>().sprite = DEVSprite;
+
+                        break;
+
+                    case "8":
+
+                        StarSystemGO.GetComponent<SpriteRenderer>().sprite = UNCSprite;
+
+                        break;
+                }
             }
+            StarSystemGO.AddComponent<SystemApparenceKeeper>();
 
             starSystemInfos.json = System.IO.File.ReadAllText(Application.dataPath + "/Jsons/Systems/" + starSystem.name + ".json");
             if(starSystem.id == 320)starSystemInfos.json = System.IO.File.ReadAllText(Application.dataPath + "/Jsons/Systems/Nul1.json"); //a file can't be named nul so... 

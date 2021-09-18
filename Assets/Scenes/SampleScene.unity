@@ -401,6 +401,12 @@ MonoBehaviour:
   selectedSystem: {fileID: 0}
   selectedObject: {fileID: 0}
   UIContainer: {fileID: 1890230024}
+  UEESprite: {fileID: 21300000, guid: cba8d94c7bf01e54b8ddaac5b1f67589, type: 3}
+  BNUSprite: {fileID: 21300000, guid: 3d672e05cdbd4c7469b6ef8981323891, type: 3}
+  VNDSprite: {fileID: 21300000, guid: a31eeccf8b73adf4b82559950675a9d0, type: 3}
+  XINSprite: {fileID: 21300000, guid: 3a4fb08d071b28b4baade8650ff6e866, type: 3}
+  DEVSprite: {fileID: 21300000, guid: c65b4579447ffa04eb6dc112c4c19af5, type: 3}
+  UNCSprite: {fileID: 21300000, guid: 6e2d015c6be407b46ae7ce0e314db23a, type: 3}
   layerMask: 0
 --- !u!65 &195386251
 BoxCollider:
@@ -3406,6 +3412,10 @@ PrefabInstance:
     - target: {fileID: 7369084988479094, guid: 8c3c80bfd2059944192b8d4d721fddc2, type: 3}
       propertyPath: m_Name
       value: StarSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 7417109364150302393, guid: 8c3c80bfd2059944192b8d4d721fddc2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7369084988479091, guid: 8c3c80bfd2059944192b8d4d721fddc2, type: 3}
