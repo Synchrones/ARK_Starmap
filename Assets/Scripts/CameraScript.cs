@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraScript   : MonoBehaviour
+public class CameraScript : MonoBehaviour
 {
 
 
@@ -25,6 +25,7 @@ public class CameraScript   : MonoBehaviour
 
     private Vector3 velocity = Vector3.zero;
 
+    public bool COSelected;
 
     private float maxZoom;
     private float minZoom;
@@ -64,11 +65,14 @@ public class CameraScript   : MonoBehaviour
     }
     private void LateUpdate() {
 
-        float scroll = Input.GetAxis ("Mouse ScrollWheel");
-        if(Vector3.Distance(transform.position, center) > minZoom && scroll > 0 || Vector3.Distance(transform.position, center) < maxZoom && scroll < 0) transform.Translate(0, 0, scroll * zoomSpeed, Space.Self);
+        if(!COSelected)
+        {
+            float scroll = Input.GetAxis ("Mouse ScrollWheel");
+            if(Vector3.Distance(transform.position, center) > minZoom && scroll > 0 || Vector3.Distance(transform.position, center) < maxZoom && scroll < 0) transform.Translate(0, 0, scroll * zoomSpeed, Space.Self);
+        }
         cameraOffset = transform.position - center;
-
-        if(Input.GetKey(KeyCode.Mouse1))
+    
+        if(Input.GetKey(KeyCode.Mouse1) && completed == true)
         {
 
             underInertia = false;
@@ -207,6 +211,7 @@ public class CameraScript   : MonoBehaviour
             {
                 completed = true;
                 center = newCenter;
+                
             } 
             
         }
@@ -300,6 +305,8 @@ public class CameraScript   : MonoBehaviour
         arrived = false;
         completed = false;
 
+        COSelected = true;
+
         stopDistance = 2;
         newPos = gameObject.transform.position;
         newCenter = newPos;
@@ -308,6 +315,7 @@ public class CameraScript   : MonoBehaviour
         camRotateSpeed = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(newCenter - transform.position)) / 2;
 
         stopDistance = 1;
+
         
     }
     
@@ -325,7 +333,6 @@ public class CameraScript   : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, newPosRotation, camRotateSpeed * Time.deltaTime);
             
             if(newPosRotation == transform.rotation) centered = true;
-            
         }
         else
         {

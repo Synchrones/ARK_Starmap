@@ -7,6 +7,7 @@ public class StarSystemsScript : MonoBehaviour
     public TextAsset systemsJson;
     public TextAsset jumpPointsJson;
     public int cameraMode; // 0 = Galaxy view, 1 = System view
+    public bool COSelected;
     public GameObject StarSystemPrefab;
     public GameObject mainCamera;
     public GameObject selectedSystem;
@@ -172,6 +173,7 @@ public class StarSystemsScript : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.Return))
             {
                 LoadAndEnterSystem();
+                
             }
         }
         else if(cameraMode == 1)
@@ -186,14 +188,22 @@ public class StarSystemsScript : MonoBehaviour
                     if(hit.transform)
                     {
                         SelectCO(hit.transform.gameObject);
+                        COSelected = true;
                     }
                 }
             }
             if(Input.GetKeyDown(KeyCode.Escape))
             {
-                UnloadAndExitSystem();
+                if(COSelected == true)
+                {
+                    COSelected = false;
+                    mainCamera.GetComponent<CameraScript>().COSelected = false;
+                }
+                else UnloadAndExitSystem();
+                
             }
         }
+        
         //temporary
         if(Input.GetKeyDown(KeyCode.J))
         {
