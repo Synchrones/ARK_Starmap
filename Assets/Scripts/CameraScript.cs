@@ -10,7 +10,6 @@ public class CameraScript   : MonoBehaviour
     private Vector3 cameraOffset;
     public Vector3 center;
 
-    private bool clicked;
     private bool completed;
     private Vector3 newPos;
     private Vector3 newCenter;
@@ -92,7 +91,7 @@ public class CameraScript   : MonoBehaviour
         
 
 
-        if(Input.GetKey(KeyCode.Mouse0) && clicked == false && completed == true)
+        if(Input.GetKey(KeyCode.Mouse0) && completed == true)
         {
             underInertia = false;
             time = 0.0f;
@@ -200,20 +199,9 @@ public class CameraScript   : MonoBehaviour
         }
 
 
-        if(clicked)
-        {
-            if(Vector3.Distance(transform.position, newPos) < stopDistance) arrived = true;
-            MooveToPos();
-            if(centered && arrived)
-            {
-                clicked = false;
-                center = newCenter;
-            } 
-        }
-
         if(!completed)
         {
-            if(transform.position == newPos) arrived = true;
+            if(Vector3.Distance(transform.position, newPos) < stopDistance) arrived = true;
             MooveToPos();
             if(centered && arrived)
             {
@@ -242,7 +230,7 @@ public class CameraScript   : MonoBehaviour
     {
         centered = false;
         arrived = false;
-        clicked = true;
+        completed = false;
 
         newPos = gameObject.transform.position;
         newCenter = newPos;
@@ -255,6 +243,9 @@ public class CameraScript   : MonoBehaviour
     }
     public void EnterSystem(GameObject gameObject)
     {
+        underInertia = false;
+        time = 0;
+
         centered = false;
         arrived = false;
         completed = false;
@@ -269,9 +260,11 @@ public class CameraScript   : MonoBehaviour
         zoomSpeed = 3;
         maxZoom = 40;
         minZoom = 1;
+        stopDistance = 5;
         
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<SystemApparenceKeeper>().enabled = false;
+
 
     }
 
@@ -291,6 +284,7 @@ public class CameraScript   : MonoBehaviour
         minZoom = 20;
         speed = 300;
         zoomSpeed = 50;
+        stopDistance = 1;
 
         GameObject.Destroy(gameObject.transform.GetChild(0).gameObject);
         gameObject.GetComponent<SpriteRenderer>().enabled = true;
@@ -299,9 +293,12 @@ public class CameraScript   : MonoBehaviour
 
     public void MoveToCO(GameObject gameObject)
     {
+        underInertia = false;
+        time = 0;
+
         centered = false;
         arrived = false;
-        clicked = true;
+        completed = false;
 
         stopDistance = 2;
         newPos = gameObject.transform.position;
@@ -309,6 +306,8 @@ public class CameraScript   : MonoBehaviour
 
         camMoveSpeed = Vector3.Distance(transform.position, gameObject.transform.position) * 2;
         camRotateSpeed = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(newCenter - transform.position)) / 2;
+
+        stopDistance = 1;
         
     }
     
@@ -323,7 +322,7 @@ public class CameraScript   : MonoBehaviour
         if(!centered)
         {
             var newPosRotation = Quaternion.LookRotation(newCenter - transform.position);
-            transform.rotation = Quaternion.Slerp(transform.rotation, newPosRotation, camRotateSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, newPosRotation, camRotateSpeed * Time.deltaTime);
             
             if(newPosRotation == transform.rotation) centered = true;
             
