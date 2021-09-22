@@ -20,8 +20,8 @@ public class CameraScript : MonoBehaviour
     private float speed;
     private float zoomSpeed;
     private float rotateSpeed;
+    private float rotateTime;
     private float camMoveSpeed;
-    private float camRotateSpeed;
 
     private Vector3 velocity = Vector3.zero;
 
@@ -54,8 +54,8 @@ public class CameraScript : MonoBehaviour
         minZoom = 20;
         speed = 300;
         zoomSpeed = 50;
-        rotateSpeed = 0.3f;
-        camRotateSpeed = 30;
+        rotateSpeed = 0.2f;
+        rotateTime = 0;
     }
 
     // Update is called once per frame
@@ -86,7 +86,7 @@ public class CameraScript : MonoBehaviour
             center = transform.position - cameraOffset;
             transform.LookAt(center);
             
-            curVelocity = (transform.position - prevPos) /Time.deltaTime;
+            curVelocity = (transform.position - prevPos) / Time.deltaTime;
             frameVelocity = Vector3.Lerp(frameVelocity, curVelocity, 0.1f) / 1.5f;
             prevPos = transform.position;
             
@@ -211,7 +211,7 @@ public class CameraScript : MonoBehaviour
             {
                 completed = true;
                 center = newCenter;
-                
+                rotateTime = 0;
             } 
             
         }
@@ -241,7 +241,6 @@ public class CameraScript : MonoBehaviour
         newCenter = newPos;
         
         camMoveSpeed = Vector3.Distance(transform.position, newPos) * 2;
-        camRotateSpeed = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(newCenter - transform.position)) / 2;
         stopDistance = 75;
         
         
@@ -260,7 +259,6 @@ public class CameraScript : MonoBehaviour
         newCenter = gameObject.transform.position;
 
         camMoveSpeed = Vector3.Distance(transform.position, newPos) * 2;
-        camRotateSpeed = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(newCenter - transform.position)) / 2;
         speed = 20;
         zoomSpeed = 3;
         maxZoom = 40;
@@ -279,12 +277,10 @@ public class CameraScript : MonoBehaviour
         arrived = false;
         completed = false;
 
-        float zOffset = transform.position.z - gameObject.transform.position.z;
-        newPos = gameObject.transform.position + new Vector3(0, 50, 50 * Mathf.Clamp(zOffset, -1, 1));
+        newPos = transform.TransformPoint(0, 0, -50);
         newCenter = gameObject.transform.position;
 
         camMoveSpeed = Vector3.Distance(transform.position, newPos) * 2;
-        camRotateSpeed = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(newCenter - transform.position)) / 2;
         maxZoom = 500;
         minZoom = 20;
         speed = 300;
@@ -312,7 +308,6 @@ public class CameraScript : MonoBehaviour
         newCenter = newPos;
 
         camMoveSpeed = Vector3.Distance(transform.position, gameObject.transform.position) * 2;
-        camRotateSpeed = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(newCenter - transform.position)) / 2;
 
         stopDistance = 1;
 
@@ -329,9 +324,14 @@ public class CameraScript : MonoBehaviour
             
         if(!centered)
         {
+            float t = rotateTime / smoothTime;
+            t = 1f - Mathf.Cos(t * Mathf.PI * 0.5f);
+
             var newPosRotation = Quaternion.LookRotation(newCenter - transform.position);
-            transform.rotation = Quaternion.Lerp(transform.rotation, newPosRotation, camRotateSpeed * Time.deltaTime);
-            
+            transform.rotation = Quaternion.Lerp(transform.rotation, newPosRotation, t);
+
+            rotateTime += Time.smoothDeltaTime;
+
             if(newPosRotation == transform.rotation) centered = true;
         }
         else

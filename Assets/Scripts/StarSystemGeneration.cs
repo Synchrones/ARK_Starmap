@@ -60,6 +60,7 @@ public class StarSystemGeneration : MonoBehaviour
                         celestialGO = Instantiate(starPrefab, starSystem.transform.position, Quaternion.identity);
                         celestialGO.name = celestialObject.designation;
                         celestialGO.transform.parent = SSContentGO.transform;
+                        celestialGO.transform.localScale /= 5;
 
                         break;
 
@@ -91,7 +92,7 @@ public class StarSystemGeneration : MonoBehaviour
                     
                         celestialGO.transform.parent = SSContentGO.transform;
                         celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Tan(latitude), distance * Mathf.Sin(longitude));
-                        celestialGO.transform.localScale /= 10;
+                        celestialGO.transform.localScale /= 15;
                         celestialGO.layer = 6;
                         celestialGO.AddComponent<SphereCollider>().radius = 1;
 
@@ -133,7 +134,7 @@ public class StarSystemGeneration : MonoBehaviour
 
                         longitude = celestialObject.longitude * Mathf.Deg2Rad;
                         latitude = celestialObject.latitude * Mathf.Deg2Rad;
-                        distance = celestialObject.distance * 1500;
+                        distance = celestialObject.distance * 500;
 
                         celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Tan(latitude), distance * Mathf.Sin(longitude));
                         celestialGO.transform.localScale /= 50;
@@ -194,6 +195,7 @@ public class StarSystemGeneration : MonoBehaviour
                         if(!flag) celestialGO.transform.parent = SSContentGO.transform;
 
                         celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Tan(latitude), distance * Mathf.Sin(longitude));
+                        celestialGO.transform.localScale /= 50;
                         celestialGO.layer = 6;
                         celestialGO.AddComponent<SphereCollider>().radius = 0.2f;
 
@@ -233,7 +235,7 @@ public class StarSystemGeneration : MonoBehaviour
                                         celestialGO.transform.position = planet.Key.transform.position;
                                     } 
                                 }
-                                celestialGO.transform.localScale /= 10;
+                                celestialGO.transform.localScale /= 15;
                                 break;
 
                             default:

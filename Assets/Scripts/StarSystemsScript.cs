@@ -162,7 +162,7 @@ public class StarSystemsScript : MonoBehaviour
             {
                 RaycastHit hit;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if(Physics.Raycast(ray, out hit, 500))
+                if(Physics.Raycast(ray, out hit, 2000))
                 {
                     if(hit.transform)
                     {
