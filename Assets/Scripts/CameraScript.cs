@@ -25,6 +25,7 @@ public class CameraScript : MonoBehaviour
 
     private Vector3 velocity = Vector3.zero;
 
+    private bool InSystem;
     public bool COSelected;
 
     private float maxZoom;
@@ -54,8 +55,9 @@ public class CameraScript : MonoBehaviour
         minZoom = 20;
         speed = 300;
         zoomSpeed = 50;
-        rotateSpeed = 0.2f;
+        rotateSpeed = 0.17f;
         rotateTime = 0;
+        InSystem = false;
     }
 
     // Update is called once per frame
@@ -78,9 +80,20 @@ public class CameraScript : MonoBehaviour
             underInertia = false;
             time = 0.0f;
 
+            float distance;
+            if(InSystem)
+            {
+                distance = Vector3.Distance(transform.position, center) / 2;
+                distance = Mathf.Clamp(distance, 0, 3);
+            }
+            else
+            {
+                distance = 1;
+            }
 
-            Vector3 newPos = (transform.right * Input.GetAxis("Mouse X") * -speed );
-            newPos += (transform.up * Input.GetAxis("Mouse Y") * -speed);
+
+            Vector3 newPos = (transform.right * Input.GetAxis("Mouse X") * - speed * distance);
+            newPos += (transform.up * Input.GetAxis("Mouse Y") * - speed* distance);
             
             transform.Translate(newPos * Time.deltaTime, Space.World);
             center = transform.position - cameraOffset;
@@ -102,7 +115,7 @@ public class CameraScript : MonoBehaviour
             
 
 
-            Quaternion camTurnAngle = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * 5.0f, Vector3.up);
+            Quaternion camTurnAngle = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * 5.0f * rotateSpeed, Vector3.up);
             double signX = cameraOffset.x;
             double signZ = cameraOffset.z;
             
@@ -177,8 +190,9 @@ public class CameraScript : MonoBehaviour
                 
                 float t = time / smoothTime;
                 t = 1f - Mathf.Cos(t * Mathf.PI * 0.5f);
+                
                 frameVelocity = Vector3.Lerp(frameVelocity, Vector3.zero, t);
-                time += Time.smoothDeltaTime;
+                time += Time.smoothDeltaTime / 2;
                 
                 
             }
@@ -253,13 +267,15 @@ public class CameraScript : MonoBehaviour
         centered = false;
         arrived = false;
         completed = false;
+
+        InSystem = true;
         
         float zOffset = transform.position.z - gameObject.transform.position.z;
         newPos = gameObject.transform.position + new Vector3(0, 5, 5 * Mathf.Clamp(zOffset, -1, 1));
         newCenter = gameObject.transform.position;
 
         camMoveSpeed = Vector3.Distance(transform.position, newPos) * 2;
-        speed = 20;
+        speed = 5;
         zoomSpeed = 3;
         maxZoom = 40;
         minZoom = 1;
@@ -276,6 +292,8 @@ public class CameraScript : MonoBehaviour
         centered = false;
         arrived = false;
         completed = false;
+
+        InSystem = false;
 
         newPos = transform.TransformPoint(0, 0, -50);
         newCenter = gameObject.transform.position;
