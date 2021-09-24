@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Globalization;
 public class StarSystemGeneration : MonoBehaviour
 {
     public GameObject SSContentPrefab;
@@ -98,9 +97,30 @@ public class StarSystemGeneration : MonoBehaviour
 
                         GameObject orbitContainer = new GameObject("orbit");
                         orbitContainer.transform.position = starSystem.transform.position;
-                        orbitContainer.transform.rotation = Quaternion.Euler(0, - celestialObject.longitude, celestialObject.latitude);
                         orbitContainer.transform.parent = celestialGO.transform;
-                        drawOrbit(orbitContainer, distance, 0.01f, longitude);
+
+                        for(int i = 0; i < 60; i++)
+                        {
+                            GameObject orbit = new GameObject("orbit" + i);
+                            orbit.transform.parent = orbitContainer.transform;
+                            orbit.transform.position = orbitContainer.transform.position;
+                            LineRenderer line = orbit.AddComponent<LineRenderer>();
+                            line.useWorldSpace = false;
+
+                            Vector3 start = new Vector3(Mathf.Cos(Mathf.Deg2Rad * (i * 360 / 60)) * distance, 0, Mathf.Sin(Mathf.Deg2Rad * (i * 360 / 60)) * distance);
+                            Vector3 end = new Vector3(Mathf.Cos(Mathf.Deg2Rad * ((i + 1) * 360 / 60)) * distance, 0, Mathf.Sin(Mathf.Deg2Rad * ((i + 1) * 360 / 60)) * distance);
+                            
+                            
+                            line.SetPosition(0, start);
+                            line.SetPosition(1, end);
+
+                            line.startWidth = 0.01f;
+                            line.endWidth = 0.01f;
+
+                            
+
+                        }
+                        orbitContainer.transform.rotation = Quaternion.Euler(0, - celestialObject.longitude, celestialObject.latitude);
                         orbitContainer.AddComponent<WidthKeeper>();
                         
 
@@ -235,6 +255,17 @@ public class StarSystemGeneration : MonoBehaviour
                                         celestialGO.transform.position = planet.Key.transform.position;
                                     } 
                                 }
+                                foreach(KeyValuePair<GameObject, int> moon in moonList) //Yela has strange rings...
+                                {
+                                    if(moon.Value == celestialObject.parent_id)
+                                    {
+                                        GameObject.Destroy(celestialGO);
+                                        celestialGO = Instantiate(asteroidFrontPrefab, moon.Key.transform.position, Quaternion.identity);
+                                        celestialGO.transform.parent = moon.Key.transform;
+                                    
+                                    } 
+                                }
+
                                 celestialGO.transform.localScale /= 15;
                                 break;
 
@@ -262,7 +293,7 @@ public class StarSystemGeneration : MonoBehaviour
                         celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(0), 0, 0);
                         celestialGO.transform.localScale /= 50; 
                         celestialGO.layer = 6;
-                        print("generated");
+                        
 
                         break;
 
@@ -370,31 +401,6 @@ public class StarSystemGeneration : MonoBehaviour
     {
         public string id;
         public string name;
-    }
-
-
-
-    public void drawOrbit(GameObject gameObject, float radius, float lineWidth, float longitude)
-    {
-        var segments = 120;
-        var line = gameObject.AddComponent<LineRenderer>();
-        line.useWorldSpace = false;
-        line.startWidth = lineWidth;
-        line.endWidth = lineWidth;
-        line.positionCount = segments + 1;
-        var pointCount = segments + 1;
-        var points = new Vector3[pointCount];
-
-        for (int i = 0; i < pointCount; i += 1)
-        {
-            var rad = Mathf.Deg2Rad * (i * 360 / segments);
-            points[i] = new Vector3(Mathf.Cos(rad + longitude) * radius, 0, Mathf.Sin(rad + longitude) * radius);
-        }
-        line.SetPositions(points);
-        line.material = new Material(Shader.Find("Legacy Shaders/Particles/Alpha Blended Premultiply"));
-        line.startColor = Color.cyan;
-        line.endColor = Color.cyan;
-        
     }
 
 }

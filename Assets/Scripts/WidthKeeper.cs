@@ -7,26 +7,28 @@ public class WidthKeeper : MonoBehaviour
     LineRenderer lineRenderer;
     Camera mainCamera;
     // Start is called before the first frame update
+    List<LineRenderer> lines;
+
     void Start()
     {
-        lineRenderer = gameObject.GetComponent<LineRenderer>();
         mainCamera = Camera.main;
+        lines = new List<LineRenderer>();
         
+        foreach(Transform child in transform)
+        {
+            lines.Add(child.GetComponent<LineRenderer>());
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        AnimationCurve curve = new AnimationCurve();
-        for (int i = 0; i <= 120; i += 10)
+        foreach(LineRenderer line in lines)
         {
-            Vector3 pos = lineRenderer.GetPosition(i) + gameObject.transform.position;
-            float width = Vector3.Distance(mainCamera.transform.position, pos) / 400;
-            curve.AddKey(i / 120, width);
-            
+            float width = Vector3.Distance(mainCamera.transform.position, line.GetPosition(0)) / 300;
+            line.startWidth = width;
+            line.endWidth = width;
         }
-        lineRenderer.widthCurve = curve;
         
     }
 }

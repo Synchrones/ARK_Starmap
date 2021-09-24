@@ -396,6 +396,7 @@ MonoBehaviour:
   systemsJson: {fileID: 4900000, guid: a52b8f71316d9b4438a4881758c8a4b4, type: 3}
   jumpPointsJson: {fileID: 4900000, guid: a13b3efc6a631074384e7ed0e5b0d8d0, type: 3}
   cameraMode: 0
+  COSelected: 0
   StarSystemPrefab: {fileID: 7369084988479094, guid: 8c3c80bfd2059944192b8d4d721fddc2, type: 3}
   mainCamera: {fileID: 963194225}
   selectedSystem: {fileID: 0}
@@ -1562,6 +1563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerTransform: {fileID: 195386254}
   center: {x: 0, y: 0, z: 0}
+  COSelected: 0
   UIContainer: {fileID: 1890230024}
 --- !u!1 &973512632
 GameObject:
@@ -3412,6 +3414,10 @@ PrefabInstance:
     - target: {fileID: 7369084988479094, guid: 8c3c80bfd2059944192b8d4d721fddc2, type: 3}
       propertyPath: m_Name
       value: StarSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 7369084988479094, guid: 8c3c80bfd2059944192b8d4d721fddc2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7417109364150302393, guid: 8c3c80bfd2059944192b8d4d721fddc2, type: 3}
       propertyPath: m_Enabled
