@@ -17,6 +17,8 @@ public class StarSystemGeneration : MonoBehaviour
     public GameObject asteroidMiddlePrefab;
     public GameObject asteroidFarPrefab;
 
+    public Material orbitMaterial;
+
 
     // Start is called before the first frame update
     void Start()
@@ -106,6 +108,7 @@ public class StarSystemGeneration : MonoBehaviour
                             orbit.transform.position = orbitContainer.transform.position;
                             LineRenderer line = orbit.AddComponent<LineRenderer>();
                             line.useWorldSpace = false;
+                            line.material = orbitMaterial;
 
                             Vector3 start = new Vector3(Mathf.Cos(Mathf.Deg2Rad * (i * 360 / 60)) * distance, 0, Mathf.Sin(Mathf.Deg2Rad * (i * 360 / 60)) * distance);
                             Vector3 end = new Vector3(Mathf.Cos(Mathf.Deg2Rad * ((i + 1) * 360 / 60)) * distance, 0, Mathf.Sin(Mathf.Deg2Rad * ((i + 1) * 360 / 60)) * distance);

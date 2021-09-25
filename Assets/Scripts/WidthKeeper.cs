@@ -8,11 +8,14 @@ public class WidthKeeper : MonoBehaviour
     Camera mainCamera;
     // Start is called before the first frame update
     List<LineRenderer> lines;
+    private Vector3 prevPos;
 
     void Start()
     {
         mainCamera = Camera.main;
+        prevPos = mainCamera.transform.position;
         lines = new List<LineRenderer>();
+        
         
         foreach(Transform child in transform)
         {
@@ -23,12 +26,15 @@ public class WidthKeeper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach(LineRenderer line in lines)
+        if(prevPos != mainCamera.transform.position)
         {
-            float width = Vector3.Distance(mainCamera.transform.position, line.GetPosition(0)) / 300;
-            line.startWidth = width;
-            line.endWidth = width;
+            foreach(LineRenderer line in lines)
+            {
+                float width = Vector3.Distance(mainCamera.transform.position, transform.TransformPoint(line.GetPosition(0))) / 350;
+                line.startWidth = width;
+                line.endWidth = width;
+            }
         }
-        
+        prevPos = mainCamera.transform.position;
     }
 }
