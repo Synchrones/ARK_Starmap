@@ -483,7 +483,7 @@ Transform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &195386255
 MonoBehaviour:
@@ -511,6 +511,28 @@ MonoBehaviour:
   asteroidMiddlePrefab: {fileID: 919132149155446097, guid: b3c642f81c333c044a36175e4c2f10f2, type: 3}
   asteroidFarPrefab: {fileID: 919132149155446097, guid: 843457e6e852dee4198afa4f6f0b4fa1, type: 3}
   orbitMaterial: {fileID: 2100000, guid: 245b7d14d5d59bb46ad97385d37f3f4b, type: 2}
+  CarbonPlanetTexture: {fileID: 2800000, guid: a23e625b89522c34cbbc32d52896888c, type: 3}
+  ChthonianPlanetTexture: {fileID: 2800000, guid: e03d2e03dffb7bc46aaaeb2ed0e484ff, type: 3}
+  EarthLikePlanetTexture: {fileID: 2800000, guid: 18abe6c9f9a8b2c43b36022dfd753717, type: 3}
+  IcePlanetTexture: {fileID: 2800000, guid: d455a9c43b858e94792278fd2db9c728, type: 3}
+  LavaPlanetTexture: {fileID: 2800000, guid: 96eb469ea385f194c8dabe3c9e64130f, type: 3}
+  OceanPlanetTexture: {fileID: 2800000, guid: 910a2edb39349a949abd746e19ab388f, type: 3}
+  RockyPlanetTexture: {fileID: 2800000, guid: 131b811622c49c346a24688821964227, type: 3}
+  SmogPlanetTexture: {fileID: 2800000, guid: 652f0ec55e938ba4180f072c1e64808f, type: 3}
+  MercuryTexture: {fileID: 2800000, guid: e841d7b151cbf7a468c185cdae7a5cbf, type: 3}
+  VenusTexture: {fileID: 2800000, guid: 6161fc102a8136543b1d40745f90280e, type: 3}
+  EarthTexture: {fileID: 2800000, guid: d01ae48777d964a4c9e5d15660fe71a2, type: 3}
+  MarsTexture: {fileID: 2800000, guid: feacca1a00a4bad42a2f714934be512c, type: 3}
+  JupiterTexture: {fileID: 2800000, guid: 809f2b7473d8f5c4290c960a0b7cecf6, type: 3}
+  SaturnTexture: {fileID: 2800000, guid: 3ce3b4d4f52516747b10f7732d81a23d, type: 3}
+  UranusTexture: {fileID: 2800000, guid: 9761324aef08a0e4aa78697c44b90013, type: 3}
+  NeptuneTexture: {fileID: 2800000, guid: b5279072c25142349b8044f65be4a74c, type: 3}
+  PlutoTexture: {fileID: 2800000, guid: 3d53fc68adfbf6543bc2f3e0e3f75af3, type: 3}
+  MoonTexture: {fileID: 2800000, guid: f48fc3202142b6441a2b20ed003a4830, type: 3}
+  HurstonTexture: {fileID: 2800000, guid: 01c43fc2ad7506c48b5a6314077c0e4f, type: 3}
+  CrusaderTexture: {fileID: 2800000, guid: 2f0f575d5d0885e4c817d2ca02c59ff0, type: 3}
+  ArccorpTexture: {fileID: 2800000, guid: 7d53c7f32662e7b4f9d9eab809f9f5a0, type: 3}
+  MicrotechTexture: {fileID: 2800000, guid: c5b842d867b69dc4ea31b0fa45c3917f, type: 3}
 --- !u!1 &205102359
 GameObject:
   m_ObjectHideFlags: 0
@@ -3370,7 +3392,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7369084988479090, guid: 8c3c80bfd2059944192b8d4d721fddc2, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7369084988479090, guid: 8c3c80bfd2059944192b8d4d721fddc2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3633,7 +3655,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1456140900
 Transform:
   m_ObjectHideFlags: 0

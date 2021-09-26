@@ -19,6 +19,32 @@ public class StarSystemGeneration : MonoBehaviour
 
     public Material orbitMaterial;
 
+    //planet textures
+    public Texture CarbonPlanetTexture;
+    public Texture ChthonianPlanetTexture;
+    public Texture EarthLikePlanetTexture;
+    public Texture IcePlanetTexture;
+    public Texture LavaPlanetTexture;
+    public Texture OceanPlanetTexture;
+    public Texture RockyPlanetTexture;
+    public Texture SmogPlanetTexture;
+        //Sol
+    public Texture MercuryTexture;
+    public Texture VenusTexture;
+    public Texture EarthTexture;
+    public Texture MarsTexture;
+    public Texture JupiterTexture;
+    public Texture SaturnTexture;
+    public Texture UranusTexture;
+    public Texture NeptuneTexture;
+    public Texture PlutoTexture;
+    public Texture MoonTexture;
+        //Stanton
+    public Texture HurstonTexture;
+    public Texture CrusaderTexture;
+    public Texture ArccorpTexture;
+    public Texture MicrotechTexture;
+
 
     // Start is called before the first frame update
     void Start()
@@ -82,9 +108,116 @@ public class StarSystemGeneration : MonoBehaviour
                                 celestialGO = Instantiate(gazPlanetPrefab, starSystem.transform.position, Quaternion.identity);
                                 break;
                             default:
-                                celestialGO = Instantiate(brownPlanetPrefab, starSystem.transform.position, Quaternion.identity);
+                                celestialGO = Instantiate(bluePlanetPrefab, starSystem.transform.position, Quaternion.identity);
                                 break;
                         }
+                        Renderer sphereRenderer = celestialGO.transform.GetChild(1).GetChild(1).GetComponent<Renderer>();
+                        
+                        //Common types
+                        switch(celestialObject.texture.slug)
+                        {
+                            case "3s8vnafjwn09p":
+                                sphereRenderer.material.mainTexture = ChthonianPlanetTexture;
+                                break;
+
+                            case "duxhoei3b7nnm":
+                                sphereRenderer.material.mainTexture = EarthLikePlanetTexture;
+                                break;
+                                
+                            case "j52x7qoth74yi":
+                                sphereRenderer.material.mainTexture = IcePlanetTexture;
+                                break;
+
+                            case "dgaoam8owcym1":
+                                sphereRenderer.material.mainTexture = LavaPlanetTexture;
+                                break;
+
+                            case "8c99m3v6sfl24":
+                                sphereRenderer.material.mainTexture = OceanPlanetTexture;
+                                break;
+
+                            case "jnd5qqer9z13g":
+                                sphereRenderer.material.mainTexture = RockyPlanetTexture;
+                                break;
+
+                            case "8nd3j4zcsqfmz":
+                                sphereRenderer.material.mainTexture = SmogPlanetTexture;
+                                break;
+                            case "p47vvencfylfl":
+                                sphereRenderer.material.mainTexture = CarbonPlanetTexture;
+                                break;
+                        }
+
+                        //Stanton
+                        if(systemContent.name == "Stanton")
+                        {
+                            switch(celestialObject.texture.slug)
+                            {
+                                case "frurip2hsngx8":
+                                    sphereRenderer.material.mainTexture = HurstonTexture;
+                                    break;
+
+                                case "qzf7kii1vu7k7":
+                                    sphereRenderer.material.mainTexture = CrusaderTexture;
+                                    break;
+                                    
+                                case "2wkohq7v67kco":
+                                    sphereRenderer.material.mainTexture = ArccorpTexture;
+                                    break;
+
+                                case "l0arnhgmoajuy":
+                                    sphereRenderer.material.mainTexture = MicrotechTexture;
+                                    break;
+                            }
+                        }
+                        
+                        //Sol
+                        if(systemContent.name == "Sol")
+                        {
+                            switch(celestialObject.texture.slug)
+                            {
+                                case "vx5nehwypz25d":
+                                    sphereRenderer.material.mainTexture = MercuryTexture;
+                                    break;
+
+                                case "j8qfxa304mrco":
+                                    sphereRenderer.material.mainTexture = VenusTexture;
+                                    break;
+                                    
+                                case "5dvd8cognsxbg":
+                                    sphereRenderer.material.mainTexture = EarthTexture;
+                                    break;
+
+                                case "7wes0jfwwl1bc":
+                                    sphereRenderer.material.mainTexture = MarsTexture;
+                                    break;
+
+                                case "yyxagrxfet5z8":
+                                    sphereRenderer.material.mainTexture = JupiterTexture;
+                                    break;
+
+                                case "ps9wli4v169nb":
+                                    sphereRenderer.material.mainTexture = SaturnTexture;
+                                    break;
+
+                                case "0jumx7t0c3ytz":
+                                    sphereRenderer.material.mainTexture = UranusTexture;
+                                    break;
+
+                                case "94je2ho8w8fbe":
+                                    sphereRenderer.material.mainTexture = NeptuneTexture;
+                                    break;
+
+                                case "pmfkvj1mwmq2z":
+                                    sphereRenderer.material.mainTexture = PlutoTexture;
+                                    break;
+
+                                case "9g2xvstat60bi":
+                                    sphereRenderer.material.mainTexture = MoonTexture;
+                                    break;
+                            }
+                        }
+                        
                         celestialGO.name = celestialObject.name;
 
                         longitude = celestialObject.longitude * Mathf.Deg2Rad;
@@ -391,6 +524,7 @@ public class StarSystemGeneration : MonoBehaviour
 
         public Subtype subtype;
         public Affiliation[] affiliation;
+        public COTexture texture;
     }
 
     [System.Serializable]
@@ -404,6 +538,12 @@ public class StarSystemGeneration : MonoBehaviour
     {
         public string id;
         public string name;
+    }
+
+    [System.Serializable]
+    public class COTexture
+    {
+        public string slug;
     }
 
 }
