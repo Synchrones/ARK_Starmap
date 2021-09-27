@@ -12,6 +12,8 @@ public class CameraScript : MonoBehaviour
 
     private bool completed;
     private Vector3 newPos;
+    private Vector3 newPosZoom;
+    private float scroll;
     private Vector3 newCenter;
     private bool centered;
     private bool arrived;
@@ -49,6 +51,8 @@ public class CameraScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        newPosZoom = transform.position;
+        scroll = 0;
         completed = true;
         center = PlayerTransform.position;
         maxZoom = 500;
@@ -66,19 +70,43 @@ public class CameraScript : MonoBehaviour
         
     }
     private void LateUpdate() {
-
-        if(!COSelected)
+        
+        if(Input.GetAxis("Mouse ScrollWheel") != 0 && !COSelected)
         {
-            float scroll = Input.GetAxis ("Mouse ScrollWheel");
-            if(Vector3.Distance(transform.position, center) > minZoom && scroll > 0 || Vector3.Distance(transform.position, center) < maxZoom && scroll < 0) transform.Translate(0, 0, scroll * zoomSpeed, Space.Self);
+            underInertia = false;
+            time = 0.0f;
+
+            scroll = Input.GetAxis("Mouse ScrollWheel");
+            if(Vector3.Distance(transform.position, center) > minZoom && scroll > 0 || Vector3.Distance(transform.position, center) < maxZoom && scroll < 0)
+            {
+                if(scroll < 0) 
+                {
+                    newPosZoom += transform.forward * scroll * zoomSpeed;
+                }
+                else
+                {
+                    newPosZoom += transform.forward * scroll * zoomSpeed;
+                }
+
+            } 
+            
         }
+        
+        if(transform.position != newPosZoom && !underInertia && !Input.GetKey(KeyCode.Mouse1) && !Input.GetKey(KeyCode.Mouse0))
+        {
+            transform.position = Vector3.SmoothDamp(transform.position, newPosZoom, ref velocity, 0.3f);
+
+        }
+        
+        
         cameraOffset = transform.position - center;
     
         if(Input.GetKey(KeyCode.Mouse1) && completed == true)
         {
-
+            
             underInertia = false;
             time = 0.0f;
+
 
             float distance;
             if(InSystem)
@@ -113,7 +141,7 @@ public class CameraScript : MonoBehaviour
             underInertia = false;
             time = 0.0f;
             
-
+            newPosZoom = transform.position;
 
             Quaternion camTurnAngle = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * 5.0f * rotateSpeed, Vector3.up);
             double signX = cameraOffset.x;
@@ -167,8 +195,6 @@ public class CameraScript : MonoBehaviour
             prevPos = transform.position;
             if(Input.GetAxis("Mouse X") > 0 && frameVelocity.x > 0 || Input.GetAxis("Mouse X") < 0 && frameVelocity.x < 0) frameVelocity.x = -frameVelocity.x;
         }
-
-
         if(underInertia && time < 1)
         {
             if(isRotation)
@@ -194,7 +220,7 @@ public class CameraScript : MonoBehaviour
                 frameVelocity = Vector3.Lerp(frameVelocity, Vector3.zero, t);
                 time += Time.smoothDeltaTime / 2;
                 
-                
+
             }
             else
             {
@@ -207,13 +233,12 @@ public class CameraScript : MonoBehaviour
                 time += Time.smoothDeltaTime;
                 
             }
-            
+            newPosZoom = transform.position;
         }
         else
         {
             underInertia = false;
             time = 0.0f;
-             
         }
 
 
@@ -264,6 +289,8 @@ public class CameraScript : MonoBehaviour
         underInertia = false;
         time = 0;
 
+        newPosZoom = transform.position;
+
         centered = false;
         arrived = false;
         completed = false;
@@ -276,9 +303,9 @@ public class CameraScript : MonoBehaviour
 
         camMoveSpeed = Vector3.Distance(transform.position, newPos) * 2;
         speed = 5;
-        zoomSpeed = 3;
+        zoomSpeed = 2;
         maxZoom = 40;
-        minZoom = 1;
+        minZoom = 0.1f;
         stopDistance = 5;
         
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
@@ -289,6 +316,11 @@ public class CameraScript : MonoBehaviour
 
     public void ExitSystem(GameObject gameObject)
     {
+        underInertia = false;
+        time = 0;
+
+        newPosZoom = transform.position;
+
         centered = false;
         arrived = false;
         completed = false;
@@ -314,6 +346,8 @@ public class CameraScript : MonoBehaviour
     {
         underInertia = false;
         time = 0;
+
+        newPosZoom = transform.position;
 
         centered = false;
         arrived = false;
