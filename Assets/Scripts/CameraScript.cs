@@ -35,7 +35,7 @@ public class CameraScript : MonoBehaviour
 
     //UI
     public GameObject UIContainer;
-
+    
 
     //inertia things
     private Vector3 prevPos = Vector3.zero;
