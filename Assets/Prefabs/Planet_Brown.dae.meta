@@ -6,12 +6,32 @@ ModelImporter:
   - first:
       74: 1827226128182048838
     second: Take 001
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Additive
+    second: {fileID: 2100000, guid: 6f750c10df9f46645a270915d542cf37, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: AdditiveTexture
+    second: {fileID: 2100000, guid: 4374c41553cda7c418ef9d5b1c0b57e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Thinline
+    second: {fileID: 2100000, guid: c501a54c973641343a492f43d0ba1adf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Thinline1
+    second: {fileID: 2100000, guid: 2818d785d1bb8264b922b61b54add7e6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

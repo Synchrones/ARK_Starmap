@@ -3,12 +3,32 @@ guid: ddfe1f522b4fb9649905b28290f45298
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Additive
+    second: {fileID: 2100000, guid: 16c63d00db14478448e19a831149ae3a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: AdditiveTexture
+    second: {fileID: 2100000, guid: 0d086b10354919e48ba2fa7669877b99, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Thinline
+    second: {fileID: 2100000, guid: b601c7cf37c9f2b4992afadb859b8018, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Thinline1
+    second: {fileID: 2100000, guid: 55c547defec3dfa4f861a6d2a9d48616, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
