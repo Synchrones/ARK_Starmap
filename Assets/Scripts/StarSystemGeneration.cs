@@ -83,7 +83,19 @@ public class StarSystemGeneration : MonoBehaviour
                 switch(celestialObject.type)
                 {
                     case "STAR":
-
+                        /*
+                        star is formed by two superposed textures
+                        map : texture to use (number 0 to 8)
+                        rotations 1 & 2 : rotations of the two parts (<5 = rotation to the left, >5 = to the right -> still need to verify this)
+                        radius : size of the star
+                        color : colors to use
+                        flare : ?
+                        texture : ?
+                        corona(funny) : ? something to do with the wavy effect around the star
+                        sphere : ?
+                        scale min/scale max : min and max scale of the star (some of them have a pulsating effect -> see nul)
+                        
+                        */
                         celestialGO = Instantiate(starPrefab, starSystem.transform.position, Quaternion.identity);
                         celestialGO.name = celestialObject.designation;
                         celestialGO.transform.parent = SSContentGO.transform;
