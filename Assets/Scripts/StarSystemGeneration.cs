@@ -20,30 +20,33 @@ public class StarSystemGeneration : MonoBehaviour
     public Material orbitMaterial;
 
     //planet textures
-    public Texture CarbonPlanetTexture;
-    public Texture ChthonianPlanetTexture;
-    public Texture EarthLikePlanetTexture;
-    public Texture IcePlanetTexture;
-    public Texture LavaPlanetTexture;
-    public Texture OceanPlanetTexture;
-    public Texture RockyPlanetTexture;
-    public Texture SmogPlanetTexture;
+    public Texture carbonPlanetTexture;
+    public Texture chthonianPlanetTexture;
+    public Texture earthLikePlanetTexture;
+    public Texture icePlanetTexture;
+    public Texture lavaPlanetTexture;
+    public Texture oceanPlanetTexture;
+    public Texture rockyPlanetTexture;
+    public Texture smogPlanetTexture;
         //Sol
-    public Texture MercuryTexture;
-    public Texture VenusTexture;
-    public Texture EarthTexture;
-    public Texture MarsTexture;
-    public Texture JupiterTexture;
-    public Texture SaturnTexture;
-    public Texture UranusTexture;
-    public Texture NeptuneTexture;
-    public Texture PlutoTexture;
-    public Texture MoonTexture;
+    public Texture mercuryTexture;
+    public Texture venusTexture;
+    public Texture earthTexture;
+    public Texture marsTexture;
+    public Texture jupiterTexture;
+    public Texture saturnTexture;
+    public Texture uranusTexture;
+    public Texture neptuneTexture;
+    public Texture plutoTexture;
+    public Texture moonTexture;
         //Stanton
-    public Texture HurstonTexture;
-    public Texture CrusaderTexture;
-    public Texture ArccorpTexture;
-    public Texture MicrotechTexture;
+    public Texture hurstonTexture;
+    public Texture crusaderTexture;
+    public Texture arccorpTexture;
+    public Texture microtechTexture;
+
+    //star textures
+    public Texture2D startexture1; 
 
 
     // Start is called before the first frame update
@@ -94,12 +97,24 @@ public class StarSystemGeneration : MonoBehaviour
                         corona(funny) : ? something to do with the wavy effect around the star
                         sphere : ?
                         scale min/scale max : min and max scale of the star (some of them have a pulsating effect -> see nul)
-                        
+
                         */
                         celestialGO = Instantiate(starPrefab, starSystem.transform.position, Quaternion.identity);
+                        Material starMaterial = celestialGO.transform.GetChild(1).GetComponent<Renderer>().sharedMaterial;
+
+                        switch(int.Parse(celestialObject.shader_data.sun.map))
+                        {
+                            case 0 :
+                                starMaterial.mainTexture = startexture1;
+                                break;
+                        }
+                        StarScript starScript = celestialGO.AddComponent<StarScript>();
+                        starScript.starTexture = startexture1;
                         celestialGO.name = celestialObject.designation;
                         celestialGO.transform.parent = SSContentGO.transform;
                         celestialGO.transform.localScale /= 5;
+                        
+
 
                         break;
 
@@ -129,34 +144,34 @@ public class StarSystemGeneration : MonoBehaviour
                         switch(celestialObject.texture.slug)
                         {
                             case "3s8vnafjwn09p":
-                                sphereRenderer.material.mainTexture = ChthonianPlanetTexture;
+                                sphereRenderer.material.mainTexture = chthonianPlanetTexture;
                                 break;
 
                             case "duxhoei3b7nnm":
-                                sphereRenderer.material.mainTexture = EarthLikePlanetTexture;
+                                sphereRenderer.material.mainTexture = earthLikePlanetTexture;
                                 break;
                                 
                             case "j52x7qoth74yi":
-                                sphereRenderer.material.mainTexture = IcePlanetTexture;
+                                sphereRenderer.material.mainTexture = icePlanetTexture;
                                 break;
 
                             case "dgaoam8owcym1":
-                                sphereRenderer.material.mainTexture = LavaPlanetTexture;
+                                sphereRenderer.material.mainTexture = lavaPlanetTexture;
                                 break;
 
                             case "8c99m3v6sfl24":
-                                sphereRenderer.material.mainTexture = OceanPlanetTexture;
+                                sphereRenderer.material.mainTexture = oceanPlanetTexture;
                                 break;
 
                             case "jnd5qqer9z13g":
-                                sphereRenderer.material.mainTexture = RockyPlanetTexture;
+                                sphereRenderer.material.mainTexture = rockyPlanetTexture;
                                 break;
 
                             case "8nd3j4zcsqfmz":
-                                sphereRenderer.material.mainTexture = SmogPlanetTexture;
+                                sphereRenderer.material.mainTexture = smogPlanetTexture;
                                 break;
                             case "p47vvencfylfl":
-                                sphereRenderer.material.mainTexture = CarbonPlanetTexture;
+                                sphereRenderer.material.mainTexture = carbonPlanetTexture;
                                 break;
                         }
 
@@ -166,19 +181,19 @@ public class StarSystemGeneration : MonoBehaviour
                             switch(celestialObject.texture.slug)
                             {
                                 case "frurip2hsngx8":
-                                    sphereRenderer.material.mainTexture = HurstonTexture;
+                                    sphereRenderer.material.mainTexture = hurstonTexture;
                                     break;
 
                                 case "qzf7kii1vu7k7":
-                                    sphereRenderer.material.mainTexture = CrusaderTexture;
+                                    sphereRenderer.material.mainTexture = crusaderTexture;
                                     break;
                                     
                                 case "2wkohq7v67kco":
-                                    sphereRenderer.material.mainTexture = ArccorpTexture;
+                                    sphereRenderer.material.mainTexture = arccorpTexture;
                                     break;
 
                                 case "l0arnhgmoajuy":
-                                    sphereRenderer.material.mainTexture = MicrotechTexture;
+                                    sphereRenderer.material.mainTexture = microtechTexture;
                                     break;
                             }
                         }
@@ -189,43 +204,43 @@ public class StarSystemGeneration : MonoBehaviour
                             switch(celestialObject.texture.slug)
                             {
                                 case "vx5nehwypz25d":
-                                    sphereRenderer.material.mainTexture = MercuryTexture;
+                                    sphereRenderer.material.mainTexture = mercuryTexture;
                                     break;
 
                                 case "j8qfxa304mrco":
-                                    sphereRenderer.material.mainTexture = VenusTexture;
+                                    sphereRenderer.material.mainTexture = venusTexture;
                                     break;
                                     
                                 case "5dvd8cognsxbg":
-                                    sphereRenderer.material.mainTexture = EarthTexture;
+                                    sphereRenderer.material.mainTexture = earthTexture;
                                     break;
 
                                 case "7wes0jfwwl1bc":
-                                    sphereRenderer.material.mainTexture = MarsTexture;
+                                    sphereRenderer.material.mainTexture = marsTexture;
                                     break;
 
                                 case "yyxagrxfet5z8":
-                                    sphereRenderer.material.mainTexture = JupiterTexture;
+                                    sphereRenderer.material.mainTexture = jupiterTexture;
                                     break;
 
                                 case "ps9wli4v169nb":
-                                    sphereRenderer.material.mainTexture = SaturnTexture;
+                                    sphereRenderer.material.mainTexture = saturnTexture;
                                     break;
 
                                 case "0jumx7t0c3ytz":
-                                    sphereRenderer.material.mainTexture = UranusTexture;
+                                    sphereRenderer.material.mainTexture = uranusTexture;
                                     break;
 
                                 case "94je2ho8w8fbe":
-                                    sphereRenderer.material.mainTexture = NeptuneTexture;
+                                    sphereRenderer.material.mainTexture = neptuneTexture;
                                     break;
 
                                 case "pmfkvj1mwmq2z":
-                                    sphereRenderer.material.mainTexture = PlutoTexture;
+                                    sphereRenderer.material.mainTexture = plutoTexture;
                                     break;
 
                                 case "9g2xvstat60bi":
-                                    sphereRenderer.material.mainTexture = MoonTexture;
+                                    sphereRenderer.material.mainTexture = moonTexture;
                                     break;
                             }
                         }
@@ -537,6 +552,7 @@ public class StarSystemGeneration : MonoBehaviour
         public Subtype subtype;
         public Affiliation[] affiliation;
         public COTexture texture;
+        public ShaderData shader_data;
     }
 
     [System.Serializable]
@@ -556,6 +572,18 @@ public class StarSystemGeneration : MonoBehaviour
     public class COTexture
     {
         public string slug;
+    }
+
+    [System.Serializable]
+    public class ShaderData
+    {
+        public StarDatas sun;
+    }
+
+    [System.Serializable]
+    public class StarDatas
+    {
+        public string map;
     }
 
 }
