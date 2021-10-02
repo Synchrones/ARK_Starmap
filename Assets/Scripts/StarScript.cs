@@ -25,6 +25,7 @@ public class StarScript : MonoBehaviour
         starTexture.SetPixels(pixels);
         starTexture.Apply(updateMipmaps:true);
 
-        gameObject.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial.mainTexture = starTexture;
+        gameObject.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial.SetTexture("_MainTex", starTexture);
+        gameObject.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial.SetTexture("_NoiseTex", starTexture);
     }
 }

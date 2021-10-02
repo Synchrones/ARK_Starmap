@@ -100,12 +100,13 @@ public class StarSystemGeneration : MonoBehaviour
 
                         */
                         celestialGO = Instantiate(starPrefab, starSystem.transform.position, Quaternion.identity);
-                        Material starMaterial = celestialGO.transform.GetChild(1).GetComponent<Renderer>().sharedMaterial;
+                        Material starMaterial = celestialGO.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial;
 
                         switch(int.Parse(celestialObject.shader_data.sun.map))
                         {
                             case 0 :
                                 starMaterial.mainTexture = startexture1;
+                                starMaterial.SetTexture("_EmissionMap", startexture1);
                                 break;
                         }
                         StarScript starScript = celestialGO.AddComponent<StarScript>();
