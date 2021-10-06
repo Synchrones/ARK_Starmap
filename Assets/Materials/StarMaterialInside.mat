@@ -75,14 +75,16 @@ Material:
     - _DistortionStrength: 1.33
     - _DistortionStrengthScaled: 0.133
     - _DstBlend: 10
+    - _Emission: 0
     - _EmissionEnabled: 0
     - _FlipbookMode: 0
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
+    - _Glow: 1.5
     - _LightingEnabled: 0
     - _Metallic: 0
-    - _Mitigation: 4.3
+    - _Mitigation: 3.9
     - _Mode: 2
     - _NormalScale: 0
     - _OcclusionStrength: 1
@@ -94,18 +96,20 @@ Material:
     - _SoftParticlesNearFadeDistance: 0
     - _SpecularHighlights: 1
     - _SpecularPower: 0
-    - _SpeedX: 0.04
-    - _SpeedY: 0.04
+    - _SpeedX: 1
+    - _SpeedY: 1
     - _SrcBlend: 5
+    - _Transparency: 0.5
     - _UVSec: 0
     - _ZWrite: 0
     m_Colors:
     - _AddAlphaColor: {r: 0, g: 0, b: 0, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
-    - _Color: {r: 0, g: 0.6420536, b: 1, a: 0.40392157}
+    - _Color: {r: 0, g: 0.643137, b: 1, a: 0.40392157}
     - _ColorAddSubDiff: {r: 1, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 1, b: 1, a: 1}
+    - _Illumi: {r: 0.9716981, g: 0, b: 0, a: 1}
     - _NoiseSizeScroll: {r: 16, g: 16, b: 0, a: 0}
     - _NoiseTilingOffset: {r: 0.1, g: 0.1, b: 0, a: 0}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}

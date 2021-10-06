@@ -27,5 +27,8 @@ public class StarScript : MonoBehaviour
 
         gameObject.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial.SetTexture("_MainTex", starTexture);
         gameObject.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial.SetTexture("_NoiseTex", starTexture);
+
+        gameObject.transform.GetChild(1).GetComponent<Renderer>().sharedMaterial.SetTexture("_MainTex", starTexture);
+        gameObject.transform.GetChild(1).GetComponent<Renderer>().sharedMaterial.SetTexture("_NoiseTex", starTexture);
     }
 }

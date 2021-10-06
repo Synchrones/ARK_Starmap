@@ -89,16 +89,18 @@ Material:
     - _DistortionStrength: -0.18
     - _DistortionStrengthScaled: -0.018000001
     - _DstBlend: 10
+    - _Emission: 0
     - _EmissionEnabled: 0
     - _EnableExternalAlpha: 0
     - _FlipbookMode: 0
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
+    - _Glow: 3.19
     - _LightingEnabled: 0
     - _MaskFeathering: 0.573
     - _Metallic: 0
-    - _Mitigation: 4.6
+    - _Mitigation: 3.9
     - _Mode: 2
     - _NormalScale: 0
     - _OcclusionStrength: 1
@@ -116,18 +118,24 @@ Material:
     - _SpeedX: 1
     - _SpeedY: 1
     - _SrcBlend: 5
+    - _Thresh: 0
     - _Threshold: 0
+    - _Transparency: 0.5
     - _UVSec: 0
     - _ZWrite: 0
     m_Colors:
     - _AddAlphaColor: {r: 0.13381095, g: 0.83725554, b: 0.9150943, a: 1}
     - _BaseColor: {r: 0.012949424, g: 0.8778639, b: 0.9150943, a: 1}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
-    - _Color: {r: 0.09718761, g: 0.9811321, b: 0.9534005, a: 1}
+    - _Color: {r: 0.9056604, g: 0.8801167, b: 0.24350302, a: 1}
     - _ColorAddSubDiff: {r: -1, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0.16197933, g: 0.9447252, b: 0.9811321, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _Illumi: {r: 1, g: 1, b: 1, a: 1}
     - _KeyColor: {r: 0, g: 0, b: 0, a: 0}
+    - _MaskCol: {r: 0.8207547, g: 0.53813636, b: 0.53813636, a: 1}
+    - _MaskColor: {r: 0.22899605, g: 0.5849056, b: 0.55493975, a: 1}
+    - _Matte: {r: 1, g: 0, b: 1, a: 1}
     - _NoiseSizeScroll: {r: 16, g: 16, b: 0, a: 0}
     - _NoiseTilingOffset: {r: 5, g: 5, b: 5, a: 5}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
