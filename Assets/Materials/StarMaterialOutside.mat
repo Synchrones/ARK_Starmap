@@ -96,11 +96,11 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
-    - _Glow: 3.19
+    - _Glow: 2.97
     - _LightingEnabled: 0
     - _MaskFeathering: 0.573
     - _Metallic: 0
-    - _Mitigation: 3.9
+    - _Mitigation: 5.4
     - _Mode: 2
     - _NormalScale: 0
     - _OcclusionStrength: 1
@@ -127,7 +127,7 @@ Material:
     - _AddAlphaColor: {r: 0.13381095, g: 0.83725554, b: 0.9150943, a: 1}
     - _BaseColor: {r: 0.012949424, g: 0.8778639, b: 0.9150943, a: 1}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
-    - _Color: {r: 0.9056604, g: 0.8801167, b: 0.24350302, a: 1}
+    - _Color: {r: 0.8039216, g: 0.6509804, b: 0.3019608, a: 1}
     - _ColorAddSubDiff: {r: -1, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0.16197933, g: 0.9447252, b: 0.9811321, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}

@@ -46,7 +46,15 @@ public class StarSystemGeneration : MonoBehaviour
     public Texture microtechTexture;
 
     //star textures
-    public Texture2D startexture1; 
+    public Texture2D starTexture0;
+    public Texture2D starTexture1; 
+    public Texture2D starTexture2; 
+    public Texture2D starTexture3; 
+    public Texture2D starTexture4; 
+    public Texture2D starTexture5; 
+    public Texture2D starTexture6; 
+    public Texture2D starTexture7; 
+    public Texture2D starTexture8; 
 
 
     // Start is called before the first frame update
@@ -87,33 +95,59 @@ public class StarSystemGeneration : MonoBehaviour
                 {
                     case "STAR":
                         /*
-                        star is formed by two superposed textures
+                        stars are formed by two superposed spheres
                         map : texture to use (number 0 to 8)
-                        rotations 1 & 2 : rotations of the two parts (<5 = rotation to the left, >5 = to the right -> still need to verify this)
+                        rotations 1 & 2 : rotations of the two parts (<0.5 = rotation to the left, >0.5 = to the right -> still need to verify this)
                         radius : size of the star
                         color : colors to use
-                        flare : ?
+                        flares : ?
                         texture : ?
                         corona(funny) : ? something to do with the wavy effect around the star
                         sphere : ?
                         scale min/scale max : min and max scale of the star (some of them have a pulsating effect -> see nul)
 
                         */
-                        celestialGO = Instantiate(starPrefab, starSystem.transform.position, Quaternion.identity);
-                        Material starMaterial = celestialGO.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial;
+                        // TODO: add glow, min and max size, corona effect, fix glow on darker stars
+                        StarDatas starDatas = celestialObject.shader_data.sun;
 
-                        switch(int.Parse(celestialObject.shader_data.sun.map))
+                        celestialGO = Instantiate(starPrefab, starSystem.transform.position, Quaternion.identity);
+                        Material starMaterialOuter = celestialGO.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial;
+                        Material starMaterialInner = celestialGO.transform.GetChild(1).GetComponent<Renderer>().sharedMaterial;
+
+                        starMaterialInner.mainTexture = (Texture)this.GetType().GetField("starTexture" + (string)starDatas.map).GetValue(this);
+                        starMaterialOuter.mainTexture = (Texture)this.GetType().GetField("starTexture" + (string)starDatas.map).GetValue(this);
+                        
+                        if(starDatas.color1.Length > 7)
                         {
-                            case 0 :
-                                starMaterial.mainTexture = startexture1;
-                                starMaterial.SetTexture("_EmissionMap", startexture1);
-                                break;
+                            string parsedColor1 = starDatas.color1.Split('(', ')')[1];
+                            string parsedColor2 = starDatas.color2.Split('(', ')')[1];
+
+                            starMaterialOuter.SetColor("_Color", new Color32(byte.Parse(parsedColor1.Split(',')[0]), byte.Parse(parsedColor1.Split(',')[1]), byte.Parse(parsedColor1.Split(',')[2]), 255));
+                            starMaterialInner.SetColor("_Color", new Color32(byte.Parse(parsedColor2.Split(',')[0]), byte.Parse(parsedColor2.Split(',')[1]), byte.Parse(parsedColor2.Split(',')[2]), 255));
                         }
+                        else
+                        {
+                            Color color1;
+                            Color color2;
+
+                            ColorUtility.TryParseHtmlString(starDatas.color1, out color1);
+                            ColorUtility.TryParseHtmlString(starDatas.color2, out color2);
+
+                            starMaterialOuter.color = color1;
+                            starMaterialInner.color = color2;
+                        }
+                        
+                        
+                        
+                        
                         StarScript starScript = celestialGO.AddComponent<StarScript>();
-                        starScript.starTexture = startexture1;
+                        starScript.starTexture = (Texture2D)starMaterialOuter.mainTexture;
+                        starScript.rotation1 = starDatas.rotation1;
+                        starScript.rotation1 = starDatas.rotation2;
+
                         celestialGO.name = celestialObject.designation;
                         celestialGO.transform.parent = SSContentGO.transform;
-                        celestialGO.transform.localScale /= 5;
+                        celestialGO.transform.localScale *=  celestialObject.shader_data.radius * 2;
                         
 
 
@@ -579,12 +613,19 @@ public class StarSystemGeneration : MonoBehaviour
     public class ShaderData
     {
         public StarDatas sun;
+        public float radius;
     }
 
     [System.Serializable]
     public class StarDatas
     {
         public string map;
+        public string color1;
+        public string color2;
+        public float rotation1;
+        public float rotation2;
+        
+
     }
 
 }

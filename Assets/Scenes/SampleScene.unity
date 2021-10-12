@@ -533,7 +533,15 @@ MonoBehaviour:
   crusaderTexture: {fileID: 2800000, guid: 2f0f575d5d0885e4c817d2ca02c59ff0, type: 3}
   arccorpTexture: {fileID: 2800000, guid: 7d53c7f32662e7b4f9d9eab809f9f5a0, type: 3}
   microtechTexture: {fileID: 2800000, guid: c5b842d867b69dc4ea31b0fa45c3917f, type: 3}
-  startexture1: {fileID: 2800000, guid: ef34bec71cf216444b5fe6c827670bc1, type: 3}
+  starTexture0: {fileID: 2800000, guid: ef34bec71cf216444b5fe6c827670bc1, type: 3}
+  starTexture1: {fileID: 2800000, guid: be1573a2aa79931469dc95dcb96bdb7f, type: 3}
+  starTexture2: {fileID: 2800000, guid: 9280ecf357a92054fb78f98ca2a6146f, type: 3}
+  starTexture3: {fileID: 2800000, guid: e6bcdf2399e1b334187766cf5be6db44, type: 3}
+  starTexture4: {fileID: 2800000, guid: d54e24793fd2d2f4b947b8b489ecf486, type: 3}
+  starTexture5: {fileID: 2800000, guid: 936edb4ebbf4bb744b1f8279362d9ee5, type: 3}
+  starTexture6: {fileID: 2800000, guid: 3c166341fa2074043b125c47bd2a6c9f, type: 3}
+  starTexture7: {fileID: 2800000, guid: b06df8bfcae0a5f49bad899c546e3613, type: 3}
+  starTexture8: {fileID: 2800000, guid: 5a7cc8c806865614d882735ef35d0c5e, type: 3}
 --- !u!1 &205102359
 GameObject:
   m_ObjectHideFlags: 0
