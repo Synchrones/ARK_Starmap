@@ -107,12 +107,12 @@ public class StarSystemGeneration : MonoBehaviour
                         scale min/scale max : min and max scale of the star (some of them have a pulsating effect -> see nul)
 
                         */
-                        // TODO: add glow, min and max size, corona effect, fix glow on darker stars
+                        // TODO: add glow, min and max size, corona effect, fix glow on darker stars, fix binary stars not rendering at the same time
                         StarDatas starDatas = celestialObject.shader_data.sun;
 
                         celestialGO = Instantiate(starPrefab, starSystem.transform.position, Quaternion.identity);
-                        Material starMaterialOuter = celestialGO.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial;
-                        Material starMaterialInner = celestialGO.transform.GetChild(1).GetComponent<Renderer>().sharedMaterial;
+                        Material starMaterialOuter = celestialGO.transform.GetChild(0).GetComponent<Renderer>().material;
+                        Material starMaterialInner = celestialGO.transform.GetChild(1).GetComponent<Renderer>().material;
 
                         starMaterialInner.mainTexture = (Texture)this.GetType().GetField("starTexture" + (string)starDatas.map).GetValue(this);
                         starMaterialOuter.mainTexture = (Texture)this.GetType().GetField("starTexture" + (string)starDatas.map).GetValue(this);
@@ -148,7 +148,14 @@ public class StarSystemGeneration : MonoBehaviour
                         celestialGO.name = celestialObject.designation;
                         celestialGO.transform.parent = SSContentGO.transform;
                         celestialGO.transform.localScale *=  celestialObject.shader_data.radius * 2;
-                        
+
+                        if(systemContent.type == "BINARY")
+                        {
+                            longitude = celestialObject.longitude * Mathf.Deg2Rad;
+                            distance = celestialObject.distance;
+            
+                            celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), 0, distance * Mathf.Sin(longitude));
+                        }
 
 
                         break;
@@ -556,6 +563,8 @@ public class StarSystemGeneration : MonoBehaviour
     public class SystemContent
     {
         public string name;
+        public string type;
+
         public CelestialObject[] celestial_objects;
 
     }

@@ -16,10 +16,10 @@ Shader "Custom/Distortion"
  
     SubShader 
 	{
-        Tags { "Queue" = "Transparent" "RenderType"="Transparent"}
+        Tags { "Queue" = "Transparent" "RenderType"="Transparent" "DisableBatching" = "True"}
 		ZWrite Off
 		Blend SrcAlpha OneMinusSrcAlpha
- 
+	
         Pass 
 		{
             CGPROGRAM

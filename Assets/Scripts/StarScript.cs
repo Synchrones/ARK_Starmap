@@ -42,11 +42,11 @@ public class StarScript : MonoBehaviour
             starTexture.SetPixels(pixels);
             starTexture.Apply(updateMipmaps:true);
 
-            outerSphere.GetComponent<Renderer>().sharedMaterial.SetTexture("_MainTex", starTexture);
-            outerSphere.GetComponent<Renderer>().sharedMaterial.SetTexture("_NoiseTex", starTexture);
+            outerSphere.GetComponent<Renderer>().material.SetTexture("_MainTex", starTexture);
+            outerSphere.GetComponent<Renderer>().material.SetTexture("_NoiseTex", starTexture);
 
-            innerSphere.GetComponent<Renderer>().sharedMaterial.SetTexture("_MainTex", starTexture);
-            innerSphere.GetComponent<Renderer>().sharedMaterial.SetTexture("_NoiseTex", starTexture);
+            innerSphere.GetComponent<Renderer>().material.SetTexture("_MainTex", starTexture);
+            innerSphere.GetComponent<Renderer>().material.SetTexture("_NoiseTex", starTexture);
 
             savedalpha = alpha;
         }
