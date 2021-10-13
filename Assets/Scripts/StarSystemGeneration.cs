@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class StarSystemGeneration : MonoBehaviour
 {
+    public List<KeyValuePair<GameObject, int>> jumpPointList;
     public GameObject SSContentPrefab;
     public GameObject starPrefab;
     public GameObject bluePlanetPrefab;
@@ -60,7 +61,7 @@ public class StarSystemGeneration : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        jumpPointList = new List<KeyValuePair<GameObject, int>>();
     }
 
     // Update is called once per frame
@@ -384,6 +385,8 @@ public class StarSystemGeneration : MonoBehaviour
                         celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Tan(latitude), distance * Mathf.Sin(longitude));
                         celestialGO.layer = 6;
 
+                        celestialGO.transform.GetChild(0).gameObject.AddComponent<JumpTailScript>();
+
                         break;
 
                     case "MANMADE":
@@ -533,6 +536,14 @@ public class StarSystemGeneration : MonoBehaviour
                     coInfosScript.affiliationName = affiliation.name;
                 }
                 
+                if(celestialObject.type == "JUMPPOINT")
+                {
+                    foreach(KeyValuePair<GameObject, int> system in jumpPointList)
+                    {
+
+                    }
+                    
+                }
             }
         }
     }

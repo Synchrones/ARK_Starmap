@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// TODO: (main TODO) : add hovering effects, add sounds, add starting screen, complete infoboxs & disk, fix moon & space stations generation + add space station variants
+// TODO: (main TODO) : add hovering effects, add sounds, add starting screen, complete infoboxs & disk, fix moon & space stations generation + add space station variants, add landing zones
 public class StarSystemsScript : MonoBehaviour
 {
     public TextAsset systemsJson;
@@ -123,10 +123,12 @@ public class StarSystemsScript : MonoBehaviour
                 if(system.Value == entryID)
                 {
                     entrySystemPos = system.Key.gameObject.transform.position;
+                    GetComponent<StarSystemGeneration>().jumpPointList.Add(new KeyValuePair<GameObject, int>(system.Key.gameObject, system.Value));
                 }
                 if(system.Value == exitID)
                 {
                     exitSystemPos = system.Key.gameObject.transform.position;
+                    GetComponent<StarSystemGeneration>().jumpPointList.Add(new KeyValuePair<GameObject, int>(system.Key.gameObject, system.Value));
                 }
             }
             GameObject tunnelGO = new GameObject(tunnel.entry.designation);

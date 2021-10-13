@@ -19,6 +19,7 @@ public class COInfosScript : MonoBehaviour
     public string fairchanceact;
     public string affiliationName;
     public string affiliationID;
+    public GameObject linkedSystem;
     // Start is called before the first frame update
     void Start()
     {
