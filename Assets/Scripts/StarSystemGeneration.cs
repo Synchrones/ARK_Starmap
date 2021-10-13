@@ -107,7 +107,7 @@ public class StarSystemGeneration : MonoBehaviour
                         scale min/scale max : min and max scale of the star (some of them have a pulsating effect -> see nul)
 
                         */
-                        // TODO: add glow, min and max size, corona effect, fix glow on darker stars, fix binary stars not rendering at the same time
+                        // TODO: add glow, min and max size, corona effect, fix glow on darker stars
                         StarDatas starDatas = celestialObject.shader_data.sun;
 
                         celestialGO = Instantiate(starPrefab, starSystem.transform.position, Quaternion.identity);

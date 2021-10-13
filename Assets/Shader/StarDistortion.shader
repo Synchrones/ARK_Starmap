@@ -16,7 +16,7 @@ Shader "Custom/Distortion"
  
     SubShader 
 	{
-        Tags { "Queue" = "Transparent" "RenderType"="Transparent" "DisableBatching" = "True"}
+        Tags {"RenderType"="Transparent"}
 		ZWrite Off
 		Blend SrcAlpha OneMinusSrcAlpha
 	
