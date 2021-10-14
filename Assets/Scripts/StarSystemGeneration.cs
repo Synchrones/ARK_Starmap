@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 public class StarSystemGeneration : MonoBehaviour
 {
-    public List<KeyValuePair<GameObject, int>> jumpPointList;
     public GameObject SSContentPrefab;
     public GameObject starPrefab;
     public GameObject bluePlanetPrefab;
@@ -61,7 +60,7 @@ public class StarSystemGeneration : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        jumpPointList = new List<KeyValuePair<GameObject, int>>();
+        
     }
 
     // Update is called once per frame
@@ -72,7 +71,8 @@ public class StarSystemGeneration : MonoBehaviour
 
     public void LoadSystem(GameObject starSystem)
     {
-        
+        List<JumpPoint> jumpPointList = GetComponent<StarSystemsScript>().jumpPointList;
+
         GameObject SSContentGO = Instantiate(SSContentPrefab, starSystem.transform.position, Quaternion.identity);
         SSContentGO.transform.parent = starSystem.transform;
         SystemsInfosScript starSystemInfos = starSystem.GetComponent<SystemsInfosScript>();
@@ -535,13 +535,23 @@ public class StarSystemGeneration : MonoBehaviour
                     coInfosScript.affiliationID = affiliation.id;
                     coInfosScript.affiliationName = affiliation.name;
                 }
-                
+
+                GameObject targetSystem = gameObject;;
                 if(celestialObject.type == "JUMPPOINT")
                 {
-                    foreach(KeyValuePair<GameObject, int> system in jumpPointList)
+                    foreach(JumpPoint jumpPoint in jumpPointList)
                     {
-
+                        if(jumpPoint.entryId == celestialObject.id)
+                        {
+                            targetSystem = jumpPoint.exitGO;
+                        }
+                        if(jumpPoint.exitId == celestialObject.id)
+                        {
+                            targetSystem = jumpPoint.entryGO;
+                        }
                     }
+
+                    celestialGO.transform.rotation = Quaternion.LookRotation(targetSystem.transform.position - transform.position);
                     
                 }
             }

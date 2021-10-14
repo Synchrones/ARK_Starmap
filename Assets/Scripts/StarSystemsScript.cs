@@ -5,6 +5,7 @@ using UnityEngine;
 // TODO: (main TODO) : add hovering effects, add sounds, add starting screen, complete infoboxs & disk, fix moon & space stations generation + add space station variants, add landing zones
 public class StarSystemsScript : MonoBehaviour
 {
+    public List<JumpPoint> jumpPointList;
     public TextAsset systemsJson;
     public TextAsset jumpPointsJson;
     public int cameraMode; // 0 = Galaxy view, 1 = System view
@@ -32,6 +33,7 @@ public class StarSystemsScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        jumpPointList = new List<JumpPoint>();
         var systemList = new List<KeyValuePair<GameObject, int>>();
 
         StarSystems jsonStarSystems = JsonUtility.FromJson<StarSystems>(systemsJson.text);
@@ -111,8 +113,12 @@ public class StarSystemsScript : MonoBehaviour
         Tunnels jsonTunnels = JsonUtility.FromJson<Tunnels>(jumpPointsJson.text);
         foreach(Tunnel tunnel in jsonTunnels.tunnels)
         {
-            int entryID = int.Parse(tunnel.entry.star_system_id);
-            int exitID = int.Parse(tunnel.exit.star_system_id); 
+            JumpPoint jumpPoint = new JumpPoint();
+            jumpPoint.entryId = int.Parse(tunnel.entry_id); 
+            jumpPoint.exitId = int.Parse(tunnel.exit_id);
+
+            int entrySystemID = int.Parse(tunnel.entry.star_system_id);
+            int exitSystemID = int.Parse(tunnel.exit.star_system_id); 
         
             Vector3[] positions = new Vector3[numPoint];
 
@@ -120,23 +126,24 @@ public class StarSystemsScript : MonoBehaviour
             Vector3 exitSystemPos = new Vector3();
             foreach(KeyValuePair<GameObject, int> system in systemList)
             {
-                if(system.Value == entryID)
+                if(system.Value == entrySystemID)
                 {
                     entrySystemPos = system.Key.gameObject.transform.position;
-                    GetComponent<StarSystemGeneration>().jumpPointList.Add(new KeyValuePair<GameObject, int>(system.Key.gameObject, system.Value));
+                    jumpPoint.entryGO = system.Key.gameObject;
                 }
-                if(system.Value == exitID)
+                if(system.Value == exitSystemID)
                 {
                     exitSystemPos = system.Key.gameObject.transform.position;
-                    GetComponent<StarSystemGeneration>().jumpPointList.Add(new KeyValuePair<GameObject, int>(system.Key.gameObject, system.Value));
+                    jumpPoint.exitGO = system.Key.gameObject;
                 }
+
             }
             GameObject tunnelGO = new GameObject(tunnel.entry.designation);
             tunnelGO.transform.parent = jumpPointContainer.transform;
             LineRenderer line = tunnelGO.AddComponent<LineRenderer>();
             line.positionCount = numPoint;
-            Vector3 v1 = entrySystemPos + (exitSystemPos - entrySystemPos) * 1/3 + new Vector3(7 + entryID / 1000, 7 + exitID / 1000, 7 + entryID / 1000);
-            Vector3 v2 = entrySystemPos + (exitSystemPos - entrySystemPos) * 2/3 - new Vector3(7 + entryID / 1000, 7 + exitID / 1000, 7 + entryID / 1000);
+            Vector3 v1 = entrySystemPos + (exitSystemPos - entrySystemPos) * 1/3 + new Vector3(7 + entrySystemID / 1000, 7 + exitSystemID / 1000, 7 + entrySystemID / 1000);
+            Vector3 v2 = entrySystemPos + (exitSystemPos - entrySystemPos) * 2/3 - new Vector3(7 + entrySystemID / 1000, 7 + exitSystemID / 1000, 7 + entrySystemID / 1000);
             for(int i = 0; i < numPoint - 1; i++)
             {
                 positions[i] = CubicCurve(entrySystemPos, v1, v2, exitSystemPos, t);
@@ -151,8 +158,14 @@ public class StarSystemsScript : MonoBehaviour
             sizeKeeper.startPoint = entrySystemPos;
             sizeKeeper.endPoint = exitSystemPos;
             sizeKeeper.lineRenderer = line;
-        }
 
+            
+            
+            jumpPointList.Add(jumpPoint);
+            print(jumpPoint.entryGO.name + jumpPoint.entryId);
+            
+        }
+        
         cameraMode = 0;
     }
     
@@ -340,5 +353,14 @@ public class Entry
 public class Exit
 {
     public string star_system_id;
+}
+
+public class JumpPoint
+{
+    public int id;
+    public int entryId;
+    public GameObject entryGO;
+    public int exitId;
+    public GameObject exitGO;
 }
 
