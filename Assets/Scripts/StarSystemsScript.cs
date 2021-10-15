@@ -162,7 +162,6 @@ public class StarSystemsScript : MonoBehaviour
             
             
             jumpPointList.Add(jumpPoint);
-            print(jumpPoint.entryGO.name + jumpPoint.entryId);
             
         }
         

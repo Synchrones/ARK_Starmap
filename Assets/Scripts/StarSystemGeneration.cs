@@ -383,6 +383,7 @@ public class StarSystemGeneration : MonoBehaviour
 
                         celestialGO.transform.parent = SSContentGO.transform;
                         celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Tan(latitude), distance * Mathf.Sin(longitude));
+                        celestialGO.transform.localScale /= 30;
                         celestialGO.layer = 6;
 
                         celestialGO.transform.GetChild(0).gameObject.AddComponent<JumpTailScript>();
@@ -550,9 +551,7 @@ public class StarSystemGeneration : MonoBehaviour
                             targetSystem = jumpPoint.entryGO;
                         }
                     }
-
                     celestialGO.transform.rotation = Quaternion.LookRotation(targetSystem.transform.position - transform.position);
-                    
                 }
             }
         }
