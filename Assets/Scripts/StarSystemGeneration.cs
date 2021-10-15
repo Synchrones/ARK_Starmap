@@ -386,7 +386,7 @@ public class StarSystemGeneration : MonoBehaviour
                         celestialGO.transform.localScale /= 30;
                         celestialGO.layer = 6;
 
-                        celestialGO.transform.GetChild(0).gameObject.AddComponent<JumpTailScript>();
+                        celestialGO.AddComponent<JumpPointScript>();
 
                         break;
 
