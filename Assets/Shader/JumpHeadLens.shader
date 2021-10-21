@@ -1,3 +1,4 @@
+//This shader is normally a black hole shader, I still need to clean the unused parts
 Shader "Custom/JumpHeadLens" {
     Properties {
         _MainTex ("Main texture", 2D) = "white" {}

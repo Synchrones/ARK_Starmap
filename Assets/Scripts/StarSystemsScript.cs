@@ -23,6 +23,7 @@ public class StarSystemsScript : MonoBehaviour
     public Sprite DEVSprite;
     public Sprite UNCSprite;
 
+    public Material tunnelMaterial;
 
     public int layerMask;
 
@@ -159,8 +160,18 @@ public class StarSystemsScript : MonoBehaviour
             sizeKeeper.endPoint = exitSystemPos;
             sizeKeeper.lineRenderer = line;
 
-            
-            
+            line.textureMode = LineTextureMode.RepeatPerSegment;
+            line.material = tunnelMaterial;
+            if(tunnel.size == "M")
+            {
+                line.material.color = line.material.color - new Color32(248, 171, 83, 14);
+            }
+            if(tunnel.size == "S")
+            {
+                line.material.SetColor("_MainColor", new Color32(248, 117, 83, 14));
+            }
+            TunnelTraficScript tunnelTraficScript = tunnelGO.AddComponent<TunnelTraficScript>();
+
             jumpPointList.Add(jumpPoint);
             
         }
@@ -361,5 +372,6 @@ public class JumpPoint
     public GameObject entryGO;
     public int exitId;
     public GameObject exitGO;
+    public string size;
 }
 
