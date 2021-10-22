@@ -16,6 +16,7 @@ public class StarSystemGeneration : MonoBehaviour
     public GameObject asteroidFrontPrefab;
     public GameObject asteroidMiddlePrefab;
     public GameObject asteroidFarPrefab;
+    public GameObject landingZonePrefab;
 
     public Material orbitMaterial;
 
@@ -56,7 +57,7 @@ public class StarSystemGeneration : MonoBehaviour
     public Texture2D starTexture7; 
     public Texture2D starTexture8; 
 
-
+    //TODO: Fix the moon
     // Start is called before the first frame update
     void Start()
     {
@@ -328,7 +329,24 @@ public class StarSystemGeneration : MonoBehaviour
                         }
                         orbitContainer.transform.rotation = Quaternion.Euler(0, - celestialObject.longitude, celestialObject.latitude);
                         orbitContainer.AddComponent<WidthKeeper>();
-                        
+
+                        if(celestialObject.id == 2026 || celestialObject.id == 2027 || celestialObject.id == 1693 || celestialObject.id == 1694 || celestialObject.id == 1695 || celestialObject.id == 1692 || celestialObject.id == 1723)
+                        {
+                            SSData planetDatas = JsonUtility.FromJson<SSData>(System.IO.File.ReadAllText(Application.dataPath + "/Jsons/Planets/" + celestialObject.name + ".json"));
+                            foreach(SystemContent planetContent in planetDatas.data.resultset)
+                            {
+                                foreach(Children children in planetContent.children)
+                                {
+                                    if(children.type == "LZ")
+                                    {
+                                        GameObject LZGO = Instantiate(landingZonePrefab, celestialGO.transform.position, Quaternion.identity);
+                                        LZGO.transform.localScale /= 15;
+                                        LZGO.transform.Rotate(-children.latitude, -children.longitude - 90, 0);
+                                        LZGO.transform.parent = celestialGO.transform;
+                                    }
+                                }
+                            }
+                        }
 
                         planetList.Add(new KeyValuePair<GameObject, int>(celestialGO, celestialObject.id));
 
@@ -584,7 +602,7 @@ public class StarSystemGeneration : MonoBehaviour
     {
         public string name;
         public string type;
-
+        public Children[] children;
         public CelestialObject[] celestial_objects;
 
     }
@@ -654,6 +672,16 @@ public class StarSystemGeneration : MonoBehaviour
         public float rotation1;
         public float rotation2;
         
+
+    }
+
+    [System.Serializable]
+    public class Children
+    {
+        public string type;
+        public string designation;
+        public float longitude;
+        public float latitude;
 
     }
 
