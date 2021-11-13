@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// TODO: (main TODO) : add hovering effects, add sounds, add starting screen, complete infoboxs & disk, fix moon & space stations generation + add space station variants, add landing zones
+// TODO: (main TODO) : add hovering effects, add sounds, add starting screen, complete infoboxs & disk, fix moon & space stations generation + add space station variants
 public class StarSystemsScript : MonoBehaviour
 {
     public List<JumpPoint> jumpPointList;
@@ -30,6 +30,7 @@ public class StarSystemsScript : MonoBehaviour
     //tunnels
     private int numPoint = 51;
     private float t;
+    private bool areTunnelsActives;
     private GameObject jumpPointContainer;
     // Start is called before the first frame update
     void Start()
@@ -177,6 +178,7 @@ public class StarSystemsScript : MonoBehaviour
         }
         
         cameraMode = 0;
+        areTunnelsActives = true;
     }
     
     // Update is called once per frame
@@ -236,10 +238,12 @@ public class StarSystemsScript : MonoBehaviour
             if(jumpPointContainer.gameObject.activeInHierarchy == true)
             {
                 jumpPointContainer.SetActive(false);
+                areTunnelsActives = false;
             }
             else
             {
                 jumpPointContainer.SetActive(true);
+                areTunnelsActives = true;
             }
         }
     }
@@ -268,6 +272,7 @@ public class StarSystemsScript : MonoBehaviour
 
     public void LoadAndEnterSystem()
     {
+        if(areTunnelsActives == true)jumpPointContainer.SetActive(false);
         UIContainer.GetComponent<DiscScript>().UnloadDisc();
         this.GetComponent<StarSystemGeneration>().LoadSystem(selectedSystem);
         mainCamera.GetComponent<CameraScript>().EnterSystem(selectedSystem);
@@ -277,6 +282,7 @@ public class StarSystemsScript : MonoBehaviour
 
     public void UnloadAndExitSystem()
     {
+        if(areTunnelsActives == true)jumpPointContainer.SetActive(true);
         this.GetComponent<StarSystemGeneration>().UnloadSystem(selectedSystem);
         cameraMode = 0;
         mainCamera.GetComponent<CameraScript>().ExitSystem(selectedSystem);

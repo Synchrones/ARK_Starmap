@@ -57,11 +57,13 @@ public class StarSystemGeneration : MonoBehaviour
     public Texture2D starTexture7; 
     public Texture2D starTexture8; 
 
+    public List<GameObject> celestialObjectList;
+
     //TODO: Fix the moon
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -297,7 +299,7 @@ public class StarSystemGeneration : MonoBehaviour
                     
                         celestialGO.transform.parent = SSContentGO.transform;
                         celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Tan(latitude), distance * Mathf.Sin(longitude));
-                        celestialGO.transform.localScale /= 15;
+                        celestialGO.transform.localScale /= 30;
                         celestialGO.layer = 6;
                         celestialGO.AddComponent<SphereCollider>().radius = 1;
 
@@ -340,7 +342,7 @@ public class StarSystemGeneration : MonoBehaviour
                                     if(children.type == "LZ")
                                     {
                                         GameObject LZGO = Instantiate(landingZonePrefab, celestialGO.transform.position, Quaternion.identity);
-                                        LZGO.transform.localScale /= 15;
+                                        LZGO.transform.localScale /= 30;
                                         LZGO.transform.Rotate(-children.latitude, -children.longitude - 90, 0);
                                         LZGO.transform.parent = celestialGO.transform;
                                     }
@@ -369,6 +371,22 @@ public class StarSystemGeneration : MonoBehaviour
                                 celestialGO = Instantiate(brownPlanetPrefab, starSystem.transform.position, Quaternion.identity);
                                 break;
                         }
+                        if(celestialObject.texture.slug == "9g2xvstat60bi")
+                        {
+                            celestialGO.transform.GetChild(1).GetChild(1).GetComponent<Renderer>().material.mainTexture = moonTexture;
+                        }
+                        if(systemContent.name == "Terra") //a moon in the Terra system has pluto texture, another has the Arccorp one... ¯\_(ツ)_/¯
+                        {
+                            if(celestialObject.texture.slug == "pmfkvj1mwmq2z") 
+                            {
+                                celestialGO.transform.GetChild(1).GetChild(1).GetComponent<Renderer>().material.mainTexture = plutoTexture;
+                            }
+                            if(celestialObject.texture.slug == "2wkohq7v67kco")
+                            {
+                                celestialGO.transform.GetChild(1).GetChild(1).GetComponent<Renderer>().material.mainTexture = arccorpTexture;
+                            }
+                        }
+                        
                         
                         foreach(KeyValuePair<GameObject, int> planet in planetList)
                         {
@@ -378,10 +396,10 @@ public class StarSystemGeneration : MonoBehaviour
 
                         longitude = celestialObject.longitude * Mathf.Deg2Rad;
                         latitude = celestialObject.latitude * Mathf.Deg2Rad;
-                        distance = celestialObject.distance * 500;
+                        distance = 3 + celestialObject.distance;
 
                         celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Tan(latitude), distance * Mathf.Sin(longitude));
-                        celestialGO.transform.localScale /= 50;
+                        celestialGO.transform.localScale /= 100;
                         celestialGO.layer = 6;
                         celestialGO.AddComponent<SphereCollider>().radius = 0.2f;
 
@@ -471,7 +489,7 @@ public class StarSystemGeneration : MonoBehaviour
                                 celestialGO.transform.parent = SSContentGO.transform;
                                 break;
                             
-                            case "51":
+                            case "51": //planet ring
                                 celestialGO = Instantiate(planetRingPrefab, SSContentGO.transform.position, Quaternion.identity);
 
                                 foreach(KeyValuePair<GameObject, int> planet in planetList)
@@ -493,7 +511,7 @@ public class StarSystemGeneration : MonoBehaviour
                                     } 
                                 }
 
-                                celestialGO.transform.localScale /= 15;
+                                celestialGO.transform.localScale /= 40;
                                 break;
 
                             default:
@@ -571,6 +589,8 @@ public class StarSystemGeneration : MonoBehaviour
                     }
                     celestialGO.transform.rotation = Quaternion.LookRotation(targetSystem.transform.position - transform.position);
                 }
+
+                celestialObjectList.Add(celestialGO);
             }
         }
     }
