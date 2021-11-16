@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// TODO: (main TODO) : add hovering effects, add sounds, add starting screen, complete infoboxs & disk, fix moon & space stations generation + add space station variants
+// TODO: (main TODO) : add hovering effects, add sounds, add starting screen, complete infoboxs & disk, fix space stations generation + add space station variants
 public class StarSystemsScript : MonoBehaviour
 {
     public List<JumpPoint> jumpPointList;

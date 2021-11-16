@@ -59,7 +59,6 @@ public class StarSystemGeneration : MonoBehaviour
 
     public List<GameObject> celestialObjectList;
 
-    //TODO: Fix the moon
     // Start is called before the first frame update
     void Start()
     {
@@ -298,7 +297,9 @@ public class StarSystemGeneration : MonoBehaviour
                         distance = celestialObject.distance;
                     
                         celestialGO.transform.parent = SSContentGO.transform;
-                        celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Tan(latitude), distance * Mathf.Sin(longitude));
+                        celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Sin(latitude), distance * Mathf.Sin(longitude));
+                        celestialGO.transform.GetChild(0).transform.Rotate(Vector3.forward, celestialObject.axial_tilt);
+                        celestialGO.transform.GetChild(1).transform.Rotate(Vector3.forward, celestialObject.axial_tilt);
                         celestialGO.transform.localScale /= 30;
                         celestialGO.layer = 6;
                         celestialGO.AddComponent<SphereCollider>().radius = 1;
@@ -398,8 +399,9 @@ public class StarSystemGeneration : MonoBehaviour
                         latitude = celestialObject.latitude * Mathf.Deg2Rad;
                         distance = 3 + celestialObject.distance;
 
-                        celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Tan(latitude), distance * Mathf.Sin(longitude));
+                        celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Sin(latitude), distance * Mathf.Sin(longitude));
                         celestialGO.transform.localScale /= 100;
+                        celestialGO.transform.Rotate(Vector3.forward, celestialObject.axial_tilt);
                         celestialGO.layer = 6;
                         celestialGO.AddComponent<SphereCollider>().radius = 0.2f;
 
@@ -418,7 +420,7 @@ public class StarSystemGeneration : MonoBehaviour
                         distance = celestialObject.distance;
 
                         celestialGO.transform.parent = SSContentGO.transform;
-                        celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Tan(latitude), distance * Mathf.Sin(longitude));
+                        celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Sin(latitude), distance * Mathf.Sin(longitude));
                         celestialGO.transform.localScale /= 30;
                         celestialGO.layer = 6;
 
@@ -498,6 +500,7 @@ public class StarSystemGeneration : MonoBehaviour
                                     {
                                         celestialGO.transform.parent = planet.Key.transform;
                                         celestialGO.transform.position = planet.Key.transform.position;
+                                        celestialGO.transform.Rotate(Vector3.forward, float.Parse(planet.Key.GetComponent<COInfosScript>().axial_tilt));
                                     } 
                                 }
                                 foreach(KeyValuePair<GameObject, int> moon in moonList) //Yela has strange rings...
@@ -507,7 +510,7 @@ public class StarSystemGeneration : MonoBehaviour
                                         GameObject.Destroy(celestialGO);
                                         celestialGO = Instantiate(asteroidFrontPrefab, moon.Key.transform.position, Quaternion.identity);
                                         celestialGO.transform.parent = moon.Key.transform;
-                                    
+                                        celestialGO.transform.Rotate(Vector3.right, celestialObject.axial_tilt);
                                     } 
                                 }
 
@@ -566,6 +569,7 @@ public class StarSystemGeneration : MonoBehaviour
                 coInfosScript.danger = celestialObject.sensor_danger;
                 coInfosScript.fairchanceact = celestialObject.fairchanceact;
                 coInfosScript.size = celestialObject.size;
+                coInfosScript.axial_tilt = celestialObject.axial_tilt.ToString();
                 coInfosScript.subtype = celestialObject.subtype.name;
                 foreach (Affiliation affiliation in celestialObject.affiliation)
                 {
@@ -640,6 +644,7 @@ public class StarSystemGeneration : MonoBehaviour
         public float longitude;
         public float latitude;
         public float distance;
+        public float axial_tilt;
         public int id;
         public int parent_id;
         public string habitable;

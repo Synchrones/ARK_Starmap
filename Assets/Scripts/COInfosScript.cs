@@ -14,6 +14,7 @@ public class COInfosScript : MonoBehaviour
     public string economy;
     public string population;
     public string size;
+    public string axial_tilt;
     public string lastTimeModified;
     public string subtype;
     public string fairchanceact;
