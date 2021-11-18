@@ -5,17 +5,32 @@ public class StarSystemGeneration : MonoBehaviour
 {
     public GameObject SSContentPrefab;
     public GameObject starPrefab;
+
+    //Planets
     public GameObject bluePlanetPrefab;
     public GameObject brownPlanetPrefab;
     public GameObject greenPlanetPrefab;
     public GameObject gazPlanetPrefab;
+
     public GameObject jumpPointPrefab;
-    public GameObject spaceStationPrefab;
+
+    //Space Stations
+    public GameObject defaultSpaceStationPrefab;
+    public GameObject POSpaceStationPrefab;
+    public GameObject kareahSpaceStationPrefab;
+    public GameObject covalexSpaceStationPrefab;
+    public GameObject scanHubSpaceStationPrefab;
+    public GameObject commArraySpaceStationPrefab;
+    public GameObject ARKSpaceStationPrefab;
+
+
+    //Asteroide Rings
     public GameObject asteroidFieldPrefab;
     public GameObject planetRingPrefab;
     public GameObject asteroidFrontPrefab;
     public GameObject asteroidMiddlePrefab;
     public GameObject asteroidFarPrefab;
+
     public GameObject landingZonePrefab;
 
     public Material orbitMaterial;
@@ -123,20 +138,23 @@ public class StarSystemGeneration : MonoBehaviour
                         if(starDatas.color1.Length > 7)
                         {
                             string parsedColor1 = starDatas.color1.Split('(', ')')[1];
-                            string parsedColor2 = starDatas.color2.Split('(', ')')[1];
-
                             starMaterialOuter.SetColor("_Color", new Color32(byte.Parse(parsedColor1.Split(',')[0]), byte.Parse(parsedColor1.Split(',')[1]), byte.Parse(parsedColor1.Split(',')[2]), 255));
-                            starMaterialInner.SetColor("_Color", new Color32(byte.Parse(parsedColor2.Split(',')[0]), byte.Parse(parsedColor2.Split(',')[1]), byte.Parse(parsedColor2.Split(',')[2]), 255));
                         }
                         else
                         {
                             Color color1;
-                            Color color2;
-
                             ColorUtility.TryParseHtmlString(starDatas.color1, out color1);
-                            ColorUtility.TryParseHtmlString(starDatas.color2, out color2);
-
                             starMaterialOuter.color = color1;
+                        }
+                        if(starDatas.color2.Length > 7)
+                        {
+                            string parsedColor2 = starDatas.color2.Split('(', ')')[1];
+                            starMaterialInner.SetColor("_Color", new Color32(byte.Parse(parsedColor2.Split(',')[0]), byte.Parse(parsedColor2.Split(',')[1]), byte.Parse(parsedColor2.Split(',')[2]), 255));
+                        }
+                        else
+                        {
+                            Color color2;
+                            ColorUtility.TryParseHtmlString(starDatas.color2, out color2);
                             starMaterialInner.color = color2;
                         }
                         
@@ -181,34 +199,7 @@ public class StarSystemGeneration : MonoBehaviour
                         celestialGO.layer = 6;
                         celestialGO.AddComponent<SphereCollider>().radius = 1;
 
-                        GameObject orbitContainer = new GameObject("orbit");
-                        orbitContainer.transform.position = starSystem.transform.position;
-                        orbitContainer.transform.parent = celestialGO.transform;
-
-                        for(int i = 0; i < 60; i++)
-                        {
-                            GameObject orbit = new GameObject("orbit" + i);
-                            orbit.transform.parent = orbitContainer.transform;
-                            orbit.transform.position = orbitContainer.transform.position;
-                            LineRenderer line = orbit.AddComponent<LineRenderer>();
-                            line.useWorldSpace = false;
-                            line.material = orbitMaterial;
-
-                            Vector3 start = new Vector3(Mathf.Cos(Mathf.Deg2Rad * (i * 360 / 60)) * distance, 0, Mathf.Sin(Mathf.Deg2Rad * (i * 360 / 60)) * distance);
-                            Vector3 end = new Vector3(Mathf.Cos(Mathf.Deg2Rad * ((i + 1) * 360 / 60)) * distance, 0, Mathf.Sin(Mathf.Deg2Rad * ((i + 1) * 360 / 60)) * distance);
-                            
-                            
-                            line.SetPosition(0, start);
-                            line.SetPosition(1, end);
-
-                            line.startWidth = 0.01f;
-                            line.endWidth = 0.01f;
-
-                            
-
-                        }
-                        orbitContainer.transform.rotation = Quaternion.Euler(0, - celestialObject.longitude, celestialObject.latitude);
-                        orbitContainer.AddComponent<WidthKeeper>();
+                        drawOrbit(celestialGO, starSystem, celestialObject, distance);
 
                         if(celestialObject.id == 2026 || celestialObject.id == 2027 || celestialObject.id == 1693 || celestialObject.id == 1694 || celestialObject.id == 1695 || celestialObject.id == 1692 || celestialObject.id == 1723)
                         {
@@ -277,13 +268,51 @@ public class StarSystemGeneration : MonoBehaviour
 
                     case "MANMADE":
 
-                        celestialGO = Instantiate(spaceStationPrefab, starSystem.transform.position, Quaternion.identity);
+                        if(celestialObject.appearance == "DEFAULT")
+                        {
+                            celestialGO = Instantiate(defaultSpaceStationPrefab, starSystem.transform.position, Quaternion.identity);
+                        }
+                        else
+                        {
+                            switch(celestialObject.model.slug)
+                            {
+                                case "hq0yb5nb8kfgo": //PO
+                                    celestialGO = Instantiate(POSpaceStationPrefab, starSystem.transform.position, Quaternion.identity);
+                                    break;
 
+                                case "5bxoelq8c8uju": //Kareah
+                                    celestialGO = Instantiate(kareahSpaceStationPrefab, starSystem.transform.position, Quaternion.identity);
+                                    break;
+
+                                case "et0gvwd7ihhug": //Covalex Gundo
+                                    celestialGO = Instantiate(covalexSpaceStationPrefab, starSystem.transform.position, Quaternion.identity);
+                                    break;
+
+                                case "2c7l2nene7ipk": //Cry-Astro
+                                    celestialGO = Instantiate(defaultSpaceStationPrefab, starSystem.transform.position, Quaternion.identity);//for some reason this is default prefab
+                                    break;
+
+                                case "afrlkpdjwl5nm": //ScanHub
+                                    celestialGO = Instantiate(scanHubSpaceStationPrefab, starSystem.transform.position, Quaternion.identity);
+                                    break;
+                                
+                                case "pkuskri0s4twx": //CommArray
+                                    celestialGO = Instantiate(commArraySpaceStationPrefab, starSystem.transform.position, Quaternion.identity);
+                                    break;
+                                
+                                case "sxj9reqlg4ktj": //The ARK
+                                    celestialGO = Instantiate(ARKSpaceStationPrefab, starSystem.transform.position, Quaternion.identity);
+                                    break;
+                            }
+                        }
+                        
+                        //TODO fix space station generation distance (as well as moons)
                         celestialGO.name = celestialObject.designation;
 
                         longitude = celestialObject.longitude * Mathf.Deg2Rad;
                         latitude = celestialObject.latitude * Mathf.Deg2Rad;
                         distance = celestialObject.distance;
+                        if(distance < 0.05f)distance *= 2500; //without this, space station are generated to close for some reason
 
                         bool flag = false;
                         foreach(KeyValuePair<GameObject, int> planet in planetList)
@@ -308,11 +337,12 @@ public class StarSystemGeneration : MonoBehaviour
                         }
                         if(!flag) celestialGO.transform.parent = SSContentGO.transform;
 
-                        celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Tan(latitude), distance * Mathf.Sin(longitude));
-                        celestialGO.transform.localScale /= 50;
+                        celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Sin(latitude), distance * Mathf.Sin(longitude));
+                        celestialGO.transform.localScale /= 150;
                         celestialGO.layer = 6;
                         celestialGO.AddComponent<SphereCollider>().radius = 0.2f;
 
+                        if(flag && starSystem.name != "Stanton")drawOrbit(celestialGO, celestialGO.transform.parent.gameObject, celestialObject, distance);
                         break;
 
                     case "ASTEROID_BELT":
@@ -506,6 +536,7 @@ public class StarSystemGeneration : MonoBehaviour
         public Subtype subtype;
         public Affiliation[] affiliation;
         public COTexture texture;
+        public COModel model;
         public ShaderData shader_data;
     }
 
@@ -528,6 +559,11 @@ public class StarSystemGeneration : MonoBehaviour
         public string slug;
     }
 
+    [System.Serializable]
+    public class COModel
+    {
+        public string slug;
+    }
     [System.Serializable]
     public class ShaderData
     {
@@ -699,5 +735,38 @@ public class StarSystemGeneration : MonoBehaviour
         }
 
         return celestialGO;
+    }
+
+    private void drawOrbit(GameObject celestialGO, GameObject orbitCenter, CelestialObject celestialObject, float distance)
+    {
+        GameObject orbitContainer = new GameObject("orbit");
+        orbitContainer.transform.position = orbitCenter.transform.position;
+        orbitContainer.transform.parent = celestialGO.transform;
+
+        for (int i = 0; i < 60; i++)
+        {
+            GameObject orbit = new GameObject("orbit" + i);
+            orbit.transform.position = orbitContainer.transform.position;
+            orbit.transform.parent = orbitContainer.transform;
+            LineRenderer line = orbit.AddComponent<LineRenderer>();
+            line.useWorldSpace = false;
+            line.material = orbitMaterial;
+
+            Vector3 start = new Vector3(Mathf.Cos(Mathf.Deg2Rad * (i * 360 / 60)) * distance, 0, Mathf.Sin(Mathf.Deg2Rad * (i * 360 / 60)) * distance);
+            Vector3 end = new Vector3(Mathf.Cos(Mathf.Deg2Rad * ((i + 1) * 360 / 60)) * distance, 0, Mathf.Sin(Mathf.Deg2Rad * ((i + 1) * 360 / 60)) * distance);
+
+
+            line.SetPosition(0, start);
+            line.SetPosition(1, end);
+
+            line.startWidth = 0.01f;
+            line.endWidth = 0.01f;
+
+
+
+        }
+        orbitContainer.transform.rotation = Quaternion.Euler(0, -celestialObject.longitude, celestialObject.latitude);
+        orbitContainer.AddComponent<WidthKeeper>();
+        if(celestialObject.type == "MANMADE")orbitContainer.transform.localScale = Vector3.one;
     }
 }

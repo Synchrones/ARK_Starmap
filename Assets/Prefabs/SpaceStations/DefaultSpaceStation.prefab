@@ -369,7 +369,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2607652261843626865}
   m_Layer: 0
-  m_Name: SpaceStation
+  m_Name: DefaultSpaceStation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

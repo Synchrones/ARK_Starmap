@@ -505,7 +505,13 @@ MonoBehaviour:
   greenPlanetPrefab: {fileID: 919132149155446097, guid: ddfe1f522b4fb9649905b28290f45298, type: 3}
   gazPlanetPrefab: {fileID: 919132149155446097, guid: 414e9b886e1a0954db110a615412c645, type: 3}
   jumpPointPrefab: {fileID: 346894009660737050, guid: fb23a048e10c4b140b315ed7a1b73f9c, type: 3}
-  spaceStationPrefab: {fileID: 7590388457483272264, guid: c3eec5afe06020649bdca70e3167a31f, type: 3}
+  defaultSpaceStationPrefab: {fileID: 7590388457483272264, guid: c3eec5afe06020649bdca70e3167a31f, type: 3}
+  POSpaceStationPrefab: {fileID: 919132149155446097, guid: fb9ce1722150e23409ff296008976197, type: 3}
+  kareahSpaceStationPrefab: {fileID: 919132149155446097, guid: 60db83fb97bcc784380a3ff71308826f, type: 3}
+  covalexSpaceStationPrefab: {fileID: 919132149155446097, guid: ada748b752b3e6c44ba087aa0d968ecf, type: 3}
+  scanHubSpaceStationPrefab: {fileID: 919132149155446097, guid: a844f027a7a4d3e43a74d7a7684ca852, type: 3}
+  commArraySpaceStationPrefab: {fileID: 919132149155446097, guid: 4042a0456a4d4114f9d036ca27b633d8, type: 3}
+  ARKSpaceStationPrefab: {fileID: 919132149155446097, guid: 7ebe67f24cdba914b98e95f9a93a847c, type: 3}
   asteroidFieldPrefab: {fileID: 919132149155446097, guid: 8541ef386379f3945bde2c73a1540289, type: 3}
   planetRingPrefab: {fileID: 919132149155446097, guid: 7c34e2424eefec34bae3aa1178515aae, type: 3}
   asteroidFrontPrefab: {fileID: 919132149155446097, guid: 41d7fdcc1202c454a9b65b5facea6579, type: 3}
@@ -1697,8 +1703,8 @@ RectTransform:
   m_Father: {fileID: 1155235768}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 190, y: 0}
   m_SizeDelta: {x: 380, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
