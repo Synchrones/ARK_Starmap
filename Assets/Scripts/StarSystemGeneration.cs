@@ -201,6 +201,8 @@ public class StarSystemGeneration : MonoBehaviour
 
                         drawOrbit(celestialGO, starSystem, celestialObject, distance);
 
+                        celestialGO.AddComponent<PlanetScript>();
+
                         if(celestialObject.id == 2026 || celestialObject.id == 2027 || celestialObject.id == 1693 || celestialObject.id == 1694 || celestialObject.id == 1695 || celestialObject.id == 1692 || celestialObject.id == 1723)
                         {
                             SSData planetDatas = JsonUtility.FromJson<SSData>(System.IO.File.ReadAllText(Application.dataPath + "/Jsons/Planets/" + celestialObject.name + ".json"));
@@ -242,6 +244,8 @@ public class StarSystemGeneration : MonoBehaviour
                         celestialGO.transform.Rotate(Vector3.forward, celestialObject.axial_tilt);
                         celestialGO.layer = 6;
                         celestialGO.AddComponent<SphereCollider>().radius = 0.2f;
+
+                        celestialGO.AddComponent<PlanetScript>();
 
                         moonList.Add(new KeyValuePair<GameObject, int>(celestialGO, celestialObject.id));
 
