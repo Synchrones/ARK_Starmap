@@ -15,6 +15,8 @@ public class StarSystemsScript : MonoBehaviour
     public GameObject selectedSystem;
     public GameObject selectedObject;
     public GameObject UIContainer;
+    public GameObject HoverGizmo;
+    private bool isHoverGizmoActive;
 
     public Sprite UEESprite;
     public Sprite BNUSprite;
@@ -206,29 +208,49 @@ public class StarSystemsScript : MonoBehaviour
         }
         else if(cameraMode == 1)
         {
-            if(Input.GetMouseButtonUp(1))
+
+            layerMask = 1 << LayerMask.NameToLayer("CO");
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit, 100, layerMask))
             {
-                layerMask = 1 << LayerMask.NameToLayer("CO");
-                RaycastHit hit;
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if(Physics.Raycast(ray, out hit, 100, layerMask))
+
+                if (!isHoverGizmoActive)
                 {
-                    if(hit.transform)
+                    HoverGizmo.SetActive(true);
+                    HoverGizmo.transform.position = hit.transform.position;
+                    HoverGizmo.transform.parent = hit.transform.parent;
+                    HoverGizmo.transform.localScale = Vector3.Scale(hit.transform.localScale, new Vector3(1.5f, 1.5f, 1.5f));
+                    isHoverGizmoActive = true;
+                }
+                if (hit.transform)
+                {
+
+                    if (Input.GetMouseButtonUp(1))
                     {
                         SelectCO(hit.transform.gameObject);
                         COSelected = true;
                     }
                 }
             }
-            if(Input.GetKeyDown(KeyCode.Escape))
+            else
             {
-                if(COSelected == true)
+                if (isHoverGizmoActive)
+                {
+                    HoverGizmo.SetActive(false);
+                    isHoverGizmoActive = false;
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (COSelected == true)
                 {
                     COSelected = false;
                     mainCamera.GetComponent<CameraScript>().COSelected = false;
                 }
                 else UnloadAndExitSystem();
-                
+
             }
         }
         

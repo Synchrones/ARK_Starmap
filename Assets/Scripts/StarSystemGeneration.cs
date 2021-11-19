@@ -168,7 +168,9 @@ public class StarSystemGeneration : MonoBehaviour
 
                         celestialGO.name = celestialObject.designation;
                         celestialGO.transform.parent = SSContentGO.transform;
-                        celestialGO.transform.localScale *=  celestialObject.shader_data.radius * 2;
+                        celestialGO.transform.localScale *=  celestialObject.shader_data.radius;
+                        celestialGO.layer = 6;
+                        celestialGO.AddComponent<SphereCollider>().radius = 2;
 
                         if(systemContent.type == "BINARY")
                         {
@@ -197,7 +199,7 @@ public class StarSystemGeneration : MonoBehaviour
                         celestialGO.transform.GetChild(1).transform.Rotate(Vector3.forward, celestialObject.axial_tilt);
                         celestialGO.transform.localScale /= 30;
                         celestialGO.layer = 6;
-                        celestialGO.AddComponent<SphereCollider>().radius = 1;
+                        celestialGO.AddComponent<SphereCollider>().radius = 2;
 
                         drawOrbit(celestialGO, starSystem, celestialObject, distance);
 
@@ -243,7 +245,7 @@ public class StarSystemGeneration : MonoBehaviour
                         celestialGO.transform.localScale /= 150 / float.Parse(celestialObject.size, System.Globalization.CultureInfo.InvariantCulture); //the 2nd argument has something to do with the decimal separator ("." instead of ",")...
                         celestialGO.transform.Rotate(Vector3.forward, celestialObject.axial_tilt);
                         celestialGO.layer = 6;
-                        celestialGO.AddComponent<SphereCollider>().radius = 0.2f;
+                        celestialGO.AddComponent<SphereCollider>().radius = 2;
 
                         celestialGO.AddComponent<PlanetScript>();
 
@@ -265,6 +267,8 @@ public class StarSystemGeneration : MonoBehaviour
                         celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Sin(latitude), distance * Mathf.Sin(longitude));
                         celestialGO.transform.localScale /= 30;
                         celestialGO.layer = 6;
+
+                        celestialGO.AddComponent<SphereCollider>().radius = 2;
 
                         celestialGO.AddComponent<JumpPointScript>();
 
@@ -344,7 +348,7 @@ public class StarSystemGeneration : MonoBehaviour
                         celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Sin(latitude), distance * Mathf.Sin(longitude));
                         celestialGO.transform.localScale /= 150;
                         celestialGO.layer = 6;
-                        celestialGO.AddComponent<SphereCollider>().radius = 0.2f;
+                        celestialGO.AddComponent<SphereCollider>().radius = 2;
 
                         if(flag && starSystem.name != "Stanton")drawOrbit(celestialGO, celestialGO.transform.parent.gameObject, celestialObject, distance);
                         break;
