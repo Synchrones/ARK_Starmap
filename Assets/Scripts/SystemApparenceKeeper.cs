@@ -15,6 +15,7 @@ public class SystemApparenceKeeper : MonoBehaviour
     void Update()
     {
         transform.LookAt(cameraTransform);
+        transform.Rotate(Vector3.up, 180);
         float size = Vector3.Distance(transform.position, cameraTransform.position) / 10;
         transform.localScale = new Vector3(size, size, size);
          

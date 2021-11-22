@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-// TODO: (main TODO) : add hovering effects, add sounds, add starting screen, complete infoboxs & disk, fix space stations generation + add space station variants
+// TODO: (main TODO) : add hovering effects, add sounds, add starting screen, complete infoboxs & disk, fix space stations generation
 public class StarSystemsScript : MonoBehaviour
 {
     public List<JumpPoint> jumpPointList;
@@ -28,7 +29,7 @@ public class StarSystemsScript : MonoBehaviour
     public Material tunnelMaterial;
 
     public int layerMask;
-
+    
     //tunnels
     private int numPoint = 51;
     private float t;
@@ -104,6 +105,8 @@ public class StarSystemsScript : MonoBehaviour
                         break;
                 }
             }
+            StarSystemGO.transform.GetChild(0).GetComponent<TextMeshPro>().text = starSystem.name;
+
             StarSystemGO.AddComponent<SystemApparenceKeeper>();
 
             starSystemInfos.json = System.IO.File.ReadAllText(Application.dataPath + "/Jsons/Systems/" + starSystem.name + ".json");
