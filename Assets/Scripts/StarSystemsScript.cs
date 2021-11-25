@@ -107,7 +107,8 @@ public class StarSystemsScript : MonoBehaviour
             }
             StarSystemGO.transform.GetChild(0).GetComponent<TextMeshPro>().text = starSystem.name;
 
-            StarSystemGO.AddComponent<SystemApparenceKeeper>();
+            StarSystemGO.AddComponent<AppaerenceAndSizeKeeper>().scaleMultiplier = 1;
+            
 
             starSystemInfos.json = System.IO.File.ReadAllText(Application.dataPath + "/Jsons/Systems/" + starSystem.name + ".json");
             if(starSystem.id == 320)starSystemInfos.json = System.IO.File.ReadAllText(Application.dataPath + "/Jsons/Systems/Nul1.json"); //a file can't be named nul so... 

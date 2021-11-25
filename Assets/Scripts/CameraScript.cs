@@ -310,7 +310,7 @@ public class CameraScript : MonoBehaviour
         stopDistance = 5;
         
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        gameObject.GetComponent<SystemApparenceKeeper>().enabled = false;
+        gameObject.GetComponent<AppaerenceAndSizeKeeper>().enabled = false;
 
 
     }
@@ -340,7 +340,7 @@ public class CameraScript : MonoBehaviour
 
         GameObject.Destroy(gameObject.transform.GetChild(0).gameObject);
         gameObject.GetComponent<SpriteRenderer>().enabled = true;
-        gameObject.GetComponent<SystemApparenceKeeper>().enabled = true;
+        gameObject.GetComponent<AppaerenceAndSizeKeeper>().enabled = true;
     }
 
     public void MoveToCO(GameObject gameObject)

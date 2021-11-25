@@ -519,6 +519,7 @@ MonoBehaviour:
   asteroidMiddlePrefab: {fileID: 919132149155446097, guid: b3c642f81c333c044a36175e4c2f10f2, type: 3}
   asteroidFarPrefab: {fileID: 919132149155446097, guid: 843457e6e852dee4198afa4f6f0b4fa1, type: 3}
   landingZonePrefab: {fileID: 6166602872180980032, guid: ca951ac3c098bfd4a9537f893ec38565, type: 3}
+  namePrefab: {fileID: 184671552118479241, guid: 56280893376eda341a19bb53add9b0d2, type: 3}
   orbitMaterial: {fileID: 2100000, guid: 245b7d14d5d59bb46ad97385d37f3f4b, type: 2}
   carbonPlanetTexture: {fileID: 2800000, guid: a23e625b89522c34cbbc32d52896888c, type: 3}
   chthonianPlanetTexture: {fileID: 2800000, guid: e03d2e03dffb7bc46aaaeb2ed0e484ff, type: 3}

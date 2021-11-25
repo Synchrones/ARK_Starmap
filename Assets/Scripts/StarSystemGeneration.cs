@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 public class StarSystemGeneration : MonoBehaviour
 {
     public GameObject SSContentPrefab;
@@ -32,6 +33,7 @@ public class StarSystemGeneration : MonoBehaviour
     public GameObject asteroidFarPrefab;
 
     public GameObject landingZonePrefab;
+    public GameObject namePrefab;
 
     public Material orbitMaterial;
 
@@ -180,6 +182,20 @@ public class StarSystemGeneration : MonoBehaviour
                             celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), 0, distance * Mathf.Sin(longitude));
                         }
 
+                        GameObject InfosGO = new GameObject("Infos");
+                        InfosGO.transform.position = celestialGO.transform.position;
+                        InfosGO.transform.parent = celestialGO.transform;
+                        
+                        //drawOrbit(InfosGO, celestialGO, celestialObject, 1);
+                        //InfosGO.transform.GetChild(0).Rotate(Vector3.right, 90);
+                        GameObject NameGO = Instantiate(namePrefab, InfosGO.transform.position, Quaternion.identity);
+                        NameGO.transform.parent = InfosGO.transform;
+                        AppaerenceAndSizeKeeper appaerence = InfosGO.AddComponent<AppaerenceAndSizeKeeper>();
+                        appaerence.isCelestialObject = true;
+                        appaerence.scaleMultiplier = 0.3f;
+                        appaerence.rescalingTextGO = NameGO;
+                        NameGO.GetComponent<TextMeshPro>().text = "<color=#19e8ff>" + celestialObject.designation + "<br><color=#33528C><size=90%>" + celestialObject.type;
+                        
 
                         break;
 
