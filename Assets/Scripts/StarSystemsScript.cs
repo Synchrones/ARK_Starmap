@@ -309,7 +309,7 @@ public class StarSystemsScript : MonoBehaviour
     public void UnloadAndExitSystem()
     {
         if(areTunnelsActives == true)jumpPointContainer.SetActive(true);
-        this.GetComponent<StarSystemGeneration>().UnloadSystem(selectedSystem);
+        HoverGizmo.transform.parent = transform.parent;
         cameraMode = 0;
         mainCamera.GetComponent<CameraScript>().ExitSystem(selectedSystem);
         UIContainer.GetComponent<SystemNameScript>().ChangeName("");

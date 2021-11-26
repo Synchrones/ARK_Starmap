@@ -58,7 +58,7 @@ public class CameraScript : MonoBehaviour
         center = PlayerTransform.position;
         maxZoom = 500;
         minZoom = 20;
-        speed = 300;
+        speed = 200;
         zoomSpeed = 50;
         rotateSpeed = 0.17f;
         rotateTime = 0;
@@ -78,26 +78,18 @@ public class CameraScript : MonoBehaviour
             time = 0.0f;
 
             scroll = Input.GetAxis("Mouse ScrollWheel");
-            if(Vector3.Distance(transform.position, center) > minZoom && scroll > 0 || Vector3.Distance(transform.position, center) < maxZoom && scroll < 0)
+            if(Vector3.Distance(transform.position + transform.forward * scroll * zoomSpeed, center) > minZoom && scroll > 0 || Vector3.Distance(transform.position + transform.forward * scroll * zoomSpeed, center) < maxZoom && scroll < 0)
             {
-                if(scroll < 0) 
-                {
-                    newPosZoom += transform.forward * scroll * zoomSpeed;
-                }
-                else
-                {
-                    newPosZoom += transform.forward * scroll * zoomSpeed;
-                }
-
+                newPosZoom += transform.forward * scroll * zoomSpeed;
             } 
             
         }
         
-        if(transform.position != newPosZoom && !underInertia && !Input.GetKey(KeyCode.Mouse1) && !Input.GetKey(KeyCode.Mouse0))
+        if(transform.position != newPosZoom && !underInertia && !Input.GetKey(KeyCode.Mouse1) && !Input.GetKey(KeyCode.Mouse0) && (Vector3.Distance(transform.position, center) > minZoom / 100 || scroll < 0))
         {
             transform.position = Vector3.SmoothDamp(transform.position, newPosZoom, ref velocity, 0.3f);
-
         }
+        
         
         
         cameraOffset = transform.position - center;
@@ -122,7 +114,7 @@ public class CameraScript : MonoBehaviour
 
 
             Vector3 newPos = (transform.right * Input.GetAxis("Mouse X") * - speed * distance);
-            newPos += (transform.up * Input.GetAxis("Mouse Y") * - speed* distance);
+            newPos += (transform.up * Input.GetAxis("Mouse Y") * - speed * distance);
             
             transform.Translate(newPos * Time.deltaTime, Space.World);
             center = transform.position - cameraOffset;
@@ -196,6 +188,7 @@ public class CameraScript : MonoBehaviour
             prevPos = transform.position;
             if(Input.GetAxis("Mouse X") > 0 && frameVelocity.x > 0 || Input.GetAxis("Mouse X") < 0 && frameVelocity.x < 0) frameVelocity.x = -frameVelocity.x;
         }
+
         if(underInertia && time < 1)
         {
             if(isRotation)
@@ -337,7 +330,7 @@ public class CameraScript : MonoBehaviour
         camMoveSpeed = Vector3.Distance(transform.position, newPos) * 2;
         maxZoom = 500;
         minZoom = 20;
-        speed = 300;
+        speed = 200;
         zoomSpeed = 50;
         stopDistance = 1;
 

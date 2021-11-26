@@ -226,8 +226,12 @@ public class StarSystemGeneration : MonoBehaviour
                                 }
                             }
                         }
-
-                        generateInfos(celestialGO, celestialObject, celestialObject.name);
+                        if(celestialObject.name == "")
+                        {
+                            generateInfos(celestialGO, celestialObject, celestialObject.designation);
+                        }
+                        else generateInfos(celestialGO, celestialObject, celestialObject.name);
+                        
 
                         planetList.Add(new KeyValuePair<GameObject, int>(celestialGO, celestialObject.id));
 
