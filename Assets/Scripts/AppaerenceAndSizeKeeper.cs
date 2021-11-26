@@ -13,6 +13,7 @@ public class AppaerenceAndSizeKeeper : MonoBehaviour
     public bool isCelestialObject;
 
     public GameObject rescalingTextGO;
+    public GameObject rescalingCircleGO;
 
     void Start()
     {
@@ -24,15 +25,23 @@ public class AppaerenceAndSizeKeeper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(cameraTransform);
-        transform.Rotate(Vector3.up, 180);
+        transform.rotation = cameraTransform.rotation;
 
         if(isCelestialObject)
         {
             float size = Vector3.Distance(transform.position, cameraTransform.position) / 10 * scaleMultiplier;
             size = Mathf.Clamp(size, minSize, maxSize);
             rescalingTextGO.GetComponent<TextMeshPro>().fontSize = size * 5;
-            
+            size *= 0.5f;
+            if(size < 0.08f)
+            {
+                rescalingCircleGO.SetActive(false);
+            }
+            else
+            {
+                rescalingCircleGO.SetActive(true);
+                rescalingCircleGO.transform.localScale = new Vector3(size, size, size);
+            }
         }
         else
         {

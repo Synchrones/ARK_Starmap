@@ -182,19 +182,7 @@ public class StarSystemGeneration : MonoBehaviour
                             celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), 0, distance * Mathf.Sin(longitude));
                         }
 
-                        GameObject InfosGO = new GameObject("Infos");
-                        InfosGO.transform.position = celestialGO.transform.position;
-                        InfosGO.transform.parent = celestialGO.transform;
-                        
-                        //drawOrbit(InfosGO, celestialGO, celestialObject, 1);
-                        //InfosGO.transform.GetChild(0).Rotate(Vector3.right, 90);
-                        GameObject NameGO = Instantiate(namePrefab, InfosGO.transform.position, Quaternion.identity);
-                        NameGO.transform.parent = InfosGO.transform;
-                        AppaerenceAndSizeKeeper appaerence = InfosGO.AddComponent<AppaerenceAndSizeKeeper>();
-                        appaerence.isCelestialObject = true;
-                        appaerence.scaleMultiplier = 0.3f;
-                        appaerence.rescalingTextGO = NameGO;
-                        NameGO.GetComponent<TextMeshPro>().text = "<color=#19e8ff>" + celestialObject.designation + "<br><color=#33528C><size=90%>" + celestialObject.type;
+                        generateInfos(celestialGO, celestialObject, celestialObject.designation);
                         
 
                         break;
@@ -238,6 +226,8 @@ public class StarSystemGeneration : MonoBehaviour
                                 }
                             }
                         }
+
+                        generateInfos(celestialGO, celestialObject, celestialObject.name);
 
                         planetList.Add(new KeyValuePair<GameObject, int>(celestialGO, celestialObject.id));
 
@@ -285,6 +275,8 @@ public class StarSystemGeneration : MonoBehaviour
                         celestialGO.layer = 6;
 
                         celestialGO.AddComponent<SphereCollider>().radius = 2;
+
+                        generateInfos(celestialGO, celestialObject, celestialObject.designation);
 
                         celestialGO.AddComponent<JumpPointScript>();
 
@@ -792,5 +784,22 @@ public class StarSystemGeneration : MonoBehaviour
         orbitContainer.transform.rotation = Quaternion.Euler(0, -celestialObject.longitude, celestialObject.latitude);
         orbitContainer.AddComponent<WidthKeeper>();
         if(celestialObject.type == "MANMADE")orbitContainer.transform.localScale = Vector3.one;
+    }
+
+    private void generateInfos(GameObject celestialGO, CelestialObject celestialObject, string name)
+    {
+        GameObject InfosGO = new GameObject("Infos");
+        InfosGO.transform.position = celestialGO.transform.position;
+        InfosGO.transform.parent = celestialGO.transform;
+        drawOrbit(InfosGO, celestialGO, celestialObject, 1);
+        GameObject NameGO = Instantiate(namePrefab, InfosGO.transform.position, Quaternion.identity);
+        NameGO.transform.parent = InfosGO.transform;
+        AppaerenceAndSizeKeeper appaerence = InfosGO.AddComponent<AppaerenceAndSizeKeeper>();
+        appaerence.isCelestialObject = true;
+        appaerence.scaleMultiplier = 0.3f;
+        appaerence.rescalingTextGO = NameGO;
+        appaerence.rescalingCircleGO = InfosGO.transform.GetChild(0).gameObject;
+        appaerence.rescalingCircleGO.transform.rotation = Quaternion.Euler(90, 0, 0);
+        NameGO.GetComponent<TextMeshPro>().text = "<color=#19e8ff>" + name + "<br><color=#33528C><size=90%>" + celestialObject.type;
     }
 }
