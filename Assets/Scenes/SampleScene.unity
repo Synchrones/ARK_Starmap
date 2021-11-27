@@ -1609,8 +1609,6 @@ MonoBehaviour:
   center: {x: 0, y: 0, z: 0}
   COSelected: 0
   UIContainer: {fileID: 1890230024}
-  AudioManager: {fileID: 0}
-  isSoundPlaying: 0
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3874,6 +3872,18 @@ MonoBehaviour:
   - name: CamRotate
     clip: {fileID: 8300000, guid: 7f9446f3d83d4524a93f7bbda3826dc6, type: 3}
     volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - name: GOHover
+    clip: {fileID: 8300000, guid: 81793d1039e7daa44b2a63ae3e88ddbe, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: SystemAmbient
+    clip: {fileID: 8300000, guid: 0a52db9e94a243f4cba9181ab0e52693, type: 3}
+    volume: 0.3
     pitch: 1
     source: {fileID: 0}
     loop: 1

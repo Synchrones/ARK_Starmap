@@ -16,8 +16,10 @@ public class StarSystemsScript : MonoBehaviour
     public GameObject selectedSystem;
     public GameObject selectedObject;
     public GameObject UIContainer;
+    AudioManagerScript AudioManager;
+    bool hasHitSoundPlayed;
     public GameObject HoverGizmo;
-    private bool isHoverGizmoActive;
+    bool isHoverGizmoActive;
 
     public Sprite UEESprite;
     public Sprite BNUSprite;
@@ -185,29 +187,41 @@ public class StarSystemsScript : MonoBehaviour
         
         cameraMode = 0;
         areTunnelsActives = true;
+
+        AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManagerScript>();
     }
-    
+
     // Update is called once per frame
     void Update()
     {
         if(cameraMode == 0)
         {
-            if(Input.GetMouseButtonUp(1))
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if(Physics.Raycast(ray, out hit, 2000))
             {
-                RaycastHit hit;
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if(Physics.Raycast(ray, out hit, 2000))
+                if(!hasHitSoundPlayed)
                 {
-                    if(hit.transform)
+                    AudioManager.play("GOHover");
+                    hasHitSoundPlayed = true;
+                }
+                
+                if(hit.transform)
+                {
+                    if(Input.GetMouseButtonUp(1))
                     {
                         SelectSystem(hit.transform.gameObject);
                     }
                 }
             }
+            else
+            {
+                if(hasHitSoundPlayed)hasHitSoundPlayed = false;
+            }
+
             if(Input.GetKeyDown(KeyCode.Return))
             {
                 LoadAndEnterSystem();
-                
             }
         }
         else if(cameraMode == 1)
@@ -218,7 +232,11 @@ public class StarSystemsScript : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, 100, layerMask))
             {
-
+                if(!hasHitSoundPlayed)
+                {
+                    AudioManager.play("GOHover");
+                    hasHitSoundPlayed = true;
+                }
                 if (!isHoverGizmoActive)
                 {
                     HoverGizmo.SetActive(true);
@@ -244,6 +262,7 @@ public class StarSystemsScript : MonoBehaviour
                     HoverGizmo.SetActive(false);
                     isHoverGizmoActive = false;
                 }
+                if(hasHitSoundPlayed)hasHitSoundPlayed = false;
             }
 
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -302,6 +321,8 @@ public class StarSystemsScript : MonoBehaviour
         mainCamera.GetComponent<CameraScript>().EnterSystem(selectedSystem);
         UIContainer.GetComponent<SystemNameScript>().ChangeName(selectedSystem.name);
         cameraMode = 1;
+        AudioManager.play("SystemAmbient");
+        UIContainer.GetComponent<DiscScript>().UnloadInfobox();
     }
 
     public void UnloadAndExitSystem()
@@ -311,6 +332,7 @@ public class StarSystemsScript : MonoBehaviour
         cameraMode = 0;
         mainCamera.GetComponent<CameraScript>().ExitSystem(selectedSystem);
         UIContainer.GetComponent<SystemNameScript>().ChangeName("");
+        AudioManager.stop("SystemAmbient");
     }
 
     private Vector3 QuadradicCurve(Vector3 a, Vector3 b, Vector3 c, float t)

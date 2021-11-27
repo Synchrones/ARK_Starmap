@@ -250,7 +250,7 @@ public class CameraScript : MonoBehaviour
                 
             }
             newPosZoom = transform.position;
-            if(time > 0.6f)
+            if(time > 0.4f)
             {
                 if(isRotateSoundPlaying)
                 {
