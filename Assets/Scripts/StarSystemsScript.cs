@@ -282,8 +282,6 @@ public class StarSystemsScript : MonoBehaviour
         discScript.selectedObject = selectedSystem;
         discScript.mode = 0;
         discScript.LoadDisc();
-
-        print(gameObject.GetComponent<SystemsInfosScript>().description);
     }
 
     public void SelectCO(GameObject gameObject)
