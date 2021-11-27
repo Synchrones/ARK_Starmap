@@ -34,10 +34,6 @@ public class CameraScript : MonoBehaviour
     private float maxZoom;
     private float minZoom;
 
-    //UI
-    public GameObject UIContainer;
-    
-
     //inertia things
     private Vector3 prevPos = Vector3.zero;
     private Vector3 frameVelocity;
@@ -47,7 +43,14 @@ public class CameraScript : MonoBehaviour
     private float smoothTime = 3;
     private float time = 0.0f;
 
+    
+    //UI
+    public GameObject UIContainer;
 
+    //Sounds
+    AudioManagerScript AudioManager;
+    bool isZoomSoundPlaying;
+    bool isRotateSoundPlaying;
 
     // Start is called before the first frame update
     void Start()
@@ -63,13 +66,9 @@ public class CameraScript : MonoBehaviour
         rotateSpeed = 0.17f;
         rotateTime = 0;
         InSystem = false;
+        AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManagerScript>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void LateUpdate() {
         
         if(Input.GetAxis("Mouse ScrollWheel") != 0 && !COSelected)
@@ -82,12 +81,30 @@ public class CameraScript : MonoBehaviour
             {
                 newPosZoom += transform.forward * scroll * zoomSpeed;
             } 
-            
+            if(!isZoomSoundPlaying)
+            {
+                AudioManager.play("CamZoom");
+                isZoomSoundPlaying = true;
+            }
+            if(isRotateSoundPlaying)
+            {
+                AudioManager.stop("CamRotate");
+                isRotateSoundPlaying = false;
+            }
         }
         
         if(transform.position != newPosZoom && !underInertia && !Input.GetKey(KeyCode.Mouse1) && !Input.GetKey(KeyCode.Mouse0) && (Vector3.Distance(transform.position, center) > minZoom / 100 || scroll < 0))
         {
             transform.position = Vector3.SmoothDamp(transform.position, newPosZoom, ref velocity, 0.3f);
+        }
+        if(Vector3.Distance(transform.position, newPosZoom) < 0.1f)
+        {
+            if(isZoomSoundPlaying)
+            {
+                AudioManager.stop("CamZoom");
+                isZoomSoundPlaying = false;
+            }
+            
         }
         
         
@@ -188,6 +205,13 @@ public class CameraScript : MonoBehaviour
             prevPos = transform.position;
             if(Input.GetAxis("Mouse X") > 0 && frameVelocity.x > 0 || Input.GetAxis("Mouse X") < 0 && frameVelocity.x < 0) frameVelocity.x = -frameVelocity.x;
             if(Input.GetAxis("Mouse X") > 0 && frameVelocity.z > 0 || Input.GetAxis("Mouse X") < 0 && frameVelocity.z < 0) frameVelocity.z = -frameVelocity.z;
+
+            
+            if(!isRotateSoundPlaying)
+            {
+                AudioManager.play("CamRotate");
+                isRotateSoundPlaying = true;
+            }
         }
 
         if(underInertia && time < 1)
@@ -226,6 +250,14 @@ public class CameraScript : MonoBehaviour
                 
             }
             newPosZoom = transform.position;
+            if(time > 0.6f)
+            {
+                if(isRotateSoundPlaying)
+                {
+                    AudioManager.stop("CamRotate");
+                    isRotateSoundPlaying = false;   
+                }
+            }
         }
         else
         {
