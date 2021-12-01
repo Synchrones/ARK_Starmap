@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// TODO: fix inertia rotation + various bugs
+// TODO: fix various bugs
 public class CameraScript : MonoBehaviour
 {
 

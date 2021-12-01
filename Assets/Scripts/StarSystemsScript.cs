@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-// TODO: (main TODO) : add hovering effects, add sounds, add starting screen, complete infoboxs & disk, fix space stations generation
+// TODO: (main TODO) : add starting screen, complete infoboxs & disk, fix space stations generation
 public class StarSystemsScript : MonoBehaviour
 {
     public List<JumpPoint> jumpPointList;
