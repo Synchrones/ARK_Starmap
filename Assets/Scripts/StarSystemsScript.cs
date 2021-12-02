@@ -16,6 +16,7 @@ public class StarSystemsScript : MonoBehaviour
     public GameObject selectedSystem;
     public GameObject selectedObject;
     public GameObject UIContainer;
+    public GameObject systemName;
     AudioManagerScript AudioManager;
     bool hasHitSoundPlayed;
     public GameObject HoverGizmo;
@@ -61,7 +62,7 @@ public class StarSystemsScript : MonoBehaviour
             starSystemInfos.population = starSystem.aggregated_population;
             starSystemInfos.economy = starSystem.aggregated_economy;
             starSystemInfos.danger = starSystem.aggregated_danger;
-
+            starSystemInfos.code = starSystem.code;
 
             foreach(Affiliation affiliation in starSystem.affiliation)
             {
@@ -319,10 +320,12 @@ public class StarSystemsScript : MonoBehaviour
         UIContainer.GetComponent<DiscScript>().UnloadDisc();
         this.GetComponent<StarSystemGeneration>().LoadSystem(selectedSystem);
         mainCamera.GetComponent<CameraScript>().EnterSystem(selectedSystem);
-        UIContainer.GetComponent<SystemNameScript>().ChangeName(selectedSystem.name);
         cameraMode = 1;
         AudioManager.play("SystemAmbient");
         UIContainer.GetComponent<DiscScript>().UnloadInfobox();
+        systemName.SetActive(true);
+        systemName.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text = selectedSystem.GetComponent<SystemsInfosScript>().code;
+
     }
 
     public void UnloadAndExitSystem()
@@ -331,8 +334,8 @@ public class StarSystemsScript : MonoBehaviour
         HoverGizmo.transform.parent = transform.parent;
         cameraMode = 0;
         mainCamera.GetComponent<CameraScript>().ExitSystem(selectedSystem);
-        UIContainer.GetComponent<SystemNameScript>().ChangeName("");
         AudioManager.stop("SystemAmbient");
+        systemName.SetActive(false);
     }
 
     private Vector3 QuadradicCurve(Vector3 a, Vector3 b, Vector3 c, float t)
@@ -359,6 +362,7 @@ public class StarSystem
     public float posY;
     public float posZ;
     public string name;
+    public string code;
     public string description;
     public string type;
     public string status;

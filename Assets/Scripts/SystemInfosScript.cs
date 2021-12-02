@@ -7,6 +7,7 @@ public class SystemsInfosScript : MonoBehaviour
     public string systemName;
     public string description;
     public string type;
+    public string code;
     public string json;
     public string status;
     public string affiliationID;
