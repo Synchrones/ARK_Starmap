@@ -108,7 +108,7 @@ public class StarSystemsScript : MonoBehaviour
                         break;
                 }
             }
-            StarSystemGO.transform.GetChild(0).GetComponent<TextMeshPro>().text = starSystem.name;
+            StarSystemGO.transform.GetChild(0).GetComponent<TextMeshPro>().text = starSystem.code;
 
             StarSystemGO.AddComponent<AppaerenceAndSizeKeeper>().scaleMultiplier = 1;
             

@@ -59,7 +59,7 @@ public class CameraScript : MonoBehaviour
         scroll = 0;
         completed = true;
         center = PlayerTransform.position;
-        maxZoom = 500;
+        maxZoom = 750;
         minZoom = 20;
         speed = 200;
         zoomSpeed = 50;
@@ -358,7 +358,7 @@ public class CameraScript : MonoBehaviour
         newCenter = gameObject.transform.position;
 
         camMoveSpeed = Vector3.Distance(transform.position, newPos) * 2;
-        maxZoom = 500;
+        maxZoom = 750;
         minZoom = 20;
         speed = 200;
         zoomSpeed = 50;
