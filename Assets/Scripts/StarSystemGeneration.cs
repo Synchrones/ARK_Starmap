@@ -47,7 +47,7 @@ public class StarSystemGeneration : MonoBehaviour
     public Texture oceanPlanetTexture;
     public Texture rockyPlanetTexture;
     public Texture smogPlanetTexture;
-        //Sol
+    //Sol
     public Texture mercuryTexture;
     public Texture venusTexture;
     public Texture earthTexture;
@@ -212,7 +212,7 @@ public class StarSystemGeneration : MonoBehaviour
 
                         if(celestialObject.id == 2026 || celestialObject.id == 2027 || celestialObject.id == 1693 || celestialObject.id == 1694 || celestialObject.id == 1695 || celestialObject.id == 1692 || celestialObject.id == 1723)
                         {
-                            SSData planetDatas = JsonUtility.FromJson<SSData>(System.IO.File.ReadAllText(Application.dataPath + "/Jsons/Planets/" + celestialObject.name + ".json"));
+                            SSData planetDatas = JsonUtility.FromJson<SSData>(System.IO.File.ReadAllText(Application.streamingAssetsPath + "/Jsons/Planets/" + celestialObject.name + ".json"));
                             foreach(SystemContent planetContent in planetDatas.data.resultset)
                             {
                                 foreach(Children children in planetContent.children)

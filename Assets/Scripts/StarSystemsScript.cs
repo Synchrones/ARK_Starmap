@@ -7,8 +7,8 @@ using TMPro;
 public class StarSystemsScript : MonoBehaviour
 {
     public List<JumpPoint> jumpPointList;
-    public TextAsset systemsJson;
-    public TextAsset jumpPointsJson;
+    string systemsJson;
+    string jumpPointsJson;
     public int cameraMode; // 0 = Galaxy view, 1 = System view
     public bool COSelected;
     public GameObject StarSystemPrefab;
@@ -41,10 +41,13 @@ public class StarSystemsScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        systemsJson = System.IO.File.ReadAllText(Application.streamingAssetsPath + "/Jsons/SystemsList.json");
+        jumpPointsJson = System.IO.File.ReadAllText(Application.streamingAssetsPath + "/Jsons/JumpPoints.json");
+
         jumpPointList = new List<JumpPoint>();
         var systemList = new List<KeyValuePair<GameObject, int>>();
 
-        StarSystems jsonStarSystems = JsonUtility.FromJson<StarSystems>(systemsJson.text);
+        StarSystems jsonStarSystems = JsonUtility.FromJson<StarSystems>(systemsJson);
         foreach (StarSystem starSystem in jsonStarSystems.starSystems)
         {
             GameObject StarSystemGO = Instantiate(StarSystemPrefab, new Vector3(starSystem.posX * 7, starSystem.posZ * 7, starSystem.posY * 7), Quaternion.identity);
@@ -113,15 +116,15 @@ public class StarSystemsScript : MonoBehaviour
             StarSystemGO.AddComponent<AppaerenceAndSizeKeeper>().scaleMultiplier = 1;
             
 
-            starSystemInfos.json = System.IO.File.ReadAllText(Application.dataPath + "/Jsons/Systems/" + starSystem.name + ".json");
-            if(starSystem.id == 320)starSystemInfos.json = System.IO.File.ReadAllText(Application.dataPath + "/Jsons/Systems/Nul1.json"); //a file can't be named nul so... 
+            starSystemInfos.json = System.IO.File.ReadAllText(Application.streamingAssetsPath + "/Jsons/Systems/" + starSystem.name + ".json");
+            if(starSystem.id == 320)starSystemInfos.json = System.IO.File.ReadAllText(Application.streamingAssetsPath + "/Jsons/Systems/Nul1.json"); //a file can't be named nul so... 
 
             systemList.Add(new KeyValuePair<GameObject, int>(StarSystemGO, starSystem.id));
 
         }
         
         jumpPointContainer = new GameObject("Jump-Points");
-        Tunnels jsonTunnels = JsonUtility.FromJson<Tunnels>(jumpPointsJson.text);
+        Tunnels jsonTunnels = JsonUtility.FromJson<Tunnels>(jumpPointsJson);
         foreach(Tunnel tunnel in jsonTunnels.tunnels)
         {
             JumpPoint jumpPoint = new JumpPoint();
