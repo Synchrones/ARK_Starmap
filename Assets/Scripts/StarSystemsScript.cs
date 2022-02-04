@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+
 // TODO: (main TODO) : add starting screen, complete infoboxs & disk, fix space stations generation
 public class StarSystemsScript : MonoBehaviour
 {
@@ -66,6 +67,9 @@ public class StarSystemsScript : MonoBehaviour
             starSystemInfos.economy = starSystem.aggregated_economy;
             starSystemInfos.danger = starSystem.aggregated_danger;
             starSystemInfos.code = starSystem.code;
+
+            float systemSize = float.Parse(starSystem.aggregated_size, System.Globalization.CultureInfo.InvariantCulture);
+            starSystemInfos.size = Mathf.Round(systemSize).ToString();
 
             foreach(Affiliation affiliation in starSystem.affiliation)
             {

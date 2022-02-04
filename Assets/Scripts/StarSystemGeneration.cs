@@ -310,7 +310,7 @@ public class StarSystemGeneration : MonoBehaviour
                                     break;
 
                                 case "2c7l2nene7ipk": //Cry-Astro
-                                    celestialGO = Instantiate(defaultSpaceStationPrefab, starSystem.transform.position, Quaternion.identity);//for some reason this is default prefab
+                                    celestialGO = Instantiate(defaultSpaceStationPrefab, starSystem.transform.position, Quaternion.identity); //for some reason this is default prefab
                                     break;
 
                                 case "afrlkpdjwl5nm": //ScanHub
@@ -458,6 +458,7 @@ public class StarSystemGeneration : MonoBehaviour
 
                 coInfosScript.coName = celestialObject.name;
                 coInfosScript.description = celestialObject.description;
+                coInfosScript.designation = celestialObject.designation;
                 coInfosScript.appearance = celestialObject.appearance;
                 coInfosScript.type = celestialObject.type;
                 coInfosScript.lastTimeModified = celestialObject.time_modified;

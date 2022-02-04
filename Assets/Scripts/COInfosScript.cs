@@ -6,6 +6,7 @@ public class COInfosScript : MonoBehaviour
 {
 
     public string description;
+    public string designation;
     public string coName;
     public string appearance;
     public string type;

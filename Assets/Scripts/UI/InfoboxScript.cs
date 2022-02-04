@@ -59,7 +59,10 @@ public class InfoboxScript : MonoBehaviour
             }
             type.text = coInfosScript.subtype;
             affiliation.text = coInfosScript.affiliationName;
-            objectName.text = coInfosScript.coName;
+            
+            if(coInfosScript.coName == "") objectName.text = coInfosScript.designation;
+            else objectName.text = coInfosScript.coName;
+
             description.text = coInfosScript.description;
         }
         newPos = new Vector2(-190, rectTransform.anchoredPosition.y);

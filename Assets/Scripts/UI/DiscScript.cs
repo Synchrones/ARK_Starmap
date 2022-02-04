@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DiscScript : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class DiscScript : MonoBehaviour
     public bool isActive = false;
     public GameObject selectedObject;
     public int mode;
+    public TextMeshProUGUI systemName;
     // Update is called once per frame
     void Start()
     {
@@ -31,8 +33,18 @@ public class DiscScript : MonoBehaviour
 
     public void LoadDisc()
     {
-        isActive = true;
-        Disc.gameObject.SetActive(true);
+        if(mode == 0)
+        {
+            isActive = true;
+            Disc.gameObject.SetActive(true);
+            systemName.text = selectedObject.GetComponent<SystemsInfosScript>().code;
+        }
+        else
+        {
+            isActive = true;
+            Disc.gameObject.SetActive(true);
+            systemName.text = "";
+        }
     }
 
     public void UnloadDisc()
