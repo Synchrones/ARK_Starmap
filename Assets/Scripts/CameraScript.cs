@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 // TODO: fix various bugs
 public class CameraScript : MonoBehaviour
@@ -46,11 +47,12 @@ public class CameraScript : MonoBehaviour
     
     //UI
     public GameObject UIContainer;
-
+    private bool buttonPressed;
     //Sounds
     AudioManagerScript AudioManager;
     bool isZoomSoundPlaying;
     bool isRotateSoundPlaying;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -67,9 +69,23 @@ public class CameraScript : MonoBehaviour
         rotateTime = 0;
         InSystem = false;
         AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManagerScript>();
+        buttonPressed = false;
     }
 
     private void LateUpdate() {
+        bool hitUI = false;
+        if(!buttonPressed)
+        {   
+            var pointerEventData = new PointerEventData(EventSystem.current);
+            pointerEventData.position = Input.mousePosition;
+            var raycastResults = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(pointerEventData, raycastResults);
+            foreach(var result in raycastResults)
+            {
+                if(result.gameObject.layer == 5) hitUI = true; 
+            }
+        }
+        
         
         if(Input.GetAxis("Mouse ScrollWheel") != 0 && !COSelected)
         {
@@ -111,11 +127,13 @@ public class CameraScript : MonoBehaviour
         
         cameraOffset = transform.position - center;
     
-        if(Input.GetKey(KeyCode.Mouse1) && completed == true)
+        if(Input.GetKey(KeyCode.Mouse1) && completed == true && !hitUI)
         {
             
             underInertia = false;
             time = 0.0f;
+
+            buttonPressed = true;
 
 
             float distance;
@@ -146,10 +164,12 @@ public class CameraScript : MonoBehaviour
         
 
 
-        if(Input.GetKey(KeyCode.Mouse0) && completed == true)
+        if(Input.GetKey(KeyCode.Mouse0) && completed == true && !hitUI)
         {
             underInertia = false;
             time = 0.0f;
+
+            buttonPressed = true;
             
             newPosZoom = transform.position;
 
@@ -284,11 +304,15 @@ public class CameraScript : MonoBehaviour
         {
             underInertia = true;
             isRotation = false;
+
+            buttonPressed = false;
         }
         if(Input.GetMouseButtonUp(0))
         {
             underInertia = true;
             isRotation = true;
+
+            buttonPressed = false;
         }
 
     }
