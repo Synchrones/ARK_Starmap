@@ -39,6 +39,8 @@ public class DiscScript : MonoBehaviour
         if(mode == 0)
         {
             isActive = true;
+            Disc.transform.GetChild(1).GetComponent<CanvasGroup>().alpha = 0;
+            StartCoroutine(DiscFadeIn());
             Disc.gameObject.SetActive(true);
             SystemsInfosScript systemInfos = selectedObject.GetComponent<SystemsInfosScript>();
             systemName.text = systemInfos.code;
@@ -69,4 +71,18 @@ public class DiscScript : MonoBehaviour
         this.GetComponent<InfoboxScript>().UnloadInfobox();
     }
 
+    public IEnumerator DiscFadeIn()
+    {
+        for(int i = 0; i < 70; i++)
+        {
+            Disc.GetComponent<RectTransform>().sizeDelta = new Vector2(i * 10, i * 10);
+            yield return null;
+        }
+        for(float i = 0; i < 1; i += 0.01f)
+        {
+            print(i);
+            Disc.transform.GetChild(1).GetComponent<CanvasGroup>().alpha = i;
+            yield return null;
+        }
+    }
 }
