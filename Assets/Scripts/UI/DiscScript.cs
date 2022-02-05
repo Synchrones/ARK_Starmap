@@ -12,6 +12,9 @@ public class DiscScript : MonoBehaviour
     public GameObject selectedObject;
     public int mode;
     public TextMeshProUGUI systemName;
+    public TextMeshProUGUI systemType;
+    public TextMeshProUGUI systemSize;
+    public TextMeshProUGUI affiliation;
     // Update is called once per frame
     void Start()
     {
@@ -37,7 +40,11 @@ public class DiscScript : MonoBehaviour
         {
             isActive = true;
             Disc.gameObject.SetActive(true);
-            systemName.text = selectedObject.GetComponent<SystemsInfosScript>().code;
+            SystemsInfosScript systemInfos = selectedObject.GetComponent<SystemsInfosScript>();
+            systemName.text = systemInfos.code;
+            systemType.text = systemInfos.type;
+            systemSize.text = systemInfos.size + " AU";
+            affiliation.text = systemInfos.affiliationName;
         }
         else
         {
