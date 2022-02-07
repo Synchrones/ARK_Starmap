@@ -80,7 +80,6 @@ public class DiscScript : MonoBehaviour
         }
         for(float i = 0; i < 1; i += 0.01f)
         {
-            print(i);
             Disc.transform.GetChild(1).GetComponent<CanvasGroup>().alpha = i;
             yield return null;
         }

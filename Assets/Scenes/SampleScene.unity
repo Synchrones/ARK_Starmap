@@ -1159,8 +1159,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 153.4, y: -32.4}
-  m_SizeDelta: {x: 124.8123, y: 24.4595}
+  m_AnchoredPosition: {x: 153, y: -28}
+  m_SizeDelta: {x: 130, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &421021487
 MonoBehaviour:
@@ -1176,6 +1176,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptHandler: {fileID: 195386249}
   UIContainer: {fileID: 1890230024}
+  inspectButton: {fileID: 1810799367}
+  informationsButton: {fileID: 421021485}
 --- !u!114 &421021488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4404,8 +4406,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9.984993, y: 33.33111}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 130, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1222864939
 MonoBehaviour:
@@ -4427,7 +4429,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: INFORMATIONS
+  m_text: '   INFORMATIONS'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f90310ec9aac0d5428c706d62a0eb07a, type: 2}
   m_sharedMaterial: {fileID: -8218551697392653229, guid: f90310ec9aac0d5428c706d62a0eb07a, type: 2}
@@ -4461,8 +4463,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -4490,7 +4492,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 35.756386, y: 50.167645, z: 0, w: -19.61191}
+  m_margin: {x: 0.7470131, y: -0.5420313, z: -0.25683594, w: 0.2481389}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5015,7 +5017,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 130, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1462268928
 MonoBehaviour:
@@ -5037,7 +5039,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: INSPECT
+  m_text: '   INSPECT'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f90310ec9aac0d5428c706d62a0eb07a, type: 2}
   m_sharedMaterial: {fileID: -8218551697392653229, guid: f90310ec9aac0d5428c706d62a0eb07a, type: 2}
@@ -5072,7 +5074,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -5100,7 +5102,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 41.816353, y: 17.739058, z: 0, w: 12.7800255}
+  m_margin: {x: 2.7469902, y: 0.22224188, z: 2.4610977, w: 0.45404625}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5902,8 +5904,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 163.385, y: 0.9311}
-  m_SizeDelta: {x: 124.8123, y: 24.4595}
+  m_AnchoredPosition: {x: 163, y: 0.2}
+  m_SizeDelta: {x: 130, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1810799369
 MonoBehaviour:
@@ -6013,6 +6015,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptHandler: {fileID: 195386249}
   UIContainer: {fileID: 0}
+  inspectButton: {fileID: 1810799367}
+  informationsButton: {fileID: 421021485}
 --- !u!1 &1840858762
 GameObject:
   m_ObjectHideFlags: 0
