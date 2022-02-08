@@ -7,7 +7,6 @@ public class ButtonHandler : MonoBehaviour
     public GameObject scriptHandler;
     public GameObject UIContainer;
     //disc
-    private int currentState = 0;
     private Vector2 pos1 = new Vector2(153, 23.4f);
     private Vector2 pos2= new Vector2(163, 0.2f);
     private Vector2 pos3= new Vector2(158, -28);

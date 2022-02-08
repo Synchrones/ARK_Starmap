@@ -73,6 +73,8 @@ public class CameraScript : MonoBehaviour
     }
 
     private void LateUpdate() {
+
+        //prevent camera from moving when clicking UI element 
         bool hitUI = false;
         if(!buttonPressed)
         {   

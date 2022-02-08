@@ -59,7 +59,7 @@ public class InfoboxScript : MonoBehaviour
             }
             type.text = coInfosScript.subtype;
             affiliation.text = coInfosScript.affiliationName;
-            
+
             if(coInfosScript.coName == "") objectName.text = coInfosScript.designation;
             else objectName.text = coInfosScript.coName;
 

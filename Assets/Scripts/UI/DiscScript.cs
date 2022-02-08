@@ -18,10 +18,13 @@ public class DiscScript : MonoBehaviour
     public TextMeshProUGUI sizeHabitableText;
     public TextMeshProUGUI sizeHabitableData;
     public TextMeshProUGUI affiliation;
+
+    public LineRenderer edgeCircle;
     // Update is called once per frame
     void Start()
     {
         Disc.gameObject.SetActive(false);
+        DrawCircle(10);
     }
     void Update()
     {
@@ -57,6 +60,8 @@ public class DiscScript : MonoBehaviour
         else
         {
             isActive = true;
+            Disc.transform.GetChild(1).GetComponent<CanvasGroup>().alpha = 0;
+            StartCoroutine(DiscFadeIn());
             Disc.gameObject.SetActive(true);
             COInfosScript COInfos = selectedObject.GetComponent<COInfosScript>();
             objectName.text = COInfos.coName;
@@ -74,7 +79,7 @@ public class DiscScript : MonoBehaviour
     public void UnloadDisc()
     {
         isActive = false;
-        Disc.gameObject.SetActive(false);
+        StartCoroutine(DiscFadeOut());
     }
 
     public void LoadInfobox()
@@ -98,5 +103,27 @@ public class DiscScript : MonoBehaviour
             Disc.transform.GetChild(1).GetComponent<CanvasGroup>().alpha = i;
             yield return null;
         }
+    }
+
+    public IEnumerator DiscFadeOut()
+    {
+        for(int i = 70; i > 0; i-=2)
+        {
+            Disc.GetComponent<RectTransform>().sizeDelta = new Vector2(i * 10, i * 10);
+            yield return null;
+        }
+        Disc.gameObject.SetActive(false);
+    }
+
+    private void DrawCircle(float radius)
+    {
+        edgeCircle.positionCount = 120;
+        for(int i = 0; i < 120; i++)
+        {
+            Vector3 pos = new Vector3(Mathf.Cos(Mathf.Deg2Rad * (i * 3)) * radius, Mathf.Sin(Mathf.Deg2Rad * (i * 3)) * radius, 0);
+            edgeCircle.SetPosition(i, pos);
+            
+        }
+        
     }
 }
