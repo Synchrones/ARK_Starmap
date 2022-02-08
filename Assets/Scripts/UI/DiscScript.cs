@@ -11,9 +11,12 @@ public class DiscScript : MonoBehaviour
     public bool isActive = false;
     public GameObject selectedObject;
     public int mode;
-    public TextMeshProUGUI systemName;
-    public TextMeshProUGUI systemType;
-    public TextMeshProUGUI systemSize;
+    public TextMeshProUGUI objectName;
+    public TextMeshProUGUI objectType;
+    public TextMeshProUGUI objectSubtypeText;
+    public TextMeshProUGUI objectSubtypeData;
+    public TextMeshProUGUI sizeHabitableText;
+    public TextMeshProUGUI sizeHabitableData;
     public TextMeshProUGUI affiliation;
     // Update is called once per frame
     void Start()
@@ -43,16 +46,28 @@ public class DiscScript : MonoBehaviour
             StartCoroutine(DiscFadeIn());
             Disc.gameObject.SetActive(true);
             SystemsInfosScript systemInfos = selectedObject.GetComponent<SystemsInfosScript>();
-            systemName.text = systemInfos.code;
-            systemType.text = systemInfos.type;
-            systemSize.text = systemInfos.size + " AU";
+            objectName.text = systemInfos.code;
+            objectType.text = "STAR SYSTEM";
+            objectSubtypeText.text = "SYSTEM TYPE";
+            objectSubtypeData.text = systemInfos.type;
+            sizeHabitableText.text = "SIZE";
+            sizeHabitableData.text = systemInfos.size + " AU";
             affiliation.text = systemInfos.affiliationName;
         }
         else
         {
             isActive = true;
             Disc.gameObject.SetActive(true);
-            systemName.text = "";
+            COInfosScript COInfos = selectedObject.GetComponent<COInfosScript>();
+            objectName.text = COInfos.coName;
+            if (objectName.text == "")objectName.text = COInfos.designation;
+            objectType.text = COInfos.type;
+            objectSubtypeText.text = "TYPE";
+            objectSubtypeData.text = COInfos.subtype;
+            sizeHabitableText.text = "HABITABLE";
+            if(COInfos.habitable == "1")sizeHabitableData.text = "YES";
+            else sizeHabitableData.text = "NO";
+            affiliation.text = COInfos.affiliationName;
         }
     }
 

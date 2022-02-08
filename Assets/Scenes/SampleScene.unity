@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1159,7 +1159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 153, y: -28}
+  m_AnchoredPosition: {x: 158, y: -28}
   m_SizeDelta: {x: 130, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &421021487
@@ -1348,7 +1348,7 @@ GameObject:
   - component: {fileID: 437747681}
   - component: {fileID: 437747680}
   m_Layer: 5
-  m_Name: size
+  m_Name: size/habitable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2395,7 +2395,7 @@ GameObject:
   - component: {fileID: 968608413}
   - component: {fileID: 968608412}
   m_Layer: 5
-  m_Name: start system
+  m_Name: object type
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2474,7 +2474,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0.04
@@ -2503,7 +2503,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 16.629349, y: 0.0056095123, z: 115.72888, w: 37.708607}
+  m_margin: {x: 16.629349, y: 0.0056095123, z: 120.832436, w: 37.708607}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4463,7 +4463,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -4964,7 +4964,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1456140900
 Transform:
   m_ObjectHideFlags: 0
@@ -5442,7 +5442,7 @@ GameObject:
   - component: {fileID: 1615312333}
   - component: {fileID: 1615312332}
   m_Layer: 5
-  m_Name: system type
+  m_Name: object subtype
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6142,9 +6142,11 @@ MonoBehaviour:
   isActive: 0
   selectedObject: {fileID: 0}
   mode: 0
-  systemName: {fileID: 627604309}
-  systemType: {fileID: 1395062796}
-  systemSize: {fileID: 840709444}
+  objectName: {fileID: 627604309}
+  objectType: {fileID: 968608412}
+  objectSubtype: {fileID: 1395062796}
+  sizeHabitableText: {fileID: 437747680}
+  sizeHabitableData: {fileID: 275011893}
   affiliation: {fileID: 275011893}
 --- !u!4 &1890230027
 Transform:

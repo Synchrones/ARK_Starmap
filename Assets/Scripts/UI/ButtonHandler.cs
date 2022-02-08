@@ -10,7 +10,7 @@ public class ButtonHandler : MonoBehaviour
     private int currentState = 0;
     private Vector2 pos1 = new Vector2(153, 23.4f);
     private Vector2 pos2= new Vector2(163, 0.2f);
-    private Vector2 pos3= new Vector2(153, -28);
+    private Vector2 pos3= new Vector2(158, -28);
     public GameObject inspectButton;
     public GameObject informationsButton;
 
@@ -27,13 +27,14 @@ public class ButtonHandler : MonoBehaviour
 
     public void EnterSystem()
     {
-        scriptHandler.GetComponent<StarSystemsScript>().LoadAndEnterSystem();
+        StartCoroutine(moveButton(inspectButton, pos2, true));
+        StartCoroutine(moveButton(informationsButton, pos3, false));
     }
 
     public void LoadInfobox()
     {
-        StartCoroutine(moveButton(informationsButton, pos2, true));
         StartCoroutine(moveButton(inspectButton, pos1, false));
+        StartCoroutine(moveButton(informationsButton, pos2, true));
     }
 
     IEnumerator moveButton(GameObject button, Vector2 pos, bool executeAction)
@@ -47,6 +48,7 @@ public class ButtonHandler : MonoBehaviour
         if(executeAction)
         {
             if(button.gameObject.name == "Informations")UIContainer.GetComponent<DiscScript>().LoadInfobox();
+            if(button.gameObject.name == "Inspect")scriptHandler.GetComponent<StarSystemsScript>().LoadAndEnterSystem();
         }
     }
 }
