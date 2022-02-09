@@ -1,5 +1,5 @@
 # ARK_Starmap
-An offline version of the ARK Starmap website made with Unity -> https://robertsspaceindustries.com/starmap
+### An offline version of the ARK Starmap website made with Unity -> https://robertsspaceindustries.com/starmap
 The ARK Starmap website is the official map of the Star Citizen universe (as planned by the lore). It include all the known star systems and their celestial bodies in a 3D environment for everyone to explore. 
 
 Image of the original website :
