@@ -24,7 +24,6 @@ public class DiscScript : MonoBehaviour
     void Start()
     {
         Disc.gameObject.SetActive(false);
-        DrawCircle(10);
     }
     void Update()
     {
@@ -115,15 +114,4 @@ public class DiscScript : MonoBehaviour
         Disc.gameObject.SetActive(false);
     }
 
-    private void DrawCircle(float radius)
-    {
-        edgeCircle.positionCount = 120;
-        for(int i = 0; i < 120; i++)
-        {
-            Vector3 pos = new Vector3(Mathf.Cos(Mathf.Deg2Rad * (i * 3)) * radius, Mathf.Sin(Mathf.Deg2Rad * (i * 3)) * radius, 0);
-            edgeCircle.SetPosition(i, pos);
-            
-        }
-        
-    }
 }
