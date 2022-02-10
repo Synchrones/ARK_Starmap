@@ -7,8 +7,11 @@ public class UICircleRendererScript : Graphic
 {
     public float radius = 100;
     public float width = 10;
+    public float degree = 360;
+    
     protected override void OnPopulateMesh(VertexHelper vh)
     {
+        
         vh.Clear();
 
         UIVertex vertexExt = UIVertex.simpleVert;
@@ -16,7 +19,7 @@ public class UICircleRendererScript : Graphic
         vertexExt.color = color;
         vertexInt.color = color;
 
-        for(int i = 0; i < 240; i++)
+        for(int i = 0; i < (degree + 4) / 3; i++)
         {
             if(i % 2 == 0)
             {
@@ -31,5 +34,15 @@ public class UICircleRendererScript : Graphic
                 vh.AddTriangle(i-2, i-1, i);
             }
         }
+        print("a");
+    }
+
+    public void drawCircle(float r, float w, float d)
+    {
+        radius = r;
+        width = w;
+        degree = d;
+        SetVerticesDirty();
+        print("b");
     }
 }

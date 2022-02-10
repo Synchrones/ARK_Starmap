@@ -5892,8 +5892,9 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  radius: 83.5
+  radius: 80.1
   width: 5
+  degree: 360
 --- !u!222 &1707312774
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6249,7 +6250,7 @@ MonoBehaviour:
   sizeHabitableText: {fileID: 437747680}
   sizeHabitableData: {fileID: 840709444}
   affiliation: {fileID: 275011893}
-  edgeCircle: {fileID: 0}
+  edgeCircle: {fileID: 1707312771}
 --- !u!4 &1890230027
 Transform:
   m_ObjectHideFlags: 0

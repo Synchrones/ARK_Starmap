@@ -19,7 +19,7 @@ public class DiscScript : MonoBehaviour
     public TextMeshProUGUI sizeHabitableData;
     public TextMeshProUGUI affiliation;
 
-    public LineRenderer edgeCircle;
+    public GameObject edgeCircle;
     // Update is called once per frame
     void Start()
     {
@@ -95,6 +95,7 @@ public class DiscScript : MonoBehaviour
         for(int i = 0; i < 70; i++)
         {
             Disc.GetComponent<RectTransform>().sizeDelta = new Vector2(i * 10, i * 10);
+            edgeCircle.GetComponent<UICircleRendererScript>().drawCircle(100, 5, i * 5);
             yield return null;
         }
         for(float i = 0; i < 1; i += 0.01f)
@@ -102,6 +103,7 @@ public class DiscScript : MonoBehaviour
             Disc.transform.GetChild(1).GetComponent<CanvasGroup>().alpha = i;
             yield return null;
         }
+        
     }
 
     public IEnumerator DiscFadeOut()
