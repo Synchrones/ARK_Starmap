@@ -23,10 +23,10 @@ public class UICircleRendererScript : Graphic
         {
             if(i % 2 == 0)
             {
-                vertexExt.position = new Vector3(Mathf.Cos(Mathf.Deg2Rad * (i * 3)) * radius, Mathf.Sin(Mathf.Deg2Rad * (i * 3)) * radius);
+                vertexExt.position = new Vector3(Mathf.Cos(Mathf.Deg2Rad * ((-i * 3) + 90)) * radius, Mathf.Sin(Mathf.Deg2Rad * ((-i * 3) + 90)) * radius);
                 vh.AddVert(vertexExt);
 
-                vertexInt.position = new Vector3(Mathf.Cos(Mathf.Deg2Rad * (i * 3)) * (radius - width), Mathf.Sin(Mathf.Deg2Rad * (i * 3)) * (radius - width));
+                vertexInt.position = new Vector3(Mathf.Cos(Mathf.Deg2Rad * ((-i * 3) + 90)) * (radius - width), Mathf.Sin(Mathf.Deg2Rad * ((-i * 3) + 90)) * (radius - width));
                 vh.AddVert(vertexInt);
             }
             if(i > 1)
@@ -34,7 +34,6 @@ public class UICircleRendererScript : Graphic
                 vh.AddTriangle(i-2, i-1, i);
             }
         }
-        print("a");
     }
 
     public void drawCircle(float r, float w, float d)
@@ -43,6 +42,5 @@ public class UICircleRendererScript : Graphic
         width = w;
         degree = d;
         SetVerticesDirty();
-        print("b");
     }
 }

@@ -20,6 +20,9 @@ public class DiscScript : MonoBehaviour
     public TextMeshProUGUI affiliation;
 
     public GameObject edgeCircle;
+    public GameObject populationCircle;
+    public GameObject economyCircle;
+    public GameObject threatCircle;
     // Update is called once per frame
     void Start()
     {
@@ -45,7 +48,6 @@ public class DiscScript : MonoBehaviour
         {
             isActive = true;
             Disc.transform.GetChild(1).GetComponent<CanvasGroup>().alpha = 0;
-            StartCoroutine(DiscFadeIn());
             Disc.gameObject.SetActive(true);
             SystemsInfosScript systemInfos = selectedObject.GetComponent<SystemsInfosScript>();
             objectName.text = systemInfos.code;
@@ -55,12 +57,18 @@ public class DiscScript : MonoBehaviour
             sizeHabitableText.text = "SIZE";
             sizeHabitableData.text = systemInfos.size + " AU";
             affiliation.text = systemInfos.affiliationName;
+            
+            //return the values in degree that the disc circles circonferences must be
+            int population = (int)Mathf.Round(Mathf.Round(float.Parse(systemInfos.population, System.Globalization.CultureInfo.InvariantCulture) * 36) / 6) * 6;
+            int economy = (int)Mathf.Round(Mathf.Round(float.Parse(systemInfos.economy, System.Globalization.CultureInfo.InvariantCulture) * 36) / 6) * 6;
+            int threat = (int)Mathf.Round(Mathf.Round(float.Parse(systemInfos.danger, System.Globalization.CultureInfo.InvariantCulture) * 36) / 6) * 6;
+
+            StartCoroutine(DiscFadeIn(population, economy, threat));
         }
         else
         {
             isActive = true;
             Disc.transform.GetChild(1).GetComponent<CanvasGroup>().alpha = 0;
-            StartCoroutine(DiscFadeIn());
             Disc.gameObject.SetActive(true);
             COInfosScript COInfos = selectedObject.GetComponent<COInfosScript>();
             objectName.text = COInfos.coName;
@@ -72,6 +80,13 @@ public class DiscScript : MonoBehaviour
             if(COInfos.habitable == "1")sizeHabitableData.text = "YES";
             else sizeHabitableData.text = "NO";
             affiliation.text = COInfos.affiliationName;
+
+            //return the values in degree that the disc circles circonferences must be
+            int population = (int)Mathf.Round(Mathf.Round(float.Parse(COInfos.population, System.Globalization.CultureInfo.InvariantCulture) * 36) / 6) * 6;
+            int economy = (int)Mathf.Round(Mathf.Round(float.Parse(COInfos.economy, System.Globalization.CultureInfo.InvariantCulture) * 36) / 6) * 6;
+            int threat = (int)Mathf.Round(Mathf.Round(float.Parse(COInfos.danger, System.Globalization.CultureInfo.InvariantCulture) * 36) / 6) * 6;
+
+            StartCoroutine(DiscFadeIn(population, economy, threat));
         }
     }
 
@@ -90,12 +105,14 @@ public class DiscScript : MonoBehaviour
         this.GetComponent<InfoboxScript>().UnloadInfobox();
     }
 
-    public IEnumerator DiscFadeIn()
+    public IEnumerator DiscFadeIn(int population, int economy, int threat)
     {
-        for(int i = 0; i < 70; i++)
+        for(int i = 0; i <= 70; i++)
         {
             Disc.GetComponent<RectTransform>().sizeDelta = new Vector2(i * 10, i * 10);
-            edgeCircle.GetComponent<UICircleRendererScript>().drawCircle(100, 5, i * 5);
+            populationCircle.GetComponent<UICircleRendererScript>().drawCircle(65, 4, i * population / 70);
+            economyCircle.GetComponent<UICircleRendererScript>().drawCircle(54, 4.5f, i * economy / 70);
+            threatCircle.GetComponent<UICircleRendererScript>().drawCircle(43, 4, i * threat / 70);
             yield return null;
         }
         for(float i = 0; i < 1; i += 0.01f)
