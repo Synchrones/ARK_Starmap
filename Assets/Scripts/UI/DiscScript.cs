@@ -58,7 +58,7 @@ public class DiscScript : MonoBehaviour
             sizeHabitableData.text = systemInfos.size + " AU";
             affiliation.text = systemInfos.affiliationName;
             
-            //return the values in degree that the disc circles circonferences must be
+            //return the values in degree that the disc circles circonferences must be (need multiple of 6 for the circle to be cut right)
             int population = (int)Mathf.Round(Mathf.Round(float.Parse(systemInfos.population, System.Globalization.CultureInfo.InvariantCulture) * 36) / 6) * 6;
             int economy = (int)Mathf.Round(Mathf.Round(float.Parse(systemInfos.economy, System.Globalization.CultureInfo.InvariantCulture) * 36) / 6) * 6;
             int threat = (int)Mathf.Round(Mathf.Round(float.Parse(systemInfos.danger, System.Globalization.CultureInfo.InvariantCulture) * 36) / 6) * 6;
@@ -81,7 +81,7 @@ public class DiscScript : MonoBehaviour
             else sizeHabitableData.text = "NO";
             affiliation.text = COInfos.affiliationName;
 
-            //return the values in degree that the disc circles circonferences must be
+            //return the values in degree that the disc circles circonferences must be (need multiple of 6 for the circle to be cut right)
             int population = (int)Mathf.Round(Mathf.Round(float.Parse(COInfos.population, System.Globalization.CultureInfo.InvariantCulture) * 36) / 6) * 6;
             int economy = (int)Mathf.Round(Mathf.Round(float.Parse(COInfos.economy, System.Globalization.CultureInfo.InvariantCulture) * 36) / 6) * 6;
             int threat = (int)Mathf.Round(Mathf.Round(float.Parse(COInfos.danger, System.Globalization.CultureInfo.InvariantCulture) * 36) / 6) * 6;
@@ -131,6 +131,7 @@ public class DiscScript : MonoBehaviour
             yield return null;
         }
         Disc.gameObject.SetActive(false);
+        this.GetComponent<ButtonHandler>().setInitialPos();
     }
 
 }

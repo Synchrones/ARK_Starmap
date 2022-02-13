@@ -36,6 +36,12 @@ public class ButtonHandler : MonoBehaviour
         StartCoroutine(moveButton(informationsButton, pos2, true));
     }
 
+    public void setInitialPos()
+    {
+        StartCoroutine(moveButton(inspectButton, pos2, false));
+        StartCoroutine(moveButton(informationsButton, pos3, false));
+    }
+
     IEnumerator moveButton(GameObject button, Vector2 pos, bool executeAction)
     {
         Vector2 basePos = button.GetComponent<RectTransform>().anchoredPosition;
