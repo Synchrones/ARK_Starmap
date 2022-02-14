@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 
 
-// TODO: (main TODO) : add starting screen, complete infoboxs & disk, fix space stations generation
+// TODO: (main TODO) : add starting screen, complete infoboxs & disk, fix space stations generation, left click on system to enter
 public class StarSystemsScript : MonoBehaviour
 {
     public List<JumpPoint> jumpPointList;

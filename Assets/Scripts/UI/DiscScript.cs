@@ -32,15 +32,15 @@ public class DiscScript : MonoBehaviour
     }
     void Update()
     {
-        if(Input.GetKey(KeyCode.Escape))
-        {
-            UnloadDisc();
-            this.GetComponent<InfoboxScript>().UnloadInfobox();
-        }
-
         if(isActive == true)
         {
             Disc.transform.position = Camera.main.WorldToScreenPoint(selectedObject.transform.position);
+
+            if(Input.GetKey(KeyCode.Escape))
+            {
+                UnloadDisc();
+                this.GetComponent<InfoboxScript>().UnloadInfobox();
+            }
         }
     }
 

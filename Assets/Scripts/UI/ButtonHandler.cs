@@ -6,6 +6,7 @@ public class ButtonHandler : MonoBehaviour
 {
     public GameObject scriptHandler;
     public GameObject UIContainer;
+    AudioManagerScript audioManager;
     //disc
     private Vector2 pos1 = new Vector2(153, 23.4f);
     private Vector2 pos2= new Vector2(163, 0.2f);
@@ -15,7 +16,7 @@ public class ButtonHandler : MonoBehaviour
 
     void Start()
     {
-
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManagerScript>();
     }
 
     // Update is called once per frame
@@ -26,12 +27,14 @@ public class ButtonHandler : MonoBehaviour
 
     public void EnterSystem()
     {
+        audioManager.play("ClickDisc");
         StartCoroutine(moveButton(inspectButton, pos2, true));
         StartCoroutine(moveButton(informationsButton, pos3, false));
     }
 
     public void LoadInfobox()
     {
+        audioManager.play("ClickDisc");
         StartCoroutine(moveButton(inspectButton, pos1, false));
         StartCoroutine(moveButton(informationsButton, pos2, true));
     }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5131,7 +5131,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1456140900
 Transform:
   m_ObjectHideFlags: 0
@@ -5345,13 +5345,19 @@ MonoBehaviour:
     loop: 1
   - name: OpenDisc
     clip: {fileID: 8300000, guid: 2f7845fae0cf97342906dbb7266d5c12, type: 3}
-    volume: 0.3
+    volume: 0.5
     pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: CloseDisc
     clip: {fileID: 8300000, guid: 02de47b3e06566042abd728c95fcb713, type: 3}
-    volume: 0.3
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: ClickDisc
+    clip: {fileID: 8300000, guid: 18cd89e981869f247ac938612718913d, type: 3}
+    volume: 0.5
     pitch: 1
     source: {fileID: 0}
     loop: 0
