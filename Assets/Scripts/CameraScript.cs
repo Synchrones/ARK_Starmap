@@ -77,23 +77,7 @@ public class CameraScript : MonoBehaviour
         clickTime = 0;
     }
 
-    private void LateUpdate() {
-
-        if(discScript.isActive)
-        {
-            if(Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
-            {
-                clickTime = Time.time;
-            }
-            if(Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1) || Input.GetMouseButtonUp(2))
-            {
-                if(Time.time - clickTime < 0.08f)
-                {
-                    discScript.UnloadDisc();
-                }
-            }
-        }
-        
+    private void LateUpdate() { 
 
         //prevent camera from moving when clicking UI element 
         bool hitUI = false;
@@ -106,6 +90,21 @@ public class CameraScript : MonoBehaviour
             foreach(var result in raycastResults)
             {
                 if(result.gameObject.layer == 5) hitUI = true; 
+            }
+        }
+
+        if(discScript.isActive)
+        {
+            if(Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
+            {
+                clickTime = Time.time;
+            }
+            if(Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1) || Input.GetMouseButtonUp(2))
+            {
+                if(Time.time - clickTime < 0.08f && hitUI == false)
+                {
+                    discScript.UnloadDisc();
+                }
             }
         }
         

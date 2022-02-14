@@ -10,7 +10,7 @@ public class ButtonHandler : MonoBehaviour
     //disc
     private Vector2 pos1 = new Vector2(153, 23.4f);
     private Vector2 pos2= new Vector2(163, 0.2f);
-    private Vector2 pos3= new Vector2(158, -28);
+    private Vector2 pos3= new Vector2(158, -24.5f);
     public GameObject inspectButton;
     public GameObject informationsButton;
 

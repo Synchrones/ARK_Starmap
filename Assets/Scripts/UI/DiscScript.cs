@@ -7,7 +7,7 @@ using TMPro;
 public class DiscScript : MonoBehaviour
 {
 
-    public GameObject Disc;
+    public GameObject disc;
     public bool isActive = false;
     public GameObject selectedObject;
     AudioManagerScript audioManager;
@@ -27,14 +27,14 @@ public class DiscScript : MonoBehaviour
     // Update is called once per frame
     void Start()
     {
-        Disc.gameObject.SetActive(false);
+        disc.gameObject.SetActive(false);
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManagerScript>();
     }
     void Update()
     {
-        if(isActive == true)
+        if(isActive)
         {
-            Disc.transform.position = Camera.main.WorldToScreenPoint(selectedObject.transform.position);
+            disc.transform.position = Camera.main.WorldToScreenPoint(selectedObject.transform.position);
 
             if(Input.GetKey(KeyCode.Escape))
             {
@@ -50,8 +50,8 @@ public class DiscScript : MonoBehaviour
         {
             isActive = true;
             audioManager.play("OpenDisc");
-            Disc.transform.GetChild(1).GetComponent<CanvasGroup>().alpha = 0;
-            Disc.gameObject.SetActive(true);
+            disc.transform.GetChild(1).GetComponent<CanvasGroup>().alpha = 0;
+            disc.gameObject.SetActive(true);
             SystemsInfosScript systemInfos = selectedObject.GetComponent<SystemsInfosScript>();
             objectName.text = systemInfos.code;
             objectType.text = "STAR SYSTEM";
@@ -65,14 +65,16 @@ public class DiscScript : MonoBehaviour
             int population = (int)Mathf.Round(Mathf.Round(float.Parse(systemInfos.population, System.Globalization.CultureInfo.InvariantCulture) * 36) / 6) * 6;
             int economy = (int)Mathf.Round(Mathf.Round(float.Parse(systemInfos.economy, System.Globalization.CultureInfo.InvariantCulture) * 36) / 6) * 6;
             int threat = (int)Mathf.Round(Mathf.Round(float.Parse(systemInfos.danger, System.Globalization.CultureInfo.InvariantCulture) * 36) / 6) * 6;
-
+            
+            disc.transform.GetChild(2).gameObject.SetActive(true);
             StartCoroutine(DiscFadeIn(population, economy, threat));
         }
         else
         {
             isActive = true;
-            Disc.transform.GetChild(1).GetComponent<CanvasGroup>().alpha = 0;
-            Disc.gameObject.SetActive(true);
+            audioManager.play("OpenDisc");
+            disc.transform.GetChild(1).GetComponent<CanvasGroup>().alpha = 0;
+            disc.gameObject.SetActive(true);
             COInfosScript COInfos = selectedObject.GetComponent<COInfosScript>();
             objectName.text = COInfos.coName;
             if (objectName.text == "")objectName.text = COInfos.designation;
@@ -84,12 +86,8 @@ public class DiscScript : MonoBehaviour
             else sizeHabitableData.text = "NO";
             affiliation.text = COInfos.affiliationName;
 
-            //return the values in degree that the disc circles circonferences must be (need multiple of 6 for the circle to be cut right)
-            int population = (int)Mathf.Round(Mathf.Round(float.Parse(COInfos.population, System.Globalization.CultureInfo.InvariantCulture) * 36) / 6) * 6;
-            int economy = (int)Mathf.Round(Mathf.Round(float.Parse(COInfos.economy, System.Globalization.CultureInfo.InvariantCulture) * 36) / 6) * 6;
-            int threat = (int)Mathf.Round(Mathf.Round(float.Parse(COInfos.danger, System.Globalization.CultureInfo.InvariantCulture) * 36) / 6) * 6;
-
-            StartCoroutine(DiscFadeIn(population, economy, threat));
+            disc.transform.GetChild(2).gameObject.SetActive(false);
+            StartCoroutine(DiscFadeIn(0, 0, 0));
         }
     }
 
@@ -113,15 +111,18 @@ public class DiscScript : MonoBehaviour
     {
         for(int i = 0; i <= 70; i++)
         {
-            Disc.GetComponent<RectTransform>().sizeDelta = new Vector2(i * 10, i * 10);
-            populationCircle.GetComponent<UICircleRendererScript>().drawCircle(65, 4, i * population / 70);
-            economyCircle.GetComponent<UICircleRendererScript>().drawCircle(54, 4.5f, i * economy / 70);
-            threatCircle.GetComponent<UICircleRendererScript>().drawCircle(43, 4, i * threat / 70);
+            disc.GetComponent<RectTransform>().sizeDelta = new Vector2(i * 10, i * 10);
+            if(mode == 0)
+            {
+                populationCircle.GetComponent<UICircleRendererScript>().drawCircle(65, 4, i * population / 70);
+                economyCircle.GetComponent<UICircleRendererScript>().drawCircle(54, 4.5f, i * economy / 70);
+                threatCircle.GetComponent<UICircleRendererScript>().drawCircle(43, 4, i * threat / 70);
+            }
             yield return null;
         }
         for(float i = 0; i < 1; i += 0.01f)
         {
-            Disc.transform.GetChild(1).GetComponent<CanvasGroup>().alpha = i;
+            disc.transform.GetChild(1).GetComponent<CanvasGroup>().alpha = i;
             yield return null;
         }
         
@@ -131,10 +132,10 @@ public class DiscScript : MonoBehaviour
     {
         for(int i = 70; i > 0; i-=2)
         {
-            Disc.GetComponent<RectTransform>().sizeDelta = new Vector2(i * 10, i * 10);
+            disc.GetComponent<RectTransform>().sizeDelta = new Vector2(i * 10, i * 10);
             yield return null;
         }
-        Disc.gameObject.SetActive(false);
+        disc.gameObject.SetActive(false);
         this.GetComponent<ButtonHandler>().setInitialPos();
     }
 
