@@ -10,6 +10,7 @@ public class DiscScript : MonoBehaviour
     public GameObject Disc;
     public bool isActive = false;
     public GameObject selectedObject;
+    AudioManagerScript audioManager;
     public int mode;
     public TextMeshProUGUI objectName;
     public TextMeshProUGUI objectType;
@@ -27,6 +28,7 @@ public class DiscScript : MonoBehaviour
     void Start()
     {
         Disc.gameObject.SetActive(false);
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManagerScript>();
     }
     void Update()
     {
@@ -47,6 +49,7 @@ public class DiscScript : MonoBehaviour
         if(mode == 0)
         {
             isActive = true;
+            audioManager.play("OpenDisc");
             Disc.transform.GetChild(1).GetComponent<CanvasGroup>().alpha = 0;
             Disc.gameObject.SetActive(true);
             SystemsInfosScript systemInfos = selectedObject.GetComponent<SystemsInfosScript>();
@@ -93,6 +96,7 @@ public class DiscScript : MonoBehaviour
     public void UnloadDisc()
     {
         isActive = false;
+        audioManager.play("CloseDisc");
         StartCoroutine(DiscFadeOut());
     }
 
