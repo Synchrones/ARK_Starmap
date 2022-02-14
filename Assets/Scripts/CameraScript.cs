@@ -48,6 +48,9 @@ public class CameraScript : MonoBehaviour
     //UI
     public GameObject UIContainer;
     private bool buttonPressed;
+    private DiscScript discScript;
+    private float clickTime;
+
     //Sounds
     AudioManagerScript AudioManager;
     bool isZoomSoundPlaying;
@@ -70,9 +73,27 @@ public class CameraScript : MonoBehaviour
         InSystem = false;
         AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManagerScript>();
         buttonPressed = false;
+        discScript = UIContainer.GetComponent<DiscScript>();
+        clickTime = 0;
     }
 
     private void LateUpdate() {
+
+        if(discScript.isActive)
+        {
+            if(Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
+            {
+                clickTime = Time.time;
+            }
+            if(Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1) || Input.GetMouseButtonUp(2))
+            {
+                if(Time.time - clickTime < 0.08f)
+                {
+                    discScript.UnloadDisc();
+                }
+            }
+        }
+        
 
         //prevent camera from moving when clicking UI element 
         bool hitUI = false;
@@ -87,7 +108,6 @@ public class CameraScript : MonoBehaviour
                 if(result.gameObject.layer == 5) hitUI = true; 
             }
         }
-        
         
         if(Input.GetAxis("Mouse ScrollWheel") != 0 && !COSelected)
         {
