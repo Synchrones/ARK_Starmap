@@ -26,6 +26,7 @@ public class CameraScript : MonoBehaviour
     private float rotateSpeed;
     private float rotateTime;
     private float camMoveSpeed;
+    private IEnumerator moveToPos;
 
     private Vector3 velocity = Vector3.zero;
 
@@ -93,6 +94,7 @@ public class CameraScript : MonoBehaviour
             }
         }
 
+        //close disc when clicking on nothing
         if(discScript.isActive)
         {
             if(Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
@@ -130,7 +132,7 @@ public class CameraScript : MonoBehaviour
             }
         }
         
-        if(transform.position != newPosZoom && !underInertia && !Input.GetKey(KeyCode.Mouse1) && !Input.GetKey(KeyCode.Mouse0) && (Vector3.Distance(transform.position, center) > minZoom / 100 || scroll < 0))
+        if(transform.position != newPosZoom && !underInertia && completed && !Input.GetKey(KeyCode.Mouse1) && !Input.GetKey(KeyCode.Mouse0) && (Vector3.Distance(transform.position, center) > minZoom / 100 || scroll < 0))
         {
             transform.position = Vector3.SmoothDamp(transform.position, newPosZoom, ref velocity, 0.3f);
         }
@@ -309,15 +311,12 @@ public class CameraScript : MonoBehaviour
 
         if(!completed)
         {
-            if(Vector3.Distance(transform.position, newPos) < stopDistance) arrived = true;
-            MooveToPos();
-            if(centered && arrived)
+            if(Vector3.Distance(transform.position, newPos) < stopDistance)
             {
-                completed = true;
+                StopCoroutine(moveToPos);
                 center = newCenter;
-                rotateTime = 0;
-            } 
-            
+                completed = true;
+            }
         }
         
 
@@ -341,27 +340,26 @@ public class CameraScript : MonoBehaviour
 
     public void SelectSystem(GameObject gameObject)
     {
-        centered = false;
-        arrived = false;
+        //centered = false;
+        //arrived = false;
         completed = false;
 
         newPos = gameObject.transform.position;
-        newCenter = newPos;
+        newCenter = gameObject.transform.position;
         
-        camMoveSpeed = Vector3.Distance(transform.position, newPos) * 2;
+        camMoveSpeed = Vector3.Distance(transform.position, newPos) / 100;
         stopDistance = 75;
         
-        
+        moveToPos = MoveToPos(transform.position, transform.rotation, newPos, Quaternion.LookRotation(newCenter - transform.position));
+        StartCoroutine(moveToPos);
     }
     public void EnterSystem(GameObject gameObject)
     {
         underInertia = false;
         time = 0;
 
-        newPosZoom = transform.position;
-
-        centered = false;
-        arrived = false;
+        //centered = false;
+        //arrived = false;
         completed = false;
 
         InSystem = true;
@@ -369,8 +367,9 @@ public class CameraScript : MonoBehaviour
         float zOffset = transform.position.z - gameObject.transform.position.z;
         newPos = gameObject.transform.position + new Vector3(0, 5, 5 * Mathf.Clamp(zOffset, -1, 1));
         newCenter = gameObject.transform.position;
+        newPosZoom = newPos;
 
-        camMoveSpeed = Vector3.Distance(transform.position, newPos) * 2;
+        camMoveSpeed = Vector3.Distance(transform.position, newPos) / 15;
         speed = 5;
         zoomSpeed = 2;
         maxZoom = 40;
@@ -382,8 +381,8 @@ public class CameraScript : MonoBehaviour
         
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
         gameObject.transform.GetChild(1).gameObject.SetActive(false);
-
-
+        moveToPos = MoveToPos(transform.position, transform.rotation, newPos, Quaternion.LookRotation(newCenter - newPos));
+        StartCoroutine(moveToPos);
     }
 
     public void ExitSystem(GameObject gameObject)
@@ -467,5 +466,17 @@ public class CameraScript : MonoBehaviour
            
     }
 
+    IEnumerator MoveToPos(Vector3 basePos, Quaternion baseRotation, Vector3 newPos, Quaternion newRotation)
+    {
+        //ROTATIONS : get direction of final rotation, transform to unit vector, multiply by stop distance, add to newCenter pos
+        for(float i = 0;i <= 1; i += 0.005f * camMoveSpeed)
+        {
+            newRotation = Quaternion.LookRotation(newCenter - transform.position);
+            transform.position = Vector3.Lerp(basePos, newPos, i);
+            transform.rotation = Quaternion.Lerp(baseRotation, newRotation, i);
+            yield return null;
+        }
+        completed = true;
 
+    }
 }
