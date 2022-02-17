@@ -2168,7 +2168,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 860089864}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -2179,13 +2179,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 6192944022281365145, guid: 4ab71699dd71c674e8bd1fd701e0856a, type: 3}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+  m_Sprite: {fileID: 3286163911610860551, guid: 4ab71699dd71c674e8bd1fd701e0856a, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &860089867
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6327,7 +6330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scriptHandler: {fileID: 195386249}
-  UIContainer: {fileID: 0}
+  UIContainer: {fileID: 1890230024}
   inspectButton: {fileID: 1810799367}
   informationsButton: {fileID: 421021485}
 --- !u!1 &1840858762

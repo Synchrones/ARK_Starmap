@@ -55,8 +55,20 @@ public class ButtonHandler : MonoBehaviour
         }
         if(executeAction)
         {
-            if(button.gameObject.name == "Informations")UIContainer.GetComponent<DiscScript>().LoadInfobox();
-            if(button.gameObject.name == "Inspect")scriptHandler.GetComponent<StarSystemsScript>().LoadAndEnterSystem();
+            DiscScript discScript = UIContainer.GetComponent<DiscScript>();
+            if(button.gameObject.name == "Informations")
+            {
+                if(discScript.isInfoboxActive)
+                {
+                    discScript.UnloadInfobox();
+                }
+                else discScript.LoadInfobox();
+                
+            }
+            if(button.gameObject.name == "Inspect")
+            {
+                if(discScript.mode == 0) scriptHandler.GetComponent<StarSystemsScript>().LoadAndEnterSystem();
+            }        
         }
     }
 }

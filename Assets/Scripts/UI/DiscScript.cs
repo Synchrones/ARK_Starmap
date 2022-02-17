@@ -9,6 +9,7 @@ public class DiscScript : MonoBehaviour
 
     public GameObject disc;
     public bool isActive = false;
+    public bool isInfoboxActive;
     public GameObject selectedObject;
     AudioManagerScript audioManager;
     public int mode;
@@ -28,7 +29,9 @@ public class DiscScript : MonoBehaviour
     void Start()
     {
         disc.gameObject.SetActive(false);
+        disc.transform.GetChild(0).GetComponent<Image>().alphaHitTestMinimumThreshold = 0.1f;
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManagerScript>();
+        isInfoboxActive = false;
     }
     void Update()
     {
@@ -39,7 +42,7 @@ public class DiscScript : MonoBehaviour
             if(Input.GetKey(KeyCode.Escape))
             {
                 UnloadDisc();
-                this.GetComponent<InfoboxScript>().UnloadInfobox();
+                UnloadInfobox();
             }
         }
     }
@@ -100,10 +103,12 @@ public class DiscScript : MonoBehaviour
 
     public void LoadInfobox()
     {
+        isInfoboxActive = true;
         this.GetComponent<InfoboxScript>().LoadInfobox(selectedObject, mode);
     }
     public void UnloadInfobox()
     {
+        isInfoboxActive = false;
         this.GetComponent<InfoboxScript>().UnloadInfobox();
     }
 
