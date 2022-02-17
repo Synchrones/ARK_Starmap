@@ -314,7 +314,7 @@ public class StarSystemsScript : MonoBehaviour
     public void SelectCO(GameObject gameObject)
     {
         selectedObject = gameObject;
-        mainCamera.GetComponent<CameraScript>().MoveToCO(selectedObject);
+        mainCamera.GetComponent<CameraScript>().SelectCO(selectedObject);
         DiscScript discScript = UIContainer.GetComponent<DiscScript>();
         discScript.selectedObject = selectedObject;
         discScript.mode = 1;
