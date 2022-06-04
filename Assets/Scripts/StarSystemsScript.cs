@@ -6,13 +6,10 @@ using TMPro;
 
 // TODO: (main TODO) : add starting screen, complete infoboxs & disk, fix space stations generation, left click on system to enter, scale zoom based on distance + quick zoom with middle mouse button
 /* TODO: (bug fixes) : 
-    -infobox doesn't close when exiting disc with simple clic + doesn't restore zoom ability
     -orbit look bad when looking at a planet far from the star
     -planet hitbox overlap when to close (see Kilian) 
     -strange "bump" when zooming after entering system
-    -jump point object doesn't have a type
-    -reduce performance impact of the starbox?
-    -star type doesn't fit infobox sometimes 
+    -reduce performance impact of the starbox? 
     -rotation inertia still look weird and seems to "block"
     -oberon star is... small
     

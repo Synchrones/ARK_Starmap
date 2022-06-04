@@ -47,6 +47,7 @@ public class CameraScript : MonoBehaviour
     public GameObject UIContainer;
     private bool buttonPressed;
     private DiscScript discScript;
+    private InfoboxScript infoboxScript;
     private float clickTime;
 
     //Sounds
@@ -71,6 +72,7 @@ public class CameraScript : MonoBehaviour
         AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManagerScript>();
         buttonPressed = false;
         discScript = UIContainer.GetComponent<DiscScript>();
+        infoboxScript = UIContainer.GetComponent<InfoboxScript>();
         clickTime = 0;
         moveToPosSpeed = 0.5f;
     }
@@ -103,6 +105,9 @@ public class CameraScript : MonoBehaviour
                 if(Time.time - clickTime < 0.08f && hitUI == false)
                 {
                     discScript.UnloadDisc();
+                    discScript.isInfoboxActive = false;
+                    infoboxScript.UnloadInfobox();
+                    COSelected = false;
                 }
             }
         }
