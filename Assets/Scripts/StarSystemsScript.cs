@@ -4,7 +4,19 @@ using UnityEngine;
 using TMPro;
 
 
-// TODO: (main TODO) : add starting screen, complete infoboxs & disk, fix space stations generation, left click on system to enter
+// TODO: (main TODO) : add starting screen, complete infoboxs & disk, fix space stations generation, left click on system to enter, scale zoom based on distance + quick zoom with middle mouse button
+/* TODO: (bug fixes) : 
+    -infobox doesn't close when exiting disc with simple clic + doesn't restore zoom ability
+    -orbit look bad when looking at a planet far from the star
+    -planet hitbox overlap when to close (see Kilian) 
+    -strange "bump" when zooming after entering system
+    -jump point object doesn't have a type
+    -reduce performance impact of the starbox?
+    -star type doesn't fit infobox sometimes 
+    -rotation inertia still look weird and seems to "block"
+    -oberon star is... small
+    
+*/
 public class StarSystemsScript : MonoBehaviour
 {
     public List<JumpPoint> jumpPointList;
@@ -179,16 +191,18 @@ public class StarSystemsScript : MonoBehaviour
 
             line.textureMode = LineTextureMode.RepeatPerSegment;
             line.material = tunnelMaterial;
+            jumpPoint.size = "LARGE";
             if(tunnel.size == "M")
             {
+                jumpPoint.size = "MEDIUM";
                 line.material.color = line.material.color - new Color32(248, 171, 83, 14);
             }
             if(tunnel.size == "S")
             {
+                jumpPoint.size = "SMALL";
                 line.material.SetColor("_MainColor", new Color32(248, 117, 83, 14));
             }
             TunnelTraficScript tunnelTraficScript = tunnelGO.AddComponent<TunnelTraficScript>();
-
             jumpPointList.Add(jumpPoint);
             
         }

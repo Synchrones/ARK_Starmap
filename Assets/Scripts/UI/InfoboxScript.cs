@@ -11,6 +11,7 @@ public class InfoboxScript : MonoBehaviour
     public Text sizeHabitableData;
     public Text type;
     public Text affiliation;
+    public Text affiliationData;
     public Text objectName;
     public Text description;
 
@@ -40,7 +41,7 @@ public class InfoboxScript : MonoBehaviour
             sizeHabitable.text = "SIZE : ";
             sizeHabitableData.text = systemInfos.size;
             type.text = systemInfos.type;
-            affiliation.text = systemInfos.affiliationName;
+            affiliationData.text = systemInfos.affiliationName;
             objectName.text = systemInfos.systemName;
             description.text = systemInfos.description;
         }
@@ -48,17 +49,29 @@ public class InfoboxScript : MonoBehaviour
         {
             COInfosScript coInfosScript = gameObject.GetComponent<COInfosScript>();
             objecttype.text = coInfosScript.type;
-            sizeHabitable.text = "HABITABLE : ";
-            if(coInfosScript.habitable.Equals(""))
+            if (coInfosScript.type == "JUMPPOINT") 
             {
+                sizeHabitable.text = "HABITABLE : ";
                 sizeHabitableData.text = "NO";
+
+                affiliation.text = "SIZE : ";
+                affiliationData.text = coInfosScript.size;
+                type.text = "BIDIRECTIONAL";
             }
-            else
+            else 
             {
-                sizeHabitableData.text = "YES";
+                sizeHabitable.text = "HABITABLE : ";
+                if(coInfosScript.habitable.Equals(""))
+                {
+                    sizeHabitableData.text = "NO";
+                }
+                else
+                {
+                    sizeHabitableData.text = "YES";
+                }
+                type.text = coInfosScript.subtype;
+                affiliationData.text = coInfosScript.affiliationName;
             }
-            type.text = coInfosScript.subtype;
-            affiliation.text = coInfosScript.affiliationName;
 
             if(coInfosScript.coName == "") objectName.text = coInfosScript.designation;
             else objectName.text = coInfosScript.coName;

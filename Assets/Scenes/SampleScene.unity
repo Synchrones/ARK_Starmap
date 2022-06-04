@@ -5029,7 +5029,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -76.06235, y: 0, z: 208.95917, w: 38.15176}
+  m_margin: {x: -118.94949, y: 0, z: 208.95917, w: 38.15176}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -6474,6 +6474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   disc: {fileID: 1840858762}
   isActive: 0
+  isInfoboxActive: 0
   selectedObject: {fileID: 0}
   mode: 0
   objectName: {fileID: 627604309}
@@ -6518,7 +6519,8 @@ MonoBehaviour:
   sizeHabitable: {fileID: 1013680205}
   sizeHabitableData: {fileID: 387393495}
   type: {fileID: 941340752}
-  affiliation: {fileID: 233135016}
+  affiliation: {fileID: 94328603}
+  affiliationData: {fileID: 233135016}
   objectName: {fileID: 984779085}
   description: {fileID: 174368809}
 --- !u!1001 &2035670927

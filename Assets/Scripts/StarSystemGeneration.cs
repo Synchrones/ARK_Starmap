@@ -470,11 +470,25 @@ public class StarSystemGeneration : MonoBehaviour
                 coInfosScript.size = celestialObject.size;
                 coInfosScript.axial_tilt = celestialObject.axial_tilt.ToString();
                 coInfosScript.subtype = celestialObject.subtype.name;
-                foreach (Affiliation affiliation in celestialObject.affiliation)
-                {
-                    coInfosScript.affiliationID = affiliation.id;
-                    coInfosScript.affiliationName = affiliation.name;
+
+                if (celestialObject.affiliation.Length == 0)
+                { 
+                    SystemsInfosScript systemAffiliation = SSContentGO.gameObject.GetComponentInParent<SystemsInfosScript>();
+                    coInfosScript.affiliationName = systemAffiliation.affiliationName;
+                    coInfosScript.affiliationID = systemAffiliation.affiliationID;
+
                 }
+                else
+                {
+                    foreach (Affiliation affiliation in celestialObject.affiliation)
+                    {
+                        coInfosScript.affiliationID = affiliation.id;
+                        coInfosScript.affiliationName = affiliation.name;
+                    }
+                }
+                
+                
+
 
                 GameObject targetSystem = gameObject;;
                 if(celestialObject.type == "JUMPPOINT")
@@ -484,16 +498,19 @@ public class StarSystemGeneration : MonoBehaviour
                         if(jumpPoint.entryId == celestialObject.id)
                         {
                             targetSystem = jumpPoint.exitGO;
+                            coInfosScript.size = jumpPoint.size;
                         }
                         if(jumpPoint.exitId == celestialObject.id)
                         {
                             targetSystem = jumpPoint.entryGO;
+                            coInfosScript.size = jumpPoint.size;
                         }
                     }
                     celestialGO.transform.rotation = Quaternion.LookRotation(targetSystem.transform.position - transform.position);
                 }
 
                 celestialObjectList.Add(celestialGO);
+                
             }
         }
     }
