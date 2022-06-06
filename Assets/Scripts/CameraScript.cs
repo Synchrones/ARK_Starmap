@@ -9,8 +9,6 @@ public class CameraScript : MonoBehaviour
 
 
     public Transform PlayerTransform;
-    private Vector3 cameraOffset;
-    public Vector3 center;
 
     private bool completed;
     private Vector3 newPos;
@@ -54,6 +52,16 @@ public class CameraScript : MonoBehaviour
     AudioManagerScript AudioManager;
     bool isZoomSoundPlaying;
     bool isRotateSoundPlaying;
+
+    //new
+    Vector3 currentDisplacement;
+    Vector2 currentRotation;
+    float currentZoom;
+    
+    Vector3 lastFramePos;
+    Vector3 nextPos;
+    Vector3 cameraOffset;
+    Vector3 center;
     
 
     // Start is called before the first frame update
@@ -75,8 +83,78 @@ public class CameraScript : MonoBehaviour
         infoboxScript = UIContainer.GetComponent<InfoboxScript>();
         clickTime = 0;
         moveToPosSpeed = 0.5f;
+
+        
+        lastFramePos = gameObject.transform.position;
+        center = new Vector3(0, 0, 75);
+        cameraOffset = transform.position - center;
     }
 
+    private void LateUpdate()
+    {
+        Vector3 currentPos = gameObject.transform.position;
+        //prevent camera from moving when clicking UI element 
+        bool hitUI = false;
+        if(!buttonPressed)
+        {   
+            var pointerEventData = new PointerEventData(EventSystem.current);
+            pointerEventData.position = Input.mousePosition;
+            var raycastResults = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(pointerEventData, raycastResults);
+            foreach(var result in raycastResults)
+            {
+                if(result.gameObject.layer == 5) hitUI = true; 
+            }
+        }
+
+
+        if (!hitUI)
+        {
+            //close disc when clicking on nothing
+            if(discScript.isActive)
+            {
+                if(Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
+                {
+                    clickTime = Time.time;
+                }
+                if(Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1) || Input.GetMouseButtonUp(2))
+                {
+                    if(Time.time - clickTime < 0.08f && hitUI == false)
+                    {
+                        discScript.UnloadDisc();
+                        discScript.isInfoboxActive = false;
+                        infoboxScript.UnloadInfobox();
+                        COSelected = false;
+                    }
+                }
+            }
+
+            if(Input.GetKey(KeyCode.Mouse1))
+            {
+                currentDisplacement = ((transform.right * Input.GetAxis("Mouse X") + transform.up * Input.GetAxis("Mouse Y")) * -0.5f);
+            }
+            else if(Input.GetKey(KeyCode.Mouse0))
+            {
+                currentRotation = ((Vector3.left * Input.GetAxis("Mouse Y") + Vector3.up * Input.GetAxis("Mouse X")) * -0.5f);
+            }
+            currentDisplacement /= 1.02f;
+            currentRotation /= 1.015f;
+        }
+
+        applyMovement();
+        lastFramePos = currentPos;
+        transform.position = center + cameraOffset;
+        transform.LookAt(center);
+    }
+
+    private void applyMovement()
+    {
+        center += currentDisplacement;
+        cameraOffset = Quaternion.AngleAxis(currentRotation.x, new Vector3(-transform.forward.z, 0, transform.forward.x)) * Quaternion.AngleAxis(currentRotation.y, Vector3.down) * cameraOffset;
+        
+    }
+
+    /*
     private void LateUpdate() { 
 
         //prevent camera from moving when clicking UI element 
@@ -328,7 +406,7 @@ public class CameraScript : MonoBehaviour
         }
 
     }
-    
+    */
 
     public void SelectSystem(GameObject gameObject)
     {
