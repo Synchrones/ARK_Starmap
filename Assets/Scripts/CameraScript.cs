@@ -62,6 +62,9 @@ public class CameraScript : MonoBehaviour
     Vector3 nextPos;
     Vector3 cameraOffset;
     Vector3 center;
+    //represent the closeness of the camera to the max and min y pos (close = 0, far = 1)
+    float closenessToPole;
+    float rotateSpeedModifier;
     
 
     // Start is called before the first frame update
@@ -135,10 +138,24 @@ public class CameraScript : MonoBehaviour
             }
             else if(Input.GetKey(KeyCode.Mouse0))
             {
-                currentRotation = ((Vector3.left * Input.GetAxis("Mouse Y") + Vector3.up * Input.GetAxis("Mouse X")) * -0.5f);
+                if(closenessToPole < 0.1f)
+                {
+                    if(Input.GetAxis("Mouse Y") < 0 && cameraOffset.y > 0 || Input.GetAxis("Mouse Y") > 0 && cameraOffset.y < 0)
+                    {
+                        rotateSpeedModifier = closenessToPole;
+                    }
+                    else rotateSpeedModifier = 1;
+                } 
+                else rotateSpeedModifier = 1;
+                currentRotation = ((Vector3.left * Input.GetAxis("Mouse Y") * rotateSpeedModifier + Vector3.up * Input.GetAxis("Mouse X")) * -0.5f);
             }
             currentDisplacement /= 1.02f;
-            currentRotation /= 1.015f;
+            if(closenessToPole < 0.2f)
+            {
+                currentRotation = new Vector2(currentRotation.x / 1.2f, currentRotation.y / 1.02f);
+            }
+            else currentRotation /= 1.015f;
+            
         }
 
         applyMovement();
@@ -150,8 +167,9 @@ public class CameraScript : MonoBehaviour
     private void applyMovement()
     {
         center += currentDisplacement;
-        cameraOffset = Quaternion.AngleAxis(currentRotation.x, new Vector3(-transform.forward.z, 0, transform.forward.x)) * Quaternion.AngleAxis(currentRotation.y, Vector3.down) * cameraOffset;
-        
+        Vector3 rightVector = new Vector3(-transform.forward.z, 0, transform.forward.x);
+        cameraOffset = Quaternion.AngleAxis(currentRotation.x, rightVector) * Quaternion.AngleAxis(currentRotation.y, Vector3.down) * cameraOffset;
+        closenessToPole = rightVector.magnitude;
     }
 
     /*
