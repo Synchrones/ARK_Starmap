@@ -21,7 +21,6 @@ public class CameraScript : MonoBehaviour
     private float speed;
     private float zoomSpeed;
     private float rotateSpeed;
-    private float moveToPosSpeed;
 
     private Vector3 velocity = Vector3.zero;
 
@@ -58,13 +57,18 @@ public class CameraScript : MonoBehaviour
     Vector2 currentRotation;
     float currentZoom;
     
-    Vector3 lastFramePos;
-    Vector3 nextPos;
     Vector3 cameraOffset;
     Vector3 center;
     //represent the closeness of the camera to the max and min y pos (close = 0, far = 1)
     float closenessToPole;
-    float rotateSpeedModifier;
+    float yRotationSpeedModifier;
+    
+    float displacementSpeed;
+    float rotationSpeed;
+    float moveToPosSpeed;
+    
+    bool inAutoDisplacement;
+    Vector3 newOffset;
     
 
     // Start is called before the first frame update
@@ -87,10 +91,11 @@ public class CameraScript : MonoBehaviour
         clickTime = 0;
         moveToPosSpeed = 0.5f;
 
-        
-        lastFramePos = gameObject.transform.position;
+
         center = new Vector3(0, 0, 75);
         cameraOffset = transform.position - center;
+        displacementSpeed = 1;
+        rotationSpeed = 1;
     }
 
     private void LateUpdate()
@@ -134,7 +139,7 @@ public class CameraScript : MonoBehaviour
 
             if(Input.GetKey(KeyCode.Mouse1))
             {
-                currentDisplacement = ((transform.right * Input.GetAxis("Mouse X") + transform.up * Input.GetAxis("Mouse Y")) * -0.5f);
+                currentDisplacement = ((transform.right * Input.GetAxis("Mouse X") + transform.up * Input.GetAxis("Mouse Y")) * -0.5f * displacementSpeed);
             }
             else if(Input.GetKey(KeyCode.Mouse0))
             {
@@ -142,12 +147,12 @@ public class CameraScript : MonoBehaviour
                 {
                     if(Input.GetAxis("Mouse Y") < 0 && cameraOffset.y > 0 || Input.GetAxis("Mouse Y") > 0 && cameraOffset.y < 0)
                     {
-                        rotateSpeedModifier = closenessToPole;
+                        yRotationSpeedModifier = closenessToPole;
                     }
-                    else rotateSpeedModifier = 1;
+                    else yRotationSpeedModifier = 1;
                 } 
-                else rotateSpeedModifier = 1;
-                currentRotation = ((Vector3.left * Input.GetAxis("Mouse Y") * rotateSpeedModifier + Vector3.up * Input.GetAxis("Mouse X")) * -0.5f);
+                else yRotationSpeedModifier = 1;
+                currentRotation = ((Vector3.left * Input.GetAxis("Mouse Y") * yRotationSpeedModifier + Vector3.up * Input.GetAxis("Mouse X")) * -0.5f  * rotationSpeed);
             }
             currentDisplacement /= 1.02f;
             if(closenessToPole < 0.2f)
@@ -159,7 +164,6 @@ public class CameraScript : MonoBehaviour
         }
 
         applyMovement();
-        lastFramePos = currentPos;
         transform.position = center + cameraOffset;
         transform.LookAt(center);
     }
@@ -433,7 +437,7 @@ public class CameraScript : MonoBehaviour
         newCenter = gameObject.transform.position;
         newPos = CalculateNewPos(75);
         
-        StartCoroutine(MoveToPos(transform.position, transform.rotation, newPos, Quaternion.LookRotation(newCenter - transform.position)));
+        //StartCoroutine(MoveToPos(transform.position, transform.rotation, newPos, Quaternion.LookRotation(newCenter - transform.position)));
     }
 
     public void EnterSystem(GameObject gameObject)
@@ -461,7 +465,7 @@ public class CameraScript : MonoBehaviour
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
         gameObject.transform.GetChild(1).gameObject.SetActive(false);
 
-        StartCoroutine(MoveToPos(transform.position, transform.rotation, newPos, Quaternion.LookRotation(newCenter - newPos)));
+        //StartCoroutine(MoveToPos(transform.position, transform.rotation, newPos, Quaternion.LookRotation(newCenter - newPos)));
     }
 
     public void ExitSystem(GameObject gameObject)
@@ -487,7 +491,7 @@ public class CameraScript : MonoBehaviour
         gameObject.transform.GetChild(0).gameObject.SetActive(true);
         gameObject.transform.GetChild(1).gameObject.SetActive(true);
 
-        StartCoroutine(MoveToPos(transform.position, transform.rotation, newPos, Quaternion.LookRotation(newCenter - newPos)));
+        //StartCoroutine(MoveToPos(transform.position, transform.rotation, newPos, Quaternion.LookRotation(newCenter - newPos)));
     }
 
     public void SelectCO(GameObject gameObject)
@@ -498,24 +502,28 @@ public class CameraScript : MonoBehaviour
         completed = false;
         COSelected = true;
 
-        newCenter = gameObject.transform.position;
-        newPos = CalculateNewPos(0.5f);
+        inAutoDisplacement = true;
 
-        StartCoroutine(MoveToPos(transform.position, transform.rotation, newPos, Quaternion.LookRotation(newCenter - newPos)));
+        newCenter = gameObject.transform.position;
+        newOffset = (newCenter - center) / Vector3.Magnitude(newCenter - center) * cameraOffset.magnitude;
+        //newPos = CalculateNewPos(0.5f);
+
+        StartCoroutine(MoveToPos(center, newCenter, cameraOffset, newOffset));
     }
 
 
-    IEnumerator MoveToPos(Vector3 basePos, Quaternion baseRotation, Vector3 newPos, Quaternion newRotation)
+    IEnumerator MoveToPos(Vector3 baseCenterPos, Vector3 newCenterPos, Vector3 baseOffset, Vector3 newOffset)
     {
         for(float i = Mathf.PI; i >= 0; i -= moveToPosSpeed / 20)
         {
-            transform.position = Vector3.Lerp(basePos, newPos, Mathf.Cos(i) / 2 + 0.5f);
-            transform.rotation = Quaternion.Lerp(baseRotation, newRotation, Mathf.Cos(i) / 2 + 0.5f);
+            center = Vector3.Lerp(baseCenterPos, newCenterPos, Mathf.Cos(i) / 2 + 0.5f);
+            //transform.position = Vector3.Lerp(basePos, newPos, Mathf.Cos(i) / 2 + 0.5f);
+            //transform.rotation = Quaternion.Lerp(baseRotation, newRotation, Mathf.Cos(i) / 2 + 0.5f);
+            cameraOffset = Vector3.Lerp(baseOffset, newOffset, Mathf.Cos(i) / 2 + 0.5f);
             yield return null;
         }
         
         completed = true;
-        center = newCenter;
         newPosZoom = transform.position;
 
     }
@@ -525,5 +533,4 @@ public class CameraScript : MonoBehaviour
         Vector3 direction = (newCenter - transform.position) / Vector3.Magnitude(newCenter - transform.position);
         return newCenter - direction * stopDistance;
     }
-
 }
