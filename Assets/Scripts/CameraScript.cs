@@ -89,13 +89,14 @@ public class CameraScript : MonoBehaviour
         discScript = UIContainer.GetComponent<DiscScript>();
         infoboxScript = UIContainer.GetComponent<InfoboxScript>();
         clickTime = 0;
-        moveToPosSpeed = 0.5f;
+        
 
 
         center = new Vector3(0, 0, 75);
         cameraOffset = transform.position - center;
         displacementSpeed = 1;
         rotationSpeed = 1;
+        moveToPosSpeed = 0.5f;
     }
 
     private void LateUpdate()
@@ -432,27 +433,19 @@ public class CameraScript : MonoBehaviour
 
     public void SelectSystem(GameObject gameObject)
     {
-        completed = false;
+        inAutoDisplacement = true;
 
         newCenter = gameObject.transform.position;
-        newPos = CalculateNewPos(75);
-        
-        //StartCoroutine(MoveToPos(transform.position, transform.rotation, newPos, Quaternion.LookRotation(newCenter - transform.position)));
+        CalculateNewOffset(200);
+
+        StartCoroutine(MoveToPos(center, newCenter, cameraOffset, newOffset));
     }
 
     public void EnterSystem(GameObject gameObject)
     {
-        underInertia = false;
-        time = 0;
-
-        completed = false;
 
         InSystem = true;
-        
-        
-         
-        newCenter = gameObject.transform.position;
-        newPos = CalculateNewPos(5);
+        inAutoDisplacement = true;
 
         speed = 5;
         zoomSpeed = 2;
@@ -465,20 +458,15 @@ public class CameraScript : MonoBehaviour
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
         gameObject.transform.GetChild(1).gameObject.SetActive(false);
 
-        //StartCoroutine(MoveToPos(transform.position, transform.rotation, newPos, Quaternion.LookRotation(newCenter - newPos)));
+
+        CalculateNewOffset(1);
+        StartCoroutine(MoveToPos(center, newCenter, cameraOffset, newOffset));
+        
     }
 
     public void ExitSystem(GameObject gameObject)
     {
-        underInertia = false;
-        time = 0;
-
-        completed = false;
-
         InSystem = false;
-
-        newCenter = gameObject.transform.position;
-        newPos = CalculateNewPos(75);
 
         maxZoom = 750;
         minZoom = 20;
@@ -491,7 +479,9 @@ public class CameraScript : MonoBehaviour
         gameObject.transform.GetChild(0).gameObject.SetActive(true);
         gameObject.transform.GetChild(1).gameObject.SetActive(true);
 
-        //StartCoroutine(MoveToPos(transform.position, transform.rotation, newPos, Quaternion.LookRotation(newCenter - newPos)));
+
+        CalculateNewOffset(200);
+        StartCoroutine(MoveToPos(center, newCenter, cameraOffset, newOffset));
     }
 
     public void SelectCO(GameObject gameObject)
@@ -505,9 +495,7 @@ public class CameraScript : MonoBehaviour
         inAutoDisplacement = true;
 
         newCenter = gameObject.transform.position;
-        newOffset = (newCenter - center) / Vector3.Magnitude(newCenter - center) * cameraOffset.magnitude;
-        //newPos = CalculateNewPos(0.5f);
-
+        CalculateNewOffset(1);
         StartCoroutine(MoveToPos(center, newCenter, cameraOffset, newOffset));
     }
 
@@ -517,20 +505,20 @@ public class CameraScript : MonoBehaviour
         for(float i = Mathf.PI; i >= 0; i -= moveToPosSpeed / 20)
         {
             center = Vector3.Lerp(baseCenterPos, newCenterPos, Mathf.Cos(i) / 2 + 0.5f);
-            //transform.position = Vector3.Lerp(basePos, newPos, Mathf.Cos(i) / 2 + 0.5f);
-            //transform.rotation = Quaternion.Lerp(baseRotation, newRotation, Mathf.Cos(i) / 2 + 0.5f);
             cameraOffset = Vector3.Lerp(baseOffset, newOffset, Mathf.Cos(i) / 2 + 0.5f);
             yield return null;
         }
         
-        completed = true;
+        inAutoDisplacement = false;
         newPosZoom = transform.position;
 
     }
 
-    private Vector3 CalculateNewPos(float stopDistance)
+    private void CalculateNewOffset(float targetLenght)
     {
-        Vector3 direction = (newCenter - transform.position) / Vector3.Magnitude(newCenter - transform.position);
-        return newCenter - direction * stopDistance;
+        newOffset = (center - newCenter) / Vector3.Magnitude(newCenter - center) * targetLenght;
+
+        //if the center stay the same, it cause the distance to be 0, leading to an error when applying the offset to the camera 
+        if(Vector3.Magnitude(newCenter - center) == 0) newOffset = cameraOffset / cameraOffset.magnitude * targetLenght;
     }
 }
