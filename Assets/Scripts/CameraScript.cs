@@ -166,6 +166,7 @@ public class CameraScript : MonoBehaviour
 
         applyMovement();
         transform.position = center + cameraOffset;
+        displacementSpeed = cameraOffset.magnitude / 15;
         transform.LookAt(center);
     }
 
@@ -478,7 +479,6 @@ public class CameraScript : MonoBehaviour
         gameObject.GetComponent<AppaerenceAndSizeKeeper>().enabled = true;
         gameObject.transform.GetChild(0).gameObject.SetActive(true);
         gameObject.transform.GetChild(1).gameObject.SetActive(true);
-
 
         CalculateNewOffset(200);
         StartCoroutine(MoveToPos(center, newCenter, cameraOffset, newOffset));
