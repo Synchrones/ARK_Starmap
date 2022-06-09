@@ -502,7 +502,7 @@ public class CameraScript : MonoBehaviour
 
     IEnumerator MoveToPos(Vector3 baseCenterPos, Vector3 newCenterPos, Vector3 baseOffset, Vector3 newOffset)
     {
-        for(float i = Mathf.PI; i >= 0; i -= moveToPosSpeed / 20)
+        for(float i = Mathf.PI; i >= 0; i -= moveToPosSpeed / 20 * Time.deltaTime * 100)
         {
             center = Vector3.Lerp(baseCenterPos, newCenterPos, Mathf.Cos(i) / 2 + 0.5f);
             cameraOffset = Vector3.Lerp(baseOffset, newOffset, Mathf.Cos(i) / 2 + 0.5f);
@@ -516,9 +516,10 @@ public class CameraScript : MonoBehaviour
 
     private void CalculateNewOffset(float targetLenght)
     {
-        newOffset = (center - newCenter) / Vector3.Magnitude(newCenter - center) * targetLenght;
+        newOffset = (transform.position - newCenter) / Vector3.Magnitude(transform.position - newCenter) * targetLenght;
+        print(newOffset.magnitude);
 
         //if the center stay the same, it cause the distance to be 0, leading to an error when applying the offset to the camera 
-        if(Vector3.Magnitude(newCenter - center) == 0) newOffset = cameraOffset / cameraOffset.magnitude * targetLenght;
+        if(newCenter == center) newOffset = cameraOffset / cameraOffset.magnitude * targetLenght;
     }
 }
