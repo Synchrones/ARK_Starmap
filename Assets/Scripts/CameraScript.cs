@@ -6,8 +6,6 @@ using UnityEngine.EventSystems;
 // TODO: fix various bugs
 public class CameraScript : MonoBehaviour
 {
-
-
     public Transform PlayerTransform;
 
     private bool completed;
@@ -19,7 +17,6 @@ public class CameraScript : MonoBehaviour
     private bool arrived;
 
     private float speed;
-    private float zoomSpeed;
     private float rotateSpeed;
 
     private Vector3 velocity = Vector3.zero;
@@ -66,6 +63,8 @@ public class CameraScript : MonoBehaviour
     float displacementSpeed;
     float rotationSpeed;
     float moveToPosSpeed;
+    float zoomSpeed;
+    (float, float) zoomLimits;
     
     bool inAutoDisplacement;
     Vector3 newOffset;
@@ -81,7 +80,6 @@ public class CameraScript : MonoBehaviour
         maxZoom = 750;
         minZoom = 20;
         speed = 200;
-        zoomSpeed = 50;
         rotateSpeed = 0.17f;
         InSystem = false;
         AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManagerScript>();
@@ -91,12 +89,13 @@ public class CameraScript : MonoBehaviour
         clickTime = 0;
         
 
-
         center = new Vector3(0, 0, 75);
         cameraOffset = transform.position - center;
         displacementSpeed = 1;
         rotationSpeed = 1;
         moveToPosSpeed = 0.5f;
+        zoomSpeed = 1;
+        zoomLimits = (20, 800);
     }
 
     private void LateUpdate()
@@ -155,14 +154,28 @@ public class CameraScript : MonoBehaviour
                 else yRotationSpeedModifier = 1;
                 currentRotation = ((Vector3.left * Input.GetAxis("Mouse Y") * yRotationSpeedModifier + Vector3.up * Input.GetAxis("Mouse X")) * -0.5f  * rotationSpeed);
             }
-            currentDisplacement /= 1.02f;
-            if(closenessToPole < 0.2f)
-            {
-                currentRotation = new Vector2(currentRotation.x / 1.2f, currentRotation.y / 1.02f);
-            }
-            else currentRotation /= 1.015f;
-            
         }
+        float zoomInput =Input.GetAxis("Mouse ScrollWheel");
+        if(zoomLimits.Item1 > cameraOffset.magnitude && zoomInput > 0 || zoomLimits.Item2 < cameraOffset.magnitude && zoomInput < 0)
+        {
+            currentZoom /= 1.2f;
+        }
+        else
+        {
+            if(zoomInput != 0)
+            {
+                currentZoom += zoomInput * zoomSpeed * cameraOffset.magnitude / 100; 
+            }
+        }
+
+        currentDisplacement /= 1.02f;
+        if(closenessToPole < 0.2f)
+        {
+            currentRotation = new Vector2(currentRotation.x / 1.2f, currentRotation.y / 1.02f);
+        }
+        else currentRotation /= 1.015f;
+        currentZoom /= 1.05f;
+        
 
         applyMovement();
         transform.position = center + cameraOffset;
@@ -176,6 +189,8 @@ public class CameraScript : MonoBehaviour
         Vector3 rightVector = new Vector3(-transform.forward.z, 0, transform.forward.x);
         cameraOffset = Quaternion.AngleAxis(currentRotation.x, rightVector) * Quaternion.AngleAxis(currentRotation.y, Vector3.down) * cameraOffset;
         closenessToPole = rightVector.magnitude;
+        
+        cameraOffset += transform.forward * currentZoom;
     }
 
     /*
@@ -517,7 +532,6 @@ public class CameraScript : MonoBehaviour
     private void CalculateNewOffset(float targetLenght)
     {
         newOffset = (transform.position - newCenter) / Vector3.Magnitude(transform.position - newCenter) * targetLenght;
-        print(newOffset.magnitude);
 
         //if the center stay the same, it cause the distance to be 0, leading to an error when applying the offset to the camera 
         if(newCenter == center) newOffset = cameraOffset / cameraOffset.magnitude * targetLenght;
