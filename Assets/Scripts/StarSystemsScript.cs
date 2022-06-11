@@ -4,15 +4,14 @@ using UnityEngine;
 using TMPro;
 
 
-// TODO: (main TODO) : add starting screen, complete infoboxs & disk, fix space stations generation, left click on system to enter, scale zoom based on distance + quick zoom with middle mouse button
+// TODO: (main TODO) : add starting screen, complete infoboxs & disk, fix space stations generation, left click on system to enter, quick zoom with middle mouse button
 /* TODO: (bug fixes) : 
     -orbit look bad when looking at a planet far from the star
     -planet hitbox overlap when to close (see Kilian) 
-    -strange "bump" when zooming after entering system
     -reduce performance impact of the starbox? 
-    -rotation inertia still look weird and seems to "block"
     -oberon star is... small
-    
+    -unknow Co type "POI" (vega Vanduul attack)
+    -hover gizmo is sometimes too large
 */
 public class StarSystemsScript : MonoBehaviour
 {

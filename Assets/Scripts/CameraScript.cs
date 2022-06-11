@@ -3,59 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-// TODO: fix various bugs
 public class CameraScript : MonoBehaviour
 {
-    public Transform PlayerTransform;
-
-    private bool completed;
-    private Vector3 newPos;
-    private Vector3 newPosZoom;
-    private float scroll;
-    private Vector3 newCenter;
-    private bool centered;
-    private bool arrived;
-
-    private float speed;
-    private float rotateSpeed;
-
-    private Vector3 velocity = Vector3.zero;
-
-    private bool InSystem;
-    public bool COSelected;
-
-    private float maxZoom;
-    private float minZoom;
-
-    //inertia things
-    private Vector3 prevPos = Vector3.zero;
-    private Vector3 frameVelocity;
-    private Vector3 curVelocity;
-    private bool underInertia;
-    private bool isRotation;
-    private float smoothTime = 3;
-    private float time = 0.0f;
-
-    
-    //UI
-    public GameObject UIContainer;
-    private bool buttonPressed;
-    private DiscScript discScript;
-    private InfoboxScript infoboxScript;
-    private float clickTime;
-
-    //Sounds
-    AudioManagerScript AudioManager;
-    bool isZoomSoundPlaying;
-    bool isRotateSoundPlaying;
-
-    //new
     Vector3 currentDisplacement;
     Vector2 currentRotation;
     float currentZoom;
     
     Vector3 cameraOffset;
     Vector3 center;
+
     //represent the closeness of the camera to the max and min y pos (close = 0, far = 1)
     float closenessToPole;
     float yRotationSpeedModifier;
@@ -65,53 +21,72 @@ public class CameraScript : MonoBehaviour
     float moveToPosSpeed;
     float zoomSpeed;
     (float, float) zoomLimits;
-    
+
+    bool InSystem;
+    public bool COSelected;
     bool inAutoDisplacement;
+
+    Vector3 newPos;
+    Vector3 newCenter;
     Vector3 newOffset;
     
+    //UI
+    public GameObject UIContainer;
+    bool buttonPressed;
+    DiscScript discScript;
+    InfoboxScript infoboxScript;
+    float clickTime;
+    bool hitUI;
 
-    // Start is called before the first frame update
+    //Sounds
+    AudioManagerScript AudioManager;
+    bool isZoomSoundPlaying;
+    bool isRotateSoundPlaying;
+    
+
     void Start()
     {
-        newPosZoom = transform.position;
-        scroll = 0;
-        completed = true;
-        center = PlayerTransform.position;
-        maxZoom = 750;
-        minZoom = 20;
-        speed = 200;
-        rotateSpeed = 0.17f;
-        InSystem = false;
-        AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManagerScript>();
-        buttonPressed = false;
-        discScript = UIContainer.GetComponent<DiscScript>();
-        infoboxScript = UIContainer.GetComponent<InfoboxScript>();
-        clickTime = 0;
-        
-
         center = new Vector3(0, 0, 75);
         cameraOffset = transform.position - center;
+
         displacementSpeed = 1;
         rotationSpeed = 1;
         moveToPosSpeed = 0.5f;
         zoomSpeed = 1;
         zoomLimits = (20, 800);
+
+        hitUI = false;
+        InSystem = false;
+        buttonPressed = false;
+        clickTime = 0;
+
+        AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManagerScript>();
+        discScript = UIContainer.GetComponent<DiscScript>();
+        infoboxScript = UIContainer.GetComponent<InfoboxScript>();
+        
     }
 
     private void LateUpdate()
     {
-        Vector3 currentPos = gameObject.transform.position;
         //prevent camera from moving when clicking UI element 
-        bool hitUI = false;
         if(!buttonPressed)
         {   
             var pointerEventData = new PointerEventData(EventSystem.current);
             pointerEventData.position = Input.mousePosition;
             var raycastResults = new List<RaycastResult>();
             EventSystem.current.RaycastAll(pointerEventData, raycastResults);
+            bool flag = false;
             foreach(var result in raycastResults)
             {
-                if(result.gameObject.layer == 5) hitUI = true; 
+                if(result.gameObject.layer == 5)
+                {
+                    hitUI = true;
+                    flag = true;
+                }
+            }
+            if(!flag)
+            {
+                hitUI = false;
             }
         }
 
@@ -127,7 +102,7 @@ public class CameraScript : MonoBehaviour
                 }
                 if(Input.GetMouseButtonUp(0))
                 {
-                    if(Time.time - clickTime < 0.08f && hitUI == false)
+                    if(Time.time - clickTime < 0.08f)
                     {
                         discScript.UnloadDisc();
                         discScript.isInfoboxActive = false;
@@ -139,10 +114,12 @@ public class CameraScript : MonoBehaviour
 
             if(Input.GetKey(KeyCode.Mouse1))
             {
+                buttonPressed = true;
                 currentDisplacement = ((transform.right * Input.GetAxis("Mouse X") + transform.up * Input.GetAxis("Mouse Y")) * -0.1f * displacementSpeed);
             }
             else if(Input.GetKey(KeyCode.Mouse0))
             {
+                buttonPressed = true;
                 if(closenessToPole < 0.1f)
                 {
                     if(Input.GetAxis("Mouse Y") < 0 && cameraOffset.y > 0 || Input.GetAxis("Mouse Y") > 0 && cameraOffset.y < 0)
@@ -181,6 +158,51 @@ public class CameraScript : MonoBehaviour
         transform.position = center + cameraOffset;
         displacementSpeed = cameraOffset.magnitude / 15;
         transform.LookAt(center);
+
+        if(hitUI)
+        {
+            buttonPressed = false;
+        }
+
+        if(Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
+        {
+            hitUI = false;
+            buttonPressed = false;
+        }
+
+        //sounds
+        if(Mathf.Abs(currentZoom) > 0.0001f)
+        {
+            if(!isZoomSoundPlaying)
+            {
+                AudioManager.play("CamZoom");
+                isZoomSoundPlaying = true;
+            }
+        }
+        else
+        {
+            if(isZoomSoundPlaying)
+            {
+                AudioManager.stop("CamZoom");
+                isZoomSoundPlaying = false;
+            }
+        }
+        if(currentRotation.magnitude > 0.01f)
+        {
+            if(!isRotateSoundPlaying)
+            {
+                AudioManager.play("CamRotate");
+                isRotateSoundPlaying = true;
+            }
+        }
+        else
+        {
+            if(isRotateSoundPlaying)
+            {
+                AudioManager.stop("CamRotate");
+                isRotateSoundPlaying = false;
+            }
+        }
     }
 
     private void applyMovement()
@@ -192,260 +214,6 @@ public class CameraScript : MonoBehaviour
         
         cameraOffset += transform.forward * currentZoom;
     }
-
-    /*
-    private void LateUpdate() { 
-
-        //prevent camera from moving when clicking UI element 
-        bool hitUI = false;
-        if(!buttonPressed)
-        {   
-            var pointerEventData = new PointerEventData(EventSystem.current);
-            pointerEventData.position = Input.mousePosition;
-            var raycastResults = new List<RaycastResult>();
-            EventSystem.current.RaycastAll(pointerEventData, raycastResults);
-            foreach(var result in raycastResults)
-            {
-                if(result.gameObject.layer == 5) hitUI = true; 
-            }
-        }
-
-        //close disc when clicking on nothing
-        if(discScript.isActive)
-        {
-            if(Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
-            {
-                clickTime = Time.time;
-            }
-            if(Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1) || Input.GetMouseButtonUp(2))
-            {
-                if(Time.time - clickTime < 0.08f && hitUI == false)
-                {
-                    discScript.UnloadDisc();
-                    discScript.isInfoboxActive = false;
-                    infoboxScript.UnloadInfobox();
-                    COSelected = false;
-                }
-            }
-        }
-        
-        if(Input.GetAxis("Mouse ScrollWheel") != 0 && !COSelected)
-        {
-            underInertia = false;
-            time = 0.0f;
-
-            scroll = Input.GetAxis("Mouse ScrollWheel");
-            if(Vector3.Distance(transform.position + transform.forward * scroll * zoomSpeed, center) > minZoom && scroll > 0 || Vector3.Distance(transform.position + transform.forward * scroll * zoomSpeed, center) < maxZoom && scroll < 0)
-            {
-                newPosZoom += transform.forward * scroll * zoomSpeed;
-            } 
-            if(!isZoomSoundPlaying)
-            {
-                AudioManager.play("CamZoom");
-                isZoomSoundPlaying = true;
-            }
-            if(isRotateSoundPlaying)
-            {
-                AudioManager.stop("CamRotate");
-                isRotateSoundPlaying = false;
-            }
-        }
-        
-        if(transform.position != newPosZoom && !underInertia && completed && !Input.GetKey(KeyCode.Mouse1) && !Input.GetKey(KeyCode.Mouse0) && (Vector3.Distance(transform.position, center) > minZoom / 100 || scroll < 0))
-        {
-            transform.position = Vector3.SmoothDamp(transform.position, newPosZoom, ref velocity, 0.3f);
-        }
-        if(Vector3.Distance(transform.position, newPosZoom) < 0.1f)
-        {
-            if(isZoomSoundPlaying)
-            {
-                AudioManager.stop("CamZoom");
-                isZoomSoundPlaying = false;
-            }
-            
-        }
-        
-        
-        
-        cameraOffset = transform.position - center;
-    
-        if(Input.GetKey(KeyCode.Mouse1) && completed == true && !hitUI)
-        {
-            
-            underInertia = false;
-            time = 0.0f;
-
-            buttonPressed = true;
-
-
-            float distance;
-            if(InSystem)
-            {
-                distance = Vector3.Distance(transform.position, center) / 2;
-                distance = Mathf.Clamp(distance, 0, 3);
-            }
-            else
-            {
-                distance = 1;
-            }
-
-
-            Vector3 newPos = (transform.right * Input.GetAxis("Mouse X") * - speed * distance);
-            newPos += (transform.up * Input.GetAxis("Mouse Y") * - speed * distance);
-            
-            transform.Translate(newPos * Time.deltaTime, Space.World);
-            center = transform.position - cameraOffset;
-            transform.LookAt(center);
-            
-            curVelocity = (transform.position - prevPos) / Time.deltaTime;
-            frameVelocity = Vector3.Lerp(frameVelocity, curVelocity, 0.1f) / 1.5f;
-            prevPos = transform.position;
-            
-        }
-
-        
-
-
-        if(Input.GetKey(KeyCode.Mouse0) && completed == true && !hitUI)
-        {
-            underInertia = false;
-            time = 0.0f;
-
-            buttonPressed = true;
-            
-            newPosZoom = transform.position;
-
-            Quaternion camTurnAngle = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * 5.0f * rotateSpeed, Vector3.up);
-            double signX = cameraOffset.x;
-            double signZ = cameraOffset.z;
-            
-            double cameraMaxY = Vector3.Distance(Vector3.zero, cameraOffset) * 95 / 100;
-            double cameraMinY = -cameraMaxY;
-            
-            if(cameraOffset.y > 0 && ( cameraOffset.y < cameraMaxY || Input.GetAxis("Mouse Y") > 0) || cameraOffset.y < 0 && (cameraOffset.y > cameraMinY || Input.GetAxis("Mouse Y") < 0)) //prevent the camera from going to far up and down (caused jitter)
-            {
-                //bug on the z axis without this
-                if(signZ * signX < 0) 
-                {
-                    if(signZ > 0)
-                    {
-                        camTurnAngle *= Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * 5.0f * rotateSpeed, Vector3.right);
-                        camTurnAngle *= Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * -5.0f * rotateSpeed, Vector3.back);
-                    }
-                    else
-                    {
-                        camTurnAngle *= Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * -5.0f * rotateSpeed, Vector3.right);
-                        camTurnAngle *= Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * 5.0f * rotateSpeed, Vector3.back);
-                    }
-                    
-                    
-                }
-                else 
-                {
-                    if(signZ > 0)
-                    {
-                        camTurnAngle *= Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * 5.0f * rotateSpeed, Vector3.right);
-                        camTurnAngle *= Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * 5.0f * rotateSpeed, Vector3.back);
-                    }
-                    else 
-                    {
-                        camTurnAngle *= Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * -5.0f * rotateSpeed, Vector3.right);
-                        camTurnAngle *= Quaternion.AngleAxis(Input.GetAxis("Mouse Y") * -5.0f * rotateSpeed, Vector3.back);
-                    }
-                    
-                }
-                
-            }
-            cameraOffset = camTurnAngle * cameraOffset;
-            
-            Vector3 newPos = center + cameraOffset;
-            transform.position = Vector3.Slerp(transform.position, newPos, 0.5f);
-            transform.LookAt(center);
-            
-            curVelocity = (transform.position - prevPos) /Time.deltaTime;
-            frameVelocity = Vector3.Lerp(frameVelocity, curVelocity, 0.1f) / 1.5f;
-            prevPos = transform.position;
-            if(Input.GetAxis("Mouse X") > 0 && frameVelocity.x > 0 || Input.GetAxis("Mouse X") < 0 && frameVelocity.x < 0) frameVelocity.x = -frameVelocity.x;
-            if(Input.GetAxis("Mouse X") > 0 && frameVelocity.z > 0 || Input.GetAxis("Mouse X") < 0 && frameVelocity.z < 0) frameVelocity.z = -frameVelocity.z;
-
-            
-            if(!isRotateSoundPlaying)
-            {
-                AudioManager.play("CamRotate");
-                isRotateSoundPlaying = true;
-            }
-        }
-
-        if(underInertia && time < 1)
-        {
-            if(isRotation)
-            {    
-                double cameraMaxY = Vector3.Distance(Vector3.zero, cameraOffset) * 0.95f;
-                double cameraMinY = -cameraMaxY;
-
-                if(cameraOffset.y > 0 && ( cameraOffset.y < cameraMaxY || -frameVelocity.y > 0) || cameraOffset.y < 0 && (cameraOffset.y > cameraMinY || -frameVelocity.y < 0))
-                {
-                    float distance = Vector3.Distance(Vector3.zero, cameraOffset);
-                    transform.position = center;
-                    transform.Rotate(Vector3.right, frameVelocity.y / 1.8f / (distance / 5));
-                    transform.Rotate(Vector3.up, -(frameVelocity.x + frameVelocity.z) / 1.8f / (distance / 5), Space.World);
-                    transform.Translate(new Vector3(0,0, -distance));
-                    
-                }
-                
-                float t = time / smoothTime;
-                t = 1f - Mathf.Cos(t * Mathf.PI * 0.5f);
-                
-                frameVelocity = Vector3.Lerp(frameVelocity, Vector3.zero, t);
-                time += Time.smoothDeltaTime / 2;               
-
-            }
-            else
-            {
-                transform.position = Vector3.Lerp(transform.position, transform.position + (frameVelocity / 2), 0.1f);
-                center = Vector3.Lerp(center, center + (frameVelocity / 2), 0.1f);
-
-                float t = time / smoothTime;
-                t = 1f - Mathf.Cos(t * Mathf.PI * 0.5f);
-                frameVelocity = Vector3.Lerp(frameVelocity, Vector3.zero, t);
-                time += Time.smoothDeltaTime;
-                
-            }
-            newPosZoom = transform.position;
-            if(time > 0.4f)
-            {
-                if(isRotateSoundPlaying)
-                {
-                    AudioManager.stop("CamRotate");
-                    isRotateSoundPlaying = false;   
-                }
-            }
-        }
-        else
-        {
-            underInertia = false;
-            time = 0.0f;
-        }
-
-        
-
-        if(Input.GetMouseButtonUp(1))
-        {
-            underInertia = true;
-            isRotation = false;
-
-            buttonPressed = false;
-        }
-        if(Input.GetMouseButtonUp(0))
-        {
-            underInertia = true;
-            isRotation = true;
-
-            buttonPressed = false;
-        }
-
-    }
-    */
 
     public void SelectSystem(GameObject gameObject)
     {
@@ -512,7 +280,6 @@ public class CameraScript : MonoBehaviour
         }
         
         inAutoDisplacement = false;
-        newPosZoom = transform.position;
 
     }
 
