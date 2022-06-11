@@ -48,7 +48,7 @@ public class ButtonHandler : MonoBehaviour
     IEnumerator moveButton(GameObject button, Vector2 pos, bool executeAction)
     {
         Vector2 basePos = button.GetComponent<RectTransform>().anchoredPosition;
-        for(float i = 0; i < 1; i += 2 * Time.deltaTime)
+        for(float i = 0; i < 1; i += 5 * Time.deltaTime)
         {
             button.GetComponent<RectTransform>().anchoredPosition = Vector2.Lerp(basePos, pos, i);
             yield return null;

@@ -49,6 +49,9 @@ public class DiscScript : MonoBehaviour
 
     public void LoadDisc()
     {
+        this.GetComponent<InfoboxScript>().UnloadInfobox();
+        isInfoboxActive = false;
+        
         if(mode == 0)
         {
             isActive = true;
@@ -114,7 +117,7 @@ public class DiscScript : MonoBehaviour
 
     public IEnumerator DiscFadeIn(int population, int economy, int threat)
     {
-        for(int i = 0; i <= 70; i += (int)(100 * Time.deltaTime))
+        for(float i = 0; i <= 70; i += (100 * Time.deltaTime))
         {
             disc.GetComponent<RectTransform>().sizeDelta = new Vector2(i * 10, i * 10);
             if(mode == 0)
@@ -135,7 +138,7 @@ public class DiscScript : MonoBehaviour
 
     public IEnumerator DiscFadeOut()
     {
-        for(int i = 70; i > 0; i -= (int)(200 * Time.deltaTime))
+        for(float i = 70; i > 0; i -= (200 * Time.deltaTime))
         {
             disc.GetComponent<RectTransform>().sizeDelta = new Vector2(i * 10, i * 10);
             yield return null;

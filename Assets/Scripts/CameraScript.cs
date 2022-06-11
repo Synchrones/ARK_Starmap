@@ -121,11 +121,11 @@ public class CameraScript : MonoBehaviour
             //close disc when clicking on nothing
             if(discScript.isActive)
             {
-                if(Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
+                if(Input.GetMouseButtonDown(0))
                 {
                     clickTime = Time.time;
                 }
-                if(Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1) || Input.GetMouseButtonUp(2))
+                if(Input.GetMouseButtonUp(0))
                 {
                     if(Time.time - clickTime < 0.08f && hitUI == false)
                     {
@@ -139,7 +139,7 @@ public class CameraScript : MonoBehaviour
 
             if(Input.GetKey(KeyCode.Mouse1))
             {
-                currentDisplacement = ((transform.right * Input.GetAxis("Mouse X") + transform.up * Input.GetAxis("Mouse Y")) * -0.5f * displacementSpeed);
+                currentDisplacement = ((transform.right * Input.GetAxis("Mouse X") + transform.up * Input.GetAxis("Mouse Y")) * -0.1f * displacementSpeed);
             }
             else if(Input.GetKey(KeyCode.Mouse0))
             {
@@ -155,7 +155,7 @@ public class CameraScript : MonoBehaviour
                 currentRotation = ((Vector3.left * Input.GetAxis("Mouse Y") * yRotationSpeedModifier + Vector3.up * Input.GetAxis("Mouse X")) * -0.5f  * rotationSpeed);
             }
         }
-        float zoomInput =Input.GetAxis("Mouse ScrollWheel");
+        float zoomInput = Input.GetAxis("Mouse ScrollWheel");
         if(zoomLimits.Item1 > cameraOffset.magnitude && zoomInput > 0 || zoomLimits.Item2 < cameraOffset.magnitude && zoomInput < 0)
         {
             currentZoom /= 1.2f;
@@ -462,18 +462,14 @@ public class CameraScript : MonoBehaviour
 
         InSystem = true;
         inAutoDisplacement = true;
-
-        speed = 5;
-        zoomSpeed = 2;
-        maxZoom = 40;
-        minZoom = 0.05f;
         
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<AppaerenceAndSizeKeeper>().enabled = false;
         
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
         gameObject.transform.GetChild(1).gameObject.SetActive(false);
-
+        
+        zoomLimits = (0.1f, 15);
 
         CalculateNewOffset(1);
         StartCoroutine(MoveToPos(center, newCenter, cameraOffset, newOffset));
@@ -484,16 +480,13 @@ public class CameraScript : MonoBehaviour
     {
         InSystem = false;
 
-        maxZoom = 750;
-        minZoom = 20;
-        speed = 200;
-        zoomSpeed = 50;
-
         GameObject.Destroy(gameObject.transform.GetChild(2).gameObject);
         gameObject.GetComponent<SpriteRenderer>().enabled = true;
         gameObject.GetComponent<AppaerenceAndSizeKeeper>().enabled = true;
         gameObject.transform.GetChild(0).gameObject.SetActive(true);
         gameObject.transform.GetChild(1).gameObject.SetActive(true);
+
+        zoomLimits = (20, 800);
 
         CalculateNewOffset(200);
         StartCoroutine(MoveToPos(center, newCenter, cameraOffset, newOffset));
@@ -501,16 +494,10 @@ public class CameraScript : MonoBehaviour
 
     public void SelectCO(GameObject gameObject)
     {
-        underInertia = false;
-        time = 0;
-
-        completed = false;
-        COSelected = true;
-
         inAutoDisplacement = true;
 
         newCenter = gameObject.transform.position;
-        CalculateNewOffset(1);
+        CalculateNewOffset(15 * gameObject.transform.lossyScale.x);
         StartCoroutine(MoveToPos(center, newCenter, cameraOffset, newOffset));
     }
 
