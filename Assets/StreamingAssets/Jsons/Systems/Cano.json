@@ -274,7 +274,7 @@
                     {
                         "id": "2515",
                         "age": null,
-                        "appearance": "PLANET_GAS",
+                        "appearance": "PLANET_BROWN",
                         "axial_tilt": null,
                         "code": "CANO.PLANET.CANOIV",
                         "description": "A large gas giant comprised of multiple bands of reds and browns. Surveys indicate that the planet suffers from massive storms, some as large as a thousand kilometers in diameter.\n",
@@ -285,7 +285,7 @@
                         "info_url": null,
                         "latitude": null,
                         "longitude": "212.25800000",
-                        "name": null,
+                        "name": "Pox",
                         "orbit_period": null,
                         "parent_id": "2511",
                         "sensor_danger": "6",
@@ -296,7 +296,7 @@
                         "show_orbitlines": "1",
                         "size": "64311.00000000",
                         "subtype_id": "23",
-                        "time_modified": "2018-01-25 02:14:02",
+                        "time_modified": "2022-02-23 00:07:37",
                         "type": "PLANET",
                         "subtype": {
                             "id": "23",
@@ -312,7 +312,16 @@
                                 "membership.id": "2788"
                             }
                         ],
-                        "population": []
+                        "population": [],
+                        "texture": {
+                            "slug": "8nd3j4zcsqfmz",
+                            "source": "https://robertsspaceindustries.com/media/8nd3j4zcsqfmzr/source/Planet_Smog.jpg",
+                            "images": {
+                                "post": "https://robertsspaceindustries.com/media/8nd3j4zcsqfmzr/post/Planet_Smog.jpg",
+                                "product_thumb_large": "https://robertsspaceindustries.com/media/8nd3j4zcsqfmzr/product_thumb_large/Planet_Smog.jpg",
+                                "subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/8nd3j4zcsqfmzr/subscribers_vault_thumbnail/Planet_Smog.jpg"
+                            }
+                        }
                     },
                     {
                         "id": "2532",

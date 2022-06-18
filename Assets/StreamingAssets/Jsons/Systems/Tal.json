@@ -1,512 +1,543 @@
 {
-	"success": 1,
-	"code": "OK",
-	"msg": "OK",
-	"data": {
-		"rowcount": 1,
-		"totalrows": 1,
-		"estimatedrows": false,
-		"pagesize": 0,
-		"pagecount": null,
-		"page": 1,
-		"offset": 0,
-		"startrow": 0,
-		"resultset": [
-			{
-				"id": "385",
-				"code": "TAL",
-				"description": "Tal is one of the most iconic Xi\u2019An systems. Designed to act as a Production System, each planet has been meticulously zoned to handle a different type of business. The intricate planning even includes assigning a specific color for each planet to use in its architecture. Four of Tal\u2019s seven-planets are habitable and open to Human visitors. The Xi\u2019An strongly discourage Humans from venturing past Rhiorr (Tal V), the last inhabited planet in the system.",
-				"frost_line": "9.73000000",
-				"habitable_zone_inner": "2.98000000",
-				"habitable_zone_outer": "5.40000000",
-				"info_url": null,
-				"name": "Tal",
-				"position_x": "121.19137000",
-				"position_y": "19.18944500",
-				"position_z": "7.64980550",
-				"shader_data": {
-					"lightColor": "#61a2ff",
-					"starfield": {
-						"radius": 30,
-						"count": 114.28571428571,
-						"sizeMin": 1,
-						"sizeMax": 1,
-						"color1": "rgb(128,128,128)",
-						"color2": "rgb(100,100,100)"
-					},
-					"planetsSize": {
-						"min": 0.03268,
-						"max": 0.081331428571429,
-						"kFactor": 0.13714285714286
-					}
-				},
-				"status": "P",
-				"time_modified": "2018-01-27 01:42:24",
-				"type": "SINGLE_STAR",
-				"affiliation": [
-					{
-						"id": "4",
-						"code": "XIAN",
-						"color": "#52c231",
-						"name": "Xi'An",
-						"membership.id": "742"
-					}
-				],
-				"celestial_objects": [
-					{
-						"id": "2210",
-						"age": "0.00000000",
-						"appearance": "DEFAULT",
-						"axial_tilt": "0.00000000",
-						"code": "TAL.JUMPPOINTS.PALLAS",
-						"description": "Jump Point",
-						"designation": "Tal - Th.us\u2019\u016bng (Pallas)",
-						"distance": "11.50000000",
-						"fairchanceact": null,
-						"habitable": null,
-						"info_url": null,
-						"latitude": "11.95700000",
-						"longitude": "26.17680000",
-						"name": null,
-						"orbit_period": null,
-						"parent_id": null,
-						"sensor_danger": "0",
-						"sensor_economy": "0",
-						"sensor_population": "0",
-						"shader_data": null,
-						"show_label": "1",
-						"show_orbitlines": null,
-						"size": "0.00000000",
-						"subtype_id": null,
-						"time_modified": "2018-11-14 20:29:33",
-						"type": "JUMPPOINT",
-						"subtype": null,
-						"affiliation": [],
-						"population": []
-					},
-					{
-						"id": "2213",
-						"age": "0.00000000",
-						"appearance": "DEFAULT",
-						"axial_tilt": "0.00000000",
-						"code": "TAL.STARS.TAL",
-						"description": null,
-						"designation": "Tal",
-						"distance": "0.00000000",
-						"fairchanceact": "0",
-						"habitable": null,
-						"info_url": null,
-						"latitude": "0.00000000",
-						"longitude": "0.00000000",
-						"name": null,
-						"orbit_period": "-1.00000000",
-						"parent_id": null,
-						"sensor_danger": "0",
-						"sensor_economy": "0",
-						"sensor_population": "0",
-						"shader_data": {
-							"sun": {
-								"color1": "#4d90cd",
-								"color2": "#ffb68e",
-								"flare1": 0.11691640009727,
-								"flare2": 0.31567428026264,
-								"flare3": 0.53781544044746,
-								"flare4": 0.5,
-								"flare5": 0.26890772022373,
-								"flare6": 0.29229100024319,
-								"sphere": 0.74826496062256,
-								"texture": 1,
-								"corona": 1,
-								"glow": 0.47935724039883,
-								"alpha": 1,
-								"rotation1": 0.6,
-								"rotation2": 0.6,
-								"map": "4",
-								"iterations": 0,
-								"scaleMin": 1,
-								"scaleMax": 1,
-								"scalePeriod": 1
-							},
-							"radius": 0.25,
-							"orbitalMin": 1,
-							"orbitalMax": 5,
-							"orbitalFactor": 1
-						},
-						"show_label": "1",
-						"show_orbitlines": "0",
-						"size": "1056325.26964000",
-						"subtype_id": "62",
-						"time_modified": "2015-10-10 04:35:53",
-						"type": "STAR",
-						"subtype": {
-							"id": "62",
-							"name": "Main Sequence-Dwarf-A",
-							"type": "STAR"
-						},
-						"affiliation": [],
-						"population": []
-					},
-					{
-						"id": "2504",
-						"age": null,
-						"appearance": "PLANET_BROWN",
-						"axial_tilt": null,
-						"code": "TAL.PLANET.TALI",
-						"description": "A mesoplanet with a surface pockmarked by craters from mining probes. Though attempts have been made, no resources have yet been discovered.",
-						"designation": "Tal I",
-						"distance": "0.64000000",
-						"fairchanceact": null,
-						"habitable": null,
-						"info_url": null,
-						"latitude": null,
-						"longitude": "12.23469000",
-						"name": null,
-						"orbit_period": null,
-						"parent_id": "2213",
-						"sensor_danger": "3",
-						"sensor_economy": "1",
-						"sensor_population": "1",
-						"shader_data": null,
-						"show_label": "1",
-						"show_orbitlines": "1",
-						"size": "1135.34890000",
-						"subtype_id": "43",
-						"time_modified": "2018-01-27 01:39:51",
-						"type": "PLANET",
-						"subtype": {
-							"id": "43",
-							"name": "Mesoplanet",
-							"type": "PLANET"
-						},
-						"affiliation": [
-							{
-								"id": "4",
-								"code": "XIAN",
-								"color": "#52c231",
-								"name": "Xi'An",
-								"membership.id": "3032"
-							}
-						],
-						"population": [],
-						"texture": {
-							"slug": "jnd5qqer9z13g",
-							"source": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/source/Planet_Rocky.jpg",
-							"images": {
-								"post": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/post/Planet_Rocky.jpg",
-								"product_thumb_large": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/product_thumb_large/Planet_Rocky.jpg",
-								"subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/subscribers_vault_thumbnail/Planet_Rocky.jpg"
-							}
-						}
-					},
-					{
-						"id": "2505",
-						"age": null,
-						"appearance": "PLANET_GAS",
-						"axial_tilt": null,
-						"code": "TAL.PLANET.TALIIOLISHA",
-						"description": "Oli\u2019Sha is the system\u2019s technology hub. Its factories produce some of the most advanced ship parts in the universe. This terraformed terrestrial world has earned the nickname \u201cThe Hive\u201d by Human visitors due to all the buildings being accented in yellow.  ",
-						"designation": "Tal II",
-						"distance": "3.06000000",
-						"fairchanceact": null,
-						"habitable": "1",
-						"info_url": null,
-						"latitude": null,
-						"longitude": "256.45000000",
-						"name": "Oli'Sha",
-						"orbit_period": null,
-						"parent_id": "2213",
-						"sensor_danger": "5",
-						"sensor_economy": "8",
-						"sensor_population": "5",
-						"shader_data": null,
-						"show_label": "1",
-						"show_orbitlines": "1",
-						"size": "6051.00000000",
-						"subtype_id": "55",
-						"time_modified": "2018-01-27 01:40:46",
-						"type": "PLANET",
-						"subtype": {
-							"id": "55",
-							"name": "Terrestrial Rocky",
-							"type": "PLANET"
-						},
-						"affiliation": [
-							{
-								"id": "4",
-								"code": "XIAN",
-								"color": "#52c231",
-								"name": "Xi'An",
-								"membership.id": "3033"
-							}
-						],
-						"population": [],
-						"texture": {
-							"slug": "duxhoei3b7nnm",
-							"source": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/source/Planet_EarthLike.jpg",
-							"images": {
-								"post": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/post/Planet_EarthLike.jpg",
-								"product_thumb_large": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/product_thumb_large/Planet_EarthLike.jpg",
-								"subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/subscribers_vault_thumbnail/Planet_EarthLike.jpg"
-							}
-						}
-					},
-					{
-						"id": "2506",
-						"age": null,
-						"appearance": "PLANET_GREEN",
-						"axial_tilt": null,
-						"code": "TAL.PLANET.TALIIILUKSHI",
-						"description": "Luk\u2019Shi is the Tal System\u2019s cultural heart. Considered the most Human-friendly planet in the system, its vibrant culinary scene and textile industry draws a steady stream of visitors and traders to the planet. The Xi\u2019An also use this naturally habitable world as a major agricultural production planet. Luk\u2019Shi\u2019s precisely cultivated countryside is beautiful to see from space but off-limits to visitors. ",
-						"designation": "Tal III",
-						"distance": "3.55000000",
-						"fairchanceact": null,
-						"habitable": "1",
-						"info_url": null,
-						"latitude": null,
-						"longitude": "19.26440000",
-						"name": "Luk'Shi",
-						"orbit_period": null,
-						"parent_id": "2213",
-						"sensor_danger": "6",
-						"sensor_economy": "7",
-						"sensor_population": "7",
-						"shader_data": null,
-						"show_label": "1",
-						"show_orbitlines": "1",
-						"size": "7044.00000000",
-						"subtype_id": "55",
-						"time_modified": "2018-01-27 01:41:01",
-						"type": "PLANET",
-						"subtype": {
-							"id": "55",
-							"name": "Terrestrial Rocky",
-							"type": "PLANET"
-						},
-						"affiliation": [
-							{
-								"id": "4",
-								"code": "XIAN",
-								"color": "#52c231",
-								"name": "Xi'An",
-								"membership.id": "3034"
-							}
-						],
-						"population": [],
-						"texture": {
-							"slug": "duxhoei3b7nnm",
-							"source": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/source/Planet_EarthLike.jpg",
-							"images": {
-								"post": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/post/Planet_EarthLike.jpg",
-								"product_thumb_large": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/product_thumb_large/Planet_EarthLike.jpg",
-								"subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/subscribers_vault_thumbnail/Planet_EarthLike.jpg"
-							}
-						}
-					},
-					{
-						"id": "2507",
-						"age": null,
-						"appearance": "PLANET_GREEN",
-						"axial_tilt": null,
-						"code": "TAL.PLANET.TALIVLISHAHVU",
-						"description": "This naturally habitable terrestrial planet has trace amounts of acid in its atmosphere. For that reason, the Xi\u2019An decided to limit the number of visitors to the planet and place large hydrogen and antimatter processing plants here, making Lishahvu an appealing destination for haulers but few others.",
-						"designation": "Tal IV",
-						"distance": "4.65000000",
-						"fairchanceact": null,
-						"habitable": "1",
-						"info_url": null,
-						"latitude": null,
-						"longitude": "333.26400000",
-						"name": "Lishahvu",
-						"orbit_period": null,
-						"parent_id": "2213",
-						"sensor_danger": "3",
-						"sensor_economy": "8",
-						"sensor_population": "4",
-						"shader_data": null,
-						"show_label": "1",
-						"show_orbitlines": "1",
-						"size": "5884.00000000",
-						"subtype_id": "55",
-						"time_modified": "2018-01-27 01:41:19",
-						"type": "PLANET",
-						"subtype": {
-							"id": "55",
-							"name": "Terrestrial Rocky",
-							"type": "PLANET"
-						},
-						"affiliation": [
-							{
-								"id": "4",
-								"code": "XIAN",
-								"color": "#52c231",
-								"name": "Xi'An",
-								"membership.id": "3035"
-							}
-						],
-						"population": [],
-						"texture": {
-							"slug": "duxhoei3b7nnm",
-							"source": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/source/Planet_EarthLike.jpg",
-							"images": {
-								"post": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/post/Planet_EarthLike.jpg",
-								"product_thumb_large": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/product_thumb_large/Planet_EarthLike.jpg",
-								"subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/subscribers_vault_thumbnail/Planet_EarthLike.jpg"
-							}
-						}
-					},
-					{
-						"id": "2508",
-						"age": null,
-						"appearance": "PLANET_GREEN",
-						"axial_tilt": null,
-						"code": "TAL.PLANET.TALVRHIORR",
-						"description": "Rhiorr is a terraformed terrestrial world with factories churning out advanced weapons for personal and ship armament. Even though it is technically a weapons planet, a strong military presence keeps crime to a minimum.",
-						"designation": "Tal V",
-						"distance": "5.25000000",
-						"fairchanceact": null,
-						"habitable": "1",
-						"info_url": null,
-						"latitude": null,
-						"longitude": "296.15400000",
-						"name": "Rhiorr",
-						"orbit_period": null,
-						"parent_id": "2213",
-						"sensor_danger": "2",
-						"sensor_economy": "7",
-						"sensor_population": "4",
-						"shader_data": null,
-						"show_label": "1",
-						"show_orbitlines": "1",
-						"size": "7920.00000000",
-						"subtype_id": "55",
-						"time_modified": "2018-01-27 01:41:33",
-						"type": "PLANET",
-						"subtype": {
-							"id": "55",
-							"name": "Terrestrial Rocky",
-							"type": "PLANET"
-						},
-						"affiliation": [
-							{
-								"id": "4",
-								"code": "XIAN",
-								"color": "#52c231",
-								"name": "Xi'An",
-								"membership.id": "3036"
-							}
-						],
-						"population": []
-					},
-					{
-						"id": "2509",
-						"age": null,
-						"appearance": "PLANET_BROWN",
-						"axial_tilt": null,
-						"code": "TAL.PLANET.TALVI",
-						"description": "This super-Earth is too far away from the system\u2019s star to sustain life, so since habitation was not an option, the planet\u2019s vast resources reportedly have been mined clean by the Xi\u2019An. Over the previous centuries its mineral deposits have provided resources for factories and facilities all around Tal.  ",
-						"designation": "Tal VI",
-						"distance": "8.36000000",
-						"fairchanceact": null,
-						"habitable": null,
-						"info_url": null,
-						"latitude": null,
-						"longitude": "198.54800000",
-						"name": null,
-						"orbit_period": null,
-						"parent_id": "2213",
-						"sensor_danger": "6",
-						"sensor_economy": "3",
-						"sensor_population": "1",
-						"shader_data": null,
-						"show_label": "1",
-						"show_orbitlines": "1",
-						"size": "11048.00000000",
-						"subtype_id": "38",
-						"time_modified": "2018-01-27 01:41:48",
-						"type": "PLANET",
-						"subtype": {
-							"id": "38",
-							"name": "Super-Earth",
-							"type": "PLANET"
-						},
-						"affiliation": [
-							{
-								"id": "4",
-								"code": "XIAN",
-								"color": "#52c231",
-								"name": "Xi'An",
-								"membership.id": "3037"
-							}
-						],
-						"population": [],
-						"texture": {
-							"slug": "jnd5qqer9z13g",
-							"source": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/source/Planet_Rocky.jpg",
-							"images": {
-								"post": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/post/Planet_Rocky.jpg",
-								"product_thumb_large": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/product_thumb_large/Planet_Rocky.jpg",
-								"subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/subscribers_vault_thumbnail/Planet_Rocky.jpg"
-							}
-						}
-					},
-					{
-						"id": "2510",
-						"age": null,
-						"appearance": "PLANET_GAS",
-						"axial_tilt": null,
-						"code": "TAL.PLANET.TALVII",
-						"description": "A prismatic gas giant with four thick, colored bands of rolling clouds. The colors assigned to each of Tal\u2019s inhabited planets come from the colors of these clouds. ",
-						"designation": "Tal VII",
-						"distance": "10.96000000",
-						"fairchanceact": null,
-						"habitable": null,
-						"info_url": null,
-						"latitude": null,
-						"longitude": "245.14560000",
-						"name": null,
-						"orbit_period": null,
-						"parent_id": "2213",
-						"sensor_danger": "4",
-						"sensor_economy": "2",
-						"sensor_population": "1",
-						"shader_data": null,
-						"show_label": "1",
-						"show_orbitlines": "1",
-						"size": "59887.00000000",
-						"subtype_id": "23",
-						"time_modified": "2018-01-27 01:42:04",
-						"type": "PLANET",
-						"subtype": {
-							"id": "23",
-							"name": "Gas Giant",
-							"type": "PLANET"
-						},
-						"affiliation": [
-							{
-								"id": "4",
-								"code": "XIAN",
-								"color": "#52c231",
-								"name": "Xi'An",
-								"membership.id": "3038"
-							}
-						],
-						"population": [],
-						"texture": {
-							"slug": "zpx9bq69vunys",
-							"source": "https://robertsspaceindustries.com/media/zpx9bq69vunysr/source/Planet_Chromatic.jpg",
-							"images": {
-								"post": "https://robertsspaceindustries.com/media/zpx9bq69vunysr/post/Planet_Chromatic.jpg",
-								"product_thumb_large": "https://robertsspaceindustries.com/media/zpx9bq69vunysr/product_thumb_large/Planet_Chromatic.jpg",
-								"subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/zpx9bq69vunysr/subscribers_vault_thumbnail/Planet_Chromatic.jpg"
-							}
-						}
-					}
-				],
-				"aggregated_size": "11.50000000",
-				"aggregated_population": 8.86,
-				"aggregated_economy": 4.19,
-				"aggregated_danger": 0
-			}
-		]
-	}
+    "success": 1,
+    "code": "OK",
+    "msg": "OK",
+    "data": {
+        "rowcount": 1,
+        "totalrows": 1,
+        "estimatedrows": false,
+        "pagesize": 0,
+        "pagecount": null,
+        "page": 1,
+        "offset": 0,
+        "startrow": 0,
+        "resultset": [
+            {
+                "id": "385",
+                "code": "TAL",
+                "description": "Tal is one of the most iconic Xi\u2019An systems. Designed to act as a Production System, each planet has been meticulously zoned to handle a different type of business. The intricate planning even includes assigning a specific color for each planet to use in its architecture. Four of Tal\u2019s seven-planets are habitable and open to Human visitors. The Xi\u2019An strongly discourage Humans from venturing past Rhiorr (Tal V), the last inhabited planet in the system.",
+                "frost_line": "9.73000000",
+                "habitable_zone_inner": "2.98000000",
+                "habitable_zone_outer": "5.40000000",
+                "info_url": null,
+                "name": "Tal",
+                "position_x": "121.19137000",
+                "position_y": "19.18944500",
+                "position_z": "7.64980550",
+                "shader_data": {
+                    "lightColor": "#61a2ff",
+                    "starfield": {
+                        "radius": 30,
+                        "count": 114.28571428571,
+                        "sizeMin": 1,
+                        "sizeMax": 1,
+                        "color1": "rgb(128,128,128)",
+                        "color2": "rgb(100,100,100)"
+                    },
+                    "planetsSize": {
+                        "min": 0.03268,
+                        "max": 0.081331428571429,
+                        "kFactor": 0.13714285714286
+                    }
+                },
+                "status": "P",
+                "time_modified": "2018-01-27 01:42:24",
+                "type": "SINGLE_STAR",
+                "affiliation": [
+                    {
+                        "id": "4",
+                        "code": "XIAN",
+                        "color": "#52c231",
+                        "name": "Xi'An",
+                        "membership.id": "742"
+                    }
+                ],
+                "celestial_objects": [
+                    {
+                        "id": "2210",
+                        "age": "0.00000000",
+                        "appearance": "DEFAULT",
+                        "axial_tilt": "0.00000000",
+                        "code": "TAL.JUMPPOINTS.PALLAS",
+                        "description": "Jump Point",
+                        "designation": "Tal - Th.us\u2019\u016bng (Pallas)",
+                        "distance": "11.50000000",
+                        "fairchanceact": null,
+                        "habitable": null,
+                        "info_url": null,
+                        "latitude": "11.95700000",
+                        "longitude": "26.17680000",
+                        "name": null,
+                        "orbit_period": null,
+                        "parent_id": null,
+                        "sensor_danger": "0",
+                        "sensor_economy": "0",
+                        "sensor_population": "0",
+                        "shader_data": null,
+                        "show_label": "1",
+                        "show_orbitlines": null,
+                        "size": "0.00000000",
+                        "subtype_id": null,
+                        "time_modified": "2018-11-14 20:29:33",
+                        "type": "JUMPPOINT",
+                        "subtype": null,
+                        "affiliation": [],
+                        "population": []
+                    },
+                    {
+                        "id": "2213",
+                        "age": "0.00000000",
+                        "appearance": "DEFAULT",
+                        "axial_tilt": "0.00000000",
+                        "code": "TAL.STARS.TAL",
+                        "description": null,
+                        "designation": "Tal",
+                        "distance": "0.00000000",
+                        "fairchanceact": "0",
+                        "habitable": null,
+                        "info_url": null,
+                        "latitude": "0.00000000",
+                        "longitude": "0.00000000",
+                        "name": null,
+                        "orbit_period": "-1.00000000",
+                        "parent_id": null,
+                        "sensor_danger": "0",
+                        "sensor_economy": "0",
+                        "sensor_population": "0",
+                        "shader_data": {
+                            "sun": {
+                                "color1": "#4d90cd",
+                                "color2": "#ffb68e",
+                                "flare1": 0.11691640009727,
+                                "flare2": 0.31567428026264,
+                                "flare3": 0.53781544044746,
+                                "flare4": 0.5,
+                                "flare5": 0.26890772022373,
+                                "flare6": 0.29229100024319,
+                                "sphere": 0.74826496062256,
+                                "texture": 1,
+                                "corona": 1,
+                                "glow": 0.47935724039883,
+                                "alpha": 1,
+                                "rotation1": 0.6,
+                                "rotation2": 0.6,
+                                "map": "4",
+                                "iterations": 0,
+                                "scaleMin": 1,
+                                "scaleMax": 1,
+                                "scalePeriod": 1
+                            },
+                            "radius": 0.25,
+                            "orbitalMin": 1,
+                            "orbitalMax": 5,
+                            "orbitalFactor": 1
+                        },
+                        "show_label": "1",
+                        "show_orbitlines": "0",
+                        "size": "1056325.26964000",
+                        "subtype_id": "62",
+                        "time_modified": "2015-10-10 04:35:53",
+                        "type": "STAR",
+                        "subtype": {
+                            "id": "62",
+                            "name": "Main Sequence-Dwarf-A",
+                            "type": "STAR"
+                        },
+                        "affiliation": [],
+                        "population": []
+                    },
+                    {
+                        "id": "2504",
+                        "age": null,
+                        "appearance": "PLANET_BROWN",
+                        "axial_tilt": null,
+                        "code": "TAL.PLANET.TALI",
+                        "description": "A mesoplanet with a surface pockmarked by craters from mining probes. Though attempts have been made, no resources have yet been discovered.",
+                        "designation": "Tal I",
+                        "distance": "0.64000000",
+                        "fairchanceact": null,
+                        "habitable": null,
+                        "info_url": null,
+                        "latitude": null,
+                        "longitude": "12.23469000",
+                        "name": null,
+                        "orbit_period": null,
+                        "parent_id": "2213",
+                        "sensor_danger": "3",
+                        "sensor_economy": "1",
+                        "sensor_population": "1",
+                        "shader_data": null,
+                        "show_label": "1",
+                        "show_orbitlines": "1",
+                        "size": "1135.34890000",
+                        "subtype_id": "43",
+                        "time_modified": "2018-01-27 01:39:51",
+                        "type": "PLANET",
+                        "subtype": {
+                            "id": "43",
+                            "name": "Mesoplanet",
+                            "type": "PLANET"
+                        },
+                        "affiliation": [
+                            {
+                                "id": "4",
+                                "code": "XIAN",
+                                "color": "#52c231",
+                                "name": "Xi'An",
+                                "membership.id": "3032"
+                            }
+                        ],
+                        "population": [],
+                        "texture": {
+                            "slug": "jnd5qqer9z13g",
+                            "source": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/source/Planet_Rocky.jpg",
+                            "images": {
+                                "post": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/post/Planet_Rocky.jpg",
+                                "product_thumb_large": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/product_thumb_large/Planet_Rocky.jpg",
+                                "subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/subscribers_vault_thumbnail/Planet_Rocky.jpg"
+                            }
+                        }
+                    },
+                    {
+                        "id": "2505",
+                        "age": null,
+                        "appearance": "PLANET_GAS",
+                        "axial_tilt": null,
+                        "code": "TAL.PLANET.TALIIOLISHA",
+                        "description": "Oli\u2019Sha is the system\u2019s technology hub. Its factories produce some of the most advanced ship parts in the universe. This terraformed terrestrial world has earned the nickname \u201cThe Hive\u201d by Human visitors due to all the buildings being accented in yellow.  ",
+                        "designation": "Tal II",
+                        "distance": "3.06000000",
+                        "fairchanceact": null,
+                        "habitable": "1",
+                        "info_url": null,
+                        "latitude": null,
+                        "longitude": "256.45000000",
+                        "name": "Oli'Sha",
+                        "orbit_period": null,
+                        "parent_id": "2213",
+                        "sensor_danger": "5",
+                        "sensor_economy": "8",
+                        "sensor_population": "5",
+                        "shader_data": null,
+                        "show_label": "1",
+                        "show_orbitlines": "1",
+                        "size": "6051.00000000",
+                        "subtype_id": "55",
+                        "time_modified": "2018-01-27 01:40:46",
+                        "type": "PLANET",
+                        "subtype": {
+                            "id": "55",
+                            "name": "Terrestrial Rocky",
+                            "type": "PLANET"
+                        },
+                        "affiliation": [
+                            {
+                                "id": "4",
+                                "code": "XIAN",
+                                "color": "#52c231",
+                                "name": "Xi'An",
+                                "membership.id": "3033"
+                            }
+                        ],
+                        "population": [],
+                        "texture": {
+                            "slug": "duxhoei3b7nnm",
+                            "source": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/source/Planet_EarthLike.jpg",
+                            "images": {
+                                "post": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/post/Planet_EarthLike.jpg",
+                                "product_thumb_large": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/product_thumb_large/Planet_EarthLike.jpg",
+                                "subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/subscribers_vault_thumbnail/Planet_EarthLike.jpg"
+                            }
+                        }
+                    },
+                    {
+                        "id": "2506",
+                        "age": null,
+                        "appearance": "PLANET_GREEN",
+                        "axial_tilt": null,
+                        "code": "TAL.PLANET.TALIIILUKSHI",
+                        "description": "Luk\u2019Shi is the Tal System\u2019s cultural heart. Considered the most Human-friendly planet in the system, its vibrant culinary scene and textile industry draws a steady stream of visitors and traders to the planet. The Xi\u2019An also use this naturally habitable world as a major agricultural production planet. Luk\u2019Shi\u2019s precisely cultivated countryside is beautiful to see from space but off-limits to visitors. ",
+                        "designation": "Tal III",
+                        "distance": "3.55000000",
+                        "fairchanceact": null,
+                        "habitable": "1",
+                        "info_url": null,
+                        "latitude": null,
+                        "longitude": "19.26440000",
+                        "name": "Luk'Shi",
+                        "orbit_period": null,
+                        "parent_id": "2213",
+                        "sensor_danger": "6",
+                        "sensor_economy": "7",
+                        "sensor_population": "7",
+                        "shader_data": null,
+                        "show_label": "1",
+                        "show_orbitlines": "1",
+                        "size": "7044.00000000",
+                        "subtype_id": "55",
+                        "time_modified": "2018-01-27 01:41:01",
+                        "type": "PLANET",
+                        "subtype": {
+                            "id": "55",
+                            "name": "Terrestrial Rocky",
+                            "type": "PLANET"
+                        },
+                        "affiliation": [
+                            {
+                                "id": "4",
+                                "code": "XIAN",
+                                "color": "#52c231",
+                                "name": "Xi'An",
+                                "membership.id": "3034"
+                            }
+                        ],
+                        "population": [],
+                        "texture": {
+                            "slug": "duxhoei3b7nnm",
+                            "source": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/source/Planet_EarthLike.jpg",
+                            "images": {
+                                "post": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/post/Planet_EarthLike.jpg",
+                                "product_thumb_large": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/product_thumb_large/Planet_EarthLike.jpg",
+                                "subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/subscribers_vault_thumbnail/Planet_EarthLike.jpg"
+                            }
+                        }
+                    },
+                    {
+                        "id": "2507",
+                        "age": null,
+                        "appearance": "PLANET_GREEN",
+                        "axial_tilt": null,
+                        "code": "TAL.PLANET.TALIVLISHAHVU",
+                        "description": "This naturally habitable terrestrial planet has trace amounts of acid in its atmosphere. For that reason, the Xi\u2019An decided to limit the number of visitors to the planet and place large hydrogen and antimatter processing plants here, making Lishahvu an appealing destination for haulers but few others.",
+                        "designation": "Tal IV",
+                        "distance": "4.65000000",
+                        "fairchanceact": null,
+                        "habitable": "1",
+                        "info_url": null,
+                        "latitude": null,
+                        "longitude": "333.26400000",
+                        "name": "Lishahvu",
+                        "orbit_period": null,
+                        "parent_id": "2213",
+                        "sensor_danger": "3",
+                        "sensor_economy": "8",
+                        "sensor_population": "4",
+                        "shader_data": null,
+                        "show_label": "1",
+                        "show_orbitlines": "1",
+                        "size": "5884.00000000",
+                        "subtype_id": "55",
+                        "time_modified": "2018-01-27 01:41:19",
+                        "type": "PLANET",
+                        "subtype": {
+                            "id": "55",
+                            "name": "Terrestrial Rocky",
+                            "type": "PLANET"
+                        },
+                        "affiliation": [
+                            {
+                                "id": "4",
+                                "code": "XIAN",
+                                "color": "#52c231",
+                                "name": "Xi'An",
+                                "membership.id": "3035"
+                            }
+                        ],
+                        "population": [],
+                        "texture": {
+                            "slug": "duxhoei3b7nnm",
+                            "source": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/source/Planet_EarthLike.jpg",
+                            "images": {
+                                "post": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/post/Planet_EarthLike.jpg",
+                                "product_thumb_large": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/product_thumb_large/Planet_EarthLike.jpg",
+                                "subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/duxhoei3b7nnmr/subscribers_vault_thumbnail/Planet_EarthLike.jpg"
+                            }
+                        }
+                    },
+                    {
+                        "id": "2508",
+                        "age": null,
+                        "appearance": "PLANET_GREEN",
+                        "axial_tilt": null,
+                        "code": "TAL.PLANET.TALVRHIORR",
+                        "description": "Rhiorr is a terraformed terrestrial world with factories churning out advanced weapons for personal and ship armament. Even though it is technically a weapons planet, a strong military presence keeps crime to a minimum.",
+                        "designation": "Tal V",
+                        "distance": "5.25000000",
+                        "fairchanceact": null,
+                        "habitable": "1",
+                        "info_url": null,
+                        "latitude": null,
+                        "longitude": "296.15400000",
+                        "name": "Rhiorr",
+                        "orbit_period": null,
+                        "parent_id": "2213",
+                        "sensor_danger": "2",
+                        "sensor_economy": "7",
+                        "sensor_population": "4",
+                        "shader_data": null,
+                        "show_label": "1",
+                        "show_orbitlines": "1",
+                        "size": "7920.00000000",
+                        "subtype_id": "55",
+                        "time_modified": "2018-01-27 01:41:33",
+                        "type": "PLANET",
+                        "subtype": {
+                            "id": "55",
+                            "name": "Terrestrial Rocky",
+                            "type": "PLANET"
+                        },
+                        "affiliation": [
+                            {
+                                "id": "4",
+                                "code": "XIAN",
+                                "color": "#52c231",
+                                "name": "Xi'An",
+                                "membership.id": "3036"
+                            }
+                        ],
+                        "population": []
+                    },
+                    {
+                        "id": "2509",
+                        "age": null,
+                        "appearance": "PLANET_BROWN",
+                        "axial_tilt": null,
+                        "code": "TAL.PLANET.TALVI",
+                        "description": "This super-Earth is too far away from the system\u2019s star to sustain life, so since habitation was not an option, the planet\u2019s vast resources reportedly have been mined clean by the Xi\u2019An. Over the previous centuries its mineral deposits have provided resources for factories and facilities all around Tal.  ",
+                        "designation": "Tal VI",
+                        "distance": "8.36000000",
+                        "fairchanceact": null,
+                        "habitable": null,
+                        "info_url": null,
+                        "latitude": null,
+                        "longitude": "198.54800000",
+                        "name": null,
+                        "orbit_period": null,
+                        "parent_id": "2213",
+                        "sensor_danger": "6",
+                        "sensor_economy": "3",
+                        "sensor_population": "1",
+                        "shader_data": null,
+                        "show_label": "1",
+                        "show_orbitlines": "1",
+                        "size": "11048.00000000",
+                        "subtype_id": "38",
+                        "time_modified": "2018-01-27 01:41:48",
+                        "type": "PLANET",
+                        "subtype": {
+                            "id": "38",
+                            "name": "Super-Earth",
+                            "type": "PLANET"
+                        },
+                        "affiliation": [
+                            {
+                                "id": "4",
+                                "code": "XIAN",
+                                "color": "#52c231",
+                                "name": "Xi'An",
+                                "membership.id": "3037"
+                            }
+                        ],
+                        "population": [],
+                        "texture": {
+                            "slug": "jnd5qqer9z13g",
+                            "source": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/source/Planet_Rocky.jpg",
+                            "images": {
+                                "post": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/post/Planet_Rocky.jpg",
+                                "product_thumb_large": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/product_thumb_large/Planet_Rocky.jpg",
+                                "subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/jnd5qqer9z13gr/subscribers_vault_thumbnail/Planet_Rocky.jpg"
+                            }
+                        }
+                    },
+                    {
+                        "id": "2510",
+                        "age": null,
+                        "appearance": "PLANET_GAS",
+                        "axial_tilt": null,
+                        "code": "TAL.PLANET.TALVII",
+                        "description": "A prismatic gas giant with four thick, colored bands of rolling clouds. The colors assigned to each of Tal\u2019s inhabited planets come from the colors of these clouds. ",
+                        "designation": "Tal VII",
+                        "distance": "10.96000000",
+                        "fairchanceact": null,
+                        "habitable": null,
+                        "info_url": null,
+                        "latitude": null,
+                        "longitude": "245.14560000",
+                        "name": null,
+                        "orbit_period": null,
+                        "parent_id": "2213",
+                        "sensor_danger": "4",
+                        "sensor_economy": "2",
+                        "sensor_population": "1",
+                        "shader_data": null,
+                        "show_label": "1",
+                        "show_orbitlines": "1",
+                        "size": "59887.00000000",
+                        "subtype_id": "23",
+                        "time_modified": "2018-01-27 01:42:04",
+                        "type": "PLANET",
+                        "subtype": {
+                            "id": "23",
+                            "name": "Gas Giant",
+                            "type": "PLANET"
+                        },
+                        "affiliation": [
+                            {
+                                "id": "4",
+                                "code": "XIAN",
+                                "color": "#52c231",
+                                "name": "Xi'An",
+                                "membership.id": "3038"
+                            }
+                        ],
+                        "population": [],
+                        "texture": {
+                            "slug": "zpx9bq69vunys",
+                            "source": "https://robertsspaceindustries.com/media/zpx9bq69vunysr/source/Planet_Chromatic.jpg",
+                            "images": {
+                                "post": "https://robertsspaceindustries.com/media/zpx9bq69vunysr/post/Planet_Chromatic.jpg",
+                                "product_thumb_large": "https://robertsspaceindustries.com/media/zpx9bq69vunysr/product_thumb_large/Planet_Chromatic.jpg",
+                                "subscribers_vault_thumbnail": "https://robertsspaceindustries.com/media/zpx9bq69vunysr/subscribers_vault_thumbnail/Planet_Chromatic.jpg"
+                            }
+                        }
+                    },
+                    {
+                        "id": "2834",
+                        "age": null,
+                        "appearance": null,
+                        "axial_tilt": null,
+                        "code": "TAL.JUMPPOINT.AILKA",
+                        "description": "Jump Point",
+                        "designation": "T.\u0101l - Ail'ka",
+                        "distance": "8.00000000",
+                        "fairchanceact": null,
+                        "habitable": null,
+                        "info_url": null,
+                        "latitude": "1.00000000",
+                        "longitude": "120.00000000",
+                        "name": null,
+                        "orbit_period": null,
+                        "parent_id": "2213",
+                        "sensor_danger": "0",
+                        "sensor_economy": "0",
+                        "sensor_population": "0",
+                        "shader_data": null,
+                        "show_label": "1",
+                        "show_orbitlines": null,
+                        "size": null,
+                        "subtype_id": null,
+                        "time_modified": "2022-01-26 23:45:44",
+                        "type": "JUMPPOINT",
+                        "subtype": null,
+                        "affiliation": [],
+                        "population": []
+                    }
+                ],
+                "aggregated_size": "11.50000000",
+                "aggregated_population": 8.86,
+                "aggregated_economy": 4.19,
+                "aggregated_danger": 0
+            }
+        ]
+    }
 }

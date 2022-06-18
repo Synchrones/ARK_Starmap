@@ -4,14 +4,20 @@ using UnityEngine;
 using TMPro;
 
 
-// TODO: (main TODO) : add starting screen, complete infoboxs & disk, fix space stations generation, left click on system to enter, quick zoom with middle mouse button
+// TODO: (main TODO) : add starting screen, fix space stations generation, left click on system to enter, quick zoom with middle mouse button
 /* TODO: (bug fixes) : 
-    -orbit look bad when looking at a planet far from the star
     -planet hitbox overlap when to close (see Kilian) 
     -reduce performance impact of the starbox? 
     -oberon star is... small
     -unknow Co type "POI" (vega Vanduul attack)
-    -hover gizmo is sometimes too large
+    -entering sustem put the camera inside the star when it is too big
+*/
+/* TODO: (graphics) :
+    -orbit look bad when looking at a planet far from the star
+    -rework star shader (colors, animations, "corona"...)
+    -fix hover gizmo (see Castra)
+    -planets don't have the correct texture (see Cascom) +
+    -add green band and frost band
 */
 public class StarSystemsScript : MonoBehaviour
 {
