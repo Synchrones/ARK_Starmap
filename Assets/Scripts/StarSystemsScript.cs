@@ -11,13 +11,16 @@ using TMPro;
     -oberon star is... small
     -unknow Co type "POI" (vega Vanduul attack)
     -entering sustem put the camera inside the star when it is too big
+    -landing zones don't rotate with the planets
 */
 /* TODO: (graphics) :
     -orbit look bad when looking at a planet far from the star
     -rework star shader (colors, animations, "corona"...)
     -fix hover gizmo (see Castra)
-    -planets don't have the correct texture (see Cascom) +
+    -planets don't have the correct texture (see Cascom) + add colors + fix planets models (thin lines)
     -add green band and frost band
+    -change starbox (special starbox in system that moves with camera)
+    -add systems parameters (special colors, starfield...)
 */
 public class StarSystemsScript : MonoBehaviour
 {

@@ -43,6 +43,8 @@ public class CameraScript : MonoBehaviour
     bool isZoomSoundPlaying;
     bool isRotateSoundPlaying;
     
+    //Other
+    public GameObject spacebox;
 
     void Start()
     {
@@ -158,6 +160,8 @@ public class CameraScript : MonoBehaviour
         transform.position = center + cameraOffset;
         displacementSpeed = cameraOffset.magnitude / 15;
         transform.LookAt(center);
+
+        spacebox.transform.position = transform.position;
 
         if(hitUI)
         {
