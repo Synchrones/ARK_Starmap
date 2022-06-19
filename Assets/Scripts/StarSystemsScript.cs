@@ -35,6 +35,7 @@ public class StarSystemsScript : MonoBehaviour
     public GameObject selectedObject;
     public GameObject UIContainer;
     public GameObject systemName;
+    public GameObject spaceBoxColor;
     AudioManagerScript AudioManager;
     bool hasHitSoundPlayed;
     public GameObject HoverGizmo;
@@ -362,6 +363,7 @@ public class StarSystemsScript : MonoBehaviour
         mainCamera.GetComponent<CameraScript>().ExitSystem(selectedSystem);
         AudioManager.stop("SystemAmbient");
         systemName.SetActive(false);
+        spaceBoxColor.GetComponent<MeshRenderer>().material.color = new Color(0,0,0,0);
     }
 
     private Vector3 QuadradicCurve(Vector3 a, Vector3 b, Vector3 c, float t)

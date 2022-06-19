@@ -7,6 +7,7 @@ public class StarSystemGeneration : MonoBehaviour
 {
     public GameObject SSContentPrefab;
     public GameObject starPrefab;
+    public GameObject spaceBoxColorsGO;
 
     //Planets
     public GameObject bluePlanetPrefab;
@@ -512,6 +513,10 @@ public class StarSystemGeneration : MonoBehaviour
                 celestialObjectList.Add(celestialGO);
                 
             }
+            Color spaceColor;
+            ColorUtility.TryParseHtmlString(systemContent.shader_data.lightColor, out spaceColor);
+            spaceColor.a = 0.05f;
+            spaceBoxColorsGO.GetComponent<MeshRenderer>().material.color = spaceColor;
         }
     }
 
@@ -538,6 +543,7 @@ public class StarSystemGeneration : MonoBehaviour
     {
         public string name;
         public string type;
+        public ShaderData shader_data;
         public Children[] children;
         public CelestialObject[] celestial_objects;
 
@@ -604,6 +610,7 @@ public class StarSystemGeneration : MonoBehaviour
     {
         public StarDatas sun;
         public float radius;
+        public string lightColor;
     }
 
     [System.Serializable]
