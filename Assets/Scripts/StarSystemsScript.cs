@@ -201,7 +201,7 @@ public class StarSystemsScript : MonoBehaviour
             if(tunnel.size == "M")
             {
                 jumpPoint.size = "MEDIUM";
-                line.material.color = line.material.color - new Color32(248, 171, 83, 14);
+                line.material.SetColor("_MainColor", new Color32(188, 117, 83, 14));
             }
             if(tunnel.size == "S")
             {

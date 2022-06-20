@@ -161,7 +161,8 @@ public class CameraScript : MonoBehaviour
         displacementSpeed = cameraOffset.magnitude / 15;
         transform.LookAt(center);
 
-        spacebox.transform.position = transform.position;
+        spacebox.transform.position = center;
+        spacebox.transform.localScale = new Vector3(cameraOffset.magnitude / 2, cameraOffset.magnitude / 2, cameraOffset.magnitude / 2);
 
         if(hitUI)
         {
