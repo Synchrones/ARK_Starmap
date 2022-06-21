@@ -1,14 +1,22 @@
+// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+
+// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+
+// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+
+// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+
+// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+
 Shader "Unlit/DiscMaskShader"
 {
-    Properties
-    {
-        _MainTex ("Texture", 2D) = "white" {}
-    }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags {"Queue"="Transparent" "RenderType"="Transparent" }
         LOD 100
 
+        ZWrite Off
+        Blend SrcAlpha OneMinusSrcAlpha 
         Pass
         {
             CGPROGRAM
@@ -20,30 +28,38 @@ Shader "Unlit/DiscMaskShader"
             struct appdata
             {
                 float4 vertex : POSITION;
-                float2 uv : TEXCOORD0;
             };
 
             struct v2f
             {
-                float2 uv : TEXCOORD0;
                 float4 vertex : SV_POSITION;
+                float distanceFromOrigin : TEXCOORD0;
             };
 
-            sampler2D _MainTex;
-            float4 _MainTex_ST;
+            float3 objectOrigin;
+            float3 vertexPos;
 
             v2f vert (appdata v)
             {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
-                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+                objectOrigin = mul(unity_ObjectToWorld, float4(0,0,0,1)).xyz;
+                vertexPos = mul(unity_ObjectToWorld, float4(float3(v.vertex.x, v.vertex.y, v.vertex.z), 1)).xyz;
+                o.distanceFromOrigin = distance(float3(objectOrigin.x - vertexPos.x, objectOrigin.y - vertexPos.y, objectOrigin.z - vertexPos.z), float3(0,0,0));
                 return o;
             }
 
             fixed4 frag (v2f i) : SV_Target
             {
-                // sample the texture
-                fixed4 col = tex2D(_MainTex, i.uv);
+                fixed4 col;
+                if(i.distanceFromOrigin > 10 && i.distanceFromOrigin < 20)
+                {
+                    col = fixed4(1,1,1,1);
+                }
+                else
+                {
+                    col = fixed4(1,1,1,0);
+                }
                 return col;
             }
             ENDCG
