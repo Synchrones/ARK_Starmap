@@ -1,19 +1,19 @@
-// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
-
-// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
-
-// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
-
-// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
-
-// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
-
 Shader "Unlit/DiscMaskShader"
 {
+     Properties
+    {
+        _GreenBandColor("Green Band Color", Color) = (0,1,0,0.1)
+        _FrostBandColor("Frost Band Color", Color) = (0,0,1,0.1)
+        _GreenBandStart("Green Band Start", Float) = 1
+        _GreenBandEnd("Green Band End", Float) = 2
+        _FrostBandPos("Frost Band Pos", Float) = 5
+    }
+
     SubShader
     {
         Tags {"Queue"="Transparent" "RenderType"="Transparent" }
         LOD 100
+        Cull Off
 
         ZWrite Off
         Blend SrcAlpha OneMinusSrcAlpha 
@@ -49,16 +49,48 @@ Shader "Unlit/DiscMaskShader"
                 return o;
             }
 
+            float4 _GreenBandColor;
+            float4 _FrostBandColor;
+
+            float _GreenBandStart;
+            float _GreenBandEnd;
+            float _FrostBandPos;
+
+            float _FrostBandEnd;
+
             fixed4 frag (v2f i) : SV_Target
             {
-                fixed4 col;
-                if(i.distanceFromOrigin > 10 && i.distanceFromOrigin < 20)
+                fixed4 col = fixed4(1,1,1,0);
+                _FrostBandEnd = clamp(_FrostBandPos / 3, 5, 50);
+                if(i.distanceFromOrigin > _GreenBandStart && i.distanceFromOrigin < _GreenBandEnd)
                 {
-                    col = fixed4(1,1,1,1);
+                    col = _GreenBandColor;
+                    col.a = 0.05;
                 }
-                else
+                else if(i.distanceFromOrigin > _GreenBandStart - 0.2 && i.distanceFromOrigin < _GreenBandStart)
                 {
-                    col = fixed4(1,1,1,0);
+                    col = _GreenBandColor;
+                    col.a = (i.distanceFromOrigin - (_GreenBandStart - 0.2)) / 4;
+                }
+                else if(i.distanceFromOrigin > _GreenBandEnd && i.distanceFromOrigin < _GreenBandEnd + 0.2)
+                {
+                    col = _GreenBandColor;
+                    col.a = (_GreenBandEnd + 0.2 - i.distanceFromOrigin) / 4;
+                }
+                else if(i.distanceFromOrigin > _FrostBandPos && i.distanceFromOrigin < _FrostBandPos + 0.1)
+                {
+                    col = _FrostBandColor;
+                    col.a = 0.05;
+                }
+                else if(i.distanceFromOrigin > _FrostBandPos - 0.2 && i.distanceFromOrigin < _FrostBandPos )
+                {
+                    col = _FrostBandColor;
+                    col.a = (i.distanceFromOrigin - (_FrostBandPos - 0.2)) / 4;
+                }
+                else if(i.distanceFromOrigin > _FrostBandPos && i.distanceFromOrigin < _FrostBandPos + _FrostBandEnd)
+                {
+                    col = _FrostBandColor;
+                    col.a = (_FrostBandPos + _FrostBandEnd - i.distanceFromOrigin) / (20 * _FrostBandEnd);
                 }
                 return col;
             }

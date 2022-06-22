@@ -8,6 +8,7 @@ public class StarSystemGeneration : MonoBehaviour
     public GameObject SSContentPrefab;
     public GameObject starPrefab;
     public GameObject spaceBoxColorsGO;
+    public GameObject bandPrefab;
 
     //Planets
     public GameObject bluePlanetPrefab;
@@ -517,6 +518,15 @@ public class StarSystemGeneration : MonoBehaviour
             ColorUtility.TryParseHtmlString(systemContent.shader_data.lightColor, out spaceColor);
             spaceColor.a = 0.05f;
             spaceBoxColorsGO.GetComponent<MeshRenderer>().material.color = spaceColor;
+
+            GameObject greenFrostBands = Instantiate(bandPrefab, starSystem.transform.position, Quaternion.identity);
+            greenFrostBands.transform.parent = SSContentGO.transform;
+            greenFrostBands.transform.Rotate(Vector3.right, 90);
+            greenFrostBands.transform.localScale *= systemContent.frost_line;
+            Material greenFrostBandsDatas = greenFrostBands.GetComponent<MeshRenderer>().material;
+            greenFrostBandsDatas.SetFloat("_GreenBandStart", systemContent.habitable_zone_inner);
+            greenFrostBandsDatas.SetFloat("_GreenBandEnd", systemContent.habitable_zone_outer);
+            greenFrostBandsDatas.SetFloat("_FrostBandPos", systemContent.frost_line);
         }
     }
 
@@ -543,6 +553,9 @@ public class StarSystemGeneration : MonoBehaviour
     {
         public string name;
         public string type;
+        public float frost_line;
+        public float habitable_zone_inner;
+        public float habitable_zone_outer;
         public ShaderData shader_data;
         public Children[] children;
         public CelestialObject[] celestial_objects;
