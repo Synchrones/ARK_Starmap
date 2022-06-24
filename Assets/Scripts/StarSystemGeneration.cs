@@ -204,9 +204,9 @@ public class StarSystemGeneration : MonoBehaviour
                         celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Sin(latitude), distance * Mathf.Sin(longitude));
                         celestialGO.transform.GetChild(0).transform.Rotate(Vector3.forward, celestialObject.axial_tilt);
                         celestialGO.transform.GetChild(1).transform.Rotate(Vector3.forward, celestialObject.axial_tilt);
-                        celestialGO.transform.localScale /= 30;
+                        celestialGO.transform.localScale /= 45;
                         celestialGO.layer = 6;
-                        celestialGO.AddComponent<SphereCollider>().radius = 2;
+                        celestialGO.AddComponent<SphereCollider>().radius = 1.5f;
 
                         drawOrbit(celestialGO, starSystem, celestialObject, distance);
 
@@ -522,7 +522,7 @@ public class StarSystemGeneration : MonoBehaviour
             GameObject greenFrostBands = Instantiate(bandPrefab, starSystem.transform.position, Quaternion.identity);
             greenFrostBands.transform.parent = SSContentGO.transform;
             greenFrostBands.transform.Rotate(Vector3.right, 90);
-            greenFrostBands.transform.localScale *= systemContent.frost_line;
+            greenFrostBands.transform.localScale *= systemContent.frost_line + 5;
             Material greenFrostBandsDatas = greenFrostBands.GetComponent<MeshRenderer>().material;
             greenFrostBandsDatas.SetFloat("_GreenBandStart", systemContent.habitable_zone_inner);
             greenFrostBandsDatas.SetFloat("_GreenBandEnd", systemContent.habitable_zone_outer);
@@ -703,92 +703,67 @@ public class StarSystemGeneration : MonoBehaviour
             case "8nd3j4zcsqfmz":
                 sphereRenderer.material.mainTexture = smogPlanetTexture;
                 break;
+
             case "p47vvencfylfl":
                 sphereRenderer.material.mainTexture = carbonPlanetTexture;
                 break;
-        }
 
-        //Stanton
-        if (systemName == "Stanton")
-        {
-            switch (texture)
-            {
-                case "frurip2hsngx8":
-                    sphereRenderer.material.mainTexture = hurstonTexture;
-                    break;
+            case "frurip2hsngx8":
+                sphereRenderer.material.mainTexture = hurstonTexture;
+                break;
 
-                case "qzf7kii1vu7k7":
-                    sphereRenderer.material.mainTexture = crusaderTexture;
-                    break;
+            case "qzf7kii1vu7k7":
+                sphereRenderer.material.mainTexture = crusaderTexture;
+                break;
 
-                case "2wkohq7v67kco":
-                    sphereRenderer.material.mainTexture = arccorpTexture;
-                    break;
-
-                case "l0arnhgmoajuy":
-                    sphereRenderer.material.mainTexture = microtechTexture;
-                    break;
-            }
-        }
-
-        //Sol
-        if (systemName == "Sol")
-        {
-            switch (texture)
-            {
-                case "vx5nehwypz25d":
-                    sphereRenderer.material.mainTexture = mercuryTexture;
-                    break;
-
-                case "j8qfxa304mrco":
-                    sphereRenderer.material.mainTexture = venusTexture;
-                    break;
-
-                case "5dvd8cognsxbg":
-                    sphereRenderer.material.mainTexture = earthTexture;
-                    break;
-
-                case "7wes0jfwwl1bc":
-                    sphereRenderer.material.mainTexture = marsTexture;
-                    break;
-
-                case "yyxagrxfet5z8":
-                    sphereRenderer.material.mainTexture = jupiterTexture;
-                    break;
-
-                case "ps9wli4v169nb":
-                    sphereRenderer.material.mainTexture = saturnTexture;
-                    break;
-
-                case "0jumx7t0c3ytz":
-                    sphereRenderer.material.mainTexture = uranusTexture;
-                    break;
-
-                case "94je2ho8w8fbe":
-                    sphereRenderer.material.mainTexture = neptuneTexture;
-                    break;
-
-                case "pmfkvj1mwmq2z":
-                    sphereRenderer.material.mainTexture = plutoTexture;
-                    break;
-
-                case "9g2xvstat60bi":
-                    sphereRenderer.material.mainTexture = moonTexture;
-                    break;   
-            }
-        }
-        if(systemName == "Terra") //a moon in the Terra system has pluto texture, another has the Arccorp one... ¯\_(ツ)_/¯
-        {
-            if (texture == "pmfkvj1mwmq2z")
-            {
-                sphereRenderer.material.mainTexture = plutoTexture;
-            }
-            if (texture == "2wkohq7v67kco")
-            {
+            case "2wkohq7v67kco":
                 sphereRenderer.material.mainTexture = arccorpTexture;
-            }
-        }
+                break;
 
+            case "l0arnhgmoajuy":
+                sphereRenderer.material.mainTexture = microtechTexture;
+                break;
+            
+            case "vx5nehwypz25d":
+                sphereRenderer.material.mainTexture = mercuryTexture;
+                break;
+
+            case "j8qfxa304mrco":
+                sphereRenderer.material.mainTexture = venusTexture;
+                break;
+
+            case "5dvd8cognsxbg":
+                sphereRenderer.material.mainTexture = earthTexture;
+                break;
+
+            case "7wes0jfwwl1bc":
+                sphereRenderer.material.mainTexture = marsTexture;
+                break;
+
+            case "yyxagrxfet5z8":
+                sphereRenderer.material.mainTexture = jupiterTexture;
+                break;
+
+            case "ps9wli4v169nb":
+                sphereRenderer.material.mainTexture = saturnTexture;
+                break;
+
+            case "0jumx7t0c3ytz":
+                sphereRenderer.material.mainTexture = uranusTexture;
+                break;
+
+            case "94je2ho8w8fbe":
+                sphereRenderer.material.mainTexture = neptuneTexture;
+                break;
+
+            case "pmfkvj1mwmq2z":
+                sphereRenderer.material.mainTexture = plutoTexture;
+                break;
+
+            case "9g2xvstat60bi":
+                sphereRenderer.material.mainTexture = moonTexture;
+                break;  
+        }
         return celestialGO;
     }
 

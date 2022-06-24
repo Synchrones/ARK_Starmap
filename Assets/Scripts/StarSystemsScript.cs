@@ -12,6 +12,7 @@ using TMPro;
     -unknow Co type "POI" (vega Vanduul attack)
     -entering sustem put the camera inside the star when it is too big
     -landing zones don't rotate with the planets
+    -systems looks bigger when on the side of the screen
 */
 /* TODO: (graphics) :
     -orbit look bad when looking at a planet far from the star
