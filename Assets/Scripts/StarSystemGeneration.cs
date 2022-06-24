@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-//TODO : Add green and frost band
 public class StarSystemGeneration : MonoBehaviour
 {
     public GameObject SSContentPrefab;

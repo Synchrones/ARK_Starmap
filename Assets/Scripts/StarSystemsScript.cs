@@ -37,6 +37,7 @@ public class StarSystemsScript : MonoBehaviour
     public GameObject UIContainer;
     public GameObject systemName;
     public GameObject spaceBoxColor;
+    public GameObject starPrefab;
     AudioManagerScript AudioManager;
     bool hasHitSoundPlayed;
     public GameObject HoverGizmo;
@@ -213,6 +214,8 @@ public class StarSystemsScript : MonoBehaviour
             jumpPointList.Add(jumpPoint);
             
         }
+        StarFieldGenerator starFieldGenerator = gameObject.AddComponent<StarFieldGenerator>();
+        starFieldGenerator.generateStarField(new Vector3(0, 0, 0), 600, 2000, 1, 1, starPrefab, "rgb(122,122,122)", "rgb(150,180,207)");
         
         cameraMode = 0;
         areTunnelsActives = true;
