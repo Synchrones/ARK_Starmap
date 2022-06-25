@@ -51,6 +51,7 @@ public class StarSystemsScript : MonoBehaviour
     public Sprite UNCSprite;
 
     public Material tunnelMaterial;
+    public Material starFieldMaterial;
 
     public int layerMask;
     
@@ -215,7 +216,7 @@ public class StarSystemsScript : MonoBehaviour
             
         }
         StarFieldGenerator starFieldGenerator = gameObject.AddComponent<StarFieldGenerator>();
-        starFieldGenerator.generateStarField(new Vector3(0, 0, 0), 600, 2000, 1, 1, starPrefab, "rgb(122,122,122)", "rgb(150,180,207)");
+        starFieldGenerator.generateStarField(new Vector3(0, 0, 0), 600, 2000, "rgb(122,122,122)", "rgb(150,180,207)", starFieldMaterial);
         
         cameraMode = 0;
         areTunnelsActives = true;
