@@ -38,6 +38,7 @@ public class StarSystemGeneration : MonoBehaviour
     public GameObject namePrefab;
 
     public Material orbitMaterial;
+    public Material starFieldMaterial;
 
     //planet textures
     public Texture carbonPlanetTexture;
@@ -139,31 +140,8 @@ public class StarSystemGeneration : MonoBehaviour
                         starMaterialInner.mainTexture = (Texture)this.GetType().GetField("starTexture" + (string)starDatas.map).GetValue(this);
                         starMaterialOuter.mainTexture = (Texture)this.GetType().GetField("starTexture" + (string)starDatas.map).GetValue(this);
                         
-                        if(starDatas.color1.Length > 7)
-                        {
-                            string parsedColor1 = starDatas.color1.Split('(', ')')[1];
-                            starMaterialOuter.SetColor("_Color", new Color32(byte.Parse(parsedColor1.Split(',')[0]), byte.Parse(parsedColor1.Split(',')[1]), byte.Parse(parsedColor1.Split(',')[2]), 255));
-                        }
-                        else
-                        {
-                            Color color1;
-                            ColorUtility.TryParseHtmlString(starDatas.color1, out color1);
-                            starMaterialOuter.color = color1;
-                        }
-                        if(starDatas.color2.Length > 7)
-                        {
-                            string parsedColor2 = starDatas.color2.Split('(', ')')[1];
-                            starMaterialInner.SetColor("_Color", new Color32(byte.Parse(parsedColor2.Split(',')[0]), byte.Parse(parsedColor2.Split(',')[1]), byte.Parse(parsedColor2.Split(',')[2]), 255));
-                        }
-                        else
-                        {
-                            Color color2;
-                            ColorUtility.TryParseHtmlString(starDatas.color2, out color2);
-                            starMaterialInner.color = color2;
-                        }
-                        
-                        
-                        
+                        starMaterialOuter.SetColor("_Color", parseColor(starDatas.color1));
+                        starMaterialInner.SetColor("_Color", parseColor(starDatas.color2));
                         
                         StarScript starScript = celestialGO.AddComponent<StarScript>();
                         starScript.starTexture = (Texture2D)starMaterialOuter.mainTexture;
@@ -526,6 +504,12 @@ public class StarSystemGeneration : MonoBehaviour
             greenFrostBandsDatas.SetFloat("_GreenBandStart", systemContent.habitable_zone_inner);
             greenFrostBandsDatas.SetFloat("_GreenBandEnd", systemContent.habitable_zone_outer);
             greenFrostBandsDatas.SetFloat("_FrostBandPos", systemContent.frost_line);
+
+
+            StarFieldGenerator starFieldGenerator = gameObject.GetComponent<StarFieldGenerator>();
+            StarFieldData starFieldData = systemContent.shader_data.starfield;
+            GameObject starField = starFieldGenerator.generateStarField(SSContentGO.transform.position, starFieldData.radius, starFieldData.count, parseColor(starFieldData.color1), parseColor(starFieldData.color2), starFieldMaterial);
+            starField.transform.parent = SSContentGO.transform;
         }
     }
 
@@ -621,8 +605,18 @@ public class StarSystemGeneration : MonoBehaviour
     public class ShaderData
     {
         public StarDatas sun;
+        public StarFieldData starfield;
         public float radius;
         public string lightColor;
+    }
+
+    [System.Serializable]
+    public class StarFieldData
+    {
+        public float radius;
+        public float count;
+        public string color1;
+        public string color2;
     }
 
     [System.Serializable]
@@ -814,5 +808,20 @@ public class StarSystemGeneration : MonoBehaviour
         appaerence.rescalingCircleGO = InfosGO.transform.GetChild(0).gameObject;
         appaerence.rescalingCircleGO.transform.rotation = Quaternion.Euler(90, 0, 0);
         NameGO.GetComponent<TextMeshPro>().text = "<color=#19e8ff>" + name + "<br><color=#33528C><size=90%>" + celestialObject.type;
+    }
+
+    private Color32 parseColor(string color)
+    {
+        if(color.Length > 7)
+        {
+            string parsedColor = color.Split('(', ')')[1];
+            return new Color(int.Parse(parsedColor.Split(',')[0]), int.Parse(parsedColor.Split(',')[1]), int.Parse(parsedColor.Split(',')[2]), 1);
+        }
+        else
+        {
+            Color parsedColor;
+            ColorUtility.TryParseHtmlString(color, out parsedColor);
+            return parsedColor;
+        }
     }
 }

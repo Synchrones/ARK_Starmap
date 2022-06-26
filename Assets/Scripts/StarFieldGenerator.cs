@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class StarFieldGenerator : MonoBehaviour
 {
-    public void generateStarField(Vector3 pos, int radius, float count, string color1, string color2, Material starFieldMaterial)
+    public GameObject generateStarField(Vector3 pos, float radius, float count, Color color1, Color color2, Material starFieldMaterial)
     {
         GameObject starFieldContainer = new GameObject();
         for (int i = 0; i < 2; i++)
         {
-            string color;
             Color32 starColor;
-            if(i == 0) color = color1.Substring(4, 11);
-            else color = color2.Substring(4, 11);
-            starColor = new Color(int.Parse(color.Split(',')[0]), int.Parse(color.Split(',')[1]), int.Parse(color.Split(',')[2]), 1);
+            if(i == 0) starColor = color1;
+            else starColor = color2;
 
             GameObject starField = new GameObject();
             starField.name = "Star Field";
@@ -36,5 +34,6 @@ public class StarFieldGenerator : MonoBehaviour
             meshRenderer.material.SetColor("_Color", starColor);
             starField.transform.parent = starFieldContainer.transform;
         }
+        return starFieldContainer;
     }
 }

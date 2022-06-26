@@ -215,8 +215,8 @@ public class StarSystemsScript : MonoBehaviour
             jumpPointList.Add(jumpPoint);
             
         }
-        StarFieldGenerator starFieldGenerator = gameObject.AddComponent<StarFieldGenerator>();
-        starFieldGenerator.generateStarField(new Vector3(0, 0, 0), 600, 2000, "rgb(122,122,122)", "rgb(150,180,207)", starFieldMaterial);
+        StarFieldGenerator starFieldGenerator = gameObject.GetComponent<StarFieldGenerator>();
+        starFieldGenerator.generateStarField(new Vector3(0, 0, 0), 600, 2000, new Color32(122, 122, 122, 255), new Color32(150, 180, 207, 255), starFieldMaterial);
         
         cameraMode = 0;
         areTunnelsActives = true;

@@ -374,6 +374,7 @@ GameObject:
   - component: {fileID: 195386251}
   - component: {fileID: 195386250}
   - component: {fileID: 195386255}
+  - component: {fileID: 195386256}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -411,6 +412,7 @@ MonoBehaviour:
   DEVSprite: {fileID: 21300000, guid: c65b4579447ffa04eb6dc112c4c19af5, type: 3}
   UNCSprite: {fileID: 21300000, guid: 6e2d015c6be407b46ae7ce0e314db23a, type: 3}
   tunnelMaterial: {fileID: 2100000, guid: 92939818751aeab449b2c91b19d44f8a, type: 2}
+  starFieldMaterial: {fileID: 0}
   layerMask: 0
 --- !u!65 &195386251
 BoxCollider:
@@ -524,6 +526,7 @@ MonoBehaviour:
   landingZonePrefab: {fileID: 6166602872180980032, guid: ca951ac3c098bfd4a9537f893ec38565, type: 3}
   namePrefab: {fileID: 184671552118479241, guid: 56280893376eda341a19bb53add9b0d2, type: 3}
   orbitMaterial: {fileID: 2100000, guid: 245b7d14d5d59bb46ad97385d37f3f4b, type: 2}
+  starFieldMaterial: {fileID: 0}
   carbonPlanetTexture: {fileID: 2800000, guid: a23e625b89522c34cbbc32d52896888c, type: 3}
   chthonianPlanetTexture: {fileID: 2800000, guid: e03d2e03dffb7bc46aaaeb2ed0e484ff, type: 3}
   earthLikePlanetTexture: {fileID: 2800000, guid: 18abe6c9f9a8b2c43b36022dfd753717, type: 3}
@@ -556,6 +559,18 @@ MonoBehaviour:
   starTexture7: {fileID: 2800000, guid: b06df8bfcae0a5f49bad899c546e3613, type: 3}
   starTexture8: {fileID: 2800000, guid: 5a7cc8c806865614d882735ef35d0c5e, type: 3}
   celestialObjectList: []
+--- !u!114 &195386256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195386249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2de17d03ec10244cac919f5ccf5f88c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &205102359
 GameObject:
   m_ObjectHideFlags: 0
@@ -2826,7 +2841,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 190, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 380, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &973512635
@@ -4408,7 +4423,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1038475123 stripped
 Transform:
@@ -5531,7 +5546,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1575502255
 PrefabInstance:
