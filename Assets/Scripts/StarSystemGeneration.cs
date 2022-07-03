@@ -182,7 +182,9 @@ public class StarSystemGeneration : MonoBehaviour
                         celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Sin(latitude), distance * Mathf.Sin(longitude));
                         celestialGO.transform.GetChild(0).transform.Rotate(Vector3.forward, celestialObject.axial_tilt);
                         celestialGO.transform.GetChild(1).transform.Rotate(Vector3.forward, celestialObject.axial_tilt);
-                        celestialGO.transform.localScale /= 45;
+
+                        float planetSize = systemContent.shader_data.planetsSize.min + float.Parse(celestialObject.size, System.Globalization.CultureInfo.InvariantCulture) * 0.000001f;
+                        celestialGO.transform.localScale = new Vector3(planetSize, planetSize, planetSize);
                         celestialGO.layer = 6;
                         celestialGO.AddComponent<SphereCollider>().radius = 1.5f;
 
@@ -613,6 +615,7 @@ public class StarSystemGeneration : MonoBehaviour
     {
         public StarDatas sun;
         public StarFieldData starfield;
+        public PlanetsSize planetsSize;
         public float radius;
         public string lightColor;
     }
@@ -636,6 +639,12 @@ public class StarSystemGeneration : MonoBehaviour
         public float rotation2;
         
 
+    }
+
+    [System.Serializable]
+    public class PlanetsSize
+    {
+        public float min;
     }
 
     [System.Serializable]
