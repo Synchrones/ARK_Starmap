@@ -142,7 +142,8 @@ public class StarSystemGeneration : MonoBehaviour
                         
                         starMaterialOuter.SetColor("_Color", parseColor(starDatas.color1));
                         starMaterialInner.SetColor("_Color", parseColor(starDatas.color2));
-                        
+                        celestialGO.transform.GetChild(2).GetComponent<Light>().color = parseColor(systemContent.shader_data.lightColor);
+
                         StarScript starScript = celestialGO.AddComponent<StarScript>();
                         starScript.starTexture = (Texture2D)starMaterialOuter.mainTexture;
                         starScript.rotation1 = starDatas.rotation1;
@@ -189,6 +190,9 @@ public class StarSystemGeneration : MonoBehaviour
 
                         celestialGO.AddComponent<PlanetScript>();
 
+                        Mesh planetLineMesh = celestialGO.transform.GetChild(0).GetChild(1).GetComponent<MeshFilter>().mesh;
+                        planetLineMesh.SetSubMesh(0, new UnityEngine.Rendering.SubMeshDescriptor(indexStart:0, indexCount:planetLineMesh.GetSubMesh(0).indexCount, topology:MeshTopology.Lines));
+                        
                         if(celestialObject.id == 2026 || celestialObject.id == 2027 || celestialObject.id == 1693 || celestialObject.id == 1694 || celestialObject.id == 1695 || celestialObject.id == 1692 || celestialObject.id == 1723)
                         {
                             SSData planetDatas = JsonUtility.FromJson<SSData>(System.IO.File.ReadAllText(Application.streamingAssetsPath + "/Jsons/Planets/" + celestialObject.name + ".json"));
@@ -199,7 +203,7 @@ public class StarSystemGeneration : MonoBehaviour
                                     if(children.type == "LZ")
                                     {
                                         GameObject LZGO = Instantiate(landingZonePrefab, celestialGO.transform.position, Quaternion.identity);
-                                        LZGO.transform.localScale /= 30;
+                                        LZGO.transform.localScale /= 45;
                                         LZGO.transform.Rotate(-children.latitude, -children.longitude - 90, 0);
                                         LZGO.transform.parent = celestialGO.transform;
                                     }
@@ -238,6 +242,9 @@ public class StarSystemGeneration : MonoBehaviour
                         celestialGO.AddComponent<SphereCollider>().radius = 2;
 
                         celestialGO.AddComponent<PlanetScript>();
+
+                        Mesh moonLineMesh = celestialGO.transform.GetChild(0).GetChild(1).GetComponent<MeshFilter>().mesh;
+                        moonLineMesh.SetSubMesh(0, new UnityEngine.Rendering.SubMeshDescriptor(indexStart:0, indexCount:moonLineMesh.GetSubMesh(0).indexCount, topology:MeshTopology.Lines));
 
                         moonList.Add(new KeyValuePair<GameObject, int>(celestialGO, celestialObject.id));
 
@@ -815,7 +822,7 @@ public class StarSystemGeneration : MonoBehaviour
         if(color.Length > 7)
         {
             string parsedColor = color.Split('(', ')')[1];
-            return new Color(int.Parse(parsedColor.Split(',')[0]), int.Parse(parsedColor.Split(',')[1]), int.Parse(parsedColor.Split(',')[2]), 1);
+            return new Color32(byte.Parse(parsedColor.Split(',')[0]), byte.Parse(parsedColor.Split(',')[1]), byte.Parse(parsedColor.Split(',')[2]), 255);
         }
         else
         {

@@ -13,15 +13,13 @@ using TMPro;
     -entering sustem put the camera inside the star when it is too big
     -landing zones don't rotate with the planets
     -systems looks bigger when on the side of the screen
+    -camera can't zoom out in large star systems
 */
 /* TODO: (graphics) :
     -orbit look bad when looking at a planet far from the star
     -rework star shader (colors, animations, "corona"...)
     -fix hover gizmo (see Castra)
-    -planets don't have the correct texture (see Cascom) + add colors + fix planets models (thin lines)
-    -add green band and frost band
-    -change starbox (special starbox in system that moves with camera)
-    -add systems parameters (special colors, starfield...)
+    -add planet colors + fix planets models (thin lines)
 */
 public class StarSystemsScript : MonoBehaviour
 {
