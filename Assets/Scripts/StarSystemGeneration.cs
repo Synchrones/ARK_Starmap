@@ -108,7 +108,7 @@ public class StarSystemGeneration : MonoBehaviour
 
             foreach(CelestialObject celestialObject in systemContent.celestial_objects)
             {
-                GameObject celestialGO = new GameObject();
+                GameObject celestialGO;
 
                 float longitude;
                 float latitude;
@@ -170,7 +170,7 @@ public class StarSystemGeneration : MonoBehaviour
 
                     case "PLANET":
 
-                        celestialGO = setCOAppaerenceAndTexture(celestialGO, celestialObject.appearance, celestialObject.texture.slug, systemContent.name, starSystem);
+                        celestialGO = setCOAppaerenceAndTexture(celestialObject.appearance, celestialObject.texture.slug, systemContent.name, starSystem);
                         
                         celestialGO.name = celestialObject.name;
 
@@ -183,6 +183,13 @@ public class StarSystemGeneration : MonoBehaviour
                         celestialGO.transform.GetChild(0).transform.Rotate(Vector3.forward, celestialObject.axial_tilt);
                         celestialGO.transform.GetChild(1).transform.Rotate(Vector3.forward, celestialObject.axial_tilt);
 
+
+                        if(celestialObject.shader_data.highlight.color1 != null)
+                        {
+                            Color planetColor = parseColor(celestialObject.shader_data.highlight.color1);
+                            celestialGO.transform.GetChild(1).GetChild(1).GetComponent<MeshRenderer>().material.color = new Color(planetColor.r * 3, planetColor.g * 3, planetColor.b * 3, 1);
+                        } 
+                        
                         float planetSize = systemContent.shader_data.planetsSize.min + float.Parse(celestialObject.size, System.Globalization.CultureInfo.InvariantCulture) * 0.000001f;
                         celestialGO.transform.localScale = new Vector3(planetSize, planetSize, planetSize);
                         celestialGO.layer = 6;
@@ -225,7 +232,7 @@ public class StarSystemGeneration : MonoBehaviour
 
                     case "SATELLITE":
 
-                        celestialGO = setCOAppaerenceAndTexture(celestialGO, celestialObject.appearance, celestialObject.texture.slug, systemContent.name, starSystem);
+                        celestialGO = setCOAppaerenceAndTexture(celestialObject.appearance, celestialObject.texture.slug, systemContent.name, starSystem);
                         
                         foreach(KeyValuePair<GameObject, int> planet in planetList)
                         {
@@ -237,6 +244,11 @@ public class StarSystemGeneration : MonoBehaviour
                         latitude = celestialObject.latitude * Mathf.Deg2Rad;
                         distance = 3 + celestialObject.distance;
 
+                        if(celestialObject.shader_data.highlight.color1 != null)
+                        {
+                            Color planetColor = parseColor(celestialObject.shader_data.highlight.color1);
+                            celestialGO.transform.GetChild(1).GetChild(1).GetComponent<MeshRenderer>().material.color = new Color(planetColor.r * 3, planetColor.g * 3, planetColor.b * 3, 1);
+                        }
                         celestialGO.transform.localPosition = new Vector3(distance * Mathf.Cos(longitude), distance * Mathf.Sin(latitude), distance * Mathf.Sin(longitude));
                         celestialGO.transform.localScale /= 150 / float.Parse(celestialObject.size, System.Globalization.CultureInfo.InvariantCulture); //the 2nd argument has something to do with the decimal separator ("." instead of ",")...
                         celestialGO.transform.Rotate(Vector3.forward, celestialObject.axial_tilt);
@@ -276,7 +288,7 @@ public class StarSystemGeneration : MonoBehaviour
                         break;
 
                     case "MANMADE":
-
+                        
                         if(celestialObject.appearance == "DEFAULT")
                         {
                             celestialGO = Instantiate(defaultSpaceStationPrefab, starSystem.transform.position, Quaternion.identity);
@@ -311,6 +323,9 @@ public class StarSystemGeneration : MonoBehaviour
                                 
                                 case "sxj9reqlg4ktj": //The ARK
                                     celestialGO = Instantiate(ARKSpaceStationPrefab, starSystem.transform.position, Quaternion.identity);
+                                    break;
+                                default:
+                                    celestialGO = new GameObject();
                                     break;
                             }
                         }
@@ -616,6 +631,7 @@ public class StarSystemGeneration : MonoBehaviour
         public StarDatas sun;
         public StarFieldData starfield;
         public PlanetsSize planetsSize;
+        public Highlight highlight;
         public float radius;
         public string lightColor;
     }
@@ -637,7 +653,6 @@ public class StarSystemGeneration : MonoBehaviour
         public string color2;
         public float rotation1;
         public float rotation2;
-        
 
     }
 
@@ -645,6 +660,12 @@ public class StarSystemGeneration : MonoBehaviour
     public class PlanetsSize
     {
         public float min;
+    }
+
+    [System.Serializable]
+    public class Highlight
+    {
+        public string color1;
     }
 
     [System.Serializable]
@@ -658,8 +679,9 @@ public class StarSystemGeneration : MonoBehaviour
     }
 
 
-    private GameObject setCOAppaerenceAndTexture(GameObject celestialGO, string appaerence, string texture, string systemName, GameObject system)
+    private GameObject setCOAppaerenceAndTexture(string appaerence, string texture, string systemName, GameObject system)
     {
+        GameObject celestialGO;
         switch (appaerence)
         {
             case "PLANET_BLUE":
