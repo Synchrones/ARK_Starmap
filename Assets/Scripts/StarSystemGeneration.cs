@@ -79,18 +79,6 @@ public class StarSystemGeneration : MonoBehaviour
 
     public List<GameObject> celestialObjectList;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void LoadSystem(GameObject starSystem)
     {
         List<JumpPoint> jumpPointList = GetComponent<StarSystemsScript>().jumpPointList;
@@ -804,30 +792,20 @@ public class StarSystemGeneration : MonoBehaviour
         orbitContainer.transform.position = orbitCenter.transform.position;
         orbitContainer.transform.parent = celestialGO.transform;
 
-        for (int i = 0; i < 60; i++)
+        Mesh mesh = orbitContainer.AddComponent<MeshFilter>().mesh;
+        orbitContainer.AddComponent<MeshRenderer>().material = orbitMaterial;
+
+        List<Vector3> vertices = new List<Vector3>();
+        List<int> indices = new List<int>();
+        for (int i = 0; i <= 180; i++)
         {
-            GameObject orbit = new GameObject("orbit" + i);
-            orbit.transform.position = orbitContainer.transform.position;
-            orbit.transform.parent = orbitContainer.transform;
-            LineRenderer line = orbit.AddComponent<LineRenderer>();
-            line.useWorldSpace = false;
-            line.material = orbitMaterial;
-
-            Vector3 start = new Vector3(Mathf.Cos(Mathf.Deg2Rad * (i * 360 / 60)) * distance, 0, Mathf.Sin(Mathf.Deg2Rad * (i * 360 / 60)) * distance);
-            Vector3 end = new Vector3(Mathf.Cos(Mathf.Deg2Rad * ((i + 1) * 360 / 60)) * distance, 0, Mathf.Sin(Mathf.Deg2Rad * ((i + 1) * 360 / 60)) * distance);
-
-
-            line.SetPosition(0, start);
-            line.SetPosition(1, end);
-
-            line.startWidth = 0.01f;
-            line.endWidth = 0.01f;
-
-
-
+            vertices.Add(new Vector3(Mathf.Cos(Mathf.Deg2Rad * (i * 2)) * distance, 0, Mathf.Sin(Mathf.Deg2Rad * (i * 2)) * distance));
+            indices.Add(i);
         }
+        mesh.SetVertices(vertices);
+        mesh.SetIndices(indices, MeshTopology.LineStrip, 0);
+
         orbitContainer.transform.rotation = Quaternion.Euler(0, -celestialObject.longitude, celestialObject.latitude);
-        orbitContainer.AddComponent<WidthKeeper>();
         if(celestialObject.type == "MANMADE")orbitContainer.transform.localScale = Vector3.one;
     }
 
