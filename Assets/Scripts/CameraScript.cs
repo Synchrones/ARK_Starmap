@@ -242,9 +242,11 @@ public class CameraScript : MonoBehaviour
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
         gameObject.transform.GetChild(1).gameObject.SetActive(false);
         
-        zoomLimits = (0.1f, 15);
+        float systemSize = float.Parse(gameObject.GetComponent<SystemsInfosScript>().size);
 
-        CalculateNewOffset(1);
+        zoomLimits = (0.1f, systemSize);
+
+        CalculateNewOffset(1 + systemSize / 50);
         StartCoroutine(MoveToPos(center, newCenter, cameraOffset, newOffset));
         
     }

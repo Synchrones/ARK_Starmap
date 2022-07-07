@@ -16,7 +16,6 @@ using TMPro;
     -camera can't zoom out in large star systems
 */
 /* TODO: (graphics) :
-    -orbit look bad when looking at a planet far from the star
     -rework star shader (colors, animations, "corona"...)
     -fix hover gizmo (see Castra)
     -add planet colors + fix planets models (thin lines)
