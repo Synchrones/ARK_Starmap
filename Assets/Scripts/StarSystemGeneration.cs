@@ -185,11 +185,16 @@ public class StarSystemGeneration : MonoBehaviour
 
                         drawOrbit(celestialGO, starSystem, celestialObject, distance);
 
-                        celestialGO.AddComponent<PlanetScript>();
-
                         Mesh planetLineMesh = celestialGO.transform.GetChild(0).GetChild(1).GetComponent<MeshFilter>().mesh;
                         planetLineMesh.SetSubMesh(0, new UnityEngine.Rendering.SubMeshDescriptor(indexStart:0, indexCount:planetLineMesh.GetSubMesh(0).indexCount, topology:MeshTopology.Lines));
                         
+                        PlanetScript planetScript = celestialGO.AddComponent<PlanetScript>();
+                        planetScript.toRotate.Add(celestialGO.transform.GetChild(1).gameObject);
+
+                        GameObject landingZonesContainer = new GameObject("LandingZonesContainer");
+                        landingZonesContainer.transform.position = celestialGO.transform.position;
+                        landingZonesContainer.transform.parent = celestialGO.transform;
+                        planetScript.toRotate.Add(landingZonesContainer.gameObject);
                         if(celestialObject.id == 2026 || celestialObject.id == 2027 || celestialObject.id == 1693 || celestialObject.id == 1694 || celestialObject.id == 1695 || celestialObject.id == 1692 || celestialObject.id == 1723)
                         {
                             SSData planetDatas = JsonUtility.FromJson<SSData>(System.IO.File.ReadAllText(Application.streamingAssetsPath + "/Jsons/Planets/" + celestialObject.name + ".json"));
@@ -200,9 +205,9 @@ public class StarSystemGeneration : MonoBehaviour
                                     if(children.type == "LZ")
                                     {
                                         GameObject LZGO = Instantiate(landingZonePrefab, celestialGO.transform.position, Quaternion.identity);
-                                        LZGO.transform.localScale /= 45;
+                                        LZGO.transform.localScale = new Vector3(planetSize, planetSize, planetSize);
                                         LZGO.transform.Rotate(-children.latitude, -children.longitude - 90, 0);
-                                        LZGO.transform.parent = celestialGO.transform;
+                                        LZGO.transform.parent = landingZonesContainer.transform;
                                     }
                                 }
                             }
@@ -212,6 +217,7 @@ public class StarSystemGeneration : MonoBehaviour
                             generateInfos(celestialGO, celestialObject, celestialObject.designation);
                         }
                         else generateInfos(celestialGO, celestialObject, celestialObject.name);
+                        
                         
 
                         planetList.Add(new KeyValuePair<GameObject, int>(celestialGO, celestialObject.id));

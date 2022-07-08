@@ -10,15 +10,12 @@ using TMPro;
     -reduce performance impact of the starbox? 
     -oberon star is... small
     -unknow Co type "POI" (vega Vanduul attack)
-    -entering system put the camera inside the star when it is too big
     -landing zones don't rotate with the planets
     -systems looks bigger when on the side of the screen
-    -camera can't zoom out in large star systems
 */
 /* TODO: (graphics) :
     -rework star shader (colors, animations, "corona"...)
     -fix hover gizmo (see Castra)
-    -add planet colors + fix planets models (thin lines)
     -fix planetary rings (too small)
     -fix asteroid rings 
 */
@@ -302,7 +299,6 @@ public class StarSystemsScript : MonoBehaviour
                 if (COSelected == true)
                 {
                     COSelected = false;
-                    mainCamera.GetComponent<CameraScript>().COSelected = false;
                 }
                 else UnloadAndExitSystem();
 

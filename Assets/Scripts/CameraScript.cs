@@ -22,9 +22,6 @@ public class CameraScript : MonoBehaviour
     float zoomSpeed;
     (float, float) zoomLimits;
 
-    bool InSystem;
-    public bool COSelected;
-    bool inAutoDisplacement;
 
     Vector3 newPos;
     Vector3 newCenter;
@@ -58,7 +55,6 @@ public class CameraScript : MonoBehaviour
         zoomLimits = (20, 800);
 
         hitUI = false;
-        InSystem = false;
         buttonPressed = false;
         clickTime = 0;
 
@@ -109,7 +105,6 @@ public class CameraScript : MonoBehaviour
                         discScript.UnloadDisc();
                         discScript.isInfoboxActive = false;
                         infoboxScript.UnloadInfobox();
-                        COSelected = false;
                     }
                 }
             }
@@ -222,8 +217,6 @@ public class CameraScript : MonoBehaviour
 
     public void SelectSystem(GameObject gameObject)
     {
-        inAutoDisplacement = true;
-
         newCenter = gameObject.transform.position;
         CalculateNewOffset(200);
 
@@ -232,10 +225,6 @@ public class CameraScript : MonoBehaviour
 
     public void EnterSystem(GameObject gameObject)
     {
-
-        InSystem = true;
-        inAutoDisplacement = true;
-        
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<AppaerenceAndSizeKeeper>().enabled = false;
         
@@ -253,8 +242,6 @@ public class CameraScript : MonoBehaviour
 
     public void ExitSystem(GameObject gameObject)
     {
-        InSystem = false;
-
         GameObject.Destroy(gameObject.transform.GetChild(2).gameObject);
         gameObject.GetComponent<SpriteRenderer>().enabled = true;
         gameObject.GetComponent<AppaerenceAndSizeKeeper>().enabled = true;
@@ -269,8 +256,6 @@ public class CameraScript : MonoBehaviour
 
     public void SelectCO(GameObject gameObject)
     {
-        inAutoDisplacement = true;
-
         newCenter = gameObject.transform.position;
         CalculateNewOffset(15 * gameObject.transform.lossyScale.x);
         StartCoroutine(MoveToPos(center, newCenter, cameraOffset, newOffset));
@@ -285,9 +270,6 @@ public class CameraScript : MonoBehaviour
             cameraOffset = Vector3.Lerp(baseOffset, newOffset, Mathf.Cos(i) / 2 + 0.5f);
             yield return null;
         }
-        
-        inAutoDisplacement = false;
-
     }
 
     private void CalculateNewOffset(float targetLenght)

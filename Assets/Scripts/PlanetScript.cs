@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class PlanetScript : MonoBehaviour
 {
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
+    public List<GameObject> toRotate = new List<GameObject>();
     void Update()
     {
-        transform.GetChild(1).transform.Rotate(Vector3.up, -0.01f);
+        foreach(GameObject gameObject in toRotate)
+        {
+            gameObject.transform.Rotate(Vector3.up, -0.01f);
+        }
     }
 }
