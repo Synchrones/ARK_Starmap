@@ -10,7 +10,6 @@ using TMPro;
     -reduce performance impact of the starbox? 
     -oberon star is... small
     -unknow Co type "POI" (vega Vanduul attack)
-    -landing zones don't rotate with the planets
     -systems looks bigger when on the side of the screen
 */
 /* TODO: (graphics) :
@@ -217,6 +216,16 @@ public class StarSystemsScript : MonoBehaviour
         cameraMode = 0;
         areTunnelsActives = true;
 
+        for (int i = 0; i < 2; i++)
+        {
+            Mesh mesh = HoverGizmo.transform.GetChild(i).GetComponent<MeshFilter>().mesh;
+            List<int> indices = new List<int>();
+            for (int j = 0; j < mesh.GetSubMesh(0).vertexCount; j++)
+            {
+                indices.Add(j);
+            }
+            mesh.SetIndices(indices, MeshTopology.LineStrip, 0);
+        }
         AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManagerScript>();
     }
 
@@ -271,7 +280,7 @@ public class StarSystemsScript : MonoBehaviour
                     HoverGizmo.SetActive(true);
                     HoverGizmo.transform.position = hit.transform.position;
                     HoverGizmo.transform.parent = hit.transform.parent;
-                    HoverGizmo.transform.localScale = Vector3.Scale(hit.transform.localScale, new Vector3(1.5f, 1.5f, 1.5f));
+                    HoverGizmo.transform.localScale = Vector3.Scale(hit.transform.localScale, new Vector3(1.2f, 1.2f, 1.2f));
                     isHoverGizmoActive = true;
                 }
                 if (hit.transform)

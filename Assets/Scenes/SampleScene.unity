@@ -547,6 +547,7 @@ MonoBehaviour:
   moonTexture: {fileID: 2800000, guid: f48fc3202142b6441a2b20ed003a4830, type: 3}
   hurstonTexture: {fileID: 2800000, guid: 01c43fc2ad7506c48b5a6314077c0e4f, type: 3}
   crusaderTexture: {fileID: 2800000, guid: 2f0f575d5d0885e4c817d2ca02c59ff0, type: 3}
+  crusaderTextureNew: {fileID: 2800000, guid: 981e8303322362a428b81f30b1ea1592, type: 3}
   arccorpTexture: {fileID: 2800000, guid: 7d53c7f32662e7b4f9d9eab809f9f5a0, type: 3}
   microtechTexture: {fileID: 2800000, guid: c5b842d867b69dc4ea31b0fa45c3917f, type: 3}
   starTexture0: {fileID: 2800000, guid: ef34bec71cf216444b5fe6c827670bc1, type: 3}
@@ -2606,7 +2607,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a82a1600c67104d47803f8453b4ad8cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  COSelected: 0
   UIContainer: {fileID: 1890230024}
   spacebox: {fileID: 586511926}
 --- !u!114 &963194230
@@ -2839,8 +2839,8 @@ RectTransform:
   m_Father: {fileID: 1155235768}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 190, y: 0}
   m_SizeDelta: {x: 380, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4669,7 +4669,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1219505723}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3757535bc50bd1d4eb3dd976c1acf0c9, type: 3}
   m_Name: 

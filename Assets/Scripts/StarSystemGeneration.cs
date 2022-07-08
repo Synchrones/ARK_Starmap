@@ -63,6 +63,7 @@ public class StarSystemGeneration : MonoBehaviour
         //Stanton
     public Texture hurstonTexture;
     public Texture crusaderTexture;
+    public Texture crusaderTextureNew;
     public Texture arccorpTexture;
     public Texture microtechTexture;
 
@@ -739,6 +740,10 @@ public class StarSystemGeneration : MonoBehaviour
 
             case "qzf7kii1vu7k7":
                 sphereRenderer.material.mainTexture = crusaderTexture;
+                break;
+
+            case "cd3676xek3zbw":
+                sphereRenderer.material.mainTexture = crusaderTextureNew;
                 break;
 
             case "2wkohq7v67kco":
