@@ -396,6 +396,7 @@ public class StarSystemGeneration : MonoBehaviour
                                     {
                                         celestialGO.transform.parent = planet.Key.transform;
                                         celestialGO.transform.position = planet.Key.transform.position;
+                                        celestialGO.transform.localScale = planet.Key.transform.localScale * 500;
                                         celestialGO.transform.Rotate(Vector3.forward, float.Parse(planet.Key.GetComponent<COInfosScript>().axial_tilt));
                                     } 
                                 }
@@ -627,6 +628,7 @@ public class StarSystemGeneration : MonoBehaviour
         public StarFieldData starfield;
         public PlanetsSize planetsSize;
         public Highlight highlight;
+        public Ring ring;
         public float radius;
         public string lightColor;
     }
@@ -661,6 +663,15 @@ public class StarSystemGeneration : MonoBehaviour
     public class Highlight
     {
         public string color1;
+    }
+
+    [System.Serializable]
+    public class Ring
+    {
+        public string color1;
+        public string color2;
+        public float radius1;
+        public float radius2;
     }
 
     [System.Serializable]

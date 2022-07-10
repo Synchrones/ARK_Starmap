@@ -14,7 +14,6 @@ using TMPro;
 */
 /* TODO: (graphics) :
     -rework star shader (colors, animations, "corona"...)
-    -fix hover gizmo (see Castra)
     -fix planetary rings (too small)
     -fix asteroid rings 
 */
