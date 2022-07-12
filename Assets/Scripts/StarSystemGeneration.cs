@@ -396,8 +396,21 @@ public class StarSystemGeneration : MonoBehaviour
                                     {
                                         celestialGO.transform.parent = planet.Key.transform;
                                         celestialGO.transform.position = planet.Key.transform.position;
-                                        celestialGO.transform.localScale = planet.Key.transform.localScale * 500;
+                                        Vector3 size = planet.Key.transform.localScale * 500;
+                                        celestialGO.transform.localScale = size;
                                         celestialGO.transform.Rotate(Vector3.forward, float.Parse(planet.Key.GetComponent<COInfosScript>().axial_tilt));
+
+                                        Material ringMaterial1 = celestialGO.transform.GetChild(2).GetComponent<MeshRenderer>().material;
+                                        Material ringMaterial2 = celestialGO.transform.GetChild(3).GetComponent<MeshRenderer>().material;
+                                        ringMaterial1.SetColor("_Color", parseColor(planet.Key.GetComponent<COInfosScript>().ringColor1));
+
+                                        ringMaterial1.SetFloat("_TexStart", (1.75f + planet.Key.GetComponent<COInfosScript>().ringStart) * size.x / 500);
+                                        ringMaterial1.SetFloat("_TexEnd", (1.75f + planet.Key.GetComponent<COInfosScript>().ringEnd) * size.x / 500);
+
+                                        ringMaterial2.SetColor("_Color", parseColor(planet.Key.GetComponent<COInfosScript>().ringColor2));
+                                        ringMaterial2.SetFloat("_TexStart", (1.75f + (planet.Key.GetComponent<COInfosScript>().ringStart) * 1.45f) * size.x / 500);
+                                        ringMaterial2.SetFloat("_TexEnd", (1.75f + (planet.Key.GetComponent<COInfosScript>().ringEnd) * 1.45f) * size.x / 500);
+                                        
                                     } 
                                 }
                                 foreach(KeyValuePair<GameObject, int> moon in moonList) //Yela has strange rings...
@@ -469,6 +482,11 @@ public class StarSystemGeneration : MonoBehaviour
                 coInfosScript.size = celestialObject.size;
                 coInfosScript.axial_tilt = celestialObject.axial_tilt.ToString();
                 coInfosScript.subtype = celestialObject.subtype.name;
+
+                coInfosScript.ringColor1 = celestialObject.shader_data.ring.color1;
+                coInfosScript.ringColor2 = celestialObject.shader_data.ring.color2;
+                coInfosScript.ringStart = celestialObject.shader_data.ring.radius1;
+                coInfosScript.ringEnd = celestialObject.shader_data.ring.radius2;
 
                 if (celestialObject.affiliation.Length == 0)
                 { 

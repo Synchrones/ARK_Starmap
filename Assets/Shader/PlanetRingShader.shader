@@ -6,6 +6,8 @@ Shader "Unlit/PlanetRingShader"
         _TexStart("Texture start", Float) = 1
         _TexEnd("Texture end", Float) = 1
         _Opacity("Opacity", Range(0.0, 1)) = 1
+        _Color("Color", Color) = (1,1,1,1)
+        _Threshold("Threshold", Range(0.0, 1)) = 0.5
     }
     SubShader
     {
@@ -41,9 +43,6 @@ Shader "Unlit/PlanetRingShader"
             float4 _MainTex_ST;
             float3 objectOrigin;
             float3 vertexPos;
-            float _TexStart;
-            float _TexEnd;
-            float _Opacity;
 
             v2f vert (appdata v)
             {
@@ -56,16 +55,25 @@ Shader "Unlit/PlanetRingShader"
                 return o;
             }
 
+            float _TexStart;
+            float _TexEnd;
+            float _Opacity;
+            float4 _Color;
+            float _Sum;
+            float _Threshold;
+
             fixed4 frag (v2f i) : SV_Target
             {
                 fixed4 col = fixed4(1,1,1,0);
                 if(i.distanceFromOrigin > _TexStart && i.distanceFromOrigin < _TexEnd)
                 {
                     col = tex2D(_MainTex, i.uv);
-                    col.a = _Opacity;
+                    col *= _Color;
+                    _Sum = col.r + col.g + col.b;
+                    col.a -= _Sum / 3 / _Threshold;
+                    col.a *= _Opacity;
+                    
                 }
-                
-                
                 return col;
             }
             ENDCG

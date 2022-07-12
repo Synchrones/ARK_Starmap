@@ -17,18 +17,4 @@ public class SystemsInfosScript : MonoBehaviour
     public string economy;
     public string danger;
     public string lastTimeModified;
-
-    
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

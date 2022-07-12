@@ -21,15 +21,8 @@ public class COInfosScript : MonoBehaviour
     public string fairchanceact;
     public string affiliationName;
     public string affiliationID;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public string ringColor1;
+    public string ringColor2;
+    public float ringStart;
+    public float ringEnd;
 }
