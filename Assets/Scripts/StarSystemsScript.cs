@@ -14,7 +14,6 @@ using TMPro;
 */
 /* TODO: (graphics) :
     -rework star shader (colors, animations, "corona"...)
-    -fix planetary rings (too small)
     -fix asteroid rings 
 */
 public class StarSystemsScript : MonoBehaviour
@@ -210,7 +209,8 @@ public class StarSystemsScript : MonoBehaviour
             
         }
         StarFieldGenerator starFieldGenerator = gameObject.GetComponent<StarFieldGenerator>();
-        starFieldGenerator.generateStarField(new Vector3(0, 0, 0), 600, 2000, new Color32(122, 122, 122, 255), new Color32(150, 180, 207, 255), starFieldMaterial);
+        GameObject starField = starFieldGenerator.generateStarField(new Vector3(0, 0, 0), 2000, 2000, new Color32(122, 122, 122, 255), new Color32(150, 180, 207, 255), starFieldMaterial);
+        starField.transform.position = new Vector3(200, 0, 0);
         
         cameraMode = 0;
         areTunnelsActives = true;

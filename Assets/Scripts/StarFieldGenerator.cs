@@ -32,6 +32,7 @@ public class StarFieldGenerator : MonoBehaviour
 
             meshRenderer.material = starFieldMaterial;
             meshRenderer.material.SetColor("_Color", starColor);
+            meshRenderer.material.SetColor("_EmissionColor", new Color(starColor.r * 0.003f, starColor.g * 0.003f, starColor.b * 0.003f));
             starField.transform.parent = starFieldContainer.transform;
         }
         return starFieldContainer;
