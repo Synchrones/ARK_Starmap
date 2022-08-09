@@ -519,7 +519,7 @@ MonoBehaviour:
   commArraySpaceStationPrefab: {fileID: 919132149155446097, guid: 4042a0456a4d4114f9d036ca27b633d8, type: 3}
   ARKSpaceStationPrefab: {fileID: 919132149155446097, guid: 7ebe67f24cdba914b98e95f9a93a847c, type: 3}
   asteroidFieldPrefab: {fileID: 919132149155446097, guid: 8541ef386379f3945bde2c73a1540289, type: 3}
-  planetRingPrefab: {fileID: 919132149155446097, guid: 7c34e2424eefec34bae3aa1178515aae, type: 3}
+  planetRingPrefab: {fileID: 6489361528973205242, guid: 47d6f4b08d9a5884c877b2fddd7c0de6, type: 3}
   asteroidFrontPrefab: {fileID: 919132149155446097, guid: 41d7fdcc1202c454a9b65b5facea6579, type: 3}
   asteroidMiddlePrefab: {fileID: 919132149155446097, guid: b3c642f81c333c044a36175e4c2f10f2, type: 3}
   asteroidFarPrefab: {fileID: 919132149155446097, guid: 843457e6e852dee4198afa4f6f0b4fa1, type: 3}
@@ -5789,7 +5789,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1601511470
 PrefabInstance:
@@ -5800,7 +5800,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 672486138cbfbdf4f841c13d532f124e, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 672486138cbfbdf4f841c13d532f124e, type: 3}
       propertyPath: m_LocalPosition.x

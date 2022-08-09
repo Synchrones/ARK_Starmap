@@ -76,7 +76,7 @@ public class StarSystemGeneration : MonoBehaviour
     public Texture2D starTexture5; 
     public Texture2D starTexture6; 
     public Texture2D starTexture7; 
-    public Texture2D starTexture8; 
+    public Texture2D starTexture8;
 
     public List<GameObject> celestialObjectList;
 
@@ -400,16 +400,17 @@ public class StarSystemGeneration : MonoBehaviour
                                         celestialGO.transform.localScale = size;
                                         celestialGO.transform.Rotate(Vector3.forward, float.Parse(planet.Key.GetComponent<COInfosScript>().axial_tilt));
 
-                                        Material ringMaterial1 = celestialGO.transform.GetChild(2).GetComponent<MeshRenderer>().material;
-                                        Material ringMaterial2 = celestialGO.transform.GetChild(3).GetComponent<MeshRenderer>().material;
-                                        ringMaterial1.SetColor("_Color", parseColor(planet.Key.GetComponent<COInfosScript>().ringColor1));
+                                        Material ringMaterial1 = celestialGO.transform.GetChild(0).GetComponent<MeshRenderer>().material;
+                                        Material ringMaterial2 = celestialGO.transform.GetChild(1).GetComponent<MeshRenderer>().material;
 
+                                        ringMaterial1.SetColor("_Color", parseColor(planet.Key.GetComponent<COInfosScript>().ringColor1));
                                         ringMaterial1.SetFloat("_TexStart", (1.75f + planet.Key.GetComponent<COInfosScript>().ringStart) * size.x / 500);
                                         ringMaterial1.SetFloat("_TexEnd", (1.75f + planet.Key.GetComponent<COInfosScript>().ringEnd) * size.x / 500);
-
+                                        
                                         ringMaterial2.SetColor("_Color", parseColor(planet.Key.GetComponent<COInfosScript>().ringColor2));
-                                        ringMaterial2.SetFloat("_TexStart", (1.75f + (planet.Key.GetComponent<COInfosScript>().ringStart) * 1.45f) * size.x / 500);
-                                        ringMaterial2.SetFloat("_TexEnd", (1.75f + (planet.Key.GetComponent<COInfosScript>().ringEnd) * 1.45f) * size.x / 500);
+                                        ringMaterial2.SetFloat("_TexStart", (1.75f + (planet.Key.GetComponent<COInfosScript>().ringStart)) * size.x / 500);
+                                        ringMaterial2.SetFloat("_TexEnd", (1.75f + (planet.Key.GetComponent<COInfosScript>().ringEnd)) * size.x / 500);
+                                        
                                         
                                     } 
                                 }
