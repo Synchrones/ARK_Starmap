@@ -283,7 +283,7 @@ public class StarSystemGeneration : MonoBehaviour
                         break;
 
                     case "MANMADE":
-                        
+                        bool ARKStation = false;
                         if(celestialObject.appearance == "DEFAULT")
                         {
                             celestialGO = Instantiate(defaultSpaceStationPrefab, starSystem.transform.position, Quaternion.identity);
@@ -318,6 +318,7 @@ public class StarSystemGeneration : MonoBehaviour
                                 
                                 case "sxj9reqlg4ktj": //The ARK
                                     celestialGO = Instantiate(ARKSpaceStationPrefab, starSystem.transform.position, Quaternion.identity);
+                                    ARKStation = true;
                                     break;
                                 default:
                                     celestialGO = new GameObject();
@@ -330,8 +331,38 @@ public class StarSystemGeneration : MonoBehaviour
 
                         longitude = celestialObject.longitude * Mathf.Deg2Rad;
                         latitude = celestialObject.latitude * Mathf.Deg2Rad;
-                        distance = celestialObject.distance;
-                        if(distance < 0.05f)distance *= 2500; //without this, space station are generated to close for some reason
+                        distance = 3 + celestialObject.distance;
+
+                        if(!ARKStation)
+                        {
+                            for (int i = 0; i < 5; i++)
+                            {
+                                Mesh mesh = celestialGO.transform.GetChild(0).GetChild(i).GetComponent<MeshFilter>().mesh;
+                                List<int> indices = new List<int>();
+                                for (int j = 0; j < mesh.vertexCount; j++)
+                                {
+                                    if(i == 4)
+                                    {
+                                        if(j % 2 == 0)
+                                        {
+                                            indices.Add(j);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        indices.Add(j);
+                                    }
+                                }
+                                if(i == 4)
+                                {
+                                    mesh.SetIndices(indices, MeshTopology.Lines, 0);
+                                }
+                                else
+                                {
+                                    mesh.SetIndices(indices, MeshTopology.LineStrip, 0);
+                                }
+                            }
+                        }
 
                         bool flag = false;
                         foreach(KeyValuePair<GameObject, int> planet in planetList)
@@ -384,7 +415,6 @@ public class StarSystemGeneration : MonoBehaviour
                                     celestialGO.transform.parent = ringContainer.transform;
                                     if(Random.Range(0, 2) == 1)
                                     {
-                                        print("a");
                                         celestialGO.transform.Rotate(Vector3.up, 180);
                                     }
                                 }
