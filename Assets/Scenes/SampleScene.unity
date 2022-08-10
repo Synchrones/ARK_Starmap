@@ -526,7 +526,7 @@ MonoBehaviour:
   landingZonePrefab: {fileID: 6166602872180980032, guid: ca951ac3c098bfd4a9537f893ec38565, type: 3}
   namePrefab: {fileID: 184671552118479241, guid: 56280893376eda341a19bb53add9b0d2, type: 3}
   orbitMaterial: {fileID: 2100000, guid: 245b7d14d5d59bb46ad97385d37f3f4b, type: 2}
-  starFieldMaterial: {fileID: 0}
+  starFieldMaterial: {fileID: 2100000, guid: 13462447cfd0f8a4bb13f986123965b7, type: 2}
   carbonPlanetTexture: {fileID: 2800000, guid: a23e625b89522c34cbbc32d52896888c, type: 3}
   chthonianPlanetTexture: {fileID: 2800000, guid: e03d2e03dffb7bc46aaaeb2ed0e484ff, type: 3}
   earthLikePlanetTexture: {fileID: 2800000, guid: 18abe6c9f9a8b2c43b36022dfd753717, type: 3}
@@ -2839,8 +2839,8 @@ RectTransform:
   m_Father: {fileID: 1155235768}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 190, y: 0}
   m_SizeDelta: {x: 380, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

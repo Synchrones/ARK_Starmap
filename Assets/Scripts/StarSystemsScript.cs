@@ -14,7 +14,6 @@ using TMPro;
 */
 /* TODO: (graphics) :
     -rework star shader (colors, animations, "corona"...)
-    -fix asteroid rings 
 */
 public class StarSystemsScript : MonoBehaviour
 {
@@ -53,7 +52,7 @@ public class StarSystemsScript : MonoBehaviour
     private float t;
     private bool areTunnelsActives;
     private GameObject jumpPointContainer;
-    // Start is called before the first frame update
+
     void Start()
     {
         systemsJson = System.IO.File.ReadAllText(Application.streamingAssetsPath + "/Jsons/SystemsList.json");
@@ -67,7 +66,6 @@ public class StarSystemsScript : MonoBehaviour
         {
             GameObject StarSystemGO = Instantiate(StarSystemPrefab, new Vector3(starSystem.posX * 7, starSystem.posZ * 7, starSystem.posY * 7), Quaternion.identity);
             StarSystemGO.name = starSystem.name;
-            StarSystemGO.transform.localScale *= 20;
             
             StarSystemGO.AddComponent<SystemsInfosScript>();
             SystemsInfosScript starSystemInfos = StarSystemGO.GetComponent<SystemsInfosScript>();
@@ -95,43 +93,37 @@ public class StarSystemsScript : MonoBehaviour
                     case "1":
 
                         StarSystemGO.GetComponent<SpriteRenderer>().sprite = UEESprite;
-
                         break;
 
                     case "2":
 
                         StarSystemGO.GetComponent<SpriteRenderer>().sprite = BNUSprite;
-
                         break;
 
                     case "3":
 
                         StarSystemGO.GetComponent<SpriteRenderer>().sprite = VNDSprite;
-
                         break;
 
                     case "4":
 
                         StarSystemGO.GetComponent<SpriteRenderer>().sprite = XINSprite;
-
                         break;
 
                     case "7":
 
                         StarSystemGO.GetComponent<SpriteRenderer>().sprite = DEVSprite;
-
                         break;
 
                     case "8":
 
                         StarSystemGO.GetComponent<SpriteRenderer>().sprite = UNCSprite;
-
                         break;
                 }
             }
             StarSystemGO.transform.GetChild(0).GetComponent<TextMeshPro>().text = starSystem.code;
 
-            StarSystemGO.AddComponent<AppaerenceAndSizeKeeper>().scaleMultiplier = 1;
+            StarSystemGO.AddComponent<AppaerenceAndSizeKeeper>().scaleMultiplier = 0.7f;
             
 
             starSystemInfos.json = System.IO.File.ReadAllText(Application.streamingAssetsPath + "/Jsons/Systems/" + starSystem.name + ".json");

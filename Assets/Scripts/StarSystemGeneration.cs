@@ -380,8 +380,13 @@ public class StarSystemGeneration : MonoBehaviour
                                     Vector3 direction = rotation * Vector3.left;
                                     Vector3 position = SSContentGO.transform.position + (direction * celestialObject.distance);
                                     celestialGO = Instantiate(asteroidFrontPrefab, position, rotation);
-                                    celestialGO.transform.localScale /= 15; 
+                                    celestialGO.transform.localScale *= 0.02f * celestialObject.distance; 
                                     celestialGO.transform.parent = ringContainer.transform;
+                                    if(Random.Range(0, 2) == 1)
+                                    {
+                                        print("a");
+                                        celestialGO.transform.Rotate(Vector3.up, 180);
+                                    }
                                 }
                                 celestialGO = ringContainer;
                                 celestialGO.transform.parent = SSContentGO.transform;
