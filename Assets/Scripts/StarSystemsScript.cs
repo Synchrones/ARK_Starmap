@@ -32,6 +32,8 @@ public class StarSystemsScript : MonoBehaviour
     public GameObject starPrefab;
     AudioManagerScript AudioManager;
     bool hasHitSoundPlayed;
+    bool systemHit;
+    public GameObject lastSystemHit;
     public GameObject HoverGizmo;
     bool isHoverGizmoActive;
 
@@ -121,8 +123,9 @@ public class StarSystemsScript : MonoBehaviour
                         break;
                 }
             }
-            StarSystemGO.transform.GetChild(0).GetComponent<TextMeshPro>().text = starSystem.code;
-
+            StarSystemGO.transform.GetChild(0).GetComponent<TextMeshPro>().text = starSystem.code;    
+            setSystemOpacity(StarSystemGO, 0.5f);
+            
             StarSystemGO.AddComponent<AppaerenceAndSizeKeeper>().scaleMultiplier = 0.7f;
             
 
@@ -229,29 +232,56 @@ public class StarSystemsScript : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if(Physics.Raycast(ray, out hit, 2000))
             {
-                if(!hasHitSoundPlayed)
+                if(!systemHit)
                 {
                     AudioManager.play("GOHover");
-                    hasHitSoundPlayed = true;
+                    systemHit = true;
+                    lastSystemHit = hit.transform.gameObject;
+
+                    setSystemOpacity(hit.transform.gameObject, 1);
                 }
                 
-                if(hit.transform)
+                if(Input.GetMouseButtonUp(1))
                 {
-                    if(Input.GetMouseButtonUp(1))
-                    {
-                        SelectSystem(hit.transform.gameObject);
-                    }
+                    SelectSystem(hit.transform.gameObject);
                 }
+                
             }
             else
             {
-                if(hasHitSoundPlayed)hasHitSoundPlayed = false;
+                if(systemHit)
+                {
+                    systemHit = false;
+                    if(selectedSystem != null)
+                    {
+                        if(selectedSystem != lastSystemHit)
+                        {
+                            setSystemOpacity(lastSystemHit, 0.5f);
+                        }
+                    }
+                    else
+                    {
+                        setSystemOpacity(lastSystemHit, 0.5f);
+                    }
+                    
+                }
             }
 
             if(Input.GetKeyDown(KeyCode.Return))
             {
                 LoadAndEnterSystem();
             }
+
+            if(Input.GetKeyDown(KeyCode.Escape))
+            {
+                if(selectedSystem != null)
+                {
+                    setSystemOpacity(selectedSystem, 0.5f);
+                    selectedSystem = null;
+                } 
+            }
+
+            
         }
         else if(cameraMode == 1)
         {
@@ -301,7 +331,6 @@ public class StarSystemsScript : MonoBehaviour
                     COSelected = false;
                 }
                 else UnloadAndExitSystem();
-
             }
         }
         
@@ -343,6 +372,7 @@ public class StarSystemsScript : MonoBehaviour
 
     public void LoadAndEnterSystem()
     {
+        setSystemOpacity(selectedSystem, 0.5f);
         if(areTunnelsActives == true)jumpPointContainer.SetActive(false);
         UIContainer.GetComponent<DiscScript>().UnloadDisc();
         this.GetComponent<StarSystemGeneration>().LoadSystem(selectedSystem);
@@ -357,6 +387,7 @@ public class StarSystemsScript : MonoBehaviour
 
     public void UnloadAndExitSystem()
     {
+        selectedSystem = null;
         if(areTunnelsActives == true)jumpPointContainer.SetActive(true);
         HoverGizmo.transform.parent = transform.parent;
         cameraMode = 0;
@@ -378,6 +409,16 @@ public class StarSystemsScript : MonoBehaviour
         Vector3 p0 = QuadradicCurve(a, b, c, t);
         Vector3 p1 = QuadradicCurve(b, c, d, t);
         return Vector3.Lerp(p0, p1, t);
+    }
+
+    public void setSystemOpacity(GameObject system, float opacity)
+    {
+        system.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, opacity);
+        foreach(TextMeshPro tmp in system.transform.GetComponentsInChildren<TextMeshPro>())
+        {
+            Color color = tmp.color; 
+            color.a = opacity;
+        }
     }
 
 }

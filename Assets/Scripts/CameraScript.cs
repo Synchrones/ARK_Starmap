@@ -26,6 +26,9 @@ public class CameraScript : MonoBehaviour
     Vector3 newPos;
     Vector3 newCenter;
     Vector3 newOffset;
+
+    public GameObject scriptContainer;
+    StarSystemsScript starSystemsScript;
     
     //UI
     public GameObject UIContainer;
@@ -61,6 +64,7 @@ public class CameraScript : MonoBehaviour
         AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManagerScript>();
         discScript = UIContainer.GetComponent<DiscScript>();
         infoboxScript = UIContainer.GetComponent<InfoboxScript>();
+        starSystemsScript = scriptContainer.GetComponent<StarSystemsScript>();
         
     }
 
@@ -105,6 +109,11 @@ public class CameraScript : MonoBehaviour
                         discScript.UnloadDisc();
                         discScript.isInfoboxActive = false;
                         infoboxScript.UnloadInfobox();
+                        if(starSystemsScript.cameraMode == 0)
+                        {
+                            starSystemsScript.setSystemOpacity(starSystemsScript.selectedSystem, 0.5f);
+                            starSystemsScript.selectedSystem = null;
+                        }
                     }
                 }
             }
