@@ -124,7 +124,7 @@ public class StarSystemsScript : MonoBehaviour
                 }
             }
             StarSystemGO.transform.GetChild(0).GetComponent<TextMeshPro>().text = starSystem.code;    
-            setSystemOpacity(StarSystemGO, 0.5f);
+            StarSystemGO.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
             
             StarSystemGO.AddComponent<AppaerenceAndSizeKeeper>().scaleMultiplier = 0.7f;
             
@@ -238,7 +238,8 @@ public class StarSystemsScript : MonoBehaviour
                     systemHit = true;
                     lastSystemHit = hit.transform.gameObject;
 
-                    setSystemOpacity(hit.transform.gameObject, 1);
+                    StopAllCoroutines();
+                    StartCoroutine(setSystemOpacity(hit.transform.gameObject, 1));
                 }
                 
                 if(Input.GetMouseButtonUp(1))
@@ -256,12 +257,14 @@ public class StarSystemsScript : MonoBehaviour
                     {
                         if(selectedSystem != lastSystemHit)
                         {
-                            setSystemOpacity(lastSystemHit, 0.5f);
+                            StopAllCoroutines();
+                            StartCoroutine(setSystemOpacity(lastSystemHit, 0.5f));
                         }
                     }
                     else
                     {
-                        setSystemOpacity(lastSystemHit, 0.5f);
+                        StopAllCoroutines();
+                        StartCoroutine(setSystemOpacity(lastSystemHit, 0.5f));
                     }
                     
                 }
@@ -276,7 +279,8 @@ public class StarSystemsScript : MonoBehaviour
             {
                 if(selectedSystem != null)
                 {
-                    setSystemOpacity(selectedSystem, 0.5f);
+                    StopAllCoroutines();
+                    StartCoroutine(setSystemOpacity(lastSystemHit, 0.5f));
                     selectedSystem = null;
                 } 
             }
@@ -372,7 +376,8 @@ public class StarSystemsScript : MonoBehaviour
 
     public void LoadAndEnterSystem()
     {
-        setSystemOpacity(selectedSystem, 0.5f);
+        StopAllCoroutines();
+        StartCoroutine(setSystemOpacity(lastSystemHit, 0.5f));
         if(areTunnelsActives == true)jumpPointContainer.SetActive(false);
         UIContainer.GetComponent<DiscScript>().UnloadDisc();
         this.GetComponent<StarSystemGeneration>().LoadSystem(selectedSystem);
@@ -410,15 +415,21 @@ public class StarSystemsScript : MonoBehaviour
         Vector3 p1 = QuadradicCurve(b, c, d, t);
         return Vector3.Lerp(p0, p1, t);
     }
+    public IEnumerator setSystemOpacity(GameObject system, float opacity)
+    {  
+        SpriteRenderer spriteRenderer = system.GetComponent<SpriteRenderer>();
+        float opacityDifference = opacity - spriteRenderer.color.a;
 
-    public void setSystemOpacity(GameObject system, float opacity)
-    {
-        system.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, opacity);
-        foreach(TextMeshPro tmp in system.transform.GetComponentsInChildren<TextMeshPro>())
+        for (int i = 0; i < 30; i++)
         {
-            Color color = tmp.color; 
-            color.a = opacity;
+            spriteRenderer.color = new Color(1, 1, 1, spriteRenderer.color.a + opacityDifference / 30);
+            foreach(TextMeshPro tmp in system.transform.GetComponentsInChildren<TextMeshPro>())
+            {
+                tmp.color = new Color(tmp.color.r, tmp.color.g, tmp.color.b, spriteRenderer.color.a + opacityDifference / 30);
+            }
+            yield return null;
         }
+        
     }
 
 }

@@ -111,7 +111,7 @@ public class CameraScript : MonoBehaviour
                         infoboxScript.UnloadInfobox();
                         if(starSystemsScript.cameraMode == 0)
                         {
-                            starSystemsScript.setSystemOpacity(starSystemsScript.selectedSystem, 0.5f);
+                            StartCoroutine(starSystemsScript.setSystemOpacity(starSystemsScript.selectedSystem, 0.5f));
                             starSystemsScript.selectedSystem = null;
                         }
                     }
