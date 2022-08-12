@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 
 
-// TODO: (main TODO) : add starting screen, fix space stations generation, left click on system to enter, quick zoom with middle mouse button
+// TODO: (main TODO) : add starting screen, left click on system to enter, quick zoom with middle mouse button
 /* TODO: (bug fixes) : 
     -planet hitbox overlap when to close (see Kilian) 
     -reduce performance impact of the starbox? 
@@ -33,6 +33,7 @@ public class StarSystemsScript : MonoBehaviour
     AudioManagerScript AudioManager;
     bool hasHitSoundPlayed;
     bool systemHit;
+    GameObject clickedGO;
     public GameObject lastSystemHit;
     public GameObject HoverGizmo;
     bool isHoverGizmoActive;
@@ -223,7 +224,6 @@ public class StarSystemsScript : MonoBehaviour
         AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManagerScript>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(cameraMode == 0)
@@ -241,10 +241,21 @@ public class StarSystemsScript : MonoBehaviour
                     StopAllCoroutines();
                     StartCoroutine(setSystemOpacity(hit.transform.gameObject, 1));
                 }
+                if(Input.GetMouseButtonDown(1)){
+                    clickedGO = hit.transform.gameObject;
+                }
                 
                 if(Input.GetMouseButtonUp(1))
                 {
-                    SelectSystem(hit.transform.gameObject);
+                    if(clickedGO == hit.transform.gameObject)
+                    {
+                        SelectSystem(hit.transform.gameObject);
+                    }
+                    else
+                    {
+                        clickedGO = null;
+                    }
+                    
                 }
                 
             }
@@ -308,15 +319,23 @@ public class StarSystemsScript : MonoBehaviour
                     HoverGizmo.transform.localScale = Vector3.Scale(hit.transform.localScale, new Vector3(1.2f, 1.2f, 1.2f));
                     isHoverGizmoActive = true;
                 }
-                if (hit.transform)
-                {
+                if(Input.GetMouseButtonDown(1)){
+                    clickedGO = hit.transform.gameObject;
+                }
 
-                    if (Input.GetMouseButtonUp(1))
+                if (Input.GetMouseButtonUp(1))
+                {
+                    if(clickedGO == hit.transform.gameObject)
                     {
                         SelectCO(hit.transform.gameObject);
                         COSelected = true;
                     }
+                    else
+                    {
+                        clickedGO = null;
+                    }
                 }
+                
             }
             else
             {
