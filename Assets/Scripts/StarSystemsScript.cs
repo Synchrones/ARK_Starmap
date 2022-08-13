@@ -29,7 +29,6 @@ public class StarSystemsScript : MonoBehaviour
     public GameObject UIContainer;
     public GameObject systemName;
     public GameObject spaceBoxColor;
-    public GameObject starPrefab;
     AudioManagerScript AudioManager;
     bool hasHitSoundPlayed;
     bool systemHit;
@@ -411,7 +410,6 @@ public class StarSystemsScript : MonoBehaviour
 
     public void UnloadAndExitSystem()
     {
-        selectedSystem = null;
         if(areTunnelsActives == true)jumpPointContainer.SetActive(true);
         HoverGizmo.transform.parent = transform.parent;
         cameraMode = 0;
@@ -419,6 +417,7 @@ public class StarSystemsScript : MonoBehaviour
         AudioManager.stop("SystemAmbient");
         systemName.SetActive(false);
         spaceBoxColor.GetComponent<MeshRenderer>().material.color = new Color(0,0,0,0);
+        selectedSystem = null;
     }
 
     private Vector3 QuadradicCurve(Vector3 a, Vector3 b, Vector3 c, float t)

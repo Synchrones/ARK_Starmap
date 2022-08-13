@@ -371,7 +371,6 @@ GameObject:
   - component: {fileID: 195386254}
   - component: {fileID: 195386253}
   - component: {fileID: 195386252}
-  - component: {fileID: 195386251}
   - component: {fileID: 195386250}
   - component: {fileID: 195386255}
   - component: {fileID: 195386256}
@@ -403,7 +402,6 @@ MonoBehaviour:
   UIContainer: {fileID: 1890230024}
   systemName: {fileID: 539407715}
   spaceBoxColor: {fileID: 841120098}
-  starPrefab: {fileID: 6883960155146989100, guid: fcb452c010d2bb842a2cb5496e4a48eb, type: 3}
   lastSystemHit: {fileID: 0}
   HoverGizmo: {fileID: 1219505723}
   UEESprite: {fileID: 21300000, guid: cba8d94c7bf01e54b8ddaac5b1f67589, type: 3}
@@ -415,19 +413,6 @@ MonoBehaviour:
   tunnelMaterial: {fileID: 2100000, guid: 92939818751aeab449b2c91b19d44f8a, type: 2}
   starFieldMaterial: {fileID: 0}
   layerMask: 0
---- !u!65 &195386251
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 195386249}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &195386252
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -507,10 +492,10 @@ MonoBehaviour:
   starPrefab: {fileID: 8756748243194028530, guid: 8024735863f48c94790db036a8d43505, type: 3}
   spaceBoxColorsGO: {fileID: 841120098}
   bandPrefab: {fileID: 4535330706345580589, guid: 32f97cb65913fa04790d697b193f97e0, type: 3}
-  bluePlanetPrefab: {fileID: 919132149155446097, guid: 4174d0e30ab41d1459260ac38e24fb50, type: 3}
-  brownPlanetPrefab: {fileID: 919132149155446097, guid: f86cb80ecd782934789be1c52568b811, type: 3}
-  greenPlanetPrefab: {fileID: 919132149155446097, guid: ddfe1f522b4fb9649905b28290f45298, type: 3}
-  gazPlanetPrefab: {fileID: 919132149155446097, guid: 414e9b886e1a0954db110a615412c645, type: 3}
+  bluePlanetPrefab: {fileID: 2452074754969980766, guid: c90d6a115e669d846b6e8f6f85ac1f24, type: 3}
+  brownPlanetPrefab: {fileID: 4227289334147860352, guid: dc8c3175a41412d4ba4af10290703e86, type: 3}
+  greenPlanetPrefab: {fileID: 300870038417511189, guid: 378e93055c88de54387afb4bec418b45, type: 3}
+  gazPlanetPrefab: {fileID: 7538010320121936202, guid: 4ffd16d134efcb24695ec0531f2e2f66, type: 3}
   jumpPointPrefab: {fileID: 346894009660737050, guid: fb23a048e10c4b140b315ed7a1b73f9c, type: 3}
   defaultSpaceStationPrefab: {fileID: 7590388457483272264, guid: c3eec5afe06020649bdca70e3167a31f, type: 3}
   POSpaceStationPrefab: {fileID: 6581907663938192959, guid: 3b6ebee8d838e0f428dd3682f49d4730, type: 3}
@@ -2192,7 +2177,6 @@ GameObject:
   - component: {fileID: 841120099}
   - component: {fileID: 841120102}
   - component: {fileID: 841120101}
-  - component: {fileID: 841120100}
   m_Layer: 0
   m_Name: SpaceBoxCubeColor
   m_TagString: Untagged
@@ -2214,19 +2198,6 @@ Transform:
   m_Father: {fileID: 586511927}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &841120100
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 841120098}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &841120101
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -158,7 +158,6 @@ public class StarSystemGeneration : MonoBehaviour
                         break;
 
                     case "PLANET":
-
                         celestialGO = setCOAppaerenceAndTexture(celestialObject.appearance, celestialObject.texture.slug, systemContent.name, starSystem);
                         
                         celestialGO.name = celestialObject.name;
@@ -185,9 +184,12 @@ public class StarSystemGeneration : MonoBehaviour
                         celestialGO.AddComponent<SphereCollider>().radius = 1.5f;
 
                         drawOrbit(celestialGO, starSystem, celestialObject, distance);
-
-                        Mesh planetLineMesh = celestialGO.transform.GetChild(0).GetChild(1).GetComponent<MeshFilter>().mesh;
-                        planetLineMesh.SetSubMesh(0, new UnityEngine.Rendering.SubMeshDescriptor(indexStart:0, indexCount:planetLineMesh.GetSubMesh(0).indexCount, topology:MeshTopology.Lines));
+                        
+                        if(celestialObject.appearance != "PLANET_GAS")
+                        {
+                            Mesh planetLineMesh = celestialGO.transform.GetChild(0).GetChild(1).GetComponent<MeshFilter>().mesh;
+                            planetLineMesh.SetSubMesh(0, new UnityEngine.Rendering.SubMeshDescriptor(indexStart:0, indexCount:planetLineMesh.GetSubMesh(0).indexCount, topology:MeshTopology.Lines));
+                        }
                         
                         PlanetScript planetScript = celestialGO.AddComponent<PlanetScript>();
                         planetScript.toRotate.Add(celestialGO.transform.GetChild(1).gameObject);
@@ -251,10 +253,12 @@ public class StarSystemGeneration : MonoBehaviour
                         celestialGO.AddComponent<SphereCollider>().radius = 2;
 
                         celestialGO.AddComponent<PlanetScript>();
-
-                        Mesh moonLineMesh = celestialGO.transform.GetChild(0).GetChild(1).GetComponent<MeshFilter>().mesh;
-                        moonLineMesh.SetSubMesh(0, new UnityEngine.Rendering.SubMeshDescriptor(indexStart:0, indexCount:moonLineMesh.GetSubMesh(0).indexCount, topology:MeshTopology.Lines));
-
+                        if(celestialObject.appearance != "PLANET_GAS")
+                        {
+                            Mesh moonLineMesh = celestialGO.transform.GetChild(0).GetChild(1).GetComponent<MeshFilter>().mesh;
+                            moonLineMesh.SetSubMesh(0, new UnityEngine.Rendering.SubMeshDescriptor(indexStart:0, indexCount:moonLineMesh.GetSubMesh(0).indexCount, topology:MeshTopology.Lines));
+                        }
+                        
                         moonList.Add(new KeyValuePair<GameObject, int>(celestialGO, celestialObject.id));
 
                         break;
@@ -434,19 +438,20 @@ public class StarSystemGeneration : MonoBehaviour
                                         Vector3 size = planet.Key.transform.localScale * 500;
                                         celestialGO.transform.localScale = size;
                                         celestialGO.transform.Rotate(Vector3.forward, float.Parse(planet.Key.GetComponent<COInfosScript>().axial_tilt));
+                                        
+                                        if(planet.Key.GetComponent<COInfosScript>().ringColor1 != null)
+                                        {
+                                            Material ringMaterial1 = celestialGO.transform.GetChild(0).GetComponent<MeshRenderer>().material;
+                                            Material ringMaterial2 = celestialGO.transform.GetChild(1).GetComponent<MeshRenderer>().material;
 
-                                        Material ringMaterial1 = celestialGO.transform.GetChild(0).GetComponent<MeshRenderer>().material;
-                                        Material ringMaterial2 = celestialGO.transform.GetChild(1).GetComponent<MeshRenderer>().material;
-
-                                        ringMaterial1.SetColor("_Color", parseColor(planet.Key.GetComponent<COInfosScript>().ringColor1));
-                                        ringMaterial1.SetFloat("_TexStart", (1.75f + planet.Key.GetComponent<COInfosScript>().ringStart) * size.x / 500);
-                                        ringMaterial1.SetFloat("_TexEnd", (1.75f + planet.Key.GetComponent<COInfosScript>().ringEnd) * size.x / 500);
-                                        
-                                        ringMaterial2.SetColor("_Color", parseColor(planet.Key.GetComponent<COInfosScript>().ringColor2));
-                                        ringMaterial2.SetFloat("_TexStart", (1.75f + (planet.Key.GetComponent<COInfosScript>().ringStart)) * size.x / 500);
-                                        ringMaterial2.SetFloat("_TexEnd", (1.75f + (planet.Key.GetComponent<COInfosScript>().ringEnd)) * size.x / 500);
-                                        
-                                        
+                                            ringMaterial1.SetColor("_Color", parseColor(planet.Key.GetComponent<COInfosScript>().ringColor1));
+                                            ringMaterial1.SetFloat("_TexStart", (1.75f + planet.Key.GetComponent<COInfosScript>().ringStart) * size.x / 500);
+                                            ringMaterial1.SetFloat("_TexEnd", (1.75f + planet.Key.GetComponent<COInfosScript>().ringEnd) * size.x / 500);
+                                            
+                                            ringMaterial2.SetColor("_Color", parseColor(planet.Key.GetComponent<COInfosScript>().ringColor2));
+                                            ringMaterial2.SetFloat("_TexStart", (1.75f + (planet.Key.GetComponent<COInfosScript>().ringStart)) * size.x / 500);
+                                            ringMaterial2.SetFloat("_TexEnd", (1.75f + (planet.Key.GetComponent<COInfosScript>().ringEnd)) * size.x / 500);
+                                        } 
                                     } 
                                 }
                                 foreach(KeyValuePair<GameObject, int> moon in moonList) //Yela has strange rings...

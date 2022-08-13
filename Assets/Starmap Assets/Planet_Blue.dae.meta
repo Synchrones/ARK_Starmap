@@ -1,32 +1,29 @@
 fileFormatVersion: 2
-guid: f86cb80ecd782934789be1c52568b811
+guid: 4174d0e30ab41d1459260ac38e24fb50
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable:
-  - first:
-      74: 1827226128182048838
-    second: Take 001
+  internalIDToNameTable: []
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Additive
-    second: {fileID: 2100000, guid: 6f750c10df9f46645a270915d542cf37, type: 2}
+    second: {fileID: 2100000, guid: d08a2bf74cab7f9429e0e675c71d56e1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: AdditiveTexture
-    second: {fileID: 2100000, guid: 4374c41553cda7c418ef9d5b1c0b57e2, type: 2}
+    second: {fileID: 2100000, guid: ae8e96f2dd53aec4c8b66633c4fede35, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Thinline
-    second: {fileID: 2100000, guid: c501a54c973641343a492f43d0ba1adf, type: 2}
+    second: {fileID: 2100000, guid: 061df0145acd3fc40aaef33081aeb790, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Thinline1
-    second: {fileID: 2100000, guid: 2818d785d1bb8264b922b61b54add7e6, type: 2}
+    second: {fileID: 2100000, guid: 395414809b40f7244ab8c0041a156566, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -53,37 +50,8 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Take 001
-      takeName: Take 001
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 600
-      wrapMode: 2
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 1
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    isReadable: 0
+    clipAnimations: []
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
@@ -140,11 +108,11 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 1
+  animationType: 2
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
