@@ -21,7 +21,7 @@ public class JumpPointScript : MonoBehaviour
     void Update()
     {
         material.mainTextureOffset = new Vector2(offset, 0);
-        offset -= 0.0003f;
+        offset -= 0.02f;
 
         jumpHeadTransform.LookAt(cameraTransform);
     }

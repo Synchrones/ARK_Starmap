@@ -14,6 +14,7 @@ using TMPro;
 */
 /* TODO: (graphics) :
     -rework star shader (colors, animations, "corona"...)
+    -rework asteroid fields
 */
 public class StarSystemsScript : MonoBehaviour
 {
