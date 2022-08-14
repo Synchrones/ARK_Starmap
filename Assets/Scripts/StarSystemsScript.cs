@@ -412,6 +412,8 @@ public class StarSystemsScript : MonoBehaviour
     public void UnloadAndExitSystem()
     {
         if(areTunnelsActives == true)jumpPointContainer.SetActive(true);
+        HoverGizmo.SetActive(false);
+        isHoverGizmoActive = false;
         HoverGizmo.transform.parent = transform.parent;
         cameraMode = 0;
         mainCamera.GetComponent<CameraScript>().ExitSystem(selectedSystem);
