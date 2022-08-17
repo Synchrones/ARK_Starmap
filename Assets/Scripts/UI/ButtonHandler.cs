@@ -13,16 +13,13 @@ public class ButtonHandler : MonoBehaviour
     private Vector2 pos3= new Vector2(158, -24.5f);
     public GameObject inspectButton;
     public GameObject informationsButton;
+    public bool setalphathreshold;
+    public bool activated;
 
     void Start()
     {
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManagerScript>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(setalphathreshold)gameObject.GetComponent<Image>().alphaHitTestMinimumThreshold = 0.5f;
     }
 
     public void EnterSystem()
@@ -69,6 +66,33 @@ public class ButtonHandler : MonoBehaviour
             {
                 if(discScript.mode == 0) scriptHandler.GetComponent<StarSystemsScript>().LoadAndEnterSystem();
             }        
+        }
+    }
+
+    public void showTunnelsS()
+    {
+        switchState();
+    }
+
+    public void showTunnelsM()
+    {
+        switchState();
+    }
+
+    public void showTunnelsL()
+    {
+        switchState();
+    }
+
+    private void switchState()
+    {
+        if(activated)
+        {
+            activated = false;
+        }
+        else
+        {
+            activated = true;
         }
     }
 }
