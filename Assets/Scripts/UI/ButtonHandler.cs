@@ -15,11 +15,18 @@ public class ButtonHandler : MonoBehaviour
     public GameObject informationsButton;
     public bool setalphathreshold;
     public bool activated;
+    public bool animated;
+    public Color currentStateColor;
 
     void Start()
     {
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManagerScript>();
-        if(setalphathreshold)gameObject.GetComponent<Image>().alphaHitTestMinimumThreshold = 0.5f;
+        if(animated)
+        {
+            if(setalphathreshold)gameObject.GetComponent<Image>().alphaHitTestMinimumThreshold = 0.5f;
+            currentStateColor = gameObject.GetComponent<Image>().color;
+        }
+        
     }
 
     public void EnterSystem()
@@ -71,28 +78,53 @@ public class ButtonHandler : MonoBehaviour
 
     public void showTunnelsS()
     {
-        switchState();
+        switchState("S");
     }
 
     public void showTunnelsM()
     {
-        switchState();
+        switchState("M");
     }
 
     public void showTunnelsL()
     {
-        switchState();
+        switchState("L");
     }
 
-    private void switchState()
+    private void switchState(string size)
     {
         if(activated)
         {
             activated = false;
+            currentStateColor = new Color(currentStateColor.r, currentStateColor.g, currentStateColor.b, 0.1f);
+            gameObject.transform.GetChild(1).gameObject.SetActive(false);
+
+            List<GameObject> tunnels = (List<GameObject>)scriptHandler.GetComponent<StarSystemsScript>().GetType().GetField("tunnels" + size).GetValue(scriptHandler.GetComponent<StarSystemsScript>());
+            foreach(GameObject tunnel in tunnels)
+            {
+                tunnel.SetActive(false);
+            }
         }
         else
         {
             activated = true;
+            currentStateColor = new Color(currentStateColor.r, currentStateColor.g, currentStateColor.b, 0.6f);
+            gameObject.transform.GetChild(1).gameObject.SetActive(true);
+
+            List<GameObject> tunnels = (List<GameObject>)scriptHandler.GetComponent<StarSystemsScript>().GetType().GetField("tunnels" + size).GetValue(scriptHandler.GetComponent<StarSystemsScript>());
+            foreach(GameObject tunnel in tunnels)
+            {
+                tunnel.SetActive(true);
+            }
         }
+    }
+    public void hovered()
+    {
+        gameObject.GetComponent<Image>().color = new Color(currentStateColor.r, currentStateColor.g, currentStateColor.b, 1);
+    }
+
+    public void backToCurrentColor()
+    {
+        gameObject.GetComponent<Image>().color = currentStateColor;
     }
 }

@@ -14,7 +14,7 @@ using TMPro;
 */
 /* TODO: (graphics) :
     -rework star shader (colors, animations, "corona"...)
-    -rework asteroid fields
+    -see Goss system (planet don't look good + missing texture)
 */
 public class StarSystemsScript : MonoBehaviour
 {
@@ -55,6 +55,9 @@ public class StarSystemsScript : MonoBehaviour
     private float t;
     private bool areTunnelsActives;
     private GameObject jumpPointContainer;
+    public List<GameObject> tunnelsS;
+    public List<GameObject> tunnelsM;
+    public List<GameObject> tunnelsL;
 
     void Start()
     {
@@ -138,6 +141,9 @@ public class StarSystemsScript : MonoBehaviour
         }
         
         jumpPointContainer = new GameObject("Jump-Points");
+        tunnelsL = new List<GameObject>();
+        tunnelsM = new List<GameObject>();
+        tunnelsS = new List<GameObject>();
         Tunnels jsonTunnels = JsonUtility.FromJson<Tunnels>(jumpPointsJson);
         foreach(Tunnel tunnel in jsonTunnels.tunnels)
         {
@@ -189,17 +195,24 @@ public class StarSystemsScript : MonoBehaviour
 
             line.textureMode = LineTextureMode.RepeatPerSegment;
             line.material = tunnelMaterial;
-            jumpPoint.size = "LARGE";
-            if(tunnel.size == "M")
+            if(tunnel.size == "L")
+            {
+                jumpPoint.size = "LARGE";
+                tunnelsL.Add(tunnelGO);
+            }
+            else if(tunnel.size == "M")
             {
                 jumpPoint.size = "MEDIUM";
                 line.material.SetColor("_MainColor", new Color32(188, 117, 83, 14));
+                tunnelsM.Add(tunnelGO);
             }
-            if(tunnel.size == "S")
+            else if(tunnel.size == "S")
             {
                 jumpPoint.size = "SMALL";
                 line.material.SetColor("_MainColor", new Color32(248, 117, 83, 14));
+                tunnelsS.Add(tunnelGO);
             }
+            tunnelGO.SetActive(false);
             TunnelTraficScript tunnelTraficScript = tunnelGO.AddComponent<TunnelTraficScript>();
             jumpPointList.Add(jumpPoint);
             
