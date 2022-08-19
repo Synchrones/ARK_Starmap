@@ -30,6 +30,7 @@ public class StarSystemsScript : MonoBehaviour
     public GameObject UIContainer;
     public GameObject systemName;
     public GameObject spaceBoxColor;
+    public GameObject displaySection;
     AudioManagerScript AudioManager;
     bool hasHitSoundPlayed;
     bool systemHit;
@@ -400,19 +401,55 @@ public class StarSystemsScript : MonoBehaviour
             }
         }
         
-        //temporary
         if(Input.GetKeyDown(KeyCode.J))
         {
-            if(jumpPointContainer.gameObject.activeInHierarchy == true)
+            int count = 0;
+            for (int i = 0; i < 3; i++)
             {
-                jumpPointContainer.SetActive(false);
+                if(displaySection.transform.GetChild(0).GetChild(i).GetComponent<ButtonHandler>().activated)count += 1;
+            }
+            if(count >= 2)
+            {
+                showTunnels(false);
                 areTunnelsActives = false;
             }
             else
             {
-                jumpPointContainer.SetActive(true);
+                showTunnels(true);
                 areTunnelsActives = true;
             }
+        }
+    }
+
+    public void showTunnels(bool state)
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            ButtonHandler button = displaySection.transform.GetChild(0).GetChild(i).GetComponent<ButtonHandler>();
+
+            if(state)button.currentStateColor = new Color(1, 1, 1, 0.6f);
+            else button.currentStateColor = new Color(1, 1, 1, 0.1f);
+
+            if(button.activated ^ state)
+            {
+                if(i == 0)
+                {
+                    button.showTunnelsS();
+                    button.backToCurrentColor();
+                }
+                else if(i == 1)
+                {
+                    button.showTunnelsM();
+                    button.backToCurrentColor();
+                }
+                else if(i == 2)
+                {
+                    button.showTunnelsL();
+                    button.backToCurrentColor();
+                }
+            }
+            if(state)button.activated = true;
+            else button.activated = false;
         }
     }
 
@@ -443,6 +480,7 @@ public class StarSystemsScript : MonoBehaviour
             StopAllCoroutines();
             StartCoroutine(setSystemOpacity(lastSystemHit, 0.5f));
         }
+        displaySection.SetActive(false);
         if(areTunnelsActives == true)jumpPointContainer.SetActive(false);
         UIContainer.GetComponent<DiscScript>().UnloadDisc();
         this.GetComponent<StarSystemGeneration>().LoadSystem(selectedSystem);
@@ -457,6 +495,7 @@ public class StarSystemsScript : MonoBehaviour
 
     public void UnloadAndExitSystem()
     {
+        displaySection.SetActive(true);
         if(areTunnelsActives == true)jumpPointContainer.SetActive(true);
         HoverGizmo.SetActive(false);
         isHoverGizmoActive = false;
