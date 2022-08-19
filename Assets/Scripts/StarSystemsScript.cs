@@ -481,7 +481,7 @@ public class StarSystemsScript : MonoBehaviour
             StartCoroutine(setSystemOpacity(lastSystemHit, 0.5f));
         }
         displaySection.SetActive(false);
-        if(areTunnelsActives == true)jumpPointContainer.SetActive(false);
+        jumpPointContainer.SetActive(false);
         UIContainer.GetComponent<DiscScript>().UnloadDisc();
         this.GetComponent<StarSystemGeneration>().LoadSystem(selectedSystem);
         mainCamera.GetComponent<CameraScript>().EnterSystem(selectedSystem);
@@ -496,7 +496,7 @@ public class StarSystemsScript : MonoBehaviour
     public void UnloadAndExitSystem()
     {
         displaySection.SetActive(true);
-        if(areTunnelsActives == true)jumpPointContainer.SetActive(true);
+        jumpPointContainer.SetActive(true);
         HoverGizmo.SetActive(false);
         isHoverGizmoActive = false;
         HoverGizmo.transform.parent = transform.parent;
