@@ -17,4 +17,5 @@ public class SystemsInfosScript : MonoBehaviour
     public string economy;
     public string danger;
     public string lastTimeModified;
+    public bool lockOpacity;
 }

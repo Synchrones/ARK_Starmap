@@ -78,20 +78,49 @@ public class ButtonHandler : MonoBehaviour
 
     public void showTunnelsS()
     {
-        switchState("S");
+        switchState("JP", "S");
     }
 
     public void showTunnelsM()
     {
-        switchState("M");
+        switchState("JP", "M");
     }
 
     public void showTunnelsL()
     {
-        switchState("L");
+        switchState("JP", "L");
+    }
+    public void showSystemsUNC()
+    {
+        switchState("Systems", "UNC");
     }
 
-    private void switchState(string size)
+    public void showSystemsDEV()
+    {
+        switchState("Systems", "DEV");
+    }
+
+    public void showSystemsXIAN()
+    {
+        switchState("Systems", "XIAN");
+    }
+
+    public void showSystemsVNCL()
+    {
+        switchState("Systems", "VNCL");
+    }
+
+    public void showSystemsBANU()
+    {
+        switchState("Systems", "BANU");
+    }
+
+    public void showSystemsUEE()
+    {
+        switchState("Systems", "UEE");
+    }
+
+    private void switchState(string parameter, string value)
     {
         if(activated)
         {
@@ -99,10 +128,22 @@ public class ButtonHandler : MonoBehaviour
             currentStateColor = new Color(currentStateColor.r, currentStateColor.g, currentStateColor.b, 0.1f);
             gameObject.transform.GetChild(1).gameObject.SetActive(false);
 
-            List<GameObject> tunnels = (List<GameObject>)scriptHandler.GetComponent<StarSystemsScript>().GetType().GetField("tunnels" + size).GetValue(scriptHandler.GetComponent<StarSystemsScript>());
-            foreach(GameObject tunnel in tunnels)
+            if(parameter == "JP")
             {
-                tunnel.SetActive(false);
+                List<GameObject> tunnels = (List<GameObject>)scriptHandler.GetComponent<StarSystemsScript>().GetType().GetField("tunnels" + value).GetValue(scriptHandler.GetComponent<StarSystemsScript>());
+                foreach(GameObject tunnel in tunnels)
+                {
+                    tunnel.SetActive(false);
+                }
+            }
+            else if(parameter == "Systems")
+            {
+                List<GameObject> systems = (List<GameObject>)scriptHandler.GetComponent<StarSystemsScript>().GetType().GetField("systems" + value).GetValue(scriptHandler.GetComponent<StarSystemsScript>());
+                foreach(GameObject system in systems)
+                {
+                    system.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.1f);
+                    system.GetComponent<SystemsInfosScript>().lockOpacity = true;
+                }
             }
         }
         else
@@ -111,10 +152,22 @@ public class ButtonHandler : MonoBehaviour
             currentStateColor = new Color(currentStateColor.r, currentStateColor.g, currentStateColor.b, 0.6f);
             gameObject.transform.GetChild(1).gameObject.SetActive(true);
 
-            List<GameObject> tunnels = (List<GameObject>)scriptHandler.GetComponent<StarSystemsScript>().GetType().GetField("tunnels" + size).GetValue(scriptHandler.GetComponent<StarSystemsScript>());
-            foreach(GameObject tunnel in tunnels)
+            if(parameter == "JP")
             {
-                tunnel.SetActive(true);
+                List<GameObject> tunnels = (List<GameObject>)scriptHandler.GetComponent<StarSystemsScript>().GetType().GetField("tunnels" + value).GetValue(scriptHandler.GetComponent<StarSystemsScript>());
+                foreach(GameObject tunnel in tunnels)
+                {
+                    tunnel.SetActive(true);
+                }
+            }
+            else if(parameter == "Systems")
+            {
+                List<GameObject> systems = (List<GameObject>)scriptHandler.GetComponent<StarSystemsScript>().GetType().GetField("systems" + value).GetValue(scriptHandler.GetComponent<StarSystemsScript>());
+                foreach(GameObject system in systems)
+                {
+                    system.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+                    system.GetComponent<SystemsInfosScript>().lockOpacity = false;
+                }
             }
         }
     }

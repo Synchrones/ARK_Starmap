@@ -40,8 +40,8 @@ public class StarSystemsScript : MonoBehaviour
 
     public Sprite UEESprite;
     public Sprite BNUSprite;
-    public Sprite VNDSprite;
-    public Sprite XINSprite;
+    public Sprite VNCLSprite;
+    public Sprite XIANSprite;
     public Sprite DEVSprite;
     public Sprite UNCSprite;
 
@@ -59,6 +59,13 @@ public class StarSystemsScript : MonoBehaviour
     public List<GameObject> tunnelsM;
     public List<GameObject> tunnelsL;
 
+    public List<GameObject> systemsUNC;
+    public List<GameObject> systemsDEV;
+    public List<GameObject> systemsXIAN;
+    public List<GameObject> systemsVNCL;
+    public List<GameObject> systemsBANU;
+    public List<GameObject> systemsUEE;
+
     void Start()
     {
         systemsJson = System.IO.File.ReadAllText(Application.streamingAssetsPath + "/Jsons/SystemsList.json");
@@ -68,6 +75,12 @@ public class StarSystemsScript : MonoBehaviour
         var systemList = new List<KeyValuePair<GameObject, int>>();
 
         StarSystems jsonStarSystems = JsonUtility.FromJson<StarSystems>(systemsJson);
+        systemsUNC = new List<GameObject>();
+        systemsDEV = new List<GameObject>();
+        systemsXIAN = new List<GameObject>();
+        systemsVNCL = new List<GameObject>();
+        systemsBANU = new List<GameObject>();
+        systemsUEE = new List<GameObject>();
         foreach (StarSystem starSystem in jsonStarSystems.starSystems)
         {
             GameObject StarSystemGO = Instantiate(StarSystemPrefab, new Vector3(starSystem.posX * 7, starSystem.posZ * 7, starSystem.posY * 7), Quaternion.identity);
@@ -99,31 +112,37 @@ public class StarSystemsScript : MonoBehaviour
                     case "1":
 
                         StarSystemGO.GetComponent<SpriteRenderer>().sprite = UEESprite;
+                        systemsUEE.Add(StarSystemGO);
                         break;
 
                     case "2":
 
                         StarSystemGO.GetComponent<SpriteRenderer>().sprite = BNUSprite;
+                        systemsBANU.Add(StarSystemGO);
                         break;
 
                     case "3":
 
-                        StarSystemGO.GetComponent<SpriteRenderer>().sprite = VNDSprite;
+                        StarSystemGO.GetComponent<SpriteRenderer>().sprite = VNCLSprite;
+                        systemsVNCL.Add(StarSystemGO);
                         break;
 
                     case "4":
 
-                        StarSystemGO.GetComponent<SpriteRenderer>().sprite = XINSprite;
+                        StarSystemGO.GetComponent<SpriteRenderer>().sprite = XIANSprite;
+                        systemsXIAN.Add(StarSystemGO);
                         break;
 
                     case "7":
 
                         StarSystemGO.GetComponent<SpriteRenderer>().sprite = DEVSprite;
+                        systemsDEV.Add(StarSystemGO);
                         break;
 
                     case "8":
 
                         StarSystemGO.GetComponent<SpriteRenderer>().sprite = UNCSprite;
+                        systemsUNC.Add(StarSystemGO);
                         break;
                 }
             }
@@ -241,6 +260,7 @@ public class StarSystemsScript : MonoBehaviour
     {
         if(cameraMode == 0)
         {
+
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if(Physics.Raycast(ray, out hit, 2000))
@@ -250,9 +270,11 @@ public class StarSystemsScript : MonoBehaviour
                     AudioManager.play("GOHover");
                     systemHit = true;
                     lastSystemHit = hit.transform.gameObject;
-
-                    StopAllCoroutines();
-                    StartCoroutine(setSystemOpacity(hit.transform.gameObject, 1));
+                    if(!hit.transform.gameObject.GetComponent<SystemsInfosScript>().lockOpacity)
+                    {
+                        StopAllCoroutines();
+                        StartCoroutine(setSystemOpacity(hit.transform.gameObject, 1));
+                    }
                 }
                 if(Input.GetMouseButtonDown(1)){
                     clickedGO = hit.transform.gameObject;
@@ -268,9 +290,7 @@ public class StarSystemsScript : MonoBehaviour
                     {
                         clickedGO = null;
                     }
-                    
                 }
-                
             }
             else
             {
@@ -281,16 +301,23 @@ public class StarSystemsScript : MonoBehaviour
                     {
                         if(selectedSystem != lastSystemHit)
                         {
-                            StopAllCoroutines();
-                            StartCoroutine(setSystemOpacity(lastSystemHit, 0.5f));
+                            if(!lastSystemHit.GetComponent<SystemsInfosScript>().lockOpacity)
+                            {
+                                StopAllCoroutines();
+                                StartCoroutine(setSystemOpacity(lastSystemHit, 0.5f));
+                            }
+                            
                         }
                     }
                     else
                     {
-                        StopAllCoroutines();
-                        StartCoroutine(setSystemOpacity(lastSystemHit, 0.5f));
+                        if(!lastSystemHit.GetComponent<SystemsInfosScript>().lockOpacity)
+                        {
+                            StopAllCoroutines();
+                            StartCoroutine(setSystemOpacity(lastSystemHit, 0.5f));
+                        }
+                        
                     }
-                    
                 }
             }
 
@@ -303,8 +330,11 @@ public class StarSystemsScript : MonoBehaviour
             {
                 if(selectedSystem != null)
                 {
-                    StopAllCoroutines();
-                    StartCoroutine(setSystemOpacity(lastSystemHit, 0.5f));
+                    if(!lastSystemHit.GetComponent<SystemsInfosScript>().lockOpacity)
+                    {
+                        StopAllCoroutines();
+                        StartCoroutine(setSystemOpacity(lastSystemHit, 0.5f));
+                    }
                     selectedSystem = null;
                 } 
             }
@@ -408,8 +438,11 @@ public class StarSystemsScript : MonoBehaviour
 
     public void LoadAndEnterSystem()
     {
-        StopAllCoroutines();
-        StartCoroutine(setSystemOpacity(lastSystemHit, 0.5f));
+        if(!lastSystemHit.GetComponent<SystemsInfosScript>().lockOpacity)
+        {
+            StopAllCoroutines();
+            StartCoroutine(setSystemOpacity(lastSystemHit, 0.5f));
+        }
         if(areTunnelsActives == true)jumpPointContainer.SetActive(false);
         UIContainer.GetComponent<DiscScript>().UnloadDisc();
         this.GetComponent<StarSystemGeneration>().LoadSystem(selectedSystem);
