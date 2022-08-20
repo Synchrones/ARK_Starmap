@@ -117,6 +117,13 @@ public class CameraScript : MonoBehaviour
                             }
                             starSystemsScript.selectedSystem = null;
                         }
+                        else
+                        {
+                            if(starSystemsScript.COSelected)
+                            {
+                                starSystemsScript.UnselectCO();
+                            }
+                        }
                     }
                 }
             }

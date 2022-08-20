@@ -38,12 +38,6 @@ public class DiscScript : MonoBehaviour
         if(isActive)
         {
             disc.transform.position = Camera.main.WorldToScreenPoint(selectedObject.transform.position);
-
-            if(Input.GetKey(KeyCode.Escape))
-            {
-                UnloadDisc();
-                UnloadInfobox();
-            }
         }
     }
 

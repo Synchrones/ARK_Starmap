@@ -180,4 +180,18 @@ public class ButtonHandler : MonoBehaviour
     {
         gameObject.GetComponent<Image>().color = currentStateColor;
     }
+
+    public void goBack()
+    {
+        StarSystemsScript starSystemsScript = scriptHandler.GetComponent<StarSystemsScript>();
+        if(starSystemsScript.COSelected)
+        {
+            starSystemsScript.UnselectCO();
+        }
+        else
+        {
+            starSystemsScript.UnloadAndExitSystem();
+        }
+        
+    }
 }

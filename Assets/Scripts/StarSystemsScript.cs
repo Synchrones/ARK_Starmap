@@ -31,6 +31,7 @@ public class StarSystemsScript : MonoBehaviour
     public GameObject systemName;
     public GameObject spaceBoxColor;
     public GameObject displaySection;
+    public GameObject upLeftUI;
     AudioManagerScript AudioManager;
     bool hasHitSoundPlayed;
     bool systemHit;
@@ -331,6 +332,8 @@ public class StarSystemsScript : MonoBehaviour
             {
                 if(selectedSystem != null)
                 {
+                    UIContainer.GetComponent<DiscScript>().UnloadDisc();
+                    UIContainer.GetComponent<DiscScript>().UnloadInfobox();
                     if(!lastSystemHit.GetComponent<SystemsInfosScript>().lockOpacity)
                     {
                         StopAllCoroutines();
@@ -379,7 +382,6 @@ public class StarSystemsScript : MonoBehaviour
                         clickedGO = null;
                     }
                 }
-                
             }
             else
             {
@@ -395,7 +397,7 @@ public class StarSystemsScript : MonoBehaviour
             {
                 if (COSelected == true)
                 {
-                    COSelected = false;
+                    UnselectCO();
                 }
                 else UnloadAndExitSystem();
             }
@@ -465,12 +467,23 @@ public class StarSystemsScript : MonoBehaviour
 
     public void SelectCO(GameObject gameObject)
     {
+        upLeftUI.transform.GetChild(2).GetChild(0).gameObject.SetActive(false);
+        upLeftUI.transform.GetChild(3).GetChild(0).gameObject.SetActive(true);
         selectedObject = gameObject;
         mainCamera.GetComponent<CameraScript>().SelectCO(selectedObject);
         DiscScript discScript = UIContainer.GetComponent<DiscScript>();
         discScript.selectedObject = selectedObject;
         discScript.mode = 1;
         discScript.LoadDisc();
+    }
+
+    public void UnselectCO()
+    {
+        COSelected = false;
+        upLeftUI.transform.GetChild(3).GetChild(0).gameObject.SetActive(false);
+        upLeftUI.transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
+        UIContainer.GetComponent<DiscScript>().UnloadDisc();
+        UIContainer.GetComponent<DiscScript>().UnloadInfobox();
     }
 
     public void LoadAndEnterSystem()
@@ -481,6 +494,9 @@ public class StarSystemsScript : MonoBehaviour
             StartCoroutine(setSystemOpacity(lastSystemHit, 0.5f));
         }
         displaySection.SetActive(false);
+        upLeftUI.transform.GetChild(1).GetChild(0).gameObject.SetActive(false);
+        upLeftUI.transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
+        upLeftUI.transform.GetChild(4).gameObject.SetActive(true);
         jumpPointContainer.SetActive(false);
         UIContainer.GetComponent<DiscScript>().UnloadDisc();
         this.GetComponent<StarSystemGeneration>().LoadSystem(selectedSystem);
@@ -496,6 +512,9 @@ public class StarSystemsScript : MonoBehaviour
     public void UnloadAndExitSystem()
     {
         displaySection.SetActive(true);
+        upLeftUI.transform.GetChild(2).GetChild(0).gameObject.SetActive(false);
+        upLeftUI.transform.GetChild(1).GetChild(0).gameObject.SetActive(true);
+        upLeftUI.transform.GetChild(4).gameObject.SetActive(false);
         jumpPointContainer.SetActive(true);
         HoverGizmo.SetActive(false);
         isHoverGizmoActive = false;
