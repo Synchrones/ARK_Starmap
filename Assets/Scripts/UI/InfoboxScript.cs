@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class InfoboxScript : MonoBehaviour
 {
     public GameObject infobox;
+    public TextMeshProUGUI logo; 
     public Text objecttype;
     public Text sizeHabitable;
     public Text sizeHabitableData;
@@ -37,6 +39,7 @@ public class InfoboxScript : MonoBehaviour
         if(mode == 0)
         {
             SystemsInfosScript systemInfos = gameObject.GetComponent<SystemsInfosScript>();
+            logo.text = "\ue805";
             objecttype.text = "STAR SYSTEM";
             sizeHabitable.text = "SIZE : ";
             sizeHabitableData.text = systemInfos.size;
@@ -49,6 +52,14 @@ public class InfoboxScript : MonoBehaviour
         {
             COInfosScript coInfosScript = gameObject.GetComponent<COInfosScript>();
             objecttype.text = coInfosScript.type;
+            if(coInfosScript.type == "STAR")
+            {
+                logo.text = "\ue804";
+            }
+            else if(coInfosScript.type == "PLANET" || coInfosScript.type == "SATELLITE")
+            {
+                logo.text = "\ue803";
+            }
             if (coInfosScript.type == "JUMPPOINT") 
             {
                 sizeHabitable.text = "HABITABLE : ";
