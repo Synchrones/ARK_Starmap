@@ -227,8 +227,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 184609797}
-  m_RootOrder: 2
+  m_Father: {fileID: 1479675579}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1025,8 +1025,6 @@ RectTransform:
   m_Children:
   - {fileID: 251747375}
   - {fileID: 1479675579}
-  - {fileID: 67421119}
-  - {fileID: 986361423}
   m_Father: {fileID: 1955311799}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1971,7 +1969,7 @@ GameObject:
   - component: {fileID: 255299361}
   - component: {fileID: 255299360}
   m_Layer: 5
-  m_Name: Vanduuls
+  m_Name: Vanduul
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5603,7 +5601,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: / SMALL
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f90310ec9aac0d5428c706d62a0eb07a, type: 2}
   m_sharedMaterial: {fileID: -8218551697392653229, guid: f90310ec9aac0d5428c706d62a0eb07a, type: 2}
@@ -6041,12 +6039,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 184609797}
-  m_RootOrder: 3
+  m_Father: {fileID: 1479675579}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 511.9, y: -24.8}
+  m_AnchoredPosition: {x: 510.4, y: -24.8}
   m_SizeDelta: {x: 50.1, y: 17.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &986361424
@@ -6069,7 +6067,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: / UEE
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f90310ec9aac0d5428c706d62a0eb07a, type: 2}
   m_sharedMaterial: {fileID: -8218551697392653229, guid: f90310ec9aac0d5428c706d62a0eb07a, type: 2}
@@ -6132,7 +6130,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 1.7084341, y: 16.314835, z: 3.2462273, w: 16.334461}
+  m_margin: {x: 1.7084341, y: 16.314835, z: -10.8129425, w: 16.334461}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -8853,6 +8851,8 @@ RectTransform:
   - {fileID: 255299357}
   - {fileID: 458824227}
   - {fileID: 769958974}
+  - {fileID: 67421119}
+  - {fileID: 986361423}
   m_Father: {fileID: 184609797}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9557,7 +9557,7 @@ GameObject:
   - component: {fileID: 1617797192}
   - component: {fileID: 1617797191}
   m_Layer: 5
-  m_Name: Xian
+  m_Name: Xi'an
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

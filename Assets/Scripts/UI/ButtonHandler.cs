@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class ButtonHandler : MonoBehaviour
 {
     public GameObject scriptHandler;
@@ -174,11 +175,29 @@ public class ButtonHandler : MonoBehaviour
     public void hovered()
     {
         gameObject.GetComponent<Image>().color = new Color(currentStateColor.r, currentStateColor.g, currentStateColor.b, 1);
+        if(gameObject.transform.parent.name == "JumpPoint")
+        {
+            gameObject.transform.parent.GetChild(4).GetComponent<TextMeshProUGUI>().text = "/ " + gameObject.name.ToUpper();
+        }
+        else if(gameObject.transform.parent.name == "Factions")
+        {
+            gameObject.transform.parent.GetChild(7).GetComponent<TextMeshProUGUI>().text = "/ " + gameObject.name.ToUpper();
+        }
+        
     }
 
     public void backToCurrentColor()
     {
         gameObject.GetComponent<Image>().color = currentStateColor;
+        
+        if(gameObject.transform.parent.name == "JumpPoint")
+        {
+            gameObject.transform.parent.GetChild(4).GetComponent<TextMeshProUGUI>().text = "";
+        }
+        else if(gameObject.transform.parent.name == "Factions")
+        {
+            gameObject.transform.parent.GetChild(7).GetComponent<TextMeshProUGUI>().text = "";
+        }
     }
 
     public void goBack()
