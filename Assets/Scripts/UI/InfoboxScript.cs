@@ -62,6 +62,7 @@ public class InfoboxScript : MonoBehaviour
             }
             if (coInfosScript.type == "JUMPPOINT") 
             {
+                logo.text = "\ue801";
                 sizeHabitable.text = "HABITABLE : ";
                 sizeHabitableData.text = "NO";
 

@@ -126,6 +126,7 @@ public class ButtonHandler : MonoBehaviour
         if(activated)
         {
             activated = false;
+            audioManager.play("ButtonDesactivate");
             currentStateColor = new Color(currentStateColor.r, currentStateColor.g, currentStateColor.b, 0.1f);
             gameObject.transform.GetChild(1).gameObject.SetActive(false);
 
@@ -150,6 +151,7 @@ public class ButtonHandler : MonoBehaviour
         else
         {
             activated = true;
+            audioManager.play("ButtonActivate");
             currentStateColor = new Color(currentStateColor.r, currentStateColor.g, currentStateColor.b, 0.6f);
             gameObject.transform.GetChild(1).gameObject.SetActive(true);
 
