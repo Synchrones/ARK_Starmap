@@ -8,14 +8,14 @@ public class InfoboxScript : MonoBehaviour
 {
     public GameObject infobox;
     public TextMeshProUGUI logo; 
-    public Text objecttype;
-    public Text sizeHabitable;
-    public Text sizeHabitableData;
-    public Text type;
-    public Text affiliation;
-    public Text affiliationData;
-    public Text objectName;
-    public Text description;
+    public TextMeshProUGUI objecttype;
+    public TextMeshProUGUI sizeHabitable;
+    public TextMeshProUGUI sizeHabitableData;
+    public TextMeshProUGUI type;
+    public TextMeshProUGUI affiliation;
+    public TextMeshProUGUI affiliationData;
+    public TextMeshProUGUI objectName;
+    public TextMeshProUGUI description;
 
     private Vector2 newPos;
     private RectTransform rectTransform;
@@ -42,10 +42,10 @@ public class InfoboxScript : MonoBehaviour
             logo.text = "\ue805";
             objecttype.text = "STAR SYSTEM";
             sizeHabitable.text = "SIZE : ";
-            sizeHabitableData.text = systemInfos.size;
+            sizeHabitableData.text = " " + systemInfos.size + " AU";
             type.text = systemInfos.type;
-            affiliationData.text = systemInfos.affiliationName;
-            objectName.text = systemInfos.systemName;
+            affiliationData.text = " " + systemInfos.affiliationName.ToUpper();
+            objectName.text = systemInfos.systemName.ToUpper();
             description.text = systemInfos.description;
         }
         else
@@ -64,10 +64,10 @@ public class InfoboxScript : MonoBehaviour
             {
                 logo.text = "\ue801";
                 sizeHabitable.text = "HABITABLE : ";
-                sizeHabitableData.text = "NO";
+                sizeHabitableData.text = " NO";
 
-                affiliation.text = "SIZE : ";
-                affiliationData.text = coInfosScript.size;
+                affiliation.text = "SIZE :";
+                affiliationData.text = " " + coInfosScript.size;
                 type.text = "BIDIRECTIONAL";
             }
             else 
@@ -75,18 +75,18 @@ public class InfoboxScript : MonoBehaviour
                 sizeHabitable.text = "HABITABLE : ";
                 if(coInfosScript.habitable.Equals(""))
                 {
-                    sizeHabitableData.text = "NO";
+                    sizeHabitableData.text = " NO";
                 }
                 else
                 {
-                    sizeHabitableData.text = "YES";
+                    sizeHabitableData.text = " YES";
                 }
-                type.text = coInfosScript.subtype;
-                affiliationData.text = coInfosScript.affiliationName;
+                type.text = coInfosScript.subtype.ToUpper();
+                affiliationData.text = " " + coInfosScript.affiliationName.ToUpper();
             }
 
-            if(coInfosScript.coName == "") objectName.text = coInfosScript.designation;
-            else objectName.text = coInfosScript.coName;
+            if(coInfosScript.coName == "") objectName.text = coInfosScript.designation.ToUpper();
+            else objectName.text = coInfosScript.coName.ToUpper();
 
             description.text = coInfosScript.description;
         }
