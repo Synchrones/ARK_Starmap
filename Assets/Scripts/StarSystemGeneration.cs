@@ -126,21 +126,27 @@ public class StarSystemGeneration : MonoBehaviour
                         Material starMaterialOuter = celestialGO.transform.GetChild(0).GetComponent<Renderer>().material;
                         Material starMaterialInner = celestialGO.transform.GetChild(1).GetComponent<Renderer>().material;
 
-                        starMaterialInner.mainTexture = (Texture)this.GetType().GetField("starTexture" + (string)starDatas.map).GetValue(this);
-                        starMaterialOuter.mainTexture = (Texture)this.GetType().GetField("starTexture" + (string)starDatas.map).GetValue(this);
-                        
-                        starMaterialOuter.SetColor("_Color", parseColor(starDatas.color1));
-                        starMaterialInner.SetColor("_Color", parseColor(starDatas.color2));
-                        celestialGO.transform.GetChild(2).GetComponent<Light>().color = parseColor(systemContent.shader_data.lightColor);
+                        if(systemContent.status != "M")
+                        {
+                            starMaterialInner.mainTexture = (Texture)this.GetType().GetField("starTexture" + (string)starDatas.map).GetValue(this);
+                            starMaterialOuter.mainTexture = (Texture)this.GetType().GetField("starTexture" + (string)starDatas.map).GetValue(this);
+
+                            starMaterialOuter.SetColor("_Color", parseColor(starDatas.color1));
+                            starMaterialInner.SetColor("_Color", parseColor(starDatas.color2));
+
+                            celestialGO.transform.GetChild(2).GetComponent<Light>().color = parseColor(systemContent.shader_data.lightColor);
+                        }
+                        else celestialObject.shader_data.radius = 0.1f;
+
+                        celestialGO.transform.localScale *=  celestialObject.shader_data.radius;
 
                         StarScript starScript = celestialGO.AddComponent<StarScript>();
                         starScript.starTexture = (Texture2D)starMaterialOuter.mainTexture;
                         starScript.rotation1 = starDatas.rotation1;
                         starScript.rotation1 = starDatas.rotation2;
-
                         celestialGO.name = celestialObject.designation;
                         celestialGO.transform.parent = SSContentGO.transform;
-                        celestialGO.transform.localScale *=  celestialObject.shader_data.radius;
+                        
                         celestialGO.layer = 6;
                         celestialGO.AddComponent<SphereCollider>().radius = 2;
 
@@ -570,25 +576,28 @@ public class StarSystemGeneration : MonoBehaviour
                 celestialObjectList.Add(celestialGO);
                 
             }
-            Color spaceColor;
-            ColorUtility.TryParseHtmlString(systemContent.shader_data.lightColor, out spaceColor);
-            spaceColor.a = 0.05f;
-            spaceBoxColorsGO.GetComponent<MeshRenderer>().material.color = spaceColor;
+            if(systemContent.status != "M")
+            {
+                Color spaceColor;
+                ColorUtility.TryParseHtmlString(systemContent.shader_data.lightColor, out spaceColor);
+                spaceColor.a = 0.05f;
+                spaceBoxColorsGO.GetComponent<MeshRenderer>().material.color = spaceColor;
 
-            GameObject greenFrostBands = Instantiate(bandPrefab, starSystem.transform.position, Quaternion.identity);
-            greenFrostBands.transform.parent = SSContentGO.transform;
-            greenFrostBands.transform.Rotate(Vector3.right, 90);
-            greenFrostBands.transform.localScale *= systemContent.frost_line + 5;
-            Material greenFrostBandsDatas = greenFrostBands.GetComponent<MeshRenderer>().material;
-            greenFrostBandsDatas.SetFloat("_GreenBandStart", systemContent.habitable_zone_inner);
-            greenFrostBandsDatas.SetFloat("_GreenBandEnd", systemContent.habitable_zone_outer);
-            greenFrostBandsDatas.SetFloat("_FrostBandPos", systemContent.frost_line);
+                GameObject greenFrostBands = Instantiate(bandPrefab, starSystem.transform.position, Quaternion.identity);
+                greenFrostBands.transform.parent = SSContentGO.transform;
+                greenFrostBands.transform.Rotate(Vector3.right, 90);
+                greenFrostBands.transform.localScale *= systemContent.frost_line + 5;
+                Material greenFrostBandsDatas = greenFrostBands.GetComponent<MeshRenderer>().material;
+                greenFrostBandsDatas.SetFloat("_GreenBandStart", systemContent.habitable_zone_inner);
+                greenFrostBandsDatas.SetFloat("_GreenBandEnd", systemContent.habitable_zone_outer);
+                greenFrostBandsDatas.SetFloat("_FrostBandPos", systemContent.frost_line);
 
 
-            StarFieldGenerator starFieldGenerator = gameObject.GetComponent<StarFieldGenerator>();
-            StarFieldData starFieldData = systemContent.shader_data.starfield;
-            GameObject starField = starFieldGenerator.generateStarField(SSContentGO.transform.position, starFieldData.radius, starFieldData.count, parseColor(starFieldData.color1), parseColor(starFieldData.color2), starFieldMaterial);
-            starField.transform.parent = SSContentGO.transform;
+                StarFieldGenerator starFieldGenerator = gameObject.GetComponent<StarFieldGenerator>();
+                StarFieldData starFieldData = systemContent.shader_data.starfield;
+                GameObject starField = starFieldGenerator.generateStarField(SSContentGO.transform.position, starFieldData.radius, starFieldData.count, parseColor(starFieldData.color1), parseColor(starFieldData.color2), starFieldMaterial);
+                starField.transform.parent = SSContentGO.transform;
+            }
         }
     }
 
@@ -615,6 +624,7 @@ public class StarSystemGeneration : MonoBehaviour
     {
         public string name;
         public string type;
+        public string status;
         public float frost_line;
         public float habitable_zone_inner;
         public float habitable_zone_outer;

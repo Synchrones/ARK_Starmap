@@ -250,9 +250,11 @@ public class CameraScript : MonoBehaviour
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
         gameObject.transform.GetChild(1).gameObject.SetActive(false);
         
-        float systemSize = float.Parse(gameObject.GetComponent<SystemsInfosScript>().size);
+        float systemSize = 10 + float.Parse(gameObject.GetComponent<SystemsInfosScript>().size);
+
 
         zoomLimits = (0.1f, systemSize);
+        newCenter = gameObject.transform.position;
 
         CalculateNewOffset(1 + systemSize / 50);
         StartCoroutine(MoveToPos(center, newCenter, cameraOffset, newOffset));

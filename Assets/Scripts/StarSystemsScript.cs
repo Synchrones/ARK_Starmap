@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 
 
-// TODO: (main TODO) : add starting screen, left click on system to enter, quick zoom with middle mouse button
+// TODO: (main TODO) : add starting screen, quick zoom with middle mouse button
 /* TODO: (bug fixes) : 
     -planet hitbox overlap when to close (see Kilian) 
     -reduce performance impact of the starbox? 
@@ -281,6 +281,10 @@ public class StarSystemsScript : MonoBehaviour
                 if(Input.GetMouseButtonDown(1)){
                     clickedGO = hit.transform.gameObject;
                 }
+                else if(Input.GetMouseButtonDown(0))
+                {
+                    clickedGO = hit.transform.gameObject;
+                }
                 
                 if(Input.GetMouseButtonUp(1))
                 {
@@ -291,6 +295,14 @@ public class StarSystemsScript : MonoBehaviour
                     else
                     {
                         clickedGO = null;
+                    }
+                }
+                if(Input.GetMouseButtonUp(0))
+                {
+                    if(clickedGO == hit.transform.gameObject)
+                    {
+                        selectedSystem = hit.transform.gameObject;
+                        LoadAndEnterSystem();
                     }
                 }
             }
