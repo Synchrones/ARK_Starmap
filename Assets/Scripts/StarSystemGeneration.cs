@@ -134,7 +134,10 @@ public class StarSystemGeneration : MonoBehaviour
                             starMaterialOuter.SetColor("_Color", parseColor(starDatas.color1));
                             starMaterialInner.SetColor("_Color", parseColor(starDatas.color2));
 
-                            celestialGO.transform.GetChild(2).GetComponent<Light>().color = parseColor(systemContent.shader_data.lightColor);
+                            if(systemContent.shader_data.lightColor != null)
+                            {
+                                celestialGO.transform.GetChild(2).GetComponent<Light>().color = parseColor(systemContent.shader_data.lightColor);
+                            }
                         }
                         else celestialObject.shader_data.radius = 0.1f;
 
@@ -576,22 +579,22 @@ public class StarSystemGeneration : MonoBehaviour
                 celestialObjectList.Add(celestialGO);
                 
             }
-            if(systemContent.status != "M")
+
+            GameObject greenFrostBands = Instantiate(bandPrefab, starSystem.transform.position, Quaternion.identity);
+            greenFrostBands.transform.parent = SSContentGO.transform;
+            greenFrostBands.transform.Rotate(Vector3.right, 90);
+            greenFrostBands.transform.localScale *= systemContent.frost_line + 5;
+            Material greenFrostBandsDatas = greenFrostBands.GetComponent<MeshRenderer>().material;
+            greenFrostBandsDatas.SetFloat("_GreenBandStart", systemContent.habitable_zone_inner);
+            greenFrostBandsDatas.SetFloat("_GreenBandEnd", systemContent.habitable_zone_outer);
+            greenFrostBandsDatas.SetFloat("_FrostBandPos", systemContent.frost_line);
+            
+            if(systemContent.status != "M" && systemContent.shader_data.lightColor != null)
             {
                 Color spaceColor;
                 ColorUtility.TryParseHtmlString(systemContent.shader_data.lightColor, out spaceColor);
                 spaceColor.a = 0.05f;
                 spaceBoxColorsGO.GetComponent<MeshRenderer>().material.color = spaceColor;
-
-                GameObject greenFrostBands = Instantiate(bandPrefab, starSystem.transform.position, Quaternion.identity);
-                greenFrostBands.transform.parent = SSContentGO.transform;
-                greenFrostBands.transform.Rotate(Vector3.right, 90);
-                greenFrostBands.transform.localScale *= systemContent.frost_line + 5;
-                Material greenFrostBandsDatas = greenFrostBands.GetComponent<MeshRenderer>().material;
-                greenFrostBandsDatas.SetFloat("_GreenBandStart", systemContent.habitable_zone_inner);
-                greenFrostBandsDatas.SetFloat("_GreenBandEnd", systemContent.habitable_zone_outer);
-                greenFrostBandsDatas.SetFloat("_FrostBandPos", systemContent.frost_line);
-
 
                 StarFieldGenerator starFieldGenerator = gameObject.GetComponent<StarFieldGenerator>();
                 StarFieldData starFieldData = systemContent.shader_data.starfield;
