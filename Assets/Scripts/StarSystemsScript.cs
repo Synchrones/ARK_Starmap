@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 
 
-// TODO: (main TODO) : add starting screen, quick zoom with middle mouse button
+// TODO: (main TODO) : add starting screen
 /* TODO: (bug fixes) : 
     -planet hitbox overlap when to close (see Kilian) 
     -reduce performance impact of the starbox? 

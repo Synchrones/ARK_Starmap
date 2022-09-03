@@ -149,6 +149,11 @@ public class CameraScript : MonoBehaviour
             }
         }
         float zoomInput = Input.GetAxis("Mouse ScrollWheel");
+        if(Input.GetMouseButton(2))
+        {
+            zoomInput += Input.GetAxis("Mouse Y");
+        }
+        
         if(zoomLimits.Item1 > cameraOffset.magnitude && zoomInput > 0 || zoomLimits.Item2 < cameraOffset.magnitude && zoomInput < 0)
         {
             currentZoom /= 1.2f;
@@ -158,6 +163,7 @@ public class CameraScript : MonoBehaviour
             if(zoomInput != 0)
             {
                 currentZoom += zoomInput * zoomSpeed * cameraOffset.magnitude / 100; 
+                currentZoom = Mathf.Min(10, currentZoom);
             }
         }
 
@@ -231,7 +237,14 @@ public class CameraScript : MonoBehaviour
         cameraOffset = Quaternion.AngleAxis(currentRotation.x, rightVector) * Quaternion.AngleAxis(currentRotation.y, Vector3.down) * cameraOffset;
         closenessToPole = rightVector.magnitude;
         
-        cameraOffset += transform.forward * currentZoom;
+        if(cameraOffset.magnitude - 0.05 > Vector3.Distance(cameraOffset, cameraOffset + transform.forward * currentZoom) || currentZoom < 0)
+        {
+            cameraOffset += transform.forward * currentZoom;
+        }
+        else
+        {
+            cameraOffset -= transform.forward * currentZoom;
+        }
     }
 
     public void SelectSystem(GameObject gameObject)
