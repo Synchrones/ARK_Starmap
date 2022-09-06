@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 // TODO: (main TODO) : add starting screen
@@ -83,9 +84,12 @@ public class StarSystemsScript : MonoBehaviour
         systemsVNCL = new List<GameObject>();
         systemsBANU = new List<GameObject>();
         systemsUEE = new List<GameObject>();
+
+        GameObject systemContainer = new GameObject("Systems");
         foreach (StarSystem starSystem in jsonStarSystems.starSystems)
         {
             GameObject StarSystemGO = Instantiate(StarSystemPrefab, new Vector3(starSystem.posX * 7, starSystem.posZ * 7, starSystem.posY * 7), Quaternion.identity);
+            StarSystemGO.transform.parent = systemContainer.transform;
             StarSystemGO.name = starSystem.name;
             
             StarSystemGO.AddComponent<SystemsInfosScript>();
@@ -355,7 +359,10 @@ public class StarSystemsScript : MonoBehaviour
                 } 
             }
 
-            
+            if(Input.GetKeyDown(KeyCode.Z))
+            {
+                SceneManager.LoadScene("Starting screen");
+            }
         }
         else if(cameraMode == 1)
         {
