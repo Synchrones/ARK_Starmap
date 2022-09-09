@@ -16,7 +16,7 @@ public class ButtonHandler : MonoBehaviour
     public GameObject informationsButton;
     public bool setalphathreshold;
     public bool activated;
-    public bool animated;
+    public bool animated;  
     public Color currentStateColor;
 
     void Start()
@@ -213,6 +213,11 @@ public class ButtonHandler : MonoBehaviour
         {
             starSystemsScript.UnloadAndExitSystem();
         }
+        
+    }
+
+    public void loadARK()
+    {
         
     }
 }
