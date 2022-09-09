@@ -427,6 +427,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptHandler: {fileID: 195386249}
   UIContainer: {fileID: 1890230024}
+  SceneSwitcher: {fileID: 0}
   inspectButton: {fileID: 0}
   informationsButton: {fileID: 0}
   setalphathreshold: 1
@@ -1347,6 +1348,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 219768369}
   m_CullTransparentMesh: 1
+--- !u!1001 &227645162
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3975504871427863056, guid: cef70c39fd4c4714d8abcb1f56c9f1ec, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975504871551779658, guid: cef70c39fd4c4714d8abcb1f56c9f1ec, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975504871551779658, guid: cef70c39fd4c4714d8abcb1f56c9f1ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.92791
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975504871551779658, guid: cef70c39fd4c4714d8abcb1f56c9f1ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.6374598
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975504871551779658, guid: cef70c39fd4c4714d8abcb1f56c9f1ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 85.96686
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975504871551779658, guid: cef70c39fd4c4714d8abcb1f56c9f1ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975504871551779658, guid: cef70c39fd4c4714d8abcb1f56c9f1ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975504871551779658, guid: cef70c39fd4c4714d8abcb1f56c9f1ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975504871551779658, guid: cef70c39fd4c4714d8abcb1f56c9f1ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975504871551779658, guid: cef70c39fd4c4714d8abcb1f56c9f1ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975504871551779658, guid: cef70c39fd4c4714d8abcb1f56c9f1ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975504871551779658, guid: cef70c39fd4c4714d8abcb1f56c9f1ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975504871551779659, guid: cef70c39fd4c4714d8abcb1f56c9f1ec, type: 3}
+      propertyPath: m_Name
+      value: SceneSwitcher
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cef70c39fd4c4714d8abcb1f56c9f1ec, type: 3}
 --- !u!1 &241569235
 GameObject:
   m_ObjectHideFlags: 0
@@ -1778,6 +1840,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptHandler: {fileID: 195386249}
   UIContainer: {fileID: 1890230024}
+  SceneSwitcher: {fileID: 0}
   inspectButton: {fileID: 0}
   informationsButton: {fileID: 0}
   setalphathreshold: 1
@@ -2654,6 +2717,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptHandler: {fileID: 195386249}
   UIContainer: {fileID: 1890230024}
+  SceneSwitcher: {fileID: 0}
   inspectButton: {fileID: 1810799367}
   informationsButton: {fileID: 421021485}
   setalphathreshold: 0
@@ -3206,6 +3270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptHandler: {fileID: 195386249}
   UIContainer: {fileID: 1890230024}
+  SceneSwitcher: {fileID: 0}
   inspectButton: {fileID: 0}
   informationsButton: {fileID: 0}
   setalphathreshold: 1
@@ -4229,6 +4294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptHandler: {fileID: 195386249}
   UIContainer: {fileID: 1890230024}
+  SceneSwitcher: {fileID: 0}
   inspectButton: {fileID: 0}
   informationsButton: {fileID: 0}
   setalphathreshold: 1
@@ -4650,6 +4716,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptHandler: {fileID: 195386249}
   UIContainer: {fileID: 1890230024}
+  SceneSwitcher: {fileID: 0}
   inspectButton: {fileID: 0}
   informationsButton: {fileID: 0}
   setalphathreshold: 1
@@ -9922,6 +9989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptHandler: {fileID: 195386249}
   UIContainer: {fileID: 1890230024}
+  SceneSwitcher: {fileID: 0}
   inspectButton: {fileID: 0}
   informationsButton: {fileID: 0}
   setalphathreshold: 1
@@ -10521,6 +10589,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptHandler: {fileID: 195386249}
   UIContainer: {fileID: 1890230024}
+  SceneSwitcher: {fileID: 0}
   inspectButton: {fileID: 0}
   informationsButton: {fileID: 0}
   setalphathreshold: 1
@@ -11308,6 +11377,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptHandler: {fileID: 195386249}
   UIContainer: {fileID: 1890230024}
+  SceneSwitcher: {fileID: 0}
   inspectButton: {fileID: 1810799367}
   informationsButton: {fileID: 421021485}
   setalphathreshold: 0
@@ -11454,6 +11524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptHandler: {fileID: 195386249}
   UIContainer: {fileID: 1890230024}
+  SceneSwitcher: {fileID: 0}
   inspectButton: {fileID: 0}
   informationsButton: {fileID: 0}
   setalphathreshold: 1
@@ -11661,6 +11732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptHandler: {fileID: 195386249}
   UIContainer: {fileID: 1890230024}
+  SceneSwitcher: {fileID: 0}
   inspectButton: {fileID: 0}
   informationsButton: {fileID: 0}
   setalphathreshold: 0
@@ -11853,6 +11925,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptHandler: {fileID: 195386249}
   UIContainer: {fileID: 1890230024}
+  SceneSwitcher: {fileID: 0}
   inspectButton: {fileID: 1810799367}
   informationsButton: {fileID: 421021485}
   setalphathreshold: 0
@@ -13083,6 +13156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptHandler: {fileID: 195386249}
   UIContainer: {fileID: 1890230024}
+  SceneSwitcher: {fileID: 0}
   inspectButton: {fileID: 0}
   informationsButton: {fileID: 0}
   setalphathreshold: 1

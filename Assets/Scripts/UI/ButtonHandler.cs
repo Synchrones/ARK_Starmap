@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class ButtonHandler : MonoBehaviour
 {
     public GameObject scriptHandler;
     public GameObject UIContainer;
     AudioManagerScript audioManager;
+    public GameObject SceneSwitcher;
     //disc
     private Vector2 pos1 = new Vector2(153, 23.4f);
     private Vector2 pos2= new Vector2(163, 0.2f);
@@ -218,6 +220,7 @@ public class ButtonHandler : MonoBehaviour
 
     public void loadARK()
     {
-        
+        SceneSwitcher.GetComponent<SceneSwitcherScript>().loadARK();
+        //SceneManager.LoadScene("Main");
     }
 }

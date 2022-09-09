@@ -17,7 +17,11 @@ public class AudioManagerScript : MonoBehaviour
         }
     }
     void Start() {
-        play("AmbientMusic");
+        if(gameObject.name == "MusicPlayer")
+        {
+            DontDestroyOnLoad(gameObject);
+            play("AmbientMusic");
+        }
     }
     
 

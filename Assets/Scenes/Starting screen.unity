@@ -306,6 +306,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 403683240}
   m_CullTransparentMesh: 1
+--- !u!1 &425332675
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 425332677}
+  - component: {fileID: 425332676}
+  m_Layer: 0
+  m_Name: MusicPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &425332676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425332675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1db233dfae242f498eaa237f00cc14f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: AmbientMusic
+    clip: {fileID: 8300000, guid: 5275d72f1e8e09c43852a091d10a4ef7, type: 3}
+    volume: 0.3
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+--- !u!4 &425332677
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425332675}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 29.11876, y: 5.247246, z: 89.42035}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &596213396
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,6 +409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptHandler: {fileID: 0}
   UIContainer: {fileID: 0}
+  SceneSwitcher: {fileID: 1700707990}
   inspectButton: {fileID: 0}
   informationsButton: {fileID: 0}
   setalphathreshold: 0
@@ -384,9 +435,9 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
+  m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.7058824}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -548,10 +599,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: GOHover
+    clip: {fileID: 8300000, guid: 81793d1039e7daa44b2a63ae3e88ddbe, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: ClickDisc
+    clip: {fileID: 8300000, guid: 18cd89e981869f247ac938612718913d, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: ButtonActivate
+    clip: {fileID: 8300000, guid: aafad6082ff921b4e923790e3e88a323, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: ButtonDesactivate
+    clip: {fileID: 8300000, guid: d56db3fac8822f342971ee5b610d63f5, type: 3}
+    volume: 0.5
+    pitch: 1
     source: {fileID: 0}
     loop: 0
 --- !u!4 &1018647645
@@ -787,6 +856,11 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!1 &1700707990 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3975504871551779659, guid: cef70c39fd4c4714d8abcb1f56c9f1ec, type: 3}
+  m_PrefabInstance: {fileID: 3975504873083076061}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2045629228
 GameObject:
   m_ObjectHideFlags: 0
@@ -1099,3 +1173,64 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &3975504873083076061
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3975504871551779658, guid: cef70c39fd4c4714d8abcb1f56c9f1ec, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975504871551779658, guid: cef70c39fd4c4714d8abcb1f56c9f1ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.92791
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975504871551779658, guid: cef70c39fd4c4714d8abcb1f56c9f1ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.6374598
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975504871551779658, guid: cef70c39fd4c4714d8abcb1f56c9f1ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 85.96686
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975504871551779658, guid: cef70c39fd4c4714d8abcb1f56c9f1ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975504871551779658, guid: cef70c39fd4c4714d8abcb1f56c9f1ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975504871551779658, guid: cef70c39fd4c4714d8abcb1f56c9f1ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975504871551779658, guid: cef70c39fd4c4714d8abcb1f56c9f1ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975504871551779658, guid: cef70c39fd4c4714d8abcb1f56c9f1ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975504871551779658, guid: cef70c39fd4c4714d8abcb1f56c9f1ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975504871551779658, guid: cef70c39fd4c4714d8abcb1f56c9f1ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975504871551779659, guid: cef70c39fd4c4714d8abcb1f56c9f1ec, type: 3}
+      propertyPath: m_Name
+      value: SceneSwitcher
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975504872579008270, guid: cef70c39fd4c4714d8abcb1f56c9f1ec, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1619811096}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cef70c39fd4c4714d8abcb1f56c9f1ec, type: 3}
