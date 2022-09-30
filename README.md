@@ -10,9 +10,9 @@ This app is a remake of this website with the goal of adding more features like 
 
 ## Controls
 
--left clic (hold) : camera rotation <br/>
--right clic (hold) : camera movement <br/>
+-left click (hold) : camera rotation <br/>
+-right click (hold) : camera movement <br/>
 -mouse wheel : zoom <br/>
--right clic on systems/celestial objects to get informations <br/>
+-right click on systems/celestial objects to get informations <br/>
 -echap : unselect object/exit system <br/>
 -J : hide/show jump-point's tunnels
