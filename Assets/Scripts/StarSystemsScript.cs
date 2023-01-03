@@ -12,10 +12,10 @@ using UnityEngine.SceneManagement;
     -oberon star is... small
     -unknow Co type "POI" (vega Vanduul attack)
     -systems looks bigger when on the side of the screen
+    -camera seems to be vibrating when looking really small objects
 */
 /* TODO: (graphics) :
     -rework star shader (colors, animations, "corona"...)
-    -see Goss system (planet don't look good + missing texture)
 */
 public class StarSystemsScript : MonoBehaviour
 {
