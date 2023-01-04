@@ -5,9 +5,8 @@ using TMPro;
 using UnityEngine.SceneManagement;
 
 
-// TODO: (main TODO) : add starting screen
+// TODO: (main TODO) : add options window
 /* TODO: (bug fixes) : 
-    -planet hitbox overlap when to close (see Kilian) 
     -reduce performance impact of the starbox? 
     -oberon star is... small
     -unknow Co type "POI" (vega Vanduul attack)
@@ -16,6 +15,7 @@ using UnityEngine.SceneManagement;
 */
 /* TODO: (graphics) :
     -rework star shader (colors, animations, "corona"...)
+    -reworks planetary rings
 */
 public class StarSystemsScript : MonoBehaviour
 {
@@ -38,6 +38,7 @@ public class StarSystemsScript : MonoBehaviour
     bool systemHit;
     GameObject clickedGO;
     public GameObject lastSystemHit;
+    public GameObject lastHoveredCO;
     public GameObject HoverGizmo;
     bool isHoverGizmoActive;
 
@@ -377,13 +378,14 @@ public class StarSystemsScript : MonoBehaviour
                     AudioManager.play("GOHover");
                     hasHitSoundPlayed = true;
                 }
-                if (!isHoverGizmoActive)
+                if (!isHoverGizmoActive || lastHoveredCO != hit.transform.gameObject)
                 {
                     HoverGizmo.SetActive(true);
                     HoverGizmo.transform.position = hit.transform.position;
                     HoverGizmo.transform.parent = hit.transform.parent;
                     HoverGizmo.transform.localScale = Vector3.Scale(hit.transform.localScale, new Vector3(1.2f, 1.2f, 1.2f));
                     isHoverGizmoActive = true;
+                    lastHoveredCO = hit.transform.gameObject;
                 }
                 if(Input.GetMouseButtonDown(1)){
                     clickedGO = hit.transform.gameObject;
