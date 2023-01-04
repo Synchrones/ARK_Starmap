@@ -20,6 +20,7 @@ public class ButtonHandler : MonoBehaviour
     public bool activated;
     public bool animated;  
     public Color currentStateColor;
+    public bool discButtonHandler;
 
     void Start()
     {
@@ -29,7 +30,10 @@ public class ButtonHandler : MonoBehaviour
             if(setalphathreshold)gameObject.GetComponent<Image>().alphaHitTestMinimumThreshold = 0.5f;
             currentStateColor = gameObject.GetComponent<Image>().color;
         }
-        
+        if(discButtonHandler)
+        {
+            setInitialPos();
+        }
     }
 
     public void EnterSystem()
@@ -37,6 +41,8 @@ public class ButtonHandler : MonoBehaviour
         audioManager.play("ClickDisc");
         StartCoroutine(moveButton(inspectButton, pos2, true));
         StartCoroutine(moveButton(informationsButton, pos3, false));
+        inspectButton.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+        informationsButton.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
     }
 
     public void LoadInfobox()
@@ -44,12 +50,16 @@ public class ButtonHandler : MonoBehaviour
         audioManager.play("ClickDisc");
         StartCoroutine(moveButton(inspectButton, pos1, false));
         StartCoroutine(moveButton(informationsButton, pos2, true));
+        inspectButton.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+        informationsButton.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
     }
 
     public void setInitialPos()
     {
         StartCoroutine(moveButton(inspectButton, pos2, false));
         StartCoroutine(moveButton(informationsButton, pos3, false));
+        inspectButton.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+        informationsButton.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
     }
 
     IEnumerator moveButton(GameObject button, Vector2 pos, bool executeAction)
