@@ -434,6 +434,7 @@ MonoBehaviour:
   activated: 0
   animated: 1
   currentStateColor: {r: 0, g: 0, b: 0, a: 0}
+  discButtonHandler: 0
 --- !u!114 &147194751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1848,6 +1849,7 @@ MonoBehaviour:
   activated: 1
   animated: 1
   currentStateColor: {r: 0, g: 0, b: 0, a: 0}
+  discButtonHandler: 0
 --- !u!114 &255299362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2859,6 +2861,7 @@ MonoBehaviour:
   activated: 0
   animated: 0
   currentStateColor: {r: 0, g: 0, b: 0, a: 0}
+  discButtonHandler: 0
 --- !u!114 &421021488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3412,6 +3415,7 @@ MonoBehaviour:
   activated: 1
   animated: 1
   currentStateColor: {r: 0, g: 0, b: 0, a: 0}
+  discButtonHandler: 0
 --- !u!114 &458824232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4436,6 +4440,7 @@ MonoBehaviour:
   activated: 0
   animated: 1
   currentStateColor: {r: 0, g: 0, b: 0, a: 0}
+  discButtonHandler: 0
 --- !u!114 &754369626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4858,6 +4863,7 @@ MonoBehaviour:
   activated: 1
   animated: 1
   currentStateColor: {r: 0, g: 0, b: 0, a: 0}
+  discButtonHandler: 0
 --- !u!114 &769958979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6033,8 +6039,8 @@ RectTransform:
   m_Father: {fileID: 1155235768}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 190, y: 0}
   m_SizeDelta: {x: 380, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -10133,6 +10139,7 @@ MonoBehaviour:
   activated: 1
   animated: 1
   currentStateColor: {r: 0, g: 0, b: 0, a: 0}
+  discButtonHandler: 0
 --- !u!114 &1617797193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10733,6 +10740,7 @@ MonoBehaviour:
   activated: 0
   animated: 1
   currentStateColor: {r: 0, g: 0, b: 0, a: 0}
+  discButtonHandler: 0
 --- !u!114 &1687462039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11521,6 +11529,7 @@ MonoBehaviour:
   activated: 0
   animated: 0
   currentStateColor: {r: 0, g: 0, b: 0, a: 0}
+  discButtonHandler: 0
 --- !u!1 &1840455468
 GameObject:
   m_ObjectHideFlags: 0
@@ -11668,6 +11677,7 @@ MonoBehaviour:
   activated: 1
   animated: 1
   currentStateColor: {r: 0, g: 0, b: 0, a: 0}
+  discButtonHandler: 0
 --- !u!114 &1840455474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11876,6 +11886,7 @@ MonoBehaviour:
   activated: 0
   animated: 0
   currentStateColor: {r: 0, g: 0, b: 0, a: 0}
+  discButtonHandler: 0
 --- !u!114 &1844779404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12069,6 +12080,7 @@ MonoBehaviour:
   activated: 0
   animated: 0
   currentStateColor: {r: 0, g: 0, b: 0, a: 0}
+  discButtonHandler: 1
 --- !u!114 &1890230026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13300,6 +13312,7 @@ MonoBehaviour:
   activated: 1
   animated: 1
   currentStateColor: {r: 0, g: 0, b: 0, a: 0}
+  discButtonHandler: 0
 --- !u!114 &2022769986
 MonoBehaviour:
   m_ObjectHideFlags: 0
