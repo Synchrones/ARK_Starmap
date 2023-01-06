@@ -22,6 +22,8 @@ public class ButtonHandler : MonoBehaviour
     public Color currentStateColor;
     public bool discButtonHandler;
 
+    public GameObject linkedTab;
+
     void Start()
     {
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManagerScript>();
@@ -232,5 +234,14 @@ public class ButtonHandler : MonoBehaviour
     {
         SceneSwitcher.GetComponent<SceneSwitcherScript>().loadARK();
         //SceneManager.LoadScene("Main");
+    }
+
+    public void selectOptionTab()
+    {
+        for (int i = 0; i < linkedTab.transform.parent.childCount; i++)
+        {
+            linkedTab.transform.parent.GetChild(i).gameObject.SetActive(false);
+        }
+        linkedTab.SetActive(true);
     }
 }
