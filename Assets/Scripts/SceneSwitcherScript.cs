@@ -4,9 +4,10 @@ using UnityEngine.SceneManagement;
 public class SceneSwitcherScript : MonoBehaviour
 {   
     public Animator animator;
-    void Update()
+
+    void Start() 
     {
-        
+        DontDestroyOnLoad(GameObject.Find("options"));    
     }
 
     public void loadARK()

@@ -33,6 +33,7 @@ public class StarSystemsScript : MonoBehaviour
     public GameObject spaceBoxColor;
     public GameObject displaySection;
     public GameObject upLeftUI;
+    InputManagerScript InputManager;
     AudioManagerScript AudioManager;
     bool hasHitSoundPlayed;
     bool systemHit;
@@ -261,6 +262,7 @@ public class StarSystemsScript : MonoBehaviour
             mesh.SetIndices(indices, MeshTopology.LineStrip, 0);
         }
         AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManagerScript>();
+        InputManager = GameObject.Find("InputManager").GetComponent<InputManagerScript>();
     }
 
     void Update()
@@ -359,11 +361,6 @@ public class StarSystemsScript : MonoBehaviour
                     selectedSystem = null;
                 } 
             }
-
-            if(Input.GetKeyDown(KeyCode.Z))
-            {
-                SceneManager.LoadScene("Starting screen");
-            }
         }
         else if(cameraMode == 1)
         {
@@ -424,7 +421,7 @@ public class StarSystemsScript : MonoBehaviour
             }
         }
         
-        if(Input.GetKeyDown(KeyCode.J))
+        if(Input.GetKeyDown(InputManager.SHTunnels))
         {
             int count = 0;
             for (int i = 0; i < 3; i++)
