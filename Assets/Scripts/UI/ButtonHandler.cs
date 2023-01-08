@@ -21,8 +21,8 @@ public class ButtonHandler : MonoBehaviour
     public bool animated;  
     public Color currentStateColor;
     public bool discButtonHandler;
-
     public GameObject linkedTab;
+    public GameObject optionsGO;
 
     void Start()
     {
@@ -243,5 +243,24 @@ public class ButtonHandler : MonoBehaviour
             linkedTab.transform.parent.GetChild(i).gameObject.SetActive(false);
         }
         linkedTab.SetActive(true);
+    }
+
+    public void openOptions()
+    {
+        StartCoroutine(optionsRescale(1));
+    }
+
+    public void closeOptions()
+    {
+        StartCoroutine(optionsRescale(0));
+    }
+
+    IEnumerator optionsRescale(int targetScale)
+    {
+        for (float i = 0; i < 1; i += 0.01f)
+        {
+            optionsGO.transform.localScale = new Vector3(Mathf.Lerp(1 - targetScale, targetScale, i * i * (3 - 2 * i)), 1, 1);
+            yield return null;
+        }
     }
 }
