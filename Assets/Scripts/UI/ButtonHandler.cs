@@ -238,6 +238,7 @@ public class ButtonHandler : MonoBehaviour
 
     public void selectOptionTab()
     {
+        audioManager.play("SimpleClick");
         for (int i = 0; i < linkedTab.transform.parent.childCount; i++)
         {
             linkedTab.transform.parent.GetChild(i).gameObject.SetActive(false);
@@ -248,16 +249,18 @@ public class ButtonHandler : MonoBehaviour
     public void openOptions()
     {
         StartCoroutine(optionsRescale(1));
+        audioManager.play("ButtonActivate");
     }
 
     public void closeOptions()
     {
         StartCoroutine(optionsRescale(0));
+        audioManager.play("ButtonDesactivate");
     }
 
     IEnumerator optionsRescale(int targetScale)
     {
-        for (float i = 0; i < 1; i += 0.01f)
+        for (float i = 0; i < 1; i += 0.005f)
         {
             optionsGO.transform.localScale = new Vector3(Mathf.Lerp(1 - targetScale, targetScale, i * i * (3 - 2 * i)), 1, 1);
             yield return null;
