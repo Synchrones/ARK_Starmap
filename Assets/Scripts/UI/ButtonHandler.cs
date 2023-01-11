@@ -22,11 +22,12 @@ public class ButtonHandler : MonoBehaviour
     public Color currentStateColor;
     public bool discButtonHandler;
     public GameObject linkedTab;
-    public GameObject optionsGO;
+    GameObject optionsGO;
 
     void Start()
     {
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManagerScript>();
+        optionsGO = GameObject.Find("OptionsTab");
         if(animated)
         {
             if(setalphathreshold)gameObject.GetComponent<Image>().alphaHitTestMinimumThreshold = 0.5f;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 
 // TODO: (main TODO) : add options window
@@ -276,13 +277,16 @@ public class StarSystemsScript : MonoBehaviour
             {
                 if(!systemHit)
                 {
-                    AudioManager.play("GOHover");
-                    systemHit = true;
-                    lastSystemHit = hit.transform.gameObject;
-                    if(!hit.transform.gameObject.GetComponent<SystemsInfosScript>().lockOpacity)
+                    if(!EventSystem.current.IsPointerOverGameObject(0))
                     {
-                        StopAllCoroutines();
-                        StartCoroutine(setSystemOpacity(hit.transform.gameObject, 1));
+                        AudioManager.play("GOHover");
+                        systemHit = true;
+                        lastSystemHit = hit.transform.gameObject;
+                        if(!hit.transform.gameObject.GetComponent<SystemsInfosScript>().lockOpacity)
+                        {
+                            StopAllCoroutines();
+                            StartCoroutine(setSystemOpacity(hit.transform.gameObject, 1));
+                        }
                     }
                 }
                 if(Input.GetMouseButtonDown(1)){

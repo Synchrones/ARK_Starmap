@@ -206,6 +206,7 @@ GameObject:
   - component: {fileID: 118954469}
   - component: {fileID: 118954471}
   - component: {fileID: 118954470}
+  - component: {fileID: 118954473}
   m_Layer: 5
   m_Name: color
   m_TagString: Untagged
@@ -270,6 +271,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 118954468}
   m_CullTransparentMesh: 1
+--- !u!223 &118954473
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118954468}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &155397449
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,7 +696,6 @@ MonoBehaviour:
   currentStateColor: {r: 0, g: 0, b: 0, a: 0}
   discButtonHandler: 0
   linkedTab: {fileID: 0}
-  optionsGO: {fileID: 0}
 --- !u!114 &596213399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -981,7 +1002,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!224 &687059021
 RectTransform:
@@ -1148,6 +1169,36 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
     loop: 0
+  - name: CamZoom
+    clip: {fileID: 8300000, guid: 6eff63d55e8ca1247b723c47d2cf7bb5, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - name: CamRotate
+    clip: {fileID: 8300000, guid: 7f9446f3d83d4524a93f7bbda3826dc6, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - name: GOHover
+    clip: {fileID: 8300000, guid: 81793d1039e7daa44b2a63ae3e88ddbe, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - name: SystemAmbient
+    clip: {fileID: 8300000, guid: 0a52db9e94a243f4cba9181ab0e52693, type: 3}
+    volume: 0.3
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - name: CloseDisc
+    clip: {fileID: 8300000, guid: 02de47b3e06566042abd728c95fcb713, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
 --- !u!4 &1018647645
 Transform:
   m_ObjectHideFlags: 0
@@ -1705,7 +1756,6 @@ MonoBehaviour:
   currentStateColor: {r: 0, g: 0, b: 0, a: 0}
   discButtonHandler: 0
   linkedTab: {fileID: 96645106}
-  optionsGO: {fileID: 0}
 --- !u!1 &1460893081
 GameObject:
   m_ObjectHideFlags: 0
@@ -1806,7 +1856,6 @@ MonoBehaviour:
   currentStateColor: {r: 0, g: 0, b: 0, a: 0}
   discButtonHandler: 0
   linkedTab: {fileID: 0}
-  optionsGO: {fileID: 839163610}
 --- !u!114 &1460893086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2272,7 +2321,6 @@ MonoBehaviour:
   currentStateColor: {r: 0, g: 0, b: 0, a: 0}
   discButtonHandler: 0
   linkedTab: {fileID: 0}
-  optionsGO: {fileID: 839163610}
 --- !u!114 &1856254951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2885,7 +2933,6 @@ MonoBehaviour:
   currentStateColor: {r: 0, g: 0, b: 0, a: 0}
   discButtonHandler: 0
   linkedTab: {fileID: 387708808}
-  optionsGO: {fileID: 0}
 --- !u!1 &2097630944
 GameObject:
   m_ObjectHideFlags: 0
