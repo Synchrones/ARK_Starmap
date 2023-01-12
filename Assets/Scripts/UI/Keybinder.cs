@@ -36,6 +36,7 @@ public class Keybinder : MonoBehaviour
                         if(binding == "SHTunnels")
                         {
                             inputManager.SHTunnels = keycode;
+                            PlayerPrefs.SetInt("KCODE_SHTunnels", (int)keycode);
                         }
                     }
                 }
