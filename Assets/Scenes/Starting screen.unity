@@ -1186,7 +1186,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
-    loop: 1
+    loop: 0
   - name: SystemAmbient
     clip: {fileID: 8300000, guid: 0a52db9e94a243f4cba9181ab0e52693, type: 3}
     volume: 0.3
@@ -1198,7 +1198,13 @@ MonoBehaviour:
     volume: 0.5
     pitch: 1
     source: {fileID: 0}
-    loop: 1
+    loop: 0
+  - name: OpenDisc
+    clip: {fileID: 8300000, guid: 2f7845fae0cf97342906dbb7266d5c12, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
 --- !u!4 &1018647645
 Transform:
   m_ObjectHideFlags: 0
@@ -1540,6 +1546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b820b8ae5b7b742ac5e3e06e8c1ea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keybindingsTab: {fileID: 387708808}
   SHTunnels: 106
 --- !u!1 &1356922863
 GameObject:
