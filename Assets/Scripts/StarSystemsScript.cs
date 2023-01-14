@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 
 // TODO: (main TODO) : add options window
@@ -264,6 +265,13 @@ public class StarSystemsScript : MonoBehaviour
         }
         AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManagerScript>();
         InputManager = GameObject.Find("InputManager").GetComponent<InputManagerScript>();
+
+        GameObject toggleSpacebox = GameObject.Find("disableSpacebox").transform.GetChild(1).gameObject; 
+        toggleSpacebox.GetComponent<ButtonHandler>().spacebox = GameObject.Find("spacebox"); 
+        if(toggleSpacebox.GetComponent<Toggle>().isOn)
+        {
+            GameObject.Find("spacebox").SetActive(false);
+        }
     }
 
     void Update()

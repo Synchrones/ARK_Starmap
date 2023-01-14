@@ -23,6 +23,8 @@ public class ButtonHandler : MonoBehaviour
     public bool discButtonHandler;
     public GameObject linkedTab;
     GameObject optionsGO;
+    public string URL;
+    public GameObject spacebox;
 
     void Start()
     {
@@ -265,6 +267,27 @@ public class ButtonHandler : MonoBehaviour
         {
             optionsGO.transform.localScale = new Vector3(Mathf.Lerp(1 - targetScale, targetScale, i * i * (3 - 2 * i)), 1, 1);
             yield return null;
+        }
+    }
+
+    public void openLink()
+    {
+        Application.OpenURL(URL);
+    }
+
+    public void activateDesactivateSpaceBox()
+    {
+        audioManager.play("SimpleClick");
+        if(SceneManager.GetActiveScene().name != "Starting screen")
+        {
+            if(gameObject.GetComponent<Toggle>().isOn)
+            {
+                spacebox.SetActive(false);
+            }
+            else
+            {
+                spacebox.SetActive(true);
+            }
         }
     }
 }
