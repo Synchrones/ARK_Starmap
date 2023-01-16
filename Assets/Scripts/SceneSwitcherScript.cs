@@ -9,6 +9,7 @@ public class SceneSwitcherScript : MonoBehaviour
     {
         DontDestroyOnLoad(GameObject.Find("options"));
         DontDestroyOnLoad(GameObject.Find("AudioManager")); 
+        DontDestroyOnLoad(GameObject.Find("GameobjectReferences")); 
     }
 
     public void loadARK()

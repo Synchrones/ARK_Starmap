@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
-// TODO: (main TODO) : add options window
+// TODO: (main TODO) : tbd
 /* TODO: (bug fixes) : 
     -reduce performance impact of the starbox? 
     -oberon star is... small
@@ -266,7 +266,7 @@ public class StarSystemsScript : MonoBehaviour
         AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManagerScript>();
         InputManager = GameObject.Find("InputManager").GetComponent<InputManagerScript>();
 
-        GameObject toggleSpacebox = GameObject.Find("disableSpacebox").transform.GetChild(1).gameObject; 
+        GameObject toggleSpacebox = GameObject.Find("GameobjectReferences").GetComponent<GameobjectReferencesScript>().disableSpacebox; 
         toggleSpacebox.GetComponent<ButtonHandler>().spacebox = GameObject.Find("spacebox"); 
         if(toggleSpacebox.GetComponent<Toggle>().isOn)
         {
