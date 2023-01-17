@@ -7,15 +7,16 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
-// TODO: (main TODO) : tbd
-/* TODO: (bug fixes) : 
-    -reduce performance impact of the starbox? 
-    -oberon star is... small
+/* TODO: (main TODO) :
+    -add landing zones section to infobox
+   TODO: (bug fixes) :  
+    -oberon star is... small -> several scaling issues
     -unknow Co type "POI" (vega Vanduul attack)
     -systems looks bigger when on the side of the screen
     -camera seems to be vibrating when looking really small objects
-*/
-/* TODO: (graphics) :
+    -names too long for infobox (see planet in Pallas system)
+
+   TODO: (graphics) :
     -rework star shader (colors, animations, "corona"...)
     -reworks planetary rings
 */
@@ -285,7 +286,7 @@ public class StarSystemsScript : MonoBehaviour
             {
                 if(!systemHit)
                 {
-                    if(!EventSystem.current.IsPointerOverGameObject(0))
+                    if(!EventSystem.current.IsPointerOverGameObject(-1))
                     {
                         AudioManager.play("GOHover");
                         systemHit = true;

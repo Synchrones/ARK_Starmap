@@ -263,11 +263,12 @@ public class ButtonHandler : MonoBehaviour
 
     IEnumerator optionsRescale(int targetScale)
     {
-        for (float i = 0; i < 1; i += 0.005f)
+        for (float i = 0; i < 1; i += Time.deltaTime * 5)
         {
             optionsGO.transform.localScale = new Vector3(Mathf.Lerp(1 - targetScale, targetScale, i * i * (3 - 2 * i)), 1, 1);
             yield return null;
         }
+        optionsGO.transform.localScale = new Vector3(targetScale, 1, 1);
     }
 
     public void openLink()
