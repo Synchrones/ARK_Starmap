@@ -8,6 +8,9 @@ public class CameraScript : MonoBehaviour
     Vector3 currentDisplacement;
     Vector2 currentRotation;
     float currentZoom;
+
+    Vector3 displacementAcceleration;
+    Vector2 rotationAcceleration;
     
     Vector3 cameraOffset;
     Vector3 center;
@@ -51,7 +54,7 @@ public class CameraScript : MonoBehaviour
         center = new Vector3(0, 0, 75);
         cameraOffset = transform.position - center;
 
-        displacementSpeed = 1;
+        displacementSpeed = 0.1f;
         rotationSpeed = 1;
         moveToPosSpeed = 0.5f;
         zoomSpeed = 1;
@@ -70,6 +73,7 @@ public class CameraScript : MonoBehaviour
 
     private void LateUpdate()
     {
+        displacementAcceleration = Vector3.zero;
         //prevent camera from moving when clicking UI element 
         if(!buttonPressed)
         {   
@@ -131,7 +135,7 @@ public class CameraScript : MonoBehaviour
             if(Input.GetKey(KeyCode.Mouse1))
             {
                 buttonPressed = true;
-                currentDisplacement = ((transform.right * Input.GetAxis("Mouse X") + transform.up * Input.GetAxis("Mouse Y")) * -0.1f * displacementSpeed);
+                displacementAcceleration = ((transform.right * Input.GetAxis("Mouse X") + transform.up * Input.GetAxis("Mouse Y")) * -0.1f * displacementSpeed);
             }
             else if(Input.GetKey(KeyCode.Mouse0))
             {
@@ -148,6 +152,7 @@ public class CameraScript : MonoBehaviour
                 currentRotation = ((Vector3.left * Input.GetAxis("Mouse Y") * yRotationSpeedModifier + Vector3.up * Input.GetAxis("Mouse X")) * -0.5f  * rotationSpeed);
             }
         }
+
         float zoomInput = Input.GetAxis("Mouse ScrollWheel");
         if(Input.GetMouseButton(2))
         {
@@ -167,7 +172,9 @@ public class CameraScript : MonoBehaviour
             }
         }
 
-        currentDisplacement /= 1.02f;
+        //currentDisplacement /= 1.02f;
+        displacementAcceleration -= currentDisplacement / 5;
+        currentDisplacement += displacementAcceleration / 10;
         if(closenessToPole < 0.2f)
         {
             currentRotation = new Vector2(currentRotation.x / 1.2f, currentRotation.y / 1.02f);

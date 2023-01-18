@@ -13,7 +13,7 @@ using UnityEngine.UI;
     -oberon star is... small -> several scaling issues
     -unknow Co type "POI" (vega Vanduul attack)
     -systems looks bigger when on the side of the screen
-    -camera seems to be vibrating when looking really small objects
+    -camera seems to be vibrating when looking to really small objects
     -names too long for infobox (see planet in Pallas system)
 
    TODO: (graphics) :
