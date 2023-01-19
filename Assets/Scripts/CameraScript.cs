@@ -74,6 +74,7 @@ public class CameraScript : MonoBehaviour
     private void LateUpdate()
     {
         displacementAcceleration = Vector3.zero;
+        rotationAcceleration = Vector3.zero;
         //prevent camera from moving when clicking UI element 
         if(!buttonPressed)
         {   
@@ -108,7 +109,7 @@ public class CameraScript : MonoBehaviour
                 }
                 if(Input.GetMouseButtonUp(0))
                 {
-                    if(Time.time - clickTime < 0.08f)
+                    if(Time.time - clickTime < 0.2f)
                     {
                         discScript.UnloadDisc();
                         discScript.isInfoboxActive = false;
@@ -149,7 +150,7 @@ public class CameraScript : MonoBehaviour
                     else yRotationSpeedModifier = 1;
                 } 
                 else yRotationSpeedModifier = 1;
-                currentRotation = ((Vector3.left * Input.GetAxis("Mouse Y") * yRotationSpeedModifier + Vector3.up * Input.GetAxis("Mouse X")) * -0.5f  * rotationSpeed);
+                rotationAcceleration = ((Vector3.left * Input.GetAxis("Mouse Y") * yRotationSpeedModifier + Vector3.up * Input.GetAxis("Mouse X")) * -0.5f  * rotationSpeed);
             }
         }
 
@@ -172,9 +173,11 @@ public class CameraScript : MonoBehaviour
             }
         }
 
-        //currentDisplacement /= 1.02f;
-        displacementAcceleration -= currentDisplacement / 5;
-        currentDisplacement += displacementAcceleration / 10;
+        displacementAcceleration -= currentDisplacement / 2;
+        currentDisplacement += displacementAcceleration / 20;
+
+        rotationAcceleration -= currentRotation / 8;
+        currentRotation += rotationAcceleration / 10;
         if(closenessToPole < 0.2f)
         {
             currentRotation = new Vector2(currentRotation.x / 1.2f, currentRotation.y / 1.02f);
@@ -185,7 +188,7 @@ public class CameraScript : MonoBehaviour
 
         applyMovement();
         transform.position = center + cameraOffset;
-        displacementSpeed = cameraOffset.magnitude / 15;
+        displacementSpeed = cameraOffset.magnitude / 30;
         transform.LookAt(center);
 
         spacebox.transform.position = center;
