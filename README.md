@@ -14,5 +14,5 @@ This app is a remake of this website with the goal of adding more features like 
 -right click (hold) : camera movement <br/>
 -mouse wheel : zoom <br/>
 -right click on systems/celestial objects to get informations <br/>
--echap : unselect object/exit system <br/>
+-escape : unselect object/exit system <br/>
 -J : hide/show jump-point's tunnels
